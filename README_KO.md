@@ -5,17 +5,17 @@
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
 </p>
 
-<p align="center">[EN](README.md) · [ZH](README_ZH.md)</p>
+<p align="center">
+<a href="https://github.com/sjh9714/awesome-krea-2/stargazers"><img src="https://img.shields.io/github/stars/sjh9714/awesome-krea-2?style=flat&color=1f5d4c" alt="stars"></a>
+<a href="https://sjh9714.github.io/awesome-krea-2/"><img src="https://img.shields.io/badge/gallery-browse%20all-1f5d4c" alt="gallery"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>
+</p>
+
+<p align="center">[EN](README.md) · [ZH](README_ZH.md) · [**갤러리 보기 →**](https://sjh9714.github.io/awesome-krea-2/)</p>
 
 ## 카테고리
 
-- [photography](#photography) — 18
-- [typography](#typography) — 15
-- [product](#product) — 18
-- [illustration](#illustration) — 18
-- [reference-sheet](#reference-sheet) — 1
-- [isometric-3d](#isometric-3d) — 10
-- [editing](#editing) — 5
+**85 개 프롬프트, 전부 시드 기록** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5
 
 
 ## photography

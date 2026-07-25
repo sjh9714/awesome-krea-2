@@ -165,6 +165,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
 
     T = {
         "en": {
+            "gallery_link": "Browse the gallery →",
+            "toc_entries": "prompts, every one with its seed",
             "tagline": f"{n} reproducible prompts for {model}, across {ncat} categories. Every prompt is copy-pasteable and every image is the actual output.",
             "toc": "Categories",
             "prompt": "Prompt",
@@ -182,6 +184,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
                 "can regenerate the exact file."),
         },
         "zh": {
+            "gallery_link": "浏览画廊 →",
+            "toc_entries": "条提示词，每条都有 seed",
             "tagline": f"{model} 的 {n} 条可复现提示词，覆盖 {ncat} 个类别。每条提示词可直接复制，每张图片都是实际输出。",
             "toc": "类别",
             "prompt": "提示词",
@@ -191,6 +195,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
             "license_body": "提示词采用 MIT 许可。生成的图片受模型提供方条款约束，商用前请自行确认。",
         },
         "ko": {
+            "gallery_link": "갤러리 보기 →",
+            "toc_entries": "개 프롬프트, 전부 시드 기록",
             "tagline": f"{model}용 재현 가능한 프롬프트 {n}개, {ncat}개 카테고리. 모든 프롬프트는 복사해서 바로 쓸 수 있고 모든 이미지는 실제 출력물입니다.",
             "toc": "카테고리",
             "prompt": "프롬프트",
@@ -223,13 +229,39 @@ def render_readme(data: dict, lang: str = "en") -> str:
             L.append(f'  <img src="{e["image"]}" width="180" alt="{e["title"]}">')
         L.append("</p>\n")
 
+    # Badges and a language switcher directly under the title, then a gallery
+    # link. Both of the highest-star catalogs in this exact niche do this in the
+    # first three lines (nano-banana-pro at 12,956 stars, gpt4o-images at 8,097),
+    # and the repo's About website field carries the same URL.
+    repo_slug = data.get("repo", "")
+    site = f"https://{repo_slug.split('/')[0]}.github.io/{repo_slug.split('/')[-1]}/" if "/" in repo_slug else ""
+    L.append('<p align="center">')
+    if repo_slug:
+        L.append(f'<a href="https://github.com/{repo_slug}/stargazers">'
+                 f'<img src="https://img.shields.io/github/stars/{repo_slug}?style=flat&color=1f5d4c" alt="stars"></a>')
+    if site:
+        L.append(f'<a href="{site}">'
+                 '<img src="https://img.shields.io/badge/gallery-browse%20all-1f5d4c" alt="gallery"></a>')
+    L.append('<a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>')
+    L.append("</p>\n")
+
     others = [x for x in ["en", "zh", "ko"] if x != lang]
     links = " · ".join(
         f"[{x.upper()}](README.md)" if x == "en" else f"[{x.upper()}](README_{x.upper()}.md)"
         for x in others
     )
-    if links:
-        L.append(f"<p align=\"center\">{links}</p>\n")
+    nav = links + (f" · [**{T['gallery_link']}**]({site})" if site else "")
+    if nav:
+        L.append(f"<p align=\"center\">{nav}</p>\n")
+
+    # A table of contents. Both top catalogs carry one; at 85+ entries a reader
+    # cannot see the shape of the thing by scrolling.
+    by_cat: dict[str, int] = {}
+    for e in kept:
+        by_cat[e["category"]] = by_cat.get(e["category"], 0) + 1
+    L.append(f"## {T['toc']}\n")
+    L.append(f"**{len(kept)} {T['toc_entries']}** · " + " · ".join(
+        f"[{c}](#{c.lower().replace(' ', '-')}) {n}" for c, n in by_cat.items()) + "\n")
 
     # The findings are what this catalog has that a bare prompt dump does not.
     # They go above the index because they are the reason to read the rest.
@@ -311,11 +343,9 @@ def render_readme(data: dict, lang: str = "en") -> str:
             L.append(f"- {n}")
         L.append("")
 
-    L.append(f"## {T['toc']}\n")
-    for c in cats:
-        L.append(f"- [{c}](#{c}) — {len([e for e in cats[c] if (HERE / e['image']).exists()])}")
-    L.append("")
-
+    # The category index lives directly under the title now, not here. Both of
+    # the highest-star catalogs in this niche put it in the first screen, and a
+    # second copy after the findings was just a duplicate heading.
     for c, items in cats.items():
         items = [e for e in items if (HERE / e["image"]).exists()]
         if not items:

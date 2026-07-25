@@ -5,7 +5,17 @@
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
 </p>
 
-<p align="center">[ZH](README_ZH.md) · [KO](README_KO.md)</p>
+<p align="center">
+<a href="https://github.com/sjh9714/awesome-krea-2/stargazers"><img src="https://img.shields.io/github/stars/sjh9714/awesome-krea-2?style=flat&color=1f5d4c" alt="stars"></a>
+<a href="https://sjh9714.github.io/awesome-krea-2/"><img src="https://img.shields.io/badge/gallery-browse%20all-1f5d4c" alt="gallery"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>
+</p>
+
+<p align="center">[ZH](README_ZH.md) · [KO](README_KO.md) · [**Browse the gallery →**](https://sjh9714.github.io/awesome-krea-2/)</p>
+
+## Categories
+
+**85 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5
 
 ## What this model actually does
 
@@ -92,16 +102,6 @@ Verified on 2026-07-25 by reading each repository's tree, README and data files,
 - **Link rot is not hypothetical.** ZeroLu's 86 images are all external. Requesting them on 2026-07-25 found three already gone — two Twitter CDN links returning 403/404 and one path that no longer exists in the repo. That is why the images here are committed rather than linked.
 - **Scale claims deserve reading twice.** The two YouMind repos advertise 14,916 and 13,663 prompts. Their own FAQ says images live on a CMS, not in git, and their README says GitHub's length limit caps the visible list — 129 and 126 entries respectively, under 1% of the headline number. The rest are on their website.
 - jamez-bondos has not been pushed since 2025-05-26.
-
-## Categories
-
-- [photography](#photography) — 18
-- [typography](#typography) — 15
-- [product](#product) — 18
-- [illustration](#illustration) — 18
-- [reference-sheet](#reference-sheet) — 1
-- [isometric-3d](#isometric-3d) — 10
-- [editing](#editing) — 5
 
 
 ## photography

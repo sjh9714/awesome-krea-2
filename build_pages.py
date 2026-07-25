@@ -5,7 +5,8 @@ build_pages.py — emit a single-file gallery for GitHub Pages from the manifest
 Why this exists: 67% of Show HN posts above 300 points point at a hosted page on
 the author's own domain rather than at a repository. A README is not a demo. This
 is the smallest thing that satisfies that without becoming a web app — one HTML
-file, no JavaScript, no build step, served from /docs on the default branch.
+file, no JavaScript, no build step, served from the ROOT of the default branch
+so that images/ is reachable without duplicating it.
 
 It deliberately does NOT add search. "searchable" is a measured winning word in
 Show HN titles (8.9% hit rate against a 0.2% baseline), which makes it tempting,
@@ -72,7 +73,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--manifest", default="prompts.json")
-    ap.add_argument("--out", default="docs/index.html")
+    ap.add_argument("--out", default="index.html")
     args = ap.parse_args()
 
     d = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
@@ -83,16 +84,13 @@ def main() -> int:
     # tree and every image 404s. Copy them in instead — 10 MB duplicated is the
     # price of a self-contained page that the Pages CDN can serve under load,
     # and it avoids leaning on raw.githubusercontent.com, which is rate-limited.
-    import shutil
+    # Served from the branch ROOT, not /docs. Pages treats the configured
+    # directory as the site root, so a page in /docs cannot reach ../images and
+    # every image 404s — the earlier fix was to copy the whole image set into
+    # docs/, which duplicated 23 MB and would have been ~100 MB at the size this
+    # catalog is heading for. Serving from the root makes images/ reachable as
+    # it sits and deletes the duplicate entirely.
     up = ""
-    for e in list(d["entries"]) + (d.get("failures") or {}).get("entries", []):
-        src = root / e["image"]
-        if src.exists():
-            dst = out.parent / e["image"]
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(src, dst)
-    if (root / "hero.webp").exists():
-        shutil.copy2(root / "hero.webp", out.parent / "hero.webp")
 
     kept = [e for e in d["entries"] if (root / e["image"]).exists()]
     model = d.get("model", "the model")
@@ -175,7 +173,7 @@ def main() -> int:
     out.write_text("\n".join(L), encoding="utf-8")
     kb = out.stat().st_size // 1024
     print(f"wrote {out} ({kb} KB, {len(kept)} entries + {len(fails)} failures)")
-    print("\nEnable Pages: Settings -> Pages -> Deploy from branch -> main / docs")
+    print("\nEnable Pages: Settings -> Pages -> Deploy from branch -> main / (root)")
     print(f"Then the page is https://<owner>.github.io/{repo.split('/')[-1]}/")
     return 0
 

@@ -44,7 +44,17 @@
     "underwater": "Below the surface — light, suspension, scale",
     "aerial": "Looking straight down",
     "period": "Photography that reads as a specific decade",
-    "jewellery": "Small metal and stone at product scale"
+    "jewellery": "Small metal and stone at product scale",
+    "hands": "A controlled experiment: one light, one surface, hands from a single relaxed hand up to interlaced fingers and a counted gesture",
+    "fantasy": "Creature and world design",
+    "comic": "Panel art and sequential-page styles",
+    "childrens-book": "Illustration for picture books",
+    "technical-drawing": "Plans, sections and exploded views as drawings rather than renders",
+    "vehicle": "Trains, aircraft and boats",
+    "weather": "Atmospheric events and their light",
+    "glass": "Transparency, refraction and caustics",
+    "material": "Surface swatches shot flat",
+    "crowd": "Many people at once"
   },
   "entries": [
     {
@@ -3526,10 +3536,868 @@
         "seed": 912016671
       },
       "batch": 6
+    },
+    {
+      "id": "hands-1",
+      "category": "hands",
+      "title": "Hands: one relaxed hand",
+      "image": "images/hands-1.webp",
+      "prompt": "A single adult hand resting palm-down on a plain oak table, fingers relaxed and slightly apart, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+      "params": {
+        "seed": 1481878687
+      },
+      "batch": 7
+    },
+    {
+      "id": "hands-2",
+      "category": "hands",
+      "title": "Hands: one hand gripping",
+      "image": "images/hands-2.webp",
+      "prompt": "A single adult hand wrapped around a plain ceramic mug on a plain oak table, thumb over the handle, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+      "params": {
+        "seed": 115868128
+      },
+      "batch": 7
+    },
+    {
+      "id": "hands-3",
+      "category": "hands",
+      "title": "Hands: two hands, apart",
+      "image": "images/hands-3.webp",
+      "prompt": "Two adult hands resting palm-down on a plain oak table, well apart from each other, fingers relaxed, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+      "params": {
+        "seed": 1328002727
+      },
+      "batch": 7
+    },
+    {
+      "id": "hands-4",
+      "category": "hands",
+      "title": "Hands: two hands, clasped",
+      "image": "images/hands-4.webp",
+      "prompt": "Two adult hands loosely clasped together on a plain oak table, one wrapped around the other, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+      "params": {
+        "seed": 1095933455
+      },
+      "batch": 7
+    },
+    {
+      "id": "hands-6",
+      "category": "hands",
+      "title": "Hands: a handshake",
+      "image": "images/hands-6.webp",
+      "prompt": "Two people shaking hands over a plain oak table, hands and forearms only in frame, a firm grip with the thumbs crossed. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. No faces.",
+      "params": {
+        "seed": 1319396385
+      },
+      "batch": 7
+    },
+    {
+      "id": "hands-7",
+      "category": "hands",
+      "title": "Hands: at a piano",
+      "image": "images/hands-7.webp",
+      "prompt": "Two adult hands playing a piano, seen from above and slightly behind, fingers spread across the white and black keys with some depressed. Soft directional daylight from the left, plain background beyond the keyboard. No face, no body.",
+      "params": {
+        "seed": 387883077
+      },
+      "batch": 7
+    },
+    {
+      "id": "hands-8",
+      "category": "hands",
+      "title": "Hands: showing three fingers",
+      "image": "images/hands-8.webp",
+      "prompt": "A single adult hand held up facing the camera showing exactly 3 fingers raised — index, middle and ring — with the thumb and little finger folded down. Plain oak table below, soft directional daylight from the left, plain background. Nothing else in frame.",
+      "params": {
+        "seed": 1353379060
+      },
+      "batch": 7
+    },
+    {
+      "id": "fantasy-001",
+      "category": "fantasy",
+      "title": "Moth-winged creature at rest",
+      "image": "images/fantasy-001.webp",
+      "prompt": "A small creature with the body of a hare and the furred wings of a moth, at rest on a mossy log in dim woodland light, wings folded and patterned like lichen. Painted naturalistically as if for a field guide, not stylised. Muted greens and browns.",
+      "params": {
+        "seed": 966994627
+      },
+      "batch": 7
+    },
+    {
+      "id": "fantasy-002",
+      "category": "fantasy",
+      "title": "Drowned bell tower",
+      "image": "images/fantasy-002.webp",
+      "prompt": "A stone bell tower standing in flat water up to its second storey, the flooded village around it reduced to roof ridges breaking the surface, still grey dawn, mist. Painterly realism, muted palette, no people, no boats.",
+      "params": {
+        "seed": 1894011275
+      },
+      "batch": 7
+    },
+    {
+      "id": "fantasy-003",
+      "category": "fantasy",
+      "title": "Deep-sea creature, bioluminescent",
+      "image": "images/fantasy-003.webp",
+      "prompt": "An invented deep-sea creature in black water, translucent body with a chain of blue-green photophores along its flank, long trailing filaments, one large dark eye. Lit only by its own light. Looks evolved rather than designed.",
+      "params": {
+        "seed": 2045638149
+      },
+      "batch": 7
+    },
+    {
+      "id": "fantasy-004",
+      "category": "fantasy",
+      "title": "Overgrown transit hall",
+      "image": "images/fantasy-004.webp",
+      "prompt": "A vast abandoned railway hall reclaimed by vegetation, birch saplings growing through the platform, ivy on the ironwork, the glass roof half fallen so shafts of daylight strike the tracks. Nobody present.",
+      "params": {
+        "seed": 1095092554
+      },
+      "batch": 7
+    },
+    {
+      "id": "fantasy-005",
+      "category": "fantasy",
+      "title": "Stone giant, weathered",
+      "image": "images/fantasy-005.webp",
+      "prompt": "A vast humanoid figure of weathered granite half-buried in moorland heather, only the shoulder, jaw and one hand above ground, lichen growing in the crevices. Overcast light, sheep for scale in the distance. Reads as geology first.",
+      "params": {
+        "seed": 561263284
+      },
+      "batch": 7
+    },
+    {
+      "id": "fantasy-006",
+      "category": "fantasy",
+      "title": "Alchemist's workbench",
+      "image": "images/fantasy-006.webp",
+      "prompt": "A cluttered workbench of glass retorts, copper condensers, dried plant bundles and a mortar, lit by one small window and a single candle. Stains on the wood, powder spilled, notebooks closed. Dutch-master light, no magical glow.",
+      "params": {
+        "seed": 1873538045
+      },
+      "batch": 7
+    },
+    {
+      "id": "fantasy-007",
+      "category": "fantasy",
+      "title": "Feathered saurian in snow",
+      "image": "images/fantasy-007.webp",
+      "prompt": "A large feathered theropod picking its way across fresh snow at dusk, plumage barred grey and rust, breath steaming, tracks behind it. Photographed as wildlife with a long lens, shallow focus, low blue light.",
+      "params": {
+        "seed": 386496751
+      },
+      "batch": 7
+    },
+    {
+      "id": "fantasy-008",
+      "category": "fantasy",
+      "title": "Cliff library, cut into rock",
+      "image": "images/fantasy-008.webp",
+      "prompt": "A library cut into a sea cliff, shelves receding into the rock, narrow windows punched through to the sea so salt light falls across the reading tables. Damp stone, worn steps, oil lamps unlit. Nobody present.",
+      "params": {
+        "seed": 2135237404
+      },
+      "batch": 7
+    },
+    {
+      "id": "fantasy-010",
+      "category": "fantasy",
+      "title": "Frozen airship, half-buried",
+      "image": "images/fantasy-010.webp",
+      "prompt": "The envelope of a crashed airship half-buried in snow on a glacier, fabric torn and flapping, the gondola crushed beneath it, guy lines frozen into the ice. Flat polar light, no sun, no people.",
+      "params": {
+        "seed": 1429390861
+      },
+      "batch": 7
+    },
+    {
+      "id": "comic-001",
+      "category": "comic",
+      "title": "Ligne claire street panel",
+      "image": "images/comic-001.webp",
+      "prompt": "A ligne claire comic panel: uniform black outlines, flat unshaded colour, a figure crossing a European street with a tram behind. No hatching, no gradients, a thin black panel border. One empty speech balloon.",
+      "params": {
+        "seed": 1026053947
+      },
+      "batch": 7
+    },
+    {
+      "id": "comic-002",
+      "category": "comic",
+      "title": "Manga panel, screentone",
+      "image": "images/comic-002.webp",
+      "prompt": "A black and white manga panel with mechanical screentone dots for the mid-greys, speed lines radiating from the centre, a figure turning sharply toward the reader. Sharp brush inking, deep blacks, one empty speech balloon.",
+      "params": {
+        "seed": 889927389
+      },
+      "batch": 7
+    },
+    {
+      "id": "comic-004",
+      "category": "comic",
+      "title": "Ink wash noir panel",
+      "image": "images/comic-004.webp",
+      "prompt": "A noir comic panel in brush and ink wash: a figure under a streetlamp in heavy rain, everything resolved into black masses and white paper with grey wash between. No colour, no lettering, strong diagonal composition.",
+      "params": {
+        "seed": 1970662283
+      },
+      "batch": 7
+    },
+    {
+      "id": "comic-005",
+      "category": "comic",
+      "title": "Full page grid, six panels",
+      "image": "images/comic-005.webp",
+      "prompt": "A comic page laid out as exactly 6 rectangular panels in a regular grid with white gutters, each panel holding a simple flat-colour scene of the same kitchen at a different time of day. No text, no balloons, thin black borders.",
+      "params": {
+        "seed": 1500494557
+      },
+      "batch": 7
+    },
+    {
+      "id": "comic-006",
+      "category": "comic",
+      "title": "Woodcut-style panel",
+      "image": "images/comic-006.webp",
+      "prompt": "A comic panel in the style of a wordless woodcut novel: bold black and white shapes cut with a gouge, visible chisel marks, a lone figure at the foot of a staircase. No grey, no colour, no lettering.",
+      "params": {
+        "seed": 1989035774
+      },
+      "batch": 7
+    },
+    {
+      "id": "comic-007",
+      "category": "comic",
+      "title": "Watercolour bande dessinée",
+      "image": "images/comic-007.webp",
+      "prompt": "A European comic panel in loose watercolour over a light pencil line, a harbour scene with fishing boats, colour running slightly outside the drawing. Warm muted palette, thin panel border, no text.",
+      "params": {
+        "seed": 396778750
+      },
+      "batch": 7
+    },
+    {
+      "id": "comic-008",
+      "category": "comic",
+      "title": "Risograph zine spread",
+      "image": "images/comic-008.webp",
+      "prompt": "A two-colour risograph zine spread in blue and orange with visible misregistration and paper grain, a loose hand-drawn scene of two figures at a bus stop. No text, staple shadow visible in the gutter.",
+      "params": {
+        "seed": 1935167288
+      },
+      "batch": 7
+    },
+    {
+      "id": "childrens-book-001",
+      "category": "childrens-book",
+      "title": "Gouache bear and bicycle",
+      "image": "images/childrens-book-001.webp",
+      "prompt": "A picture-book illustration in gouache: a bear riding a bicycle along a country lane, warm chalky colour, visible brush texture, simplified shapes with soft edges. Friendly rather than cute, no text, empty space at the top.",
+      "params": {
+        "seed": 1856219085
+      },
+      "batch": 7
+    },
+    {
+      "id": "childrens-book-002",
+      "category": "childrens-book",
+      "title": "Cut-paper collage forest",
+      "image": "images/childrens-book-002.webp",
+      "prompt": "A picture-book spread made of cut and torn paper collage: a forest of layered green shapes with a small fox in the foreground, visible paper edges and fibres, flat lighting. Limited palette, no text, no outlines.",
+      "params": {
+        "seed": 1369658049
+      },
+      "batch": 7
+    },
+    {
+      "id": "childrens-book-003",
+      "category": "childrens-book",
+      "title": "Pencil crayon bedtime scene",
+      "image": "images/childrens-book-003.webp",
+      "prompt": "A picture-book illustration in coloured pencil: a child's bedroom at night with a nightlight casting soft shapes on the wall, visible pencil hatching, paper tooth showing through. Warm and quiet, nobody in the bed, no text.",
+      "params": {
+        "seed": 1605807487
+      },
+      "batch": 7
+    },
+    {
+      "id": "childrens-book-004",
+      "category": "childrens-book",
+      "title": "Ink and wash rabbits",
+      "image": "images/childrens-book-004.webp",
+      "prompt": "A picture-book illustration in pen and watercolour wash in the English tradition: three rabbits in waistcoats in a vegetable garden, fine ink line, soft washes that stay mostly inside the line. Muted greens, no text.",
+      "params": {
+        "seed": 2105725421
+      },
+      "batch": 7
+    },
+    {
+      "id": "childrens-book-005",
+      "category": "childrens-book",
+      "title": "Bold flat shapes, mid-century",
+      "image": "images/childrens-book-005.webp",
+      "prompt": "A mid-century picture-book illustration: a city built from bold flat shapes in four colours only, no outlines, a small figure walking a dog for scale. Screen-print feel with slight overlaps where colours meet. No text.",
+      "params": {
+        "seed": 1797457461
+      },
+      "batch": 7
+    },
+    {
+      "id": "childrens-book-006",
+      "category": "childrens-book",
+      "title": "Crayon resist, underwater",
+      "image": "images/childrens-book-006.webp",
+      "prompt": "A picture-book underwater scene in wax crayon over textured paper, the resist showing where the wax repels the wash, a whale and small fish in simplified shapes. Deep blues, warm accents, no text, no outlines.",
+      "params": {
+        "seed": 1396872969
+      },
+      "batch": 7
+    },
+    {
+      "id": "childrens-book-007",
+      "category": "childrens-book",
+      "title": "Linocut farm animals",
+      "image": "images/childrens-book-007.webp",
+      "prompt": "A picture-book illustration printed as a two-colour linocut: farm animals in a field, bold carved shapes with visible gouge marks and uneven ink coverage, registration slightly off. Cream paper, no text.",
+      "params": {
+        "seed": 1575885178
+      },
+      "batch": 7
+    },
+    {
+      "id": "childrens-book-008",
+      "category": "childrens-book",
+      "title": "Soft pastel winter street",
+      "image": "images/childrens-book-008.webp",
+      "prompt": "A picture-book winter street in soft pastel on tinted paper, snow catching lamplight, figures in coats reduced to simple silhouettes, the paper tone doing the sky. Blended edges, visible pastel grain, no text.",
+      "params": {
+        "seed": 581873004
+      },
+      "batch": 7
+    },
+    {
+      "id": "technical-drawing-001",
+      "category": "technical-drawing",
+      "title": "Building section, hand-drafted",
+      "image": "images/technical-drawing-001.webp",
+      "prompt": "A hand-drafted architectural section of a two-storey house: cut walls filled solid black, floor build-ups shown in layers, thin line weights for everything beyond the cut, hatched ground. Ink on tracing paper, no dimensions, no text.",
+      "params": {
+        "seed": 20898713
+      },
+      "batch": 7
+    },
+    {
+      "id": "technical-drawing-002",
+      "category": "technical-drawing",
+      "title": "Exploded axonometric, joinery",
+      "image": "images/technical-drawing-002.webp",
+      "prompt": "An exploded axonometric of a mortise-and-tenon timber joint, each piece pulled apart along its assembly axis with thin dashed lines showing the path. Single ink weight on white, no shading, no text, no arrows.",
+      "params": {
+        "seed": 1851835536
+      },
+      "batch": 7
+    },
+    {
+      "id": "technical-drawing-003",
+      "category": "technical-drawing",
+      "title": "Ship's lines plan",
+      "image": "images/technical-drawing-003.webp",
+      "prompt": "A traditional ship's lines plan: body plan, half-breadth and sheer views overlaid as fine curved lines on a rectangular grid, ink on aged linen paper. No labels, no numbers, just the curves and the grid.",
+      "params": {
+        "seed": 1840065892
+      },
+      "batch": 7
+    },
+    {
+      "id": "technical-drawing-004",
+      "category": "technical-drawing",
+      "title": "Botanical plate, engraved",
+      "image": "images/technical-drawing-004.webp",
+      "prompt": "A 19th-century engraved botanical plate: a single plant with root, stem and flower, and a dissected seed shown separately below, fine stipple and line shading, plate mark visible on the paper. No captions, no numbers.",
+      "params": {
+        "seed": 1665122087
+      },
+      "batch": 7
+    },
+    {
+      "id": "technical-drawing-005",
+      "category": "technical-drawing",
+      "title": "Engine cutaway, line only",
+      "image": "images/technical-drawing-005.webp",
+      "prompt": "A cutaway line drawing of a four-cylinder engine, the near half removed to show pistons, crankshaft and valve train, cut faces cross-hatched at forty-five degrees. Technical illustration style, no colour, no labels.",
+      "params": {
+        "seed": 295224223
+      },
+      "batch": 7
+    },
+    {
+      "id": "technical-drawing-006",
+      "category": "technical-drawing",
+      "title": "Survey contour sheet",
+      "image": "images/technical-drawing-006.webp",
+      "prompt": "A survey map sheet of a valley: fine brown contour lines at close intervals, blue watercourses, a black road and field boundaries, a hachured quarry face. Printed look on cream paper. No place names, no numbers.",
+      "params": {
+        "seed": 1746092716
+      },
+      "batch": 7
+    },
+    {
+      "id": "technical-drawing-007",
+      "category": "technical-drawing",
+      "title": "Bridge elevation, drafted",
+      "image": "images/technical-drawing-007.webp",
+      "prompt": "A drafted elevation of a riveted steel truss bridge, every member drawn in single-weight ink, rivets shown as small circles, the water line hatched beneath. Black on white paper, no text.",
+      "params": {
+        "seed": 1635258780
+      },
+      "batch": 7
+    },
+    {
+      "id": "technical-drawing-008",
+      "category": "technical-drawing",
+      "title": "Knitting stitch diagram",
+      "image": "images/technical-drawing-008.webp",
+      "prompt": "A hand-drawn diagram of a cable knitting stitch: the yarn path traced as a continuous line through the loops over four rows, arrows showing the crossing order, on graph paper. Fine pen, no text, no chart symbols.",
+      "params": {
+        "seed": 1208675776
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-001",
+      "category": "vehicle",
+      "title": "Steam locomotive, cold shed",
+      "image": "images/vehicle-001.webp",
+      "prompt": "A steam locomotive standing cold in an engine shed, boiler cladding scratched, connecting rods still, one shaft of daylight from a roof light falling across the smokebox. Oil on the floor, no people, no steam.",
+      "params": {
+        "seed": 239476472
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-002",
+      "category": "vehicle",
+      "title": "Seaplane on a lake",
+      "image": "images/vehicle-002.webp",
+      "prompt": "A single-engine seaplane at rest on flat water at dawn, floats making faint ripples, mist on the far shore, propeller stopped. Muted colours, long lens, nobody aboard, no dock in frame.",
+      "params": {
+        "seed": 1528461534
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-003",
+      "category": "vehicle",
+      "title": "Fishing trawler in swell",
+      "image": "images/vehicle-003.webp",
+      "prompt": "A working fishing trawler in heavy grey swell, bow lifting, gulls behind, nets stowed and gear lashed down. Flat overcast light, spray, everything wet and used. Shot from another vessel at sea level.",
+      "params": {
+        "seed": 1930353118
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-004",
+      "category": "vehicle",
+      "title": "Tram at night, wet street",
+      "image": "images/vehicle-004.webp",
+      "prompt": "An old tram pulling away on a wet street at night, interior lights on and the windows fogged, the rails reflecting. Long exposure so the tram blurs slightly and the street stays sharp.",
+      "params": {
+        "seed": 922593345
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-005",
+      "category": "vehicle",
+      "title": "Cargo aircraft loading",
+      "image": "images/vehicle-005.webp",
+      "prompt": "A propeller-driven cargo aircraft with the rear ramp down on a gravel strip, pallets waiting, dust in the air, mountains behind. Hard high-altitude sunlight, no markings, no crew in frame.",
+      "params": {
+        "seed": 136385645
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-006",
+      "category": "vehicle",
+      "title": "Narrowboat on a canal",
+      "image": "images/vehicle-006.webp",
+      "prompt": "A narrowboat moored on a still canal in autumn, painted panels scuffed, a stove chimney smoking faintly, leaves on the water. Soft overcast light, reflections almost perfect, nobody aboard.",
+      "params": {
+        "seed": 1909637109
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-007",
+      "category": "vehicle",
+      "title": "Freight yard at dusk",
+      "image": "images/vehicle-007.webp",
+      "prompt": "A freight yard at dusk seen along the rails: wagons receding in a line, gantry lights coming on, points and signal wires in the foreground. Cool blue light with warm sodium accents, nobody present.",
+      "params": {
+        "seed": 235164723
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-008",
+      "category": "vehicle",
+      "title": "Rowing dinghy on shingle",
+      "image": "images/vehicle-008.webp",
+      "prompt": "A clinker-built rowing dinghy pulled up on a shingle beach, paint flaking to bare wood, oars stowed, a coil of rope in the bow. Flat grey light, the sea just visible behind, no people.",
+      "params": {
+        "seed": 123583601
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-009",
+      "category": "vehicle",
+      "title": "Airliner cabin, empty",
+      "image": "images/vehicle-009.webp",
+      "prompt": "An empty airliner cabin looking down the aisle, overhead bins closed, seatbelts laid across the seats, cabin lighting warm and low, window shades half down. Nobody aboard, no branding, no signage.",
+      "params": {
+        "seed": 44600918
+      },
+      "batch": 7
+    },
+    {
+      "id": "vehicle-010",
+      "category": "vehicle",
+      "title": "Icebreaker bow, deck view",
+      "image": "images/vehicle-010.webp",
+      "prompt": "Looking forward along the deck of an icebreaker as it rides up onto pack ice, the bow pushing a broken white ridge aside, deck gear rimed with frost. Flat polar light, no crew visible.",
+      "params": {
+        "seed": 1167191015
+      },
+      "batch": 7
+    },
+    {
+      "id": "weather-001",
+      "category": "weather",
+      "title": "Shelf cloud approaching",
+      "image": "images/weather-001.webp",
+      "prompt": "A low shelf cloud advancing across flat farmland, its leading edge sharply defined and turbulent, the sky beneath it dark green-grey and the land still lit. Wide, horizon low, no buildings, no people.",
+      "params": {
+        "seed": 1762177641
+      },
+      "batch": 7
+    },
+    {
+      "id": "weather-002",
+      "category": "weather",
+      "title": "Hoar frost on everything",
+      "image": "images/weather-002.webp",
+      "prompt": "Heavy hoar frost coating hedgerow and fence wire, every twig thickened with white needle crystals, a freezing fog reducing the background to pale grey. Cold flat light, no sun, shallow focus falling off quickly.",
+      "params": {
+        "seed": 1701694175
+      },
+      "batch": 7
+    },
+    {
+      "id": "weather-003",
+      "category": "weather",
+      "title": "Rain squall over water",
+      "image": "images/weather-003.webp",
+      "prompt": "A rain squall crossing open water, the downpour visible as a dark curtain hanging from cloud to sea while the water beside it stays lit. Sharp boundary between wet and dry air. Long lens, grey palette.",
+      "params": {
+        "seed": 1010061096
+      },
+      "batch": 7
+    },
+    {
+      "id": "weather-004",
+      "category": "weather",
+      "title": "Fog bank rolling in",
+      "image": "images/weather-004.webp",
+      "prompt": "A fog bank rolling in over a headland, the leading edge curling like slow water, the near ground still clear and sunlit and the far ground already gone. Late afternoon, warm light against cold fog.",
+      "params": {
+        "seed": 1635293661
+      },
+      "batch": 7
+    },
+    {
+      "id": "weather-005",
+      "category": "weather",
+      "title": "Hail on a windscreen",
+      "image": "images/weather-005.webp",
+      "prompt": "Hailstones collected in the channel at the base of a car windscreen, the glass streaming, the world beyond reduced to grey shapes. Shot from inside, wipers stopped mid-sweep, shallow focus on the glass.",
+      "params": {
+        "seed": 1562253478
+      },
+      "batch": 7
+    },
+    {
+      "id": "weather-006",
+      "category": "weather",
+      "title": "Sun dog and ice halo",
+      "image": "images/weather-006.webp",
+      "prompt": "A 22-degree halo around a low winter sun with a bright sun dog on one side, thin ice cloud, a bare treeline along the bottom of the frame. Cold pale sky, faint spectral colour in the halo.",
+      "params": {
+        "seed": 2002802250
+      },
+      "batch": 7
+    },
+    {
+      "id": "weather-007",
+      "category": "weather",
+      "title": "Dust storm wall",
+      "image": "images/weather-007.webp",
+      "prompt": "A wall of dust advancing across dry ground, hundreds of feet high, the leading face lit ochre and the sky above it clear blue. Scattered scrub in the foreground for scale. No vehicles, no buildings.",
+      "params": {
+        "seed": 462916735
+      },
+      "batch": 7
+    },
+    {
+      "id": "weather-008",
+      "category": "weather",
+      "title": "Snow squall in headlights",
+      "image": "images/weather-008.webp",
+      "prompt": "Heavy snow blowing through car headlights on an unlit road at night, the flakes streaking toward the camera, the beam picking out only a few metres. Everything beyond black. Long exposure, no other light.",
+      "params": {
+        "seed": 586384316
+      },
+      "batch": 7
+    },
+    {
+      "id": "glass-001",
+      "category": "glass",
+      "title": "Wine glasses, caustics",
+      "image": "images/glass-001.webp",
+      "prompt": "Three empty wine glasses on white paper under one hard light, throwing sharp bright caustic patterns onto the paper beside them, the stems refracting the background into thin bands. High key, nothing else in frame.",
+      "params": {
+        "seed": 1386490681
+      },
+      "batch": 7
+    },
+    {
+      "id": "glass-002",
+      "category": "glass",
+      "title": "Bubbles in blown glass",
+      "image": "images/glass-002.webp",
+      "prompt": "Macro of a hand-blown glass vessel wall showing trapped air bubbles at different depths, the surface slightly uneven, backlit so the bubbles read as bright rings. Extremely shallow focus, no edges of the vessel visible.",
+      "params": {
+        "seed": 245613758
+      },
+      "batch": 7
+    },
+    {
+      "id": "glass-003",
+      "category": "glass",
+      "title": "Frosted and clear, layered",
+      "image": "images/glass-003.webp",
+      "prompt": "Overlapping panes of frosted and clear glass photographed against a bright window, the frosted areas diffusing what is behind them while the clear areas stay sharp. Abstract composition, cool light, no frame visible.",
+      "params": {
+        "seed": 1415704346
+      },
+      "batch": 7
+    },
+    {
+      "id": "glass-004",
+      "category": "glass",
+      "title": "Broken safety glass",
+      "image": "images/glass-004.webp",
+      "prompt": "Toughened safety glass shattered into its characteristic small cubes but still held together, backlit so the fracture network glows white. Macro, the crumbs varying in size across the sheet. No frame edges in view.",
+      "params": {
+        "seed": 620116430
+      },
+      "batch": 7
+    },
+    {
+      "id": "glass-005",
+      "category": "glass",
+      "title": "Laboratory flask, single light",
+      "image": "images/glass-005.webp",
+      "prompt": "A round-bottomed laboratory flask half filled with clear liquid on a black surface, one hard light behind and above so the liquid line reads as a bright arc and the glass edges as thin highlights. Nothing else in frame.",
+      "params": {
+        "seed": 1336644334
+      },
+      "batch": 7
+    },
+    {
+      "id": "glass-006",
+      "category": "glass",
+      "title": "Rain on a window at night",
+      "image": "images/glass-006.webp",
+      "prompt": "Rain running down a window at night, each droplet acting as a lens and inverting the street lights behind, the glass itself the plane of focus. Everything beyond thrown completely out of focus. Warm points on cold glass.",
+      "params": {
+        "seed": 250096326
+      },
+      "batch": 7
+    },
+    {
+      "id": "glass-007",
+      "category": "glass",
+      "title": "Stacked tumblers, refraction",
+      "image": "images/glass-007.webp",
+      "prompt": "A stack of pressed glass tumblers shot straight on against a plain grey ground, the overlapping walls building up into dense bands of refraction and shadow. Even soft light, the pressed pattern repeating through the stack.",
+      "params": {
+        "seed": 1490874051
+      },
+      "batch": 7
+    },
+    {
+      "id": "glass-008",
+      "category": "glass",
+      "title": "Prism spectrum on a wall",
+      "image": "images/glass-008.webp",
+      "prompt": "A glass prism on a windowsill throwing a sharp spectrum onto a plain white wall, the prism itself mostly dark and the spectrum crisp and saturated. Hard direct sunlight, everything else in the room falling away.",
+      "params": {
+        "seed": 133428439
+      },
+      "batch": 7
+    },
+    {
+      "id": "material-001",
+      "category": "material",
+      "title": "Raw concrete, board-marked",
+      "image": "images/material-001.webp",
+      "prompt": "A flat swatch of board-marked concrete filling the frame: timber grain impressed into the surface, tie holes, a slight colour variation between pours, fine air bubbles. Even raking light so the texture reads. No edges.",
+      "params": {
+        "seed": 1252759840
+      },
+      "batch": 7
+    },
+    {
+      "id": "material-002",
+      "category": "material",
+      "title": "Rusted steel plate",
+      "image": "images/material-002.webp",
+      "prompt": "A flat swatch of weathered steel plate filling the frame: orange and brown corrosion in layers, some flaking to reveal darker metal, a faint mill scale pattern beneath. Even light, no edges, no rivets.",
+      "params": {
+        "seed": 78034212
+      },
+      "batch": 7
+    },
+    {
+      "id": "material-005",
+      "category": "material",
+      "title": "Handmade paper",
+      "image": "images/material-005.webp",
+      "prompt": "A flat swatch of handmade cotton paper filling the frame, visible fibre inclusions and an uneven surface, one faint watermark shape. Backlit slightly so the thickness variation shows. No deckle edge in frame.",
+      "params": {
+        "seed": 2092679551
+      },
+      "batch": 7
+    },
+    {
+      "id": "material-006",
+      "category": "material",
+      "title": "Verdigris copper",
+      "image": "images/material-006.webp",
+      "prompt": "A flat swatch of aged copper sheet filling the frame, green verdigris blooming unevenly over brown patina with a few bright scratches. Even light, no edges, no fixings.",
+      "params": {
+        "seed": 1777915710
+      },
+      "batch": 7
+    },
+    {
+      "id": "material-008",
+      "category": "material",
+      "title": "Riven slate",
+      "image": "images/material-008.webp",
+      "prompt": "A flat swatch of riven slate filling the frame, the split face stepping in thin layers, dark blue-grey with faint rust staining along one bedding plane. Hard raking light so the steps cast shadow. No edges.",
+      "params": {
+        "seed": 1930279593
+      },
+      "batch": 7
+    },
+    {
+      "id": "crowd-001",
+      "category": "crowd",
+      "title": "Concert crowd from behind",
+      "image": "images/crowd-001.webp",
+      "prompt": "A concert crowd photographed from behind and above, hundreds of heads and raised arms silhouetted against stage light, the front rows lost in glare. Nobody's face visible, no signage. Long lens compression.",
+      "params": {
+        "seed": 1724458665
+      },
+      "batch": 7
+    },
+    {
+      "id": "crowd-002",
+      "category": "crowd",
+      "title": "Commuters on a platform",
+      "image": "images/crowd-002.webp",
+      "prompt": "Commuters waiting along a station platform in early light, spaced out and mostly still, coats and bags, a train approaching out of focus. Shot from the far end so the figures compress into a line. No faces sharp.",
+      "params": {
+        "seed": 998639787
+      },
+      "batch": 7
+    },
+    {
+      "id": "crowd-003",
+      "category": "crowd",
+      "title": "Market square from a window",
+      "image": "images/crowd-003.webp",
+      "prompt": "A busy market square seen from a high window, stalls in rows with people moving between them, canopies and their shadows making the pattern. Late morning sun, everyone small, nobody identifiable.",
+      "params": {
+        "seed": 105719758
+      },
+      "batch": 7
+    },
+    {
+      "id": "crowd-004",
+      "category": "crowd",
+      "title": "Beach on a hot day",
+      "image": "images/crowd-004.webp",
+      "prompt": "A crowded beach photographed from a cliff above: towels, umbrellas and figures scattered across pale sand, the sea edge crowded. High sun, strong colour, everyone small and unidentifiable.",
+      "params": {
+        "seed": 96150023
+      },
+      "batch": 7
+    },
+    {
+      "id": "crowd-005",
+      "category": "crowd",
+      "title": "Stadium terrace, rain",
+      "image": "images/crowd-005.webp",
+      "prompt": "A packed stadium terrace in rain, thousands of figures under hoods and umbrellas as a field of texture, floodlights catching the downpour. Shot from across the ground, nobody's face readable.",
+      "params": {
+        "seed": 2146359377
+      },
+      "batch": 7
+    },
+    {
+      "id": "crowd-006",
+      "category": "crowd",
+      "title": "Procession in a narrow street",
+      "image": "images/crowd-006.webp",
+      "prompt": "A procession filling a narrow street seen from a balcony, the crowd flowing between tall buildings, banners furled, hard shadow cutting the street diagonally. Nobody identifiable, no text on the banners.",
+      "params": {
+        "seed": 1077716200
+      },
+      "batch": 7
+    },
+    {
+      "id": "crowd-007",
+      "category": "crowd",
+      "title": "Escalators, morning rush",
+      "image": "images/crowd-007.webp",
+      "prompt": "Two long escalators running in opposite directions in a transit hall, both full of people standing, shot straight on so the two streams cross. Even artificial light, faces turned away or blurred by motion.",
+      "params": {
+        "seed": 555522559
+      },
+      "batch": 7
+    },
+    {
+      "id": "crowd-008",
+      "category": "crowd",
+      "title": "Queue along a wall",
+      "image": "images/crowd-008.webp",
+      "prompt": "A long queue of people waiting along a plain brick wall in flat overcast light, spaced unevenly, some sitting on the kerb. Shot from far along the line so it compresses. Nobody's face sharp, no signage.",
+      "params": {
+        "seed": 1179753599
+      },
+      "batch": 7
     }
   ],
   "findings": {
-    "_intro": "Everything below was measured while building this catalog, not quoted from the model card. 379 generations across six batches, 315 are here, 64 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.\n\nFour of these findings replace earlier ones that were wrong, and every one of the four was overturned by a controlled experiment built to confirm it. The shape repeats: a rule inferred from one or two failures, then a ladder that holds everything constant except the one variable, and the rule turns out to have been about something else. The corrections are the most useful thing here.",
+    "_intro": "Everything below was measured while building this catalog, not quoted from the model card. 463 generations across seven batches, 393 are here, 70 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.\n\nFour of these findings replace earlier ones that were wrong, and every one of the four was overturned by a controlled experiment built to confirm it. The shape repeats: a rule inferred from one or two failures, then a ladder that holds everything constant except the single variable, and the rule turns out to have been about something else. The corrections are the most useful thing here.",
     "items": [
       {
         "title": "It renders text you write. It cannot invent text.",
@@ -3538,6 +4406,10 @@
       {
         "title": "Korean mostly works, and the words that fail, fail the same way every time",
         "body": "**This replaces a finding built on a single Korean image.** It said Korean fails even when written out. Six Korean strings later, that is too strong.\n\n**Four of six came back exactly right**: `국수`, `도서관`, `3번 출구` — Hangul mixed with a numeral — and `오늘의 추천 메뉴`, six syllables across three words. Length is not the variable, which is the first thing to go: the two-syllable and the six-syllable both worked and a four-syllable failed.\n\nTwo failed:\n\n- `정직한 국수` came back `정적한 국수` — one vowel wrong in the second syllable. This is the original failure, and it **reproduced at a different seed** (1167746582 against the first attempt's 1910572019). Same string, same error, twice. That is a property of the string, not a bad roll.\n- `한밭식당` came back `한뾃식당`, where `밭` has become a syllable that does not exist in Korean.\n\nWhat the two failures share is a less common 받침 — the final consonant. `직` and `밭` both carry one; so do `국` and `늘` and `천`, which all rendered. Two failures is not enough to name the mechanism, and that is where it is left.\n\nPractical rule, and it is better news than the old one: **Korean is usable, and you must read the output.** If a string comes back wrong it will come back wrong again, so change the wording rather than re-rolling the seed."
+      },
+      {
+        "title": "Hands are largely solved here, and the thing that fails is a gesture rather than the anatomy",
+        "body": "\"AI can't do hands\" is the most repeated claim about image models, and it does not survive a controlled test on this one.\n\nEight prompts, one oak table, one light direction, one framing, raising only the difficulty of the hands: `hands-1` through `hands-8`. **Seven of the eight are anatomically sound** on inspection at 1.5–2× magnification — a relaxed hand, a hand gripping a mug, two hands apart, two hands clasped, a two-person handshake with the thumbs crossed, and two hands spread across piano keys.\n\n`hands-8` is worth its own line. It asked for a hand held up showing **exactly 3 fingers** — index, middle and ring, thumb and little folded — and that is precisely what came back. A counted gesture, correct. It is the fourth independent confirmation in this catalog that discrete countable things get counted.\n\nThe one that failed is `hands-5`, fingers **fully interlaced**, and it failed in an interesting way: the anatomy did not collapse into extra digits, the model simply **did not do the gesture**. It returned a clasp — one hand's fingers lying over the back of the other — which is the easier grip it had already produced for `hands-4`.\n\nThat is the same shape as the monogram finding two batches earlier. Letters render; letters asked to *interlock* and share strokes do not. Fingers render; fingers asked to *weave between* other fingers do not. Whatever this model is doing, forms that stay separable survive and forms asked to interpenetrate do not.\n\nPractical rule: hands are usable. Ask for grips, not for weaves."
       },
       {
         "title": "Character identity does not survive across generations",
@@ -3574,6 +4446,10 @@
       {
         "title": "\"Straight down\" is a request, not an instruction",
         "body": "Eight aerial prompts, every one of them opening with *straight down on…*. **Four came back oblique.** `aerial-003` shows the container cranes standing up in frame; `aerial-008` is at bridge height; `aerial-005`, asked for a suburb from directly above, came back **from the pavement** — not an aerial at all.\n\nThe four that held are the ones where a nadir view is the only way the subject makes sense: a braided river, salt evaporation ponds, the edge of a reef, a terraced hillside. All four are flat subjects whose whole content is pattern. Where the scene contains anything with obvious verticality — cranes, houses, bales — the camera tilts back down to a view that shows those verticals.\n\nPractical rule: ask for nadir only on subjects that have no useful vertical, and check the angle before you accept the frame. Naming the altitude or the lens does not help; the pull is in the subject."
+      },
+      {
+        "title": "A size comparison can replace your subject with the thing you compared it to",
+        "body": "`fantasy-009` asked for **a beetle the size of a pony** wearing a worn leather harness. It returned a pony wearing a worn leather harness. No beetle, no chitin, nothing insect about it — every other detail of the prompt was honoured on the wrong animal.\n\nThe comparison was doing scale work and the model read it as identity. Every other creature prompt in the same batch landed: a hare with moth wings, an invented bioluminescent fish, a feathered theropod in snow. None of those contains a simile.\n\nPractical rule: give scale with a measurement or with something inert in the frame — \"a beetle a metre long\", \"a beetle beside a fence post\". Do not give scale by naming another animal, because the other animal can win."
       }
     ]
   },
@@ -4056,6 +4932,72 @@
           "seed": 202936705
         },
         "batch": 6
+      },
+      {
+        "id": "hands-5",
+        "claim": "Gesture: asked for fingers fully interlaced, returned a clasp with the fingers lying over the other hand",
+        "expected": "Fingers woven between fingers",
+        "prompt": "Two adult hands with the fingers fully interlaced, resting on a plain oak table, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-5.webp",
+        "params": {
+          "seed": 1164604099
+        },
+        "batch": 7
+      },
+      {
+        "id": "fantasy-009",
+        "claim": "Simile: 'a beetle the size of a pony' returned a pony — the comparison replaced the subject",
+        "expected": "A pony-sized beetle in a harness",
+        "prompt": "A beetle the size of a pony standing in long grass with a worn leather harness fitted to its thorax, chitin scratched and repaired, the harness clearly used. Overcast light, documentary framing, no rider present.",
+        "image": "images/failures/fantasy-009.webp",
+        "params": {
+          "seed": 1007230101
+        },
+        "batch": 7
+      },
+      {
+        "id": "comic-003",
+        "claim": "Composition: a flat cyan field with the figure pushed to the edge, and no rosette worth the name",
+        "expected": "A newsprint panel with visible CMYK rosette",
+        "prompt": "A comic panel printed on cheap newsprint: visible CMYK rosette dots, slight misregistration on the reds, yellowed paper, a figure mid-leap against a flat cyan sky. One empty caption box in the upper left.",
+        "image": "images/failures/comic-003.webp",
+        "params": {
+          "seed": 312992160
+        },
+        "batch": 7
+      },
+      {
+        "id": "material-003",
+        "claim": "Surface: boiled wool felt came back as uniform grey noise with no nap and no fibre",
+        "expected": "Matted directional wool fibres",
+        "prompt": "A flat swatch of boiled wool felt filling the frame in charcoal grey, fibres matted and slightly directional, a few paler fibres visible. Raking light so the surface nap reads. No edges, no stitching.",
+        "image": "images/failures/material-003.webp",
+        "params": {
+          "seed": 419888631
+        },
+        "batch": 7
+      },
+      {
+        "id": "material-004",
+        "claim": "Surface: asked for a fine crazed network in aged leather, returned smooth leather with soft creases",
+        "expected": "Crazed, worn leather grain",
+        "prompt": "A flat swatch of aged tan leather filling the frame, the grain broken into a fine crazed network with the finish worn thinner on the high points. Raking light, warm tone, no stitching, no edges.",
+        "image": "images/failures/material-004.webp",
+        "params": {
+          "seed": 67212683
+        },
+        "batch": 7
+      },
+      {
+        "id": "material-007",
+        "claim": "Material: sand-cast bronze came back as pitted pale stone with no metal in it",
+        "expected": "Cast bronze, dark in the recesses and polished on the high points",
+        "prompt": "A flat swatch of sand-cast bronze filling the frame, the surface pitted with the grain of the mould, darker in the recesses and polished on the high points. Raking light, warm metal, no edges.",
+        "image": "images/failures/material-007.webp",
+        "params": {
+          "seed": 324747702
+        },
+        "batch": 7
       }
     ]
   },
@@ -4127,6 +5069,6 @@
       "jamez-bondos has not been pushed since 2025-05-26."
     ]
   },
-  "generations": 379,
-  "spend": 3.18
+  "generations": 463,
+  "spend": 3.75
 }

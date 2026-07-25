@@ -1,10 +1,10 @@
 # Wildcards
 
-481 prompts from [this catalog](https://github.com/sjh9714/awesome-krea-2),
+476 prompts from [this catalog](https://github.com/sjh9714/awesome-krea-2),
 one per line, ready for a wildcard or dynamic-prompt node.
 
-- `all.txt` — every prompt, 481 lines
-- one file per category (62 of them), if you want to sample within a style
+- `all.txt` — every prompt, 476 lines
+- one file per category (61 of them), if you want to sample within a style
 
 ## ComfyUI
 
@@ -24,7 +24,7 @@ them, so a prompt pulled from here will not reproduce the image in the
 catalog. If you want the exact image, take the prompt *and* the seed from
 `prompts.json` or from the gallery.
 
-**The failures.** 59 generations were cut and they are
+**The failures.** 64 generations were cut and they are
 deliberately excluded — a wildcard file that occasionally serves a
 known-broken prompt is worse than none. They are still in the repository,
 with the reason each one failed.

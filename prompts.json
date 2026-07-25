@@ -45,7 +45,7 @@
     "aerial": "Looking straight down",
     "period": "Photography that reads as a specific decade",
     "jewellery": "Small metal and stone at product scale",
-    "hands": "A controlled experiment: one light, one surface, hands from a single relaxed hand up to interlaced fingers and a counted gesture",
+    "hands": "Withdrawn from the catalog. Kept as evidence, not as examples - see the finding on why my own inspection was the unreliable part.",
     "fantasy": "Creature and world design",
     "comic": "Panel art and sequential-page styles",
     "childrens-book": "Illustration for picture books",
@@ -3550,61 +3550,6 @@
       "batch": 6
     },
     {
-      "id": "hands-1",
-      "category": "hands",
-      "title": "Hands: one relaxed hand",
-      "image": "images/hands-1.webp",
-      "prompt": "A single adult hand resting palm-down on a plain oak table, fingers relaxed and slightly apart, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
-      "params": {
-        "seed": 1481878687
-      },
-      "batch": 7
-    },
-    {
-      "id": "hands-2",
-      "category": "hands",
-      "title": "Hands: one hand gripping",
-      "image": "images/hands-2.webp",
-      "prompt": "A single adult hand wrapped around a plain ceramic mug on a plain oak table, thumb over the handle, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
-      "params": {
-        "seed": 115868128
-      },
-      "batch": 7
-    },
-    {
-      "id": "hands-3",
-      "category": "hands",
-      "title": "Hands: two hands, apart",
-      "image": "images/hands-3.webp",
-      "prompt": "Two adult hands resting palm-down on a plain oak table, well apart from each other, fingers relaxed, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
-      "params": {
-        "seed": 1328002727
-      },
-      "batch": 7
-    },
-    {
-      "id": "hands-4",
-      "category": "hands",
-      "title": "Hands: two hands, clasped",
-      "image": "images/hands-4.webp",
-      "prompt": "Two adult hands loosely clasped together on a plain oak table, one wrapped around the other, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
-      "params": {
-        "seed": 1095933455
-      },
-      "batch": 7
-    },
-    {
-      "id": "hands-7",
-      "category": "hands",
-      "title": "Hands: at a piano",
-      "image": "images/hands-7.webp",
-      "prompt": "Two adult hands playing a piano, seen from above and slightly behind, fingers spread across the white and black keys with some depressed. Soft directional daylight from the left, plain background beyond the keyboard. No face, no body.",
-      "params": {
-        "seed": 387883077
-      },
-      "batch": 7
-    },
-    {
       "id": "fantasy-001",
       "category": "fantasy",
       "title": "Moth-winged creature at rest",
@@ -5388,8 +5333,8 @@
         "body": "**This replaces a finding built on a single Korean image.** It said Korean fails even when written out. Six Korean strings later, that is too strong.\n\n**Four of six came back exactly right**: `국수`, `도서관`, `3번 출구` — Hangul mixed with a numeral — and `오늘의 추천 메뉴`, six syllables across three words. Length is not the variable, which is the first thing to go: the two-syllable and the six-syllable both worked and a four-syllable failed.\n\nTwo failed:\n\n- `정직한 국수` came back `정적한 국수` — one vowel wrong in the second syllable. This is the original failure, and it **reproduced at a different seed** (1167746582 against the first attempt's 1910572019). Same string, same error, twice. That is a property of the string, not a bad roll.\n- `한밭식당` came back `한뾃식당`, where `밭` has become a syllable that does not exist in Korean.\n\nWhat the two failures share is a less common 받침 — the final consonant. `직` and `밭` both carry one; so do `국` and `늘` and `천`, which all rendered. Two failures is not enough to name the mechanism, and that is where it is left.\n\nPractical rule, and it is better news than the old one: **Korean is usable, and you must read the output.** If a string comes back wrong it will come back wrong again, so change the wording rather than re-rolling the seed."
       },
       {
-        "title": "I said hands were solved here. A reader counted the fingers and I was wrong.",
-        "body": "**This finding was wrong for about two hours and a stranger corrected it.** What it said: eight prompts on one table under one light, seven of them anatomically sound, and the only miss being a gesture rather than the anatomy. I inspected the outputs at 1.5-2x magnification and that is where the error lives.\n\nWithin two hours of posting it to r/StableDiffusion, **u/sickmartian** replied: *\"well, exactly 3 fingers has a total of 6 fingers 😅 also 6 on handshake, harder to see thou\"*. Blown up to 4x, they are right on both. `hands-8`, the hand held up showing exactly three fingers, carries six digits — the three raised are correct and the folded cluster has more nails in it than a hand has. `hands-6`, the two-person handshake, has six fingers wrapped around the grip, which is genuinely hard to see because the grip hides the joints.\n\nBoth have been moved out of the catalog and into the failures with their seeds.\n\n**What survives.** The gesture result still stands: `hands-5` asked for fully interlaced fingers and returned a clasp, declining the gesture rather than mangling it. And `hands-8` did put up exactly three raised fingers, so the *count instruction* landed even though the hand it landed on has too many digits. Those are narrower claims than \"hands are solved\" and they are the ones I can defend.\n\n**What this cost.** The claim was in the README, in the hero image, and in the post that brought people here. The failure was not the model's and it was not subtle — it was that I looked at 2x and wrote a headline. Every other finding in this catalog was checked by building a ladder and holding one variable fixed. This one was checked by looking, and looking is the weakest instrument here."
+        "title": "I said hands were solved here. Two readers counted, and I have withdrawn the whole category.",
+        "body": "**This is the finding this catalog got most wrong, and it was corrected from outside within three hours.**\n\nWhat it said: eight prompts on one table under one light, seven anatomically sound, the only miss a gesture rather than the anatomy. \"AI can't do hands\" does not survive a controlled test. It was the most shareable sentence in the repository and it was built on inspecting the outputs at 1.5-2x.\n\nWithin two hours of posting to r/StableDiffusion, **u/sickmartian**: *\"well, exactly 3 fingers has a total of 6 fingers 😅 also 6 on handshake, harder to see thou\"*. At 4x they are right on both. Twenty minutes later **u/wikid24** on the clasped pair: *\"clasped is also incorrect, only 4 fingers\"*.\n\nThree of eight, found by two people who did the one thing I did not: count.\n\n**So the entire category is withdrawn.** Not graded image by image — withdrawn. The instrument that failed is my own inspection, and using it to arbitrate which of the remaining five survive would be the same mistake a third time. All eight are in the failures with their seeds; they are evidence now, not examples.\n\n**What is left, stated narrowly.** `hands-5` asked for fully interlaced fingers and returned a clasp — it declined the gesture rather than mangling it, and that is a claim about behaviour, not anatomy. `hands-8` did raise exactly three fingers, so the count instruction landed, on a hand that has too many digits.\n\n**Why it happened.** Every other finding here was built by holding one variable fixed and varying another — the string ladder, the count ladder, the weave ladder with its prediction committed first. This one was built by looking at pictures. Looking is the weakest instrument in this repository and it went on the claim most likely to travel, which is exactly the wrong place to put your weakest instrument."
       },
       {
         "title": "Character identity does not survive across generations",
@@ -6094,6 +6039,61 @@
         },
         "batch": 7,
         "found_by": "u/sickmartian on r/StableDiffusion, who counted them"
+      },
+      {
+        "id": "hands-1",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "A single adult hand resting palm-down on a plain oak table, fingers relaxed and slightly apart, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-1.webp",
+        "params": {
+          "seed": 1481878687
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-2",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "A single adult hand wrapped around a plain ceramic mug on a plain oak table, thumb over the handle, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-2.webp",
+        "params": {
+          "seed": 115868128
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-3",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "Two adult hands resting palm-down on a plain oak table, well apart from each other, fingers relaxed, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-3.webp",
+        "params": {
+          "seed": 1328002727
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-4",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "Two adult hands loosely clasped together on a plain oak table, one wrapped around the other, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-4.webp",
+        "params": {
+          "seed": 1095933455
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-7",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "Two adult hands playing a piano, seen from above and slightly behind, fingers spread across the white and black keys with some depressed. Soft directional daylight from the left, plain background beyond the keyboard. No face, no body.",
+        "image": "images/failures/hands-7.webp",
+        "params": {
+          "seed": 387883077
+        },
+        "batch": 7
       }
     ]
   },

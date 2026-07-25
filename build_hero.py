@@ -32,7 +32,7 @@ COLUMNS = [
     ("Text: write it out and it renders. Ask it to invent and it does not.",
      "images/stringcount-8.webp", "8 separate strings, every one correct",
      "images/failures/fail-menu.webp", "same board, rows left to the model: CATEPe, MILTERS"),
-    ("Hands: I said 7 of 8 and a reader counted the fingers. Six on both.",
+    ("Hands: I said 7 of 8. Two readers counted. Category withdrawn.",
      "images/failures/hands-8.webp", "asked for exactly 3 raised: correct, on a six-digit hand",
      "images/failures/hands-5.webp", "asked for interlaced fingers, got a clasp"),
     ("A rule I built from two domains and had to throw away in a third.",

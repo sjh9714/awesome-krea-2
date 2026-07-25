@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">Krea 2 Turbo 프롬프트 481개, 각각을 만든 시드까지. 그리고 실패한 생성 59개와 그 이유. 여기 발견 다섯 개는 앞서 틀리게 썼던 것을 대체한 것입니다.</p>
+<p align="center">Krea 2 Turbo 프롬프트 476개, 각각을 만든 시드까지. 그리고 실패한 생성 64개와 그 이유. 여기 발견 다섯 개는 앞서 틀리게 썼던 것을 대체한 것입니다.</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="Three findings: it renders text you write out and cannot invent text; the hands claim was wrong and a reader counted six digits on two of them; a rule built from two domains that had to be thrown away in a third">
@@ -15,7 +15,7 @@
 
 ## 카테고리
 
-**481 개 프롬프트, 전부 시드 기록** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 4 · [period](#period) 8 · [jewellery](#jewellery) 8 · [hands](#hands) 5 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8
+**476 개 프롬프트, 전부 시드 기록** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 4 · [period](#period) 8 · [jewellery](#jewellery) 8 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8
 
 
 ## photography
@@ -4016,71 +4016,6 @@ A brilliant-cut diamond held in fine tweezers against a dark neutral background,
 ```
 
 `seed: 912016671`
-
-
-## hands
-
-_A controlled experiment: one light, one surface, hands from a single relaxed hand up to interlaced fingers and a counted gesture_
-
-### Hands: one relaxed hand
-
-<img src="images/hands-1.webp" width="420" alt="Hands: one relaxed hand">
-
-**프롬프트**
-
-```text
-A single adult hand resting palm-down on a plain oak table, fingers relaxed and slightly apart, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.
-```
-
-`seed: 1481878687`
-
-### Hands: one hand gripping
-
-<img src="images/hands-2.webp" width="420" alt="Hands: one hand gripping">
-
-**프롬프트**
-
-```text
-A single adult hand wrapped around a plain ceramic mug on a plain oak table, thumb over the handle, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.
-```
-
-`seed: 115868128`
-
-### Hands: two hands, apart
-
-<img src="images/hands-3.webp" width="420" alt="Hands: two hands, apart">
-
-**프롬프트**
-
-```text
-Two adult hands resting palm-down on a plain oak table, well apart from each other, fingers relaxed, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.
-```
-
-`seed: 1328002727`
-
-### Hands: two hands, clasped
-
-<img src="images/hands-4.webp" width="420" alt="Hands: two hands, clasped">
-
-**프롬프트**
-
-```text
-Two adult hands loosely clasped together on a plain oak table, one wrapped around the other, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.
-```
-
-`seed: 1095933455`
-
-### Hands: at a piano
-
-<img src="images/hands-7.webp" width="420" alt="Hands: at a piano">
-
-**프롬프트**
-
-```text
-Two adult hands playing a piano, seen from above and slightly behind, fingers spread across the white and black keys with some depressed. Soft directional daylight from the left, plain background beyond the keyboard. No face, no body.
-```
-
-`seed: 387883077`
 
 
 ## fantasy

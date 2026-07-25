@@ -1,8 +1,8 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">483 条 Krea 2 Turbo 提示词，每条都附带产出它的 seed，外加 57 次失败的生成及其原因。这里有五条发现推翻了此前写错的结论。</p>
+<p align="center">481 条 Krea 2 Turbo 提示词，每条都附带产出它的 seed，外加 59 次失败的生成及其原因。这里有五条发现推翻了此前写错的结论。</p>
 
 <p align="center">
-  <img src="hero.webp" width="912" alt="Three findings: it renders text you write out and cannot invent text; hands are 7 of 8 and the miss is a gesture rather than the anatomy; a rule built from two domains that had to be thrown away in a third">
+  <img src="hero.webp" width="912" alt="Three findings: it renders text you write out and cannot invent text; the hands claim was wrong and a reader counted six digits on two of them; a rule built from two domains that had to be thrown away in a third">
 </p>
 
 <p align="center">
@@ -15,7 +15,7 @@
 
 ## 类别
 
-**483 条提示词，每条都有 seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 4 · [period](#period) 8 · [jewellery](#jewellery) 8 · [hands](#hands) 7 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8
+**481 条提示词，每条都有 seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 4 · [period](#period) 8 · [jewellery](#jewellery) 8 · [hands](#hands) 5 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8
 
 
 ## photography
@@ -4070,18 +4070,6 @@ Two adult hands loosely clasped together on a plain oak table, one wrapped aroun
 
 `seed: 1095933455`
 
-### Hands: a handshake
-
-<img src="images/hands-6.webp" width="420" alt="Hands: a handshake">
-
-**提示词**
-
-```text
-Two people shaking hands over a plain oak table, hands and forearms only in frame, a firm grip with the thumbs crossed. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. No faces.
-```
-
-`seed: 1319396385`
-
 ### Hands: at a piano
 
 <img src="images/hands-7.webp" width="420" alt="Hands: at a piano">
@@ -4093,18 +4081,6 @@ Two adult hands playing a piano, seen from above and slightly behind, fingers sp
 ```
 
 `seed: 387883077`
-
-### Hands: showing three fingers
-
-<img src="images/hands-8.webp" width="420" alt="Hands: showing three fingers">
-
-**提示词**
-
-```text
-A single adult hand held up facing the camera showing exactly 3 fingers raised — index, middle and ring — with the thumb and little finger folded down. Plain oak table below, soft directional daylight from the left, plain background. Nothing else in frame.
-```
-
-`seed: 1353379060`
 
 
 ## fantasy

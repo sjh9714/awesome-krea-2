@@ -224,7 +224,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
         # already disproved.
         L.append('  <img src="hero.webp" width="912" '
                  'alt="Three findings: it renders text you write out and cannot invent text; '
-                 'hands are 7 of 8 and the miss is a gesture rather than the anatomy; '
+                 'the hands claim was wrong and a reader counted six digits on two of them; '
                  'a rule built from two domains that had to be thrown away in a third">')
         L.append("</p>\n")
     else:

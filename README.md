@@ -1,8 +1,8 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">483 Krea 2 Turbo prompts with the seed that produced each one, plus the 57 generations that failed and why. Five of the findings here replace earlier ones that were wrong.</p>
+<p align="center">481 Krea 2 Turbo prompts with the seed that produced each one, plus the 59 generations that failed and why. Five of the findings here replace earlier ones that were wrong.</p>
 
 <p align="center">
-  <img src="hero.webp" width="912" alt="Three findings: it renders text you write out and cannot invent text; hands are 7 of 8 and the miss is a gesture rather than the anatomy; a rule built from two domains that had to be thrown away in a third">
+  <img src="hero.webp" width="912" alt="Three findings: it renders text you write out and cannot invent text; the hands claim was wrong and a reader counted six digits on two of them; a rule built from two domains that had to be thrown away in a third">
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 Everything below was measured while building this catalog, not quoted from the model card. 561 generations across eight batches, 483 are here, 78 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.
 
-Five of these findings replace or retract earlier ones that were wrong, and every one of the five was overturned by a controlled experiment built to confirm it. The last of them was killed by a prediction written down before the images existed. The corrections are the most useful thing here.
+Five of these findings replace or retract earlier ones that were wrong, and every one of the five was overturned by a controlled experiment built to confirm it. The last of them was killed by a prediction written down before the images existed. The corrections are the most useful thing here — including one made by a reader on Reddit two hours after this was published, who counted fingers I had only glanced at.
 
 ### It renders text you write. It cannot invent text.
 
@@ -67,21 +67,17 @@ What the two failures share is a less common 받침 — the final consonant. `�
 
 Practical rule, and it is better news than the old one: **Korean is usable, and you must read the output.** If a string comes back wrong it will come back wrong again, so change the wording rather than re-rolling the seed.
 
-### Hands are largely solved here, and the thing that fails is a gesture rather than the anatomy
+### I said hands were solved here. A reader counted the fingers and I was wrong.
 
-"AI can't do hands" is the most repeated claim about image models, and it does not survive a controlled test on this one.
+**This finding was wrong for about two hours and a stranger corrected it.** What it said: eight prompts on one table under one light, seven of them anatomically sound, and the only miss being a gesture rather than the anatomy. I inspected the outputs at 1.5-2x magnification and that is where the error lives.
 
-Eight prompts, one oak table, one light direction, one framing, raising only the difficulty of the hands: `hands-1` through `hands-8`. **Seven of the eight are anatomically sound** on inspection at 1.5–2× magnification — a relaxed hand, a hand gripping a mug, two hands apart, two hands clasped, a two-person handshake with the thumbs crossed, and two hands spread across piano keys.
+Within two hours of posting it to r/StableDiffusion, **u/sickmartian** replied: *"well, exactly 3 fingers has a total of 6 fingers 😅 also 6 on handshake, harder to see thou"*. Blown up to 4x, they are right on both. `hands-8`, the hand held up showing exactly three fingers, carries six digits — the three raised are correct and the folded cluster has more nails in it than a hand has. `hands-6`, the two-person handshake, has six fingers wrapped around the grip, which is genuinely hard to see because the grip hides the joints.
 
-`hands-8` is worth its own line. It asked for a hand held up showing **exactly 3 fingers** — index, middle and ring, thumb and little folded — and that is precisely what came back. A counted gesture, correct. It is the fourth independent confirmation in this catalog that discrete countable things get counted.
+Both have been moved out of the catalog and into the failures with their seeds.
 
-The one that failed is `hands-5`, fingers **fully interlaced**, and it failed in an interesting way: the anatomy did not collapse into extra digits, the model simply **did not do the gesture**. It returned a clasp — one hand's fingers lying over the back of the other — which is the easier grip it had already produced for `hands-4`.
+**What survives.** The gesture result still stands: `hands-5` asked for fully interlaced fingers and returned a clasp, declining the gesture rather than mangling it. And `hands-8` did put up exactly three raised fingers, so the *count instruction* landed even though the hand it landed on has too many digits. Those are narrower claims than "hands are solved" and they are the ones I can defend.
 
-When this was first written it was paired with the monogram finding and read as a rule about **interpenetration** — forms that stay separable survive, forms asked to pass through each other do not. **That rule is dead.** Batch eight tested it in a third domain with the prediction written down in advance, and four of four failure predictions were wrong: two interlocked chain links, a whole chain, a willow basket wall with the weavers passing correctly in front of and behind the stakes, and a continuous Celtic knotwork panel all came back correct. Chain and basketry interpenetrate far more than fingers do.
-
-What survives is narrower and it is about this one gesture: **the model returned the more common grip instead of the rarer one.** Whether that generalises is an open question this catalog has not earned the right to answer — see the last finding.
-
-Practical rule: hands are usable. If a specific gesture matters, check that you got it rather than assuming.
+**What this cost.** The claim was in the README, in the hero image, and in the post that brought people here. The failure was not the model's and it was not subtle — it was that I looked at 2x and wrote a headline. Every other finding in this catalog was checked by building a ladder and holding one variable fixed. This one was checked by looking, and looking is the weakest instrument here.
 
 ### Character identity does not survive across generations
 
@@ -288,6 +284,8 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/knolling-004.webp" width="150" alt="Contents: bicycle-specific tools were asked for and generic ones arrived, with invented sticker text"> | Tyre levers, patches, a pump | Contents: bicycle-specific tools were asked for and generic ones arrived, with invented sticker text <br>`seed: 545841073` |
 | <img src="images/failures/silhouette-004.webp" width="150" alt="Exposure: asked for hands as solid black against the window, returned them backlit and translucent"> | Hands as flat black shapes | Exposure: asked for hands as solid black against the window, returned them backlit and translucent <br>`seed: 1616657488` |
 | <img src="images/failures/mirror-004.webp" width="150" alt="Instruction: asked for nobody in the reflection, returned two hands pressed against the glass"> | An empty fogged mirror with a wiped arc | Instruction: asked for nobody in the reflection, returned two hands pressed against the glass <br>`seed: 404637919` |
+| <img src="images/failures/hands-6.webp" width="150" alt="Digits: the near hand has six fingers wrapped around the grip; the pose reads correct and the count does not"> | A two-person handshake with five digits per hand | Digits: the near hand has six fingers wrapped around the grip; the pose reads correct and the count does not <br>`seed: 1319396385` |
+| <img src="images/failures/hands-8.webp" width="150" alt="Digits: asked for exactly 3 fingers raised, and the hand carries six digits in total"> | Three raised, thumb and little finger folded, five digits | Digits: asked for exactly 3 fingers raised, and the hand carries six digits in total <br>`seed: 1353379060` |
 
 ## How this compares
 
@@ -311,7 +309,7 @@ Verified on 2026-07-25 by reading each repository's tree, README and data files,
 
 ## Categories
 
-**483 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 4 · [period](#period) 8 · [jewellery](#jewellery) 8 · [hands](#hands) 7 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8
+**481 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 4 · [period](#period) 8 · [jewellery](#jewellery) 8 · [hands](#hands) 5 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8
 
 
 ## photography
@@ -4366,18 +4364,6 @@ Two adult hands loosely clasped together on a plain oak table, one wrapped aroun
 
 `seed: 1095933455`
 
-### Hands: a handshake
-
-<img src="images/hands-6.webp" width="420" alt="Hands: a handshake">
-
-**Prompt**
-
-```text
-Two people shaking hands over a plain oak table, hands and forearms only in frame, a firm grip with the thumbs crossed. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. No faces.
-```
-
-`seed: 1319396385`
-
 ### Hands: at a piano
 
 <img src="images/hands-7.webp" width="420" alt="Hands: at a piano">
@@ -4389,18 +4375,6 @@ Two adult hands playing a piano, seen from above and slightly behind, fingers sp
 ```
 
 `seed: 387883077`
-
-### Hands: showing three fingers
-
-<img src="images/hands-8.webp" width="420" alt="Hands: showing three fingers">
-
-**Prompt**
-
-```text
-A single adult hand held up facing the camera showing exactly 3 fingers raised — index, middle and ring — with the thumb and little finger folded down. Plain oak table below, soft directional daylight from the left, plain background. Nothing else in frame.
-```
-
-`seed: 1353379060`
 
 
 ## fantasy

@@ -79,9 +79,20 @@ def main() -> int:
     root = Path(args.manifest).parent
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    # Images stay in one place. Pages serves from /docs, so reach back up rather
-    # than duplicating 10 MB of WebP into a second directory.
-    up = "../"
+    # Pages serves /docs AS THE SITE ROOT, so "../images/..." escapes the served
+    # tree and every image 404s. Copy them in instead — 10 MB duplicated is the
+    # price of a self-contained page that the Pages CDN can serve under load,
+    # and it avoids leaning on raw.githubusercontent.com, which is rate-limited.
+    import shutil
+    up = ""
+    for e in list(d["entries"]) + (d.get("failures") or {}).get("entries", []):
+        src = root / e["image"]
+        if src.exists():
+            dst = out.parent / e["image"]
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dst)
+    if (root / "hero.webp").exists():
+        shutil.copy2(root / "hero.webp", out.parent / "hero.webp")
 
     kept = [e for e in d["entries"] if (root / e["image"]).exists()]
     model = d.get("model", "the model")

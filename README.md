@@ -1062,7 +1062,7 @@ _Image-to-image edits whose source is another entry in this catalog_
 Relight this coastline: replace the flat overcast with hard low-angle late afternoon sun from frame right, casting long shadows across the basalt. Keep the rock placement, horizon line and framing identical.
 ```
 
-_Image-to-image from [`photography-006`](#photography-006) in this repo · `strength: 0.55`_
+_Image-to-image from **Overcast coastline, long exposure** ([`photography-006`](#overcast-coastline-long-exposure)) in this repo · `strength: 0.55`_
 
 `seed: 364022812`
 
@@ -1078,7 +1078,7 @@ _Image-to-image from [`photography-006`](#photography-006) in this repo · `stre
 Keep this corridor's geometry and perspective exactly. Change only the time and mood: warm amber emergency lighting instead of cold fluorescents, one light source at the far end, everything nearer falling into shadow.
 ```
 
-_Image-to-image from [`photography-003`](#photography-003) in this repo · `strength: 0.5`_
+_Image-to-image from **Cold-lit surgical corridor** ([`photography-003`](#cold-lit-surgical-corridor)) in this repo · `strength: 0.5`_
 
 `seed: 1459264371`
 
@@ -1094,7 +1094,7 @@ _Image-to-image from [`photography-003`](#photography-003) in this repo · `stre
 Re-render these terraced fields as a gouache painting with visible brush texture and chalky opacity. Every terrace contour stays in exactly the same position; only the medium changes.
 ```
 
-_Image-to-image from [`photography-009`](#photography-009) in this repo · `strength: 0.6`_
+_Image-to-image from **Aerial: terraced rice fields** ([`photography-009`](#aerial-terraced-rice-fields)) in this repo · `strength: 0.6`_
 
 `seed: 583476278`
 
@@ -1110,7 +1110,7 @@ _Image-to-image from [`photography-009`](#photography-009) in this repo · `stre
 Recolour this woodblock wave to a dusk palette — deep violet water, salmon sky, warm cream foam. Keep every keyblock outline and flat colour field boundary exactly where it is.
 ```
 
-_Image-to-image from [`illustration-004`](#illustration-004) in this repo · `strength: 0.55`_
+_Image-to-image from **Woodblock wave study** ([`illustration-004`](#woodblock-wave-study)) in this repo · `strength: 0.55`_
 
 `seed: 2083277726`
 
@@ -1126,7 +1126,7 @@ _Image-to-image from [`illustration-004`](#illustration-004) in this repo · `st
 Re-render this exploded camera diagram as a cyanotype blueprint: white line work on Prussian blue, every component in exactly the same position and spacing.
 ```
 
-_Image-to-image from [`isometric-3d-005`](#isometric-3d-005) in this repo · `strength: 0.6`_
+_Image-to-image from **Exploded isometric — camera** ([`isometric-3d-005`](#exploded-isometric--camera)) in this repo · `strength: 0.6`_
 
 `seed: 1652457598`
 

@@ -144,6 +144,15 @@ def cmd_generate(force: bool) -> int:
     return 0
 
 
+def gh_anchor(text: str) -> str:
+    """GitHub's heading-anchor rule: lowercase, drop anything that is not
+    alphanumeric/space/hyphen, then spaces to hyphens. Source links must be built
+    from the target entry's TITLE, because that is what becomes the heading — an
+    earlier version linked to the entry id and produced five dead anchors."""
+    import re as _re
+    return _re.sub(r"[^a-z0-9 -]", "", text.lower()).strip().replace(" ", "-")
+
+
 def render_readme(data: dict, lang: str = "en") -> str:
     entries = data["entries"]
     cats: OrderedDict[str, list] = OrderedDict()
@@ -247,9 +256,14 @@ def render_readme(data: dict, lang: str = "en") -> str:
             L.append(e["prompt"].strip())
             L.append("```")
             if e.get("source"):
+                src = next((x for x in entries if x["id"] == e["source"]), None)
                 L.append("")
-                L.append(f"_Image-to-image from [`{e['source']}`](#{e['source']}) in this repo · "
-                         f"`strength: {e.get('strength')}`_")
+                if src:
+                    L.append(f"_Image-to-image from **{src['title']}** "
+                             f"([`{e['source']}`](#{gh_anchor(src['title'])})) in this repo · "
+                             f"`strength: {e.get('strength')}`_")
+                else:
+                    L.append(f"_Image-to-image from `{e['source']}` · `strength: {e.get('strength')}`_")
             if e.get("params"):
                 L.append("")
                 L.append(" · ".join(f"`{k}: {v}`" for k, v in e["params"].items()))

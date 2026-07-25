@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">161 reproducible prompts for Krea 2 Turbo, across 18 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
+<p align="center">218 reproducible prompts for Krea 2 Turbo, across 25 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
@@ -15,23 +15,42 @@
 
 ## Categories
 
-**161 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1
+**218 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7
 
 ## What this model actually does
 
-Everything below was measured while building this catalog, not quoted from the model card. 210 generations across three batches, 161 are here, 49 were cut. Each claim names the entries that demonstrate it, every entry carries the seed that produced it and the batch it came from, so you can check any of this against the images in this repo. Keep rates rose batch over batch — 85 of 114, then 27 of 36, then 49 of 60 — because each batch was written knowing what the last one ruled out. The exception is deliberate: one category in batch three was included expecting it to fail.
+Everything below was measured while building this catalog, not quoted from the model card. 270 generations across four batches, 218 are here, 52 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.
 
-### Text survives one sign and dies on a list
+The first finding replaces one that stood here for three batches and was wrong. It was overturned by an experiment built to confirm it, which is the best argument I can make for running the experiment.
 
-I went in expecting a word-count ceiling and my own results kill that theory. `HOLLOW & SON — MILLWRIGHTS — EST 1908` came back letter-perfect at eight words (**typography-008**). So did `PLATFORM 4`, `FRAGILE` + `THIS WAY UP`, `SOURDOUGH` + `£4.20`, `SEOUL` + `GATE 12`, `EST 1884`, `FRESH EGGS`. All 15 typography entries kept the string I asked for, and several of them carry two separate strings.
+### It renders text you write. It cannot invent text.
 
-What breaks is not length, it is **how many independent text elements share the frame, and whether any of them is prose**. A chalkboard menu got `FILTER 4.50` and `CORTADO 4.00` right, then produced `CAPEME`, `CABIELO`, `PANSRUR` for the remaining rows. A shelf of twelve book spines, a transit map of thirty station names and an eight-point timeline were unreadable end to end. A safety sign rendered `DANGER` and `ARC FLASH AND SHOCK HAZARD` correctly and filled the paragraph beneath them with letter-shaped noise.
+**This replaces the finding that stood here for three batches, and the replacement came from an experiment designed to confirm it.**
 
-Korean fails earlier and more quietly. I asked for 정직한 국수 and got 정적한 — one character wrong in a four-syllable string. If you do not read Korean it looks clean; if you do, it is the first thing you see.
+The old claim was that text fails by *count*: one sign holds, a list collapses, and somewhere between four strings and six there is a ceiling. To find the ceiling I built a ladder — the same brass nameplate, the same style, the same short word-like strings, varying only in how many share the frame. `stringcount-1` through `stringcount-8`.
 
-Practical rule: one sign, one label, one price tag, at any length. Not a menu, not a bibliography, not a sentence.
+**All eight are correct.** VULCAN. 1938. MODEL 7. SHEFFIELD. SERIAL 4412. 440 VOLTS. 50 CYCLES. MADE IN ENGLAND. Every string legible, on a plate, at eight independent strings. The single error in the whole ladder is a spurious `7` after SHEFFIELD in `stringcount-5`.
 
-Those failures are not in this repo — they are part of the 29 that were cut.
+So count was never the variable. Going back through every text failure in this repo, the split is exact and it is about **who wrote the string**:
+
+- The chalkboard menu specified `FILTER 4.50`, `CORTADO 4.00` and `OAT +0.60` and asked the model to fill the rest of the board. **Those three rendered correctly.** The unspecified rows came back `CAPEME`, `CABIELO`, `PANSRUR`.
+- The twelve book spines said "invent plausible titles". Twelve failures.
+- The transit map asked for "legible station names" without naming any. Thirty failures.
+- The timeline fixed the range at 1970–2030 and left the labels free. **The years rendered. The labels did not.**
+- The terminal specified `$ make install` and asked for "three lines of plausible build output". **The command rendered. The output did not.**
+- Of ten UI mockups, the one that worked is `ui-004`, where every string was written out: `Sign in`, `Email`, `Password`, `Continue`. In the cuts, `ui-007` got `Add to cart` exactly right beside an invented product title of pure noise, and `ui-010`, given no column names at all, headed all three columns with the word `Kanban` — reaching for the nearest word in the prompt.
+
+There is one genuine exception, and it is about script rather than authorship: Korean fails even when written out. See below.
+
+**Practical rule: write out every string you want to see, in the prompt, exactly. Never ask this model to make up a word.** Eight strings is not a limit — it is just where I stopped testing.
+
+### Korean fails even when you write it out
+
+The rule above has one exception in this catalog and it matters if you work in Korean. I asked for a shopfront sign reading exactly `정직한 국수` — specified, four syllables, a real phrase. It came back `정적한 국수`: one vowel wrong in the second syllable.
+
+Everything else about the image is perfect. The brush lettering, the weathered blue panel, the rust bleeding from the screw heads. If you do not read Korean it looks finished; if you do, the error is the first thing you see.
+
+So authorship is not sufficient for non-Latin script. If Hangul is going in the frame, a person who reads it has to check the output.
 
 ### Character identity does not survive across generations
 
@@ -70,15 +89,15 @@ The prompts that worked describe the *light*, not the *fixture*: "hard low-angle
 
 Practical rule: say what the light does, never what makes it.
 
-### Single-string stationery is where this model is strongest
+### Stationery went six for six, and the reason turned out not to be brevity
 
-The six `stationery-*` entries all rendered their text correctly on the first attempt — `NORTHFIELD & CO`, `FRAGILE`, `ADMIT ONE`, `PAID` — with no retries and nothing cut. That is the only category in this catalog with a 100% keep rate.
+The six `stationery-*` entries all rendered their text correctly on the first attempt — `NORTHFIELD & CO`, `FRAGILE`, `ADMIT ONE`, `PAID` — with nothing cut. It is still the cleanest text result in the catalog.
 
-`stationery-006` is the one to look at: the red `PAID` impression on the paper is correct, and the rubber stamp lying beside it carries the same word **mirrored**, which is what a real stamp face does. Nobody asked for that.
+I originally read that as evidence for a brevity rule: one short string in one frame is the shape the model is good at. The `stringcount` ladder says otherwise. Those six succeeded because **every one of them was written out in the prompt**, not because there was only one of them.
 
-This is the same rule as the typography finding, seen from the useful side. One string in one frame is not a limitation to work around; it is the shape the model is actually good at.
+`stationery-006` is still the entry to look at. The red `PAID` impression on the paper is correct, and the rubber stamp lying beside it carries the same word **mirrored**, which is what a real stamp face does. Nobody asked for that.
 
-### Interface mockups: the layout is always right and the words are always wrong
+### Interface mockups: the layout is always right, and the words are only as good as your prompt
 
 I added ten UI mockups to batch three expecting nine of them to fail, and nine of them failed. That was the point — a limit you only predict is not a measured limit.
 
@@ -88,7 +107,9 @@ The strings are not. `ui-002` renders the first section header as `Settings` and
 
 The one that worked is **ui-004**, the login screen, and it worked because it has four short real strings: `Sign in`, `Email`, `Password`, `Continue`. All four are letter-perfect. The same effect shows in the cuts — `ui-007` got `Add to cart` exactly right while inventing gibberish for the product title.
 
-Practical rule: this model will give you a convincing UI *composition* to trace over, and you must replace every word in it.
+At the time I read this as a hard limit on interface work. The `stringcount` ladder shows it is not: **the strings failed because I did not write them.** `ui-004` proves it from inside the same category — four written-out strings, four correct renders — and `ui-010` proves it from the other side, heading all three columns `Kanban` because that was the only word I had given it.
+
+Practical rule: mock up an interface by writing out every label you want to see. What you leave to the model comes back as noise; what you specify comes back correct.
 
 ### It renders words, not letters
 
@@ -160,6 +181,9 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/ui-008.webp" width="150" alt="UI: chat bubbles are structurally perfect and every message is unreadable"> | Readable alternating messages | UI: chat bubbles are structurally perfect and every message is unreadable <br>`seed: 880659524` |
 | <img src="images/failures/ui-009.webp" width="150" alt="UI: the illustration is good, the headline and the button label are not"> | A headline, supporting text and a button label | UI: the illustration is good, the headline and the button label are not <br>`seed: 727964264` |
 | <img src="images/failures/ui-010.webp" width="150" alt="UI: all three columns are literally headed 'Kanban' — the model rendered the word from the prompt"> | Three distinct column names | UI: all three columns are literally headed 'Kanban' — the model rendered the word from the prompt <br>`seed: 1672153217` |
+| <img src="images/failures/fashion-007.webp" width="150" alt="Composition: asked for the rail end-on as receding silhouettes, got it side-on with the hangers showing"> | An end-on rail reading as layered silhouettes | Composition: asked for the rail end-on as receding silhouettes, got it side-on with the hangers showing <br>`seed: 1999599151` |
+| <img src="images/failures/automotive-002.webp" width="150" alt="Text: the tyre sidewall lettering is legible enough to read as wrong"> | Out-of-focus sidewall lettering | Text: the tyre sidewall lettering is legible enough to read as wrong <br>`seed: 318918336` |
+| <img src="images/failures/abstract-004.webp" width="150" alt="Colour: 'coloured light trails' came back as four pale near-white lines"> | Crossing, looping, coloured trails | Colour: 'coloured light trails' came back as four pale near-white lines <br>`seed: 478699619` |
 
 ## How this compares
 
@@ -2222,6 +2246,725 @@ A minimal login screen: a small logo mark, the heading "Sign in", an email field
 ```
 
 `seed: 1367300139`
+
+
+## stringcount
+
+_A controlled experiment: one nameplate design, one to eight independent strings, everything else held constant_
+
+### Nameplate: 1 string
+
+<img src="images/stringcount-1.webp" width="420" alt="Nameplate: 1 string">
+
+**Prompt**
+
+```text
+A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN
+```
+
+`seed: 656981461`
+
+### Nameplate: 2 strings
+
+<img src="images/stringcount-2.webp" width="420" alt="Nameplate: 2 strings">
+
+**Prompt**
+
+```text
+A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN / 1938
+```
+
+`seed: 1941926068`
+
+### Nameplate: 3 strings
+
+<img src="images/stringcount-3.webp" width="420" alt="Nameplate: 3 strings">
+
+**Prompt**
+
+```text
+A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN / 1938 / MODEL 7
+```
+
+`seed: 562744296`
+
+### Nameplate: 4 strings
+
+<img src="images/stringcount-4.webp" width="420" alt="Nameplate: 4 strings">
+
+**Prompt**
+
+```text
+A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN / 1938 / MODEL 7 / SHEFFIELD
+```
+
+`seed: 179604082`
+
+### Nameplate: 5 strings
+
+<img src="images/stringcount-5.webp" width="420" alt="Nameplate: 5 strings">
+
+**Prompt**
+
+```text
+A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN / 1938 / MODEL 7 / SHEFFIELD / SERIAL 4412
+```
+
+`seed: 669484398`
+
+### Nameplate: 6 strings
+
+<img src="images/stringcount-6.webp" width="420" alt="Nameplate: 6 strings">
+
+**Prompt**
+
+```text
+A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN / 1938 / MODEL 7 / SHEFFIELD / SERIAL 4412 / 440 VOLTS
+```
+
+`seed: 1597415794`
+
+### Nameplate: 7 strings
+
+<img src="images/stringcount-7.webp" width="420" alt="Nameplate: 7 strings">
+
+**Prompt**
+
+```text
+A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN / 1938 / MODEL 7 / SHEFFIELD / SERIAL 4412 / 440 VOLTS / 50 CYCLES
+```
+
+`seed: 742958406`
+
+### Nameplate: 8 strings
+
+<img src="images/stringcount-8.webp" width="420" alt="Nameplate: 8 strings">
+
+**Prompt**
+
+```text
+A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN / 1938 / MODEL 7 / SHEFFIELD / SERIAL 4412 / 440 VOLTS / 50 CYCLES / MADE IN ENGLAND
+```
+
+`seed: 762332150`
+
+
+## animal
+
+_Animals and birds, wild and domestic_
+
+### Red fox in frost
+
+<img src="images/animal-001.webp" width="420" alt="Red fox in frost">
+
+**Prompt**
+
+```text
+A red fox standing alert in frosted grass at first light, breath visible, low sun catching the guard hairs along its back as a bright rim. 400mm, shallow depth of field, background collapsed to soft ochre. Eye sharp, ears forward.
+```
+
+`seed: 1133238396`
+
+### Barn owl in flight, backlit
+
+<img src="images/animal-002.webp" width="420" alt="Barn owl in flight, backlit">
+
+**Prompt**
+
+```text
+A barn owl in level flight across an open field at dusk, backlit so the flight feathers glow translucent at the trailing edge. Wings at full extension, head turned toward camera. 1/2000s, dark treeline behind, everything else falling away.
+```
+
+`seed: 1363642666`
+
+### Sleeping cat, window light
+
+<img src="images/animal-003.webp" width="420" alt="Sleeping cat, window light">
+
+**Prompt**
+
+```text
+A tabby cat asleep on a windowsill in soft afternoon light, one paw over its face, individual whiskers catching the light. Dust motes in the air, the window frame casting a soft edge across the fur. 50mm, f/2, warm and quiet.
+```
+
+`seed: 1871088047`
+
+### Highland cow, overcast
+
+<img src="images/animal-004.webp" width="420" alt="Highland cow, overcast">
+
+**Prompt**
+
+```text
+A Highland cow facing camera under flat overcast light, long ginger fringe hanging over its eyes and wet at the tips, breath steaming, mud on the muzzle. Moorland behind reduced to grey-green. 200mm, chest up, documentary.
+```
+
+`seed: 628225508`
+
+### Koi from above
+
+<img src="images/animal-005.webp" width="420" alt="Koi from above">
+
+**Prompt**
+
+```text
+Three koi seen from directly above in dark green water, their white and orange markings the only bright thing in frame, surface ripples distorting the tails. Overcast daylight, no reflections of sky, polarised look.
+```
+
+`seed: 652401162`
+
+### Border collie mid-run
+
+<img src="images/animal-006.webp" width="420" alt="Border collie mid-run">
+
+**Prompt**
+
+```text
+A border collie at full stretch across short grass, all four feet off the ground, ears flattened, tongue out, mud spraying behind. Panned at 1/250s so the background streaks and the dog stays sharp. Low camera, side on.
+```
+
+`seed: 1945170114`
+
+### Elephant skin, macro
+
+<img src="images/animal-007.webp" width="420" alt="Elephant skin, macro">
+
+**Prompt**
+
+```text
+Extreme close-up of elephant skin: deep cracked fissures, dried mud in the crevices, a few coarse dark hairs. Hard side light raking across so every fissure casts its own shadow. Fills the frame entirely, no context, almost abstract.
+```
+
+`seed: 1410474870`
+
+### Hummingbird at a flower
+
+<img src="images/animal-008.webp" width="420" alt="Hummingbird at a flower">
+
+**Prompt**
+
+```text
+A hummingbird hovering at a red trumpet flower, wings blurred to a haze while the body and eye stay sharp, iridescent green throat catching the light. High-speed flash, black background, a single drop of nectar visible.
+```
+
+`seed: 87090589`
+
+### Sheep flock in fog
+
+<img src="images/animal-009.webp" width="420" alt="Sheep flock in fog">
+
+**Prompt**
+
+```text
+A flock of sheep on a hillside in thick fog, the nearest three sharp and the rest dissolving into grey at increasing distance. Wet wool, no horizon, no sky. Muted, almost monochrome, 135mm compression.
+```
+
+`seed: 2100916653`
+
+### Horse in dust, backlit
+
+<img src="images/animal-010.webp" width="420" alt="Horse in dust, backlit">
+
+**Prompt**
+
+```text
+A horse turning in a dusty paddock with low sun directly behind, the raised dust glowing gold and the animal reading almost as a silhouette with a bright rim along the neck and mane. Hard contrast, 200mm, dark foreground.
+```
+
+`seed: 2049057806`
+
+
+## landscape
+
+_Land, weather and light at scale_
+
+### Storm light over ridgeline
+
+<img src="images/landscape-001.webp" width="420" alt="Storm light over ridgeline">
+
+**Prompt**
+
+```text
+A mountain ridgeline under breaking storm light: dark cloud filling the upper frame, a single shaft of sun striking one slope and leaving the rest in shadow. Wet rock, no people, no path. 70mm, high contrast, cold shadows and warm highlight.
+```
+
+`seed: 1853365286`
+
+### Salt flat at dusk
+
+<img src="images/landscape-002.webp" width="420" alt="Salt flat at dusk">
+
+**Prompt**
+
+```text
+A cracked salt flat stretching to a flat horizon at dusk, the polygon crust catching low pink light, a thin film of water in the nearest cracks reflecting the sky. Ultra-wide, horizon low, nothing else in frame.
+```
+
+`seed: 1866698437`
+
+### Beech wood in mist
+
+<img src="images/landscape-003.webp" width="420" alt="Beech wood in mist">
+
+**Prompt**
+
+```text
+A beech wood in early morning mist, pale trunks receding in even ranks until they dissolve, leaf litter deep and orange underfoot, light coming from behind the trees. No sky visible, no path, no people. 85mm, compressed.
+```
+
+`seed: 1947533128`
+
+### Basalt columns at low tide
+
+<img src="images/landscape-004.webp" width="420" alt="Basalt columns at low tide">
+
+**Prompt**
+
+```text
+Hexagonal basalt columns exposed at low tide, wet and dark, seaweed in the joints, the sea flat and pale behind under overcast light. Shot low so the column tops recede as a stepped surface. Long exposure smoothing the water.
+```
+
+`seed: 1022031261`
+
+### Wheat field before rain
+
+<img src="images/landscape-005.webp" width="420" alt="Wheat field before rain">
+
+**Prompt**
+
+```text
+A wheat field under a bruised sky just before rain, wind laying the crop in moving waves, one distant line of trees, no buildings. The light green-grey and flat except for one pale gap in the cloud. Wide, horizon on the lower third.
+```
+
+`seed: 1820685942`
+
+### Glacier snout, cold light
+
+<img src="images/landscape-006.webp" width="420" alt="Glacier snout, cold light">
+
+**Prompt**
+
+```text
+The snout of a glacier meeting grey moraine, deep blue compressed ice visible in the crevasses, meltwater running out from beneath. Flat overcast light, no sun, no sky in frame. Scale ambiguous — no people or objects for reference.
+```
+
+`seed: 1365266474`
+
+### Desert dune ridge, first light
+
+<img src="images/landscape-007.webp" width="420" alt="Desert dune ridge, first light">
+
+**Prompt**
+
+```text
+A single dune ridge at first light, the windward face lit warm and the lee face in deep blue shadow, the ridgeline running diagonally across the frame with a crisp unbroken edge. Ripples in the sand catching side light. Nothing else.
+```
+
+`seed: 1077975326`
+
+### Rice terraces in cloud
+
+<img src="images/landscape-008.webp" width="420" alt="Rice terraces in cloud">
+
+**Prompt**
+
+```text
+Flooded rice terraces on a steep hillside with low cloud sitting in the valley below, the water surfaces reflecting a white sky so the terraces read as bright ribbons against dark banks. Overcast, aerial three-quarter view.
+```
+
+`seed: 1381739119`
+
+### Frozen lake, cracked ice
+
+<img src="images/landscape-009.webp" width="420" alt="Frozen lake, cracked ice">
+
+**Prompt**
+
+```text
+A frozen lake surface shot low and close, cracks radiating and trapped bubbles suspended in the ice, a distant far shore reduced to a thin dark line. Cold blue light, thin snow drifted into the cracks. Ultra-wide, foreground dominant.
+```
+
+`seed: 267516027`
+
+### Coastal cliff in gale
+
+<img src="images/landscape-010.webp" width="420" alt="Coastal cliff in gale">
+
+**Prompt**
+
+```text
+A coastal cliff in a gale, spray thrown high up the rock face, grass on the clifftop flattened, the sea below white and confused. Grey flat light, no sun. Shot from the clifftop looking along the coast, 35mm, everything wet.
+```
+
+`seed: 1122641191`
+
+
+## fashion
+
+_Garments, textile detail, lookbook and flat lay_
+
+### Wool coat flat lay
+
+<img src="images/fashion-001.webp" width="420" alt="Wool coat flat lay">
+
+**Prompt**
+
+```text
+A charcoal wool overcoat laid flat and shot directly overhead on a pale linen surface, sleeves arranged symmetrically, collar open, horn buttons visible. Soft even light, the wool texture and the twill weave both readable. No model, no props.
+```
+
+`seed: 1025323172`
+
+### Denim detail, macro
+
+<img src="images/fashion-002.webp" width="420" alt="Denim detail, macro">
+
+**Prompt**
+
+```text
+Macro of a selvedge denim seam: the red-line selvedge edge, chain-stitch run-off, copper rivet, and the indigo faded unevenly along the fold. Raking light so the twill diagonal is visible. Extremely shallow depth of field.
+```
+
+`seed: 374180050`
+
+### Silk in motion, studio
+
+<img src="images/fashion-003.webp" width="420" alt="Silk in motion, studio">
+
+**Prompt**
+
+```text
+A length of oyster-coloured silk thrown into the air in a studio and frozen mid-fall, the fabric catching light along its folds and going translucent where it is single-layered. Black background, one hard light from the right, 1/8000s.
+```
+
+`seed: 74128835`
+
+### Knitwear texture close-up
+
+<img src="images/fashion-004.webp" width="420" alt="Knitwear texture close-up">
+
+**Prompt**
+
+```text
+Close-up of a hand-knitted Aran sweater: cable panels, moss stitch, and a visible join where the yarn changed. Undyed cream wool with the natural halo of the fibre catching soft side light. Fills the frame, slight depth falloff.
+```
+
+`seed: 1554099169`
+
+### Boot on wet cobbles
+
+<img src="images/fashion-005.webp" width="420" alt="Boot on wet cobbles">
+
+**Prompt**
+
+```text
+A single worn leather boot standing on wet cobblestones, laces uneven, the toe scuffed pale, welt stitching visible, reflections in the water between the stones. Overcast light, low camera, shallow focus falling off behind.
+```
+
+`seed: 2059154957`
+
+### Sunglasses on stone, hard light
+
+<img src="images/fashion-006.webp" width="420" alt="Sunglasses on stone, hard light">
+
+**Prompt**
+
+```text
+A pair of tortoiseshell sunglasses resting on warm limestone in hard midday sun, the frame casting a crisp double shadow, the lenses reflecting a slice of blue sky. Product-grade but shot outdoors. Macro, top-down, high contrast.
+```
+
+`seed: 1961244750`
+
+### Pleated skirt, wind
+
+<img src="images/fashion-008.webp" width="420" alt="Pleated skirt, wind">
+
+**Prompt**
+
+```text
+A pleated midi skirt caught by wind against a plain concrete wall, the pleats opening into a fan and each fold catching a different value of the same colour. Waist down only, hard afternoon side light, sharp shadow on the wall.
+```
+
+`seed: 1497786953`
+
+
+## automotive
+
+_Cars and motorcycles, studio and location_
+
+### Classic coupe, studio strip lights
+
+<img src="images/automotive-001.webp" width="420" alt="Classic coupe, studio strip lights">
+
+**Prompt**
+
+```text
+A 1960s coupe in a dark studio with two long overhead strip lights reflected as continuous highlights running the length of the body, three-quarter front view, everything else falling to black. Chrome bumper picking up a hard specular.
+```
+
+`seed: 784853870`
+
+### Motorcycle on wet road, panned
+
+<img src="images/automotive-003.webp" width="420" alt="Motorcycle on wet road, panned">
+
+**Prompt**
+
+```text
+A motorcycle leaned into a bend on a wet road, panned at 1/60s so the road and hedgerow streak while the bike and rider stay sharp. Spray off the rear tyre, overcast grey light, headlight on. Side on, low angle.
+```
+
+`seed: 748778927`
+
+### Engine bay, top-down
+
+<img src="images/automotive-004.webp" width="420" alt="Engine bay, top-down">
+
+**Prompt**
+
+```text
+An engine bay shot directly down with the bonnet removed: cam cover, braided lines, alloy castings, a patina of use rather than a show-car polish. Even overcast daylight, no harsh reflections, everything readable.
+```
+
+`seed: 1618892058`
+
+### Car interior at night
+
+<img src="images/automotive-005.webp" width="420" alt="Car interior at night">
+
+**Prompt**
+
+```text
+A car interior at night from the rear seat, instrument cluster and centre screen the only light sources, rain on the side glass diffusing streetlights into soft orange blobs. Nobody in frame. Long exposure, warm dashboard glow.
+```
+
+`seed: 210253850`
+
+### Rally car on gravel
+
+<img src="images/automotive-006.webp" width="420" alt="Rally car on gravel">
+
+**Prompt**
+
+```text
+A rally car mid-corner on a gravel stage throwing a wall of stones and dust, all four wheels loaded, mud up the flanks. Forest behind in shadow, hard shaft of sun on the car. 1/1000s, side on, low.
+```
+
+`seed: 1191811108`
+
+### Rusting truck in a field
+
+<img src="images/automotive-007.webp" width="420" alt="Rusting truck in a field">
+
+**Prompt**
+
+```text
+An abandoned pickup truck sinking into long grass, paint gone to rust and primer, one door open, glass missing. Flat overcast light, no drama, documentary framing at 35mm. Weeds growing through the wheel arches.
+```
+
+`seed: 1346029088`
+
+### Headlight macro, water beads
+
+<img src="images/automotive-008.webp" width="420" alt="Headlight macro, water beads">
+
+**Prompt**
+
+```text
+Macro of a modern headlight cluster with water beaded across the lens, the LED elements visible as bright points refracted through each droplet. Dark paint around it out of focus. Hard light from above, very shallow focus.
+```
+
+`seed: 2093173173`
+
+
+## exterior
+
+_Buildings from outside — facades, materials, weather_
+
+### Brutalist facade, hard sun
+
+<img src="images/exterior-001.webp" width="420" alt="Brutalist facade, hard sun">
+
+**Prompt**
+
+```text
+A brutalist concrete facade in hard afternoon sun, deep window reveals throwing black rectangles of shadow, board-marked concrete texture readable across the whole surface. Straight on, no sky, no people. Slight lens correction.
+```
+
+`seed: 2005377678`
+
+### Rain-streaked glass tower
+
+<img src="images/exterior-002.webp" width="420" alt="Rain-streaked glass tower">
+
+**Prompt**
+
+```text
+A glass office tower photographed looking up in the rain, the facade reflecting fragments of grey cloud, water streaking down the panels, the grid of mullions receding to a vanishing point. Cold, desaturated, ultra-wide.
+```
+
+`seed: 1527311382`
+
+### Terraced houses, low sun
+
+<img src="images/exterior-003.webp" width="420" alt="Terraced houses, low sun">
+
+**Prompt**
+
+```text
+A row of brick terraced houses in low winter sun, chimney shadows falling across the roofs opposite, sash windows, a wheelie bin, wet pavement. Documentary, straight on, 35mm, nobody in frame.
+```
+
+`seed: 145725328`
+
+### Timber barn, weathered
+
+<img src="images/exterior-004.webp" width="420" alt="Timber barn, weathered">
+
+**Prompt**
+
+```text
+A weathered timber barn with silvered boards and a rusted corrugated roof, standing in flat grassland under a wide overcast sky. One door open into darkness. Straight on, symmetrical, horizon low, no other buildings.
+```
+
+`seed: 416415737`
+
+### Stone church in fog
+
+<img src="images/exterior-005.webp" width="420" alt="Stone church in fog">
+
+**Prompt**
+
+```text
+A small stone church with a square tower half lost in fog, gravestones leaning in the foreground, wet grass, bare trees reduced to grey outlines. No sun, no sky detail, muted almost monochrome. 50mm, quiet.
+```
+
+`seed: 2045582615`
+
+### Modernist house at dusk
+
+<img src="images/exterior-006.webp" width="420" alt="Modernist house at dusk">
+
+**Prompt**
+
+```text
+A single-storey modernist house at dusk with warm interior light spilling through full-height glazing onto a terrace, the sky still holding deep blue. Flat roof, exposed steel, planting in silhouette. Long exposure, tripod, no people.
+```
+
+`seed: 455391691`
+
+### Fire escape shadows
+
+<img src="images/exterior-007.webp" width="420" alt="Fire escape shadows">
+
+**Prompt**
+
+```text
+A cast-iron fire escape on a brick wall in hard low sun, its shadow drawn precisely across the brickwork beside it as a second graphic structure. Straight on, flat, no sky. The shadow more legible than the object.
+```
+
+`seed: 335239700`
+
+### Coastal lighthouse, gale
+
+<img src="images/exterior-008.webp" width="420" alt="Coastal lighthouse, gale">
+
+**Prompt**
+
+```text
+A white lighthouse on a rocky headland in a gale, spray reaching halfway up the tower, grey sea and grey sky nearly the same value. Lamp lit and just visible. Shot from land, 200mm, everything wet and flat-lit.
+```
+
+`seed: 1925132923`
+
+
+## abstract
+
+_Non-representational: fluid, macro, gradient, texture_
+
+### Ink in water
+
+<img src="images/abstract-001.webp" width="420" alt="Ink in water">
+
+**Prompt**
+
+```text
+Black ink dispersing in clear water, frozen mid-bloom, tendrils branching into fine filaments against a white backlit ground. High-speed, extremely sharp, no container edges visible. Fills the frame.
+```
+
+`seed: 1099275261`
+
+### Oil and water macro
+
+<img src="images/abstract-002.webp" width="420" alt="Oil and water macro">
+
+**Prompt**
+
+```text
+Macro of oil beads floating on water over a coloured background, each bead acting as a lens and refracting a different fragment of colour, the beads clustering into a cellular structure. Backlit, no edges, fills the frame.
+```
+
+`seed: 52430611`
+
+### Cracked glaze, macro
+
+<img src="images/abstract-003.webp" width="420" alt="Cracked glaze, macro">
+
+**Prompt**
+
+```text
+Macro of crazed ceramic glaze: a fine irregular network of cracks over a celadon surface, each crack darkened by age, the glaze pooling thicker in places. Raking light, no edges of the vessel visible. Almost a map.
+```
+
+`seed: 801181841`
+
+### Sand ripples, aerial
+
+<img src="images/abstract-005.webp" width="420" alt="Sand ripples, aerial">
+
+**Prompt**
+
+```text
+An aerial view straight down onto tidal sand ripples, the pattern branching like a river system, wet sand darker than dry, no horizon and no objects to give scale. Low sun raking so every ridge casts a fine shadow.
+```
+
+`seed: 1425727649`
+
+### Torn paper layers
+
+<img src="images/abstract-006.webp" width="420" alt="Torn paper layers">
+
+**Prompt**
+
+```text
+Layers of torn coloured paper overlapping, each tear showing the white core of the stock, arranged so the composition reads as strata. Soft even light, subtle shadows between layers, muted palette of ochre, teal and grey.
+```
+
+`seed: 2097906804`
+
+### Frost on glass
+
+<img src="images/abstract-007.webp" width="420" alt="Frost on glass">
+
+**Prompt**
+
+```text
+Ice crystals growing across a window pane, fern-like branching structures backlit by a cold pale sky, sharp where the crystals are thick and dissolving where they thin. No frame, no view through, fills the entire frame.
+```
+
+`seed: 370355428`
+
+### Molten metal pour
+
+<img src="images/abstract-008.webp" width="420" alt="Molten metal pour">
+
+**Prompt**
+
+```text
+A stream of molten metal pouring in a dark foundry, sparks arcing away from the stream, the glow lighting nothing but itself. Deep orange to white in the core, everything around it black. Fast shutter freezing the sparks.
+```
+
+`seed: 838584990`
 
 
 ## Contributing

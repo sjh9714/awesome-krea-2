@@ -10,3 +10,8 @@ raw/
 .env
 .env.*
 !.env.example
+
+# Per-batch scratch manifest. Batches are merged into prompts.json with a
+# `batch` field on every entry, so a committed additions.json is a stale
+# duplicate of whichever batch ran last — and it was, twice.
+additions.json

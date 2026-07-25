@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">112 reproducible prompts for Krea 2 Turbo, across 11 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
+<p align="center">161 reproducible prompts for Krea 2 Turbo, across 18 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
@@ -15,11 +15,11 @@
 
 ## Categories
 
-**112 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6
+**161 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1
 
 ## What this model actually does
 
-Everything below was measured while building this catalog, not quoted from the model card. 150 generations went in across two batches, 112 are here, 38 were cut. Each claim names the entries that demonstrate it, and every entry carries the seed that produced it, so you can check any of this against the images in this repo. Batch two kept a higher share — 27 of 36 against 85 of 114 — because it was written knowing what batch one had already ruled out. That is what these findings are for.
+Everything below was measured while building this catalog, not quoted from the model card. 210 generations across three batches, 161 are here, 49 were cut. Each claim names the entries that demonstrate it, every entry carries the seed that produced it and the batch it came from, so you can check any of this against the images in this repo. Keep rates rose batch over batch — 85 of 114, then 27 of 36, then 49 of 60 — because each batch was written knowing what the last one ruled out. The exception is deliberate: one category in batch three was included expecting it to fail.
 
 ### Text survives one sign and dies on a list
 
@@ -78,6 +78,36 @@ The six `stationery-*` entries all rendered their text correctly on the first at
 
 This is the same rule as the typography finding, seen from the useful side. One string in one frame is not a limitation to work around; it is the shape the model is actually good at.
 
+### Interface mockups: the layout is always right and the words are always wrong
+
+I added ten UI mockups to batch three expecting nine of them to fail, and nine of them failed. That was the point — a limit you only predict is not a measured limit.
+
+What is striking is *which* half breaks. The structure is consistently correct: `ui-002` has three grouped sections of three rows with a toggle on each, some on and some off, hairlines between; `ui-008` has alternating chat bubbles with avatars, timestamps and a pinned input; `ui-010` has three kanban columns with count badges, tag pills and avatars. Every one of those is exactly what was asked for.
+
+The strings are not. `ui-002` renders the first section header as `Settings` and then degrades to `Sectings` for the next two. `ui-006` fails at the day headers *and* at the dates — the first week reads 5, 6, 51, 13, which is not a week.
+
+The one that worked is **ui-004**, the login screen, and it worked because it has four short real strings: `Sign in`, `Email`, `Password`, `Continue`. All four are letter-perfect. The same effect shows in the cuts — `ui-007` got `Add to cart` exactly right while inventing gibberish for the product title.
+
+Practical rule: this model will give you a convincing UI *composition* to trace over, and you must replace every word in it.
+
+### It renders words, not letters
+
+`brand-mark-002` asked for a monogram of the letters `KJ` interlocked in a circle. It came back with three letterforms, none of them clearly a J. Everything around it is perfect — the circular rule, the single ink weight, the symmetry.
+
+That is the only text failure in a category that otherwise went seven for eight, and the seven that worked were all *words*: `HALLOW`, `FIELDNOTE`, `OPEN`, `EST 1904`, `ASTER`, `COOPERAGE`, `STUDIO 4`. Nine letters rendered correctly in `COOPERAGE`; two letters failed in `KJ`.
+
+So the limit is not length, and it is not even string count on its own. An arbitrary letter pair has no word for the model to reach for. If you need specific initials, expect to set them yourself.
+
+### "Seamless" produces a pattern that does not tile
+
+All eight `pattern-*` prompts asked for a seamless repeat. I tiled the outputs and measured the seam by comparing each image's left edge column against its right, and its top row against its bottom, against the baseline difference between two arbitrary interior columns of the same image.
+
+**One of the eight tiles.** That one is `pattern-007`, vertical hand-drawn stripes, where the edges match because vertical stripes match trivially — structural luck, not the instruction being followed. `pattern-005` tiles horizontally and not vertically. The remaining six have edge differences at or above their own interior baseline, meaning the two edges are as unrelated as two random slices.
+
+The images are good. Several are genuinely beautiful surface designs. They are just not repeat tiles, and if you drop one into a wallpaper or textile pipeline expecting it to run, it will seam.
+
+Practical rule: treat these as one-off surfaces. Making them actually tile is a post-process, not a prompt.
+
 ## The image-to-image entries, taken further
 
 The five `editing-*` entries were pulled out into [**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for Claude Code and Codex, and each one was re-run against a source it was *not* derived from. Two held, two came back partial, one failed — and the failures produced a sharper rule than this catalog started with: **geometry is locked, material is not.** Relighting wet rice terraces under hard sun keeps every contour in position and returns dry stone.
@@ -119,6 +149,17 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/collectible-003.webp" width="150" alt="Text: four keycap legends came back as letter-shaped noise"> | Four legible dye-sublimated legends | Text: four keycap legends came back as letter-shaped noise <br>`seed: 1958353167` |
 | <img src="images/failures/collectible-004.webp" width="150" alt="Layout: the creature artwork went to the top and the centre panel stayed empty"> | Illustrated creature artwork in the central panel | Layout: the creature artwork went to the top and the centre panel stayed empty <br>`seed: 167021886` |
 | <img src="images/failures/collectible-008.webp" width="150" alt="Equipment: naming the softbox put the softbox in the frame"> | A single softbox lighting the duck, out of shot | Equipment: naming the softbox put the softbox in the frame <br>`seed: 1935262212` |
+| <img src="images/failures/food-003.webp" width="150" alt="Mechanism: the espresso renders as an amber disc where the basket should be, and one stream instead of two"> | Two thin streams from a portafilter | Mechanism: the espresso renders as an amber disc where the basket should be, and one stream instead of two <br>`seed: 117001054` |
+| <img src="images/failures/brand-mark-002.webp" width="150" alt="Letters: asked for the monogram 'KJ', got three letterforms that are not those two"> | The letters K and J interlocked | Letters: asked for the monogram 'KJ', got three letterforms that are not those two <br>`seed: 1276536027` |
+| <img src="images/failures/ui-001.webp" width="150" alt="UI: every invented label is noise while the currency amounts render correctly"> | Transaction names, dates and amounts | UI: every invented label is noise while the currency amounts render correctly <br>`seed: 1378883083` |
+| <img src="images/failures/ui-002.webp" width="150" alt="UI: the first section header reads 'Settings'; the next two degrade to 'Sectings'"> | Three section headers and six row labels | UI: the first section header reads 'Settings'; the next two degrade to 'Sectings' <br>`seed: 1537435411` |
+| <img src="images/failures/ui-003.webp" width="150" alt="UI: metric numbers survive, every label around them does not"> | Four labelled metric cards and a five-row table | UI: metric numbers survive, every label around them does not <br>`seed: 401297056` |
+| <img src="images/failures/ui-005.webp" width="150" alt="UI: a code editor renders as convincing syntax-coloured noise with no readable token"> | Syntax-highlighted code | UI: a code editor renders as convincing syntax-coloured noise with no readable token <br>`seed: 1224413193` |
+| <img src="images/failures/ui-006.webp" width="150" alt="UI: the day headers fail and so do the dates — 5, 6, 51, 13 is not a week"> | Seven weekday headers and a sequential date grid | UI: the day headers fail and so do the dates — 5, 6, 51, 13 is not a week <br>`seed: 982476354` |
+| <img src="images/failures/ui-007.webp" width="150" alt="UI: 'Add to cart' is correct, the product title is not, and the size buttons all read 'Size'"> | A product title, a price, and size options | UI: 'Add to cart' is correct, the product title is not, and the size buttons all read 'Size' <br>`seed: 1056892936` |
+| <img src="images/failures/ui-008.webp" width="150" alt="UI: chat bubbles are structurally perfect and every message is unreadable"> | Readable alternating messages | UI: chat bubbles are structurally perfect and every message is unreadable <br>`seed: 880659524` |
+| <img src="images/failures/ui-009.webp" width="150" alt="UI: the illustration is good, the headline and the button label are not"> | A headline, supporting text and a button label | UI: the illustration is good, the headline and the button label are not <br>`seed: 727964264` |
+| <img src="images/failures/ui-010.webp" width="150" alt="UI: all three columns are literally headed 'Kanban' — the model rendered the word from the prompt"> | Three distinct column names | UI: all three columns are literally headed 'Kanban' — the model rendered the word from the prompt <br>`seed: 1672153217` |
 
 ## How this compares
 
@@ -1558,6 +1599,629 @@ A rubber stamp impression of the word "PAID" struck in red ink at a slight angle
 ```
 
 `seed: 2044996526`
+
+
+## food
+
+_Food and drink, studio and in-context_
+
+### Cut sourdough loaf, side light
+
+<img src="images/food-001.webp" width="420" alt="Cut sourdough loaf, side light">
+
+**Prompt**
+
+```text
+A sourdough loaf cut in half on a floured board, hard side light from the left raking across the open crumb so every hole casts its own shadow. Blistered dark crust, flour dusting the surface, a serrated knife just out of the frame edge. Shot at f/8, tight.
+```
+
+`seed: 207887450`
+
+### Ramen bowl, overhead steam
+
+<img src="images/food-002.webp" width="420" alt="Ramen bowl, overhead steam">
+
+**Prompt**
+
+```text
+An overhead shot of a ramen bowl on dark wood, soft-boiled egg halved and glossy, nori standing at the edge, chopped scallion scattered. Steam rising and catching a backlight. Deep tonkotsu broth, visible fat droplets, condensation on the rim of the bowl.
+```
+
+`seed: 996431689`
+
+### Citrus cross-sections on marble
+
+<img src="images/food-004.webp" width="420" alt="Citrus cross-sections on marble">
+
+**Prompt**
+
+```text
+Halved citrus fruits arranged on white marble, shot straight down under a large diffuse source. Blood orange, grapefruit, lime, lemon. Juice beading on the cut faces, translucent segments, a few seeds visible. Cool, clean, high key, no props.
+```
+
+`seed: 1002826123`
+
+### Cast iron steak, hard rim light
+
+<img src="images/food-005.webp" width="420" alt="Cast iron steak, hard rim light">
+
+**Prompt**
+
+```text
+A steak resting in a cast iron pan, dark crust with visible sear marks, one hard light from behind creating a bright rim along the top edge and rendering the rest in deep shadow. Butter foaming at the base, thyme sprigs, tongs at the frame edge.
+```
+
+`seed: 752325181`
+
+### Ice cream melting, tight macro
+
+<img src="images/food-006.webp" width="420" alt="Ice cream melting, tight macro">
+
+**Prompt**
+
+```text
+Macro of a scoop of pistachio ice cream beginning to melt on a ceramic plate, one drip running down and pooling. Visible nut fragments and ice crystals, cold blue-white light, condensation on the plate. Extremely shallow depth of field.
+```
+
+`seed: 1757822826`
+
+### Market vegetable stall, overcast
+
+<img src="images/food-007.webp" width="420" alt="Market vegetable stall, overcast">
+
+**Prompt**
+
+```text
+A market stall of root vegetables under flat overcast light, mud still on the carrots and beetroot, crates stacked at angles, a canvas awning cutting the top of the frame. Documentary, 35mm, colours slightly desaturated by the grey sky.
+```
+
+`seed: 1110593834`
+
+### Layer cake cross-section
+
+<img src="images/food-008.webp" width="420" alt="Layer cake cross-section">
+
+**Prompt**
+
+```text
+A slice removed from a four-layer cake so the cross-section faces camera, buttercream between each layer, crumb visible and slightly moist. Even soft light, pale pink background, cake stand edge in frame. Straight on, symmetrical.
+```
+
+`seed: 1632613977`
+
+### Whisky glass, single hard source
+
+<img src="images/food-009.webp" width="420" alt="Whisky glass, single hard source">
+
+**Prompt**
+
+```text
+A cut crystal glass of whisky on dark slate, a single hard light behind and to the right throwing the cut facets into bright caustics on the stone. Large clear ice sphere, amber liquid, everything else black. Product-grade, no props.
+```
+
+`seed: 1133820066`
+
+### Dumplings in a bamboo steamer
+
+<img src="images/food-010.webp" width="420" alt="Dumplings in a bamboo steamer">
+
+**Prompt**
+
+```text
+Open bamboo steamer of pleated dumplings, translucent wrappers showing the filling through, steam still rising. Warm overhead light, a second closed steamer stacked beneath, dark table. Slight top-down angle, shallow focus falling off at the back.
+```
+
+`seed: 1310175144`
+
+
+## interior
+
+_Rooms, architecture, spatial light_
+
+### Sunlit reading corner
+
+<img src="images/interior-001.webp" width="420" alt="Sunlit reading corner">
+
+**Prompt**
+
+```text
+A reading corner in late afternoon: a worn leather armchair, a floor lamp switched off, low sun coming through a tall window and throwing a hard trapezoid of light across the floorboards and up the wall. Dust in the beam. Wide, 24mm, no people.
+```
+
+`seed: 633029565`
+
+### Concrete stairwell, top light
+
+<img src="images/interior-002.webp" width="420" alt="Concrete stairwell, top light">
+
+**Prompt**
+
+```text
+A brutalist concrete stairwell shot upward, daylight entering from a skylight far above and falling off with distance. Board-formed concrete texture, steel handrail, deep shadow in the lower flights. Symmetrical composition, ultra-wide.
+```
+
+`seed: 1168418123`
+
+### Kitchen at blue hour
+
+<img src="images/interior-003.webp" width="420" alt="Kitchen at blue hour">
+
+**Prompt**
+
+```text
+A kitchen at blue hour, under-cabinet lights the only warm source, cool blue window light balancing it from the left. Marble worktop, a single glass left out, everything tidy. Mixed colour temperature held rather than corrected. Tripod, long exposure.
+```
+
+`seed: 1981161439`
+
+### Empty gallery room
+
+<img src="images/interior-004.webp" width="420" alt="Empty gallery room">
+
+**Prompt**
+
+```text
+An empty white gallery room with a polished concrete floor, track lighting pointing at bare walls, one doorway leading to a darker second room. No artwork, no people. Even diffuse light, straight-on one-point perspective, 28mm.
+```
+
+`seed: 1318705704`
+
+### Attic workshop, north light
+
+<img src="images/interior-005.webp" width="420" alt="Attic workshop, north light">
+
+**Prompt**
+
+```text
+An attic workshop under a sloping roof with a north-facing skylight, workbench cluttered with hand tools, sawdust on the floor, exposed rafters. Soft even daylight with no direct sun. Warm wood tones, slight haze, 35mm.
+```
+
+`seed: 613896431`
+
+### Hotel corridor, receding lights
+
+<img src="images/interior-006.webp" width="420" alt="Hotel corridor, receding lights">
+
+**Prompt**
+
+```text
+A long hotel corridor with identical doors receding to a vanishing point, wall sconces at regular intervals creating a rhythm of pools of light on patterned carpet. Slightly wide, dead centre, symmetrical. Nobody in frame.
+```
+
+`seed: 965972945`
+
+### Greenhouse interior, humid light
+
+<img src="images/interior-007.webp" width="420" alt="Greenhouse interior, humid light">
+
+**Prompt**
+
+```text
+Inside a Victorian glasshouse, wrought iron ribs overhead, condensation on the panes diffusing the sunlight into a soft glow. Palms and ferns crowding a central path, terracotta pots, water on the flagstones. Humid, green, slightly overexposed.
+```
+
+`seed: 1871087603`
+
+### Japanese tatami room
+
+<img src="images/interior-008.webp" width="420" alt="Japanese tatami room">
+
+**Prompt**
+
+```text
+A tatami room with shoji screens filtering daylight into an even soft wash, a low wooden table, one cushion, an alcove with a single branch in a vase. Nothing else. Straight on, symmetrical, muted natural palette.
+```
+
+`seed: 1875634416`
+
+### Basement server room
+
+<img src="images/interior-009.webp" width="420" alt="Basement server room">
+
+**Prompt**
+
+```text
+A basement server room lit only by rack indicator LEDs and one open cabinet door spilling white light, cable bundles running overhead in trays, polished raised floor reflecting the glow. Cold, blue-green, long exposure, nobody present.
+```
+
+`seed: 769155750`
+
+### Loft under renovation
+
+<img src="images/interior-010.webp" width="420" alt="Loft under renovation">
+
+**Prompt**
+
+```text
+A loft mid-renovation: plaster dust, a stepladder, plastic sheeting over a window softening the light, bare brick where the plaster has come off, exposed joists. Work lights on stands casting hard overlapping shadows. Documentary, wide.
+```
+
+`seed: 736283544`
+
+
+## pattern
+
+_Repeating surface design — textile, wallpaper, wrapping_
+
+### Botanical block print repeat
+
+<img src="images/pattern-001.webp" width="420" alt="Botanical block print repeat">
+
+**Prompt**
+
+```text
+A seamless botanical repeat in the style of a hand-carved block print: fern fronds and seed heads in dark indigo on unbleached linen, slight registration wobble and visible ink texture where the block pressed unevenly. Flat, straight on, edge to edge.
+```
+
+`seed: 1576109877`
+
+### Geometric bauhaus repeat
+
+<img src="images/pattern-002.webp" width="420" alt="Geometric bauhaus repeat">
+
+**Prompt**
+
+```text
+A seamless geometric pattern of circles, quarter-circles and thin rules in primary red, blue, yellow and black on cream, arranged on a strict grid. Flat vector, no shading, no texture. Fills the frame edge to edge with no border.
+```
+
+`seed: 1026790550`
+
+### Marbled paper, combed
+
+<img src="images/pattern-003.webp" width="420" alt="Marbled paper, combed">
+
+**Prompt**
+
+```text
+Traditional combed marbled paper: teal, ochre and oxblood pigments drawn into a regular feathered comb pattern on a pale ground, with the fine veining of real size-bath marbling. Fills the frame, no border, no paper edge visible.
+```
+
+`seed: 1341762699`
+
+### Terrazzo surface
+
+<img src="images/pattern-004.webp" width="420" alt="Terrazzo surface">
+
+**Prompt**
+
+```text
+A terrazzo surface shot flat and straight down: irregular chips of marble in sage, terracotta and charcoal set into a warm off-white binder, polished so each chip has a slight sheen. Even lighting, no shadows, fills the frame.
+```
+
+`seed: 1380217993`
+
+### Art deco fan repeat
+
+<img src="images/pattern-005.webp" width="420" alt="Art deco fan repeat">
+
+**Prompt**
+
+```text
+A seamless art deco pattern of overlapping fan shapes in gold on deep green, thin gold outlines, stepped scallops, strict horizontal rows. Flat, screen-print feel, no gradients. Edge to edge, no border.
+```
+
+`seed: 1139303172`
+
+### Woodgrain, quarter sawn
+
+<img src="images/pattern-006.webp" width="420" alt="Woodgrain, quarter sawn">
+
+**Prompt**
+
+```text
+A close, flat photograph of quarter-sawn oak, the medullary rays showing as pale flecks across straight grain lines. Even soft light, no shadows, no edges of the board visible. Filling the frame like a material swatch.
+```
+
+`seed: 1026021497`
+
+### Hand-drawn stripe, wobbly
+
+<img src="images/pattern-007.webp" width="420" alt="Hand-drawn stripe, wobbly">
+
+**Prompt**
+
+```text
+A seamless stripe pattern drawn by hand with a brush: uneven vertical stripes in ink blue on off-white, each one varying in width and opacity where the brush ran dry. Visible bristle marks. Flat, edge to edge, no border.
+```
+
+`seed: 967510819`
+
+### Cyanotype fern repeat
+
+<img src="images/pattern-008.webp" width="420" alt="Cyanotype fern repeat">
+
+**Prompt**
+
+```text
+A seamless repeat of fern silhouettes as a cyanotype photogram — white plant shapes against deep Prussian blue, soft edges where the leaves lifted off the paper, uneven wash in the blue. Fills the frame, no border.
+```
+
+`seed: 958813884`
+
+
+## brand-mark
+
+_Logos and marks. Single short strings, which the typography findings predict is the model's strongest text case_
+
+### Wordmark: HALLOW
+
+<img src="images/brand-mark-001.webp" width="420" alt="Wordmark: HALLOW">
+
+**Prompt**
+
+```text
+A wordmark reading exactly "HALLOW" in a high-contrast serif with generous letterspacing, set in near-black on a warm off-white field, centred with a lot of air around it. Nothing else in the frame. Flat, no texture, no effects.
+```
+
+`seed: 1564712968`
+
+### Embossed logo on leather
+
+<img src="images/brand-mark-003.webp" width="420" alt="Embossed logo on leather">
+
+**Prompt**
+
+```text
+The word "FIELDNOTE" blind-embossed into tan vegetable-tanned leather, raking light from the left so the impression reads entirely through shadow with no ink. Visible leather grain and a slight sheen on the raised edges. Macro, tight crop.
+```
+
+`seed: 28931635`
+
+### Neon sign, one word
+
+<img src="images/brand-mark-004.webp" width="420" alt="Neon sign, one word">
+
+**Prompt**
+
+```text
+A neon sign reading exactly "OPEN" in warm pink script, mounted on a dark brick wall at night, the glass tubing visible with its supports and the glow spilling onto the brick behind. Slight haze, no other signage in frame.
+```
+
+`seed: 221054103`
+
+### Etched brass plate
+
+<img src="images/brand-mark-005.webp" width="420" alt="Etched brass plate">
+
+**Prompt**
+
+```text
+A brass plaque etched with "EST 1904" in engraved capitals filled with black, mounted with four visible screws on a weathered stone wall. Patina and verdigris in the recesses, hard afternoon sun raking across at an angle. Macro.
+```
+
+`seed: 638748744`
+
+### Foil-stamped logo on box
+
+<img src="images/brand-mark-006.webp" width="420" alt="Foil-stamped logo on box">
+
+**Prompt**
+
+```text
+A matte charcoal gift box with the word "ASTER" foil-stamped in copper on the lid, shot at a low three-quarter angle so the foil catches a single highlight and reads dark elsewhere. Soft studio light, seamless grey background.
+```
+
+`seed: 204370515`
+
+### Painted ghost sign
+
+<img src="images/brand-mark-007.webp" width="420" alt="Painted ghost sign">
+
+**Prompt**
+
+```text
+A faded painted ghost sign on an old brick wall reading "COOPERAGE" in tall condensed capitals, the paint worn back to brick in patches, sun-bleached from red to dusty pink. Straight on, flat afternoon light, no other text.
+```
+
+`seed: 757705299`
+
+### Sandblasted glass door
+
+<img src="images/brand-mark-008.webp" width="420" alt="Sandblasted glass door">
+
+**Prompt**
+
+```text
+A frosted sandblasted panel on a glass door reading "STUDIO 4", the letters clear against the frosted ground, a blurred interior visible through them. Even daylight, brass handle at the frame edge, straight on.
+```
+
+`seed: 2068017137`
+
+
+## miniature
+
+_Tilt-shift, dioramas, scale models of places_
+
+### Tilt-shift harbour
+
+<img src="images/miniature-001.webp" width="420" alt="Tilt-shift harbour">
+
+**Prompt**
+
+```text
+A harbour seen from high above with a strong tilt-shift effect: a narrow band of sharp focus across the quay and everything above and below thrown into heavy blur, colours pushed to high saturation so the boats and containers read as plastic toys.
+```
+
+`seed: 707503180`
+
+### Model railway station
+
+<img src="images/miniature-002.webp" width="420" alt="Model railway station">
+
+**Prompt**
+
+```text
+A finely detailed HO-scale model railway station on a layout, tiny figures on the platform, static grass and lichen trees, a locomotive at the edge of frame. Shot at platform height with shallow depth of field so the scale reads ambiguous.
+```
+
+`seed: 1975224634`
+
+### Paper-craft city block
+
+<img src="images/miniature-003.webp" width="420" alt="Paper-craft city block">
+
+**Prompt**
+
+```text
+A city block built entirely from folded and cut card: buildings, street trees and a bus, all in muted paper colours with visible fold creases and cut edges. Soft directional light casting clean shadows on a paper ground. Three-quarter view.
+```
+
+`seed: 885394300`
+
+### Snow globe interior
+
+<img src="images/miniature-004.webp" width="420" alt="Snow globe interior">
+
+**Prompt**
+
+```text
+Looking into a snow globe: a tiny alpine chalet with lit windows on a white base, glitter suspended mid-fall in the water, the glass distorting the background into a soft ring. Dark surround, single warm light source, macro.
+```
+
+`seed: 657474403`
+
+### Bonsai on a stand
+
+<img src="images/miniature-005.webp" width="420" alt="Bonsai on a stand">
+
+**Prompt**
+
+```text
+A mature bonsai pine in a shallow unglazed pot on a dark wooden stand, moss on the soil, needle detail crisp, shot against a plain grey studio background under soft directional light. The trunk gnarled and wired. Straight on, full tree.
+```
+
+`seed: 1743541111`
+
+### Cutaway dollhouse room
+
+<img src="images/miniature-006.webp" width="420" alt="Cutaway dollhouse room">
+
+**Prompt**
+
+```text
+A dollhouse room seen with its fourth wall removed: miniature furniture, a rug, a tiny lamp actually lit, patterned wallpaper. Shot straight on so it reads as a stage set. Warm practical light from inside, cool ambient from outside.
+```
+
+`seed: 1895175876`
+
+### Sand table battlefield
+
+<img src="images/miniature-007.webp" width="420" alt="Sand table battlefield">
+
+**Prompt**
+
+```text
+A wargaming sand table from a low angle: sculpted terrain, lichen scrub, painted infantry figures in loose formation behind a ridge, a ruined building of foam board. Overcast studio light, shallow focus on the front rank.
+```
+
+`seed: 568280305`
+
+### Miniature food, macro
+
+<img src="images/miniature-008.webp" width="420" alt="Miniature food, macro">
+
+**Prompt**
+
+```text
+A miniature clay breakfast — fried egg, toast, tomato — on a plate the size of a coin, held between finger and thumb for scale at the edge of frame. Extreme macro, the polymer clay texture and tool marks visible up close.
+```
+
+`seed: 1295431062`
+
+
+## coloring-page
+
+_Uncoloured line art for printing_
+
+### Coloring page: garden scene
+
+<img src="images/coloring-page-001.webp" width="420" alt="Coloring page: garden scene">
+
+**Prompt**
+
+```text
+A children's coloring page: a garden scene with a watering can, sunflowers, a snail and a butterfly, drawn as clean uniform black outlines on pure white with no shading, no grey, no fill. Thick friendly lines, generous white areas to colour in.
+```
+
+`seed: 230163006`
+
+### Coloring page: sea creatures
+
+<img src="images/coloring-page-002.webp" width="420" alt="Coloring page: sea creatures">
+
+**Prompt**
+
+```text
+A children's coloring page of sea creatures — an octopus, two fish, a starfish and seaweed — as bold even black outlines on white, no shading or hatching anywhere, simple shapes, large enclosed areas. Nothing filled in.
+```
+
+`seed: 927169882`
+
+### Coloring page: mandala
+
+<img src="images/coloring-page-003.webp" width="420" alt="Coloring page: mandala">
+
+**Prompt**
+
+```text
+A symmetrical mandala coloring page: concentric rings of petals, leaves and geometric motifs in fine even black line on white, eightfold symmetry, every region closed so it can be coloured. No fills, no grey, no shading.
+```
+
+`seed: 690682918`
+
+### Coloring page: dinosaur
+
+<img src="images/coloring-page-004.webp" width="420" alt="Coloring page: dinosaur">
+
+**Prompt**
+
+```text
+A friendly cartoon stegosaurus for a children's coloring book, thick black outlines only on white, simple ferns behind it, no shading, no texture, no fill. Rounded shapes suitable for a young child with crayons.
+```
+
+`seed: 343603193`
+
+### Coloring page: cityscape
+
+<img src="images/coloring-page-005.webp" width="420" alt="Coloring page: cityscape">
+
+**Prompt**
+
+```text
+A coloring page of a stylised city skyline with varied building shapes, windows drawn as simple rectangles, a bridge and a few clouds, all as clean uniform black outlines on white. No shading, no solid black areas, no fill.
+```
+
+`seed: 797917670`
+
+### Coloring page: teacup still life
+
+<img src="images/coloring-page-006.webp" width="420" alt="Coloring page: teacup still life">
+
+**Prompt**
+
+```text
+A coloring page still life: a teacup on a saucer, a teapot, a slice of cake on a plate and a folded napkin, drawn in even black outline on white with decorative patterns on the china left as empty outlines to colour. No shading.
+```
+
+`seed: 1880531119`
+
+
+## ui
+
+_App and web interface mockups. Included as a deliberate test of the multi-string text limit, not because it is expected to work_
+
+### Login screen
+
+<img src="images/ui-004.webp" width="420" alt="Login screen">
+
+**Prompt**
+
+```text
+A minimal login screen: a small logo mark, the heading "Sign in", an email field, a password field, a primary button reading "Continue", and a small link beneath. Centred card on a soft gradient background. Nothing else.
+```
+
+`seed: 1367300139`
 
 
 ## Contributing

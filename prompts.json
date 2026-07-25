@@ -15,7 +15,14 @@
     "portrait": "Profile pictures and avatars — the single most requested category in every prompt catalog measured",
     "infographic": "Explainer layouts, quote cards, dashboards — text-heavy by design, which is where this model is weakest and most worth documenting",
     "collectible": "Figurines, pins, keycaps, trading cards — physical-object mockups",
-    "stationery": "Cards, letterheads, packaging inserts"
+    "stationery": "Cards, letterheads, packaging inserts",
+    "food": "Food and drink, studio and in-context",
+    "interior": "Rooms, architecture, spatial light",
+    "pattern": "Repeating surface design — textile, wallpaper, wrapping",
+    "brand-mark": "Logos and marks. Single short strings, which the typography findings predict is the model's strongest text case",
+    "miniature": "Tilt-shift, dioramas, scale models of places",
+    "coloring-page": "Uncoloured line art for printing",
+    "ui": "App and web interface mockups. Included as a deliberate test of the multi-string text limit, not because it is expected to work"
   },
   "entries": [
     {
@@ -26,7 +33,8 @@
       "image": "images/photography-001.webp",
       "params": {
         "seed": 1913817765
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-002",
@@ -36,7 +44,8 @@
       "image": "images/photography-002.webp",
       "params": {
         "seed": 1037393037
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-003",
@@ -46,7 +55,8 @@
       "image": "images/photography-003.webp",
       "params": {
         "seed": 306108529
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-004",
@@ -56,7 +66,8 @@
       "image": "images/photography-004.webp",
       "params": {
         "seed": 1671971794
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-005",
@@ -66,7 +77,8 @@
       "image": "images/photography-005.webp",
       "params": {
         "seed": 1136909792
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-006",
@@ -76,7 +88,8 @@
       "image": "images/photography-006.webp",
       "params": {
         "seed": 589730875
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-007",
@@ -86,7 +99,8 @@
       "image": "images/photography-007.webp",
       "params": {
         "seed": 1496444718
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-008",
@@ -96,7 +110,8 @@
       "image": "images/photography-008.webp",
       "params": {
         "seed": 1204392285
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-009",
@@ -106,7 +121,8 @@
       "image": "images/photography-009.webp",
       "params": {
         "seed": 1726756617
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-010",
@@ -116,7 +132,8 @@
       "image": "images/photography-010.webp",
       "params": {
         "seed": 1590663786
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-003",
@@ -126,7 +143,8 @@
       "image": "images/typography-003.webp",
       "params": {
         "seed": 333206637
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-008",
@@ -136,7 +154,8 @@
       "image": "images/typography-008.webp",
       "params": {
         "seed": 1431711597
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-001",
@@ -146,7 +165,8 @@
       "image": "images/product-001.webp",
       "params": {
         "seed": 524883984
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-002",
@@ -156,7 +176,8 @@
       "image": "images/product-002.webp",
       "params": {
         "seed": 98544605
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-003",
@@ -166,7 +187,8 @@
       "image": "images/product-003.webp",
       "params": {
         "seed": 1919442279
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-004",
@@ -176,7 +198,8 @@
       "image": "images/product-004.webp",
       "params": {
         "seed": 2048927115
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-005",
@@ -186,7 +209,8 @@
       "image": "images/product-005.webp",
       "params": {
         "seed": 700222067
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-006",
@@ -196,7 +220,8 @@
       "image": "images/product-006.webp",
       "params": {
         "seed": 1367506460
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-007",
@@ -206,7 +231,8 @@
       "image": "images/product-007.webp",
       "params": {
         "seed": 2127336597
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-008",
@@ -216,7 +242,8 @@
       "image": "images/product-008.webp",
       "params": {
         "seed": 2081046429
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-009",
@@ -226,7 +253,8 @@
       "image": "images/product-009.webp",
       "params": {
         "seed": 130047460
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-010",
@@ -236,7 +264,8 @@
       "image": "images/product-010.webp",
       "params": {
         "seed": 1260154266
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-001",
@@ -246,7 +275,8 @@
       "image": "images/illustration-001.webp",
       "params": {
         "seed": 1809538529
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-002",
@@ -256,7 +286,8 @@
       "image": "images/illustration-002.webp",
       "params": {
         "seed": 989989533
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-003",
@@ -266,7 +297,8 @@
       "image": "images/illustration-003.webp",
       "params": {
         "seed": 193829588
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-004",
@@ -276,7 +308,8 @@
       "image": "images/illustration-004.webp",
       "params": {
         "seed": 2141994631
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-005",
@@ -286,7 +319,8 @@
       "image": "images/illustration-005.webp",
       "params": {
         "seed": 711741992
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-006",
@@ -296,7 +330,8 @@
       "image": "images/illustration-006.webp",
       "params": {
         "seed": 1958333047
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-007",
@@ -306,7 +341,8 @@
       "image": "images/illustration-007.webp",
       "params": {
         "seed": 437733224
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-008",
@@ -316,7 +352,8 @@
       "image": "images/illustration-008.webp",
       "params": {
         "seed": 1322534157
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-009",
@@ -326,7 +363,8 @@
       "image": "images/illustration-009.webp",
       "params": {
         "seed": 1395552785
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-010",
@@ -336,7 +374,8 @@
       "image": "images/illustration-010.webp",
       "params": {
         "seed": 662846866
-      }
+      },
+      "batch": 1
     },
     {
       "id": "reference-sheet-001",
@@ -347,7 +386,8 @@
       "notes": "Generate this first and use it as the reference for character-002 through 005.",
       "params": {
         "seed": 1453254312
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-001",
@@ -357,7 +397,8 @@
       "image": "images/isometric-3d-001.webp",
       "params": {
         "seed": 1886079203
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-002",
@@ -367,7 +408,8 @@
       "image": "images/isometric-3d-002.webp",
       "params": {
         "seed": 1075533955
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-003",
@@ -377,7 +419,8 @@
       "image": "images/isometric-3d-003.webp",
       "params": {
         "seed": 1357449396
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-004",
@@ -387,7 +430,8 @@
       "image": "images/isometric-3d-004.webp",
       "params": {
         "seed": 1882712822
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-005",
@@ -397,7 +441,8 @@
       "image": "images/isometric-3d-005.webp",
       "params": {
         "seed": 1583709833
-      }
+      },
+      "batch": 1
     },
     {
       "id": "editing-001",
@@ -410,7 +455,8 @@
       "notes": "Source is photography-006 in this repo, so the edit is reproducible from a clone.",
       "params": {
         "seed": 364022812
-      }
+      },
+      "batch": 1
     },
     {
       "id": "editing-002",
@@ -423,7 +469,8 @@
       "notes": "Source is photography-003 in this repo, so the edit is reproducible from a clone.",
       "params": {
         "seed": 1459264371
-      }
+      },
+      "batch": 1
     },
     {
       "id": "editing-003",
@@ -436,7 +483,8 @@
       "notes": "Source is photography-009 in this repo, so the edit is reproducible from a clone.",
       "params": {
         "seed": 583476278
-      }
+      },
+      "batch": 1
     },
     {
       "id": "editing-005",
@@ -449,7 +497,8 @@
       "notes": "Source is illustration-004 in this repo, so the edit is reproducible from a clone.",
       "params": {
         "seed": 2083277726
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-011",
@@ -459,7 +508,8 @@
       "image": "images/typography-011.webp",
       "params": {
         "seed": 1101869585
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-012",
@@ -469,7 +519,8 @@
       "image": "images/typography-012.webp",
       "params": {
         "seed": 1556240670
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-013",
@@ -479,7 +530,8 @@
       "image": "images/typography-013.webp",
       "params": {
         "seed": 1864240842
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-014",
@@ -489,7 +541,8 @@
       "image": "images/typography-014.webp",
       "params": {
         "seed": 235613196
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-015",
@@ -499,7 +552,8 @@
       "image": "images/typography-015.webp",
       "params": {
         "seed": 2040305462
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-016",
@@ -509,7 +563,8 @@
       "image": "images/typography-016.webp",
       "params": {
         "seed": 1659883
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-017",
@@ -519,7 +574,8 @@
       "image": "images/typography-017.webp",
       "params": {
         "seed": 375084430
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-018",
@@ -529,7 +585,8 @@
       "image": "images/typography-018.webp",
       "params": {
         "seed": 833951684
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-019",
@@ -539,7 +596,8 @@
       "image": "images/typography-019.webp",
       "params": {
         "seed": 984217211
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-020",
@@ -549,7 +607,8 @@
       "image": "images/typography-020.webp",
       "params": {
         "seed": 1590119155
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-011",
@@ -559,7 +618,8 @@
       "image": "images/photography-011.webp",
       "params": {
         "seed": 1647355798
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-012",
@@ -569,7 +629,8 @@
       "image": "images/photography-012.webp",
       "params": {
         "seed": 849986701
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-013",
@@ -579,7 +640,8 @@
       "image": "images/photography-013.webp",
       "params": {
         "seed": 1447903387
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-014",
@@ -589,7 +651,8 @@
       "image": "images/photography-014.webp",
       "params": {
         "seed": 860958653
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-015",
@@ -599,7 +662,8 @@
       "image": "images/photography-015.webp",
       "params": {
         "seed": 1223022199
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-016",
@@ -609,7 +673,8 @@
       "image": "images/photography-016.webp",
       "params": {
         "seed": 1658386034
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-017",
@@ -619,7 +684,8 @@
       "image": "images/photography-017.webp",
       "params": {
         "seed": 1007639879
-      }
+      },
+      "batch": 1
     },
     {
       "id": "photography-018",
@@ -629,7 +695,8 @@
       "image": "images/photography-018.webp",
       "params": {
         "seed": 1873728665
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-011",
@@ -639,7 +706,8 @@
       "image": "images/product-011.webp",
       "params": {
         "seed": 1427728813
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-012",
@@ -649,7 +717,8 @@
       "image": "images/product-012.webp",
       "params": {
         "seed": 2063722228
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-013",
@@ -659,7 +728,8 @@
       "image": "images/product-013.webp",
       "params": {
         "seed": 1309089861
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-014",
@@ -669,7 +739,8 @@
       "image": "images/product-014.webp",
       "params": {
         "seed": 329967531
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-015",
@@ -679,7 +750,8 @@
       "image": "images/product-015.webp",
       "params": {
         "seed": 2115381394
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-016",
@@ -689,7 +761,8 @@
       "image": "images/product-016.webp",
       "params": {
         "seed": 987689524
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-017",
@@ -699,7 +772,8 @@
       "image": "images/product-017.webp",
       "params": {
         "seed": 1858895601
-      }
+      },
+      "batch": 1
     },
     {
       "id": "product-018",
@@ -709,7 +783,8 @@
       "image": "images/product-018.webp",
       "params": {
         "seed": 1450341996
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-011",
@@ -719,7 +794,8 @@
       "image": "images/illustration-011.webp",
       "params": {
         "seed": 971992746
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-012",
@@ -729,7 +805,8 @@
       "image": "images/illustration-012.webp",
       "params": {
         "seed": 403745806
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-013",
@@ -739,7 +816,8 @@
       "image": "images/illustration-013.webp",
       "params": {
         "seed": 94561777
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-014",
@@ -749,7 +827,8 @@
       "image": "images/illustration-014.webp",
       "params": {
         "seed": 1365362645
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-015",
@@ -759,7 +838,8 @@
       "image": "images/illustration-015.webp",
       "params": {
         "seed": 1827344974
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-016",
@@ -769,7 +849,8 @@
       "image": "images/illustration-016.webp",
       "params": {
         "seed": 235666898
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-017",
@@ -779,7 +860,8 @@
       "image": "images/illustration-017.webp",
       "params": {
         "seed": 1377917160
-      }
+      },
+      "batch": 1
     },
     {
       "id": "illustration-018",
@@ -789,7 +871,8 @@
       "image": "images/illustration-018.webp",
       "params": {
         "seed": 221852696
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-006",
@@ -799,7 +882,8 @@
       "image": "images/isometric-3d-006.webp",
       "params": {
         "seed": 882577384
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-007",
@@ -809,7 +893,8 @@
       "image": "images/isometric-3d-007.webp",
       "params": {
         "seed": 1975246446
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-008",
@@ -819,7 +904,8 @@
       "image": "images/isometric-3d-008.webp",
       "params": {
         "seed": 1391597167
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-009",
@@ -829,7 +915,8 @@
       "image": "images/isometric-3d-009.webp",
       "params": {
         "seed": 226111579
-      }
+      },
+      "batch": 1
     },
     {
       "id": "isometric-3d-010",
@@ -839,7 +926,8 @@
       "image": "images/isometric-3d-010.webp",
       "params": {
         "seed": 1496030377
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-021",
@@ -849,7 +937,8 @@
       "image": "images/typography-021.webp",
       "params": {
         "seed": 2060170403
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-022",
@@ -859,7 +948,8 @@
       "image": "images/typography-022.webp",
       "params": {
         "seed": 425919870
-      }
+      },
+      "batch": 1
     },
     {
       "id": "typography-023",
@@ -869,7 +959,8 @@
       "image": "images/typography-023.webp",
       "params": {
         "seed": 722835994
-      }
+      },
+      "batch": 1
     },
     {
       "id": "editing-008",
@@ -881,7 +972,8 @@
       "strength": 0.6,
       "params": {
         "seed": 1652457598
-      }
+      },
+      "batch": 1
     },
     {
       "id": "portrait-001",
@@ -891,7 +983,8 @@
       "prompt": "A portrait of a woman in her thirties beside a north-facing window, 85mm at f/1.8, soft directional daylight falling across one side of the face and the other dropping into gentle shadow. Natural skin texture with visible pores, no retouching, catchlight in both eyes. Charcoal wool sweater, plain warm grey wall behind, shallow depth of field.",
       "params": {
         "seed": 1613165866
-      }
+      },
+      "batch": 2
     },
     {
       "id": "portrait-002",
@@ -901,7 +994,8 @@
       "prompt": "Studio portrait of a man in his forties, single hard light high and to camera left, deep shadow filling the right of the face, black seamless background. Sharp specular highlight on the cheekbone, close-cropped beard, direct eye contact with the lens. Medium format look, 110mm equivalent.",
       "params": {
         "seed": 1110166560
-      }
+      },
+      "batch": 2
     },
     {
       "id": "portrait-003",
@@ -911,7 +1005,8 @@
       "prompt": "Backlit outdoor portrait at golden hour, sun directly behind the subject creating a bright rim along the hair and shoulders, face lifted by soft bounce. Warm haze, out-of-focus grass and fence line behind. Linen shirt, relaxed expression, 135mm compression, f/2.",
       "params": {
         "seed": 648134594
-      }
+      },
+      "batch": 2
     },
     {
       "id": "portrait-004",
@@ -921,7 +1016,8 @@
       "prompt": "Environmental portrait of a woodworker standing in her shop doorway under flat overcast light, sawdust on a canvas apron, hands relaxed at her sides. The shop interior falls off into darkness behind her. 35mm, waist up, documentary framing with the doorframe as a natural border.",
       "params": {
         "seed": 1794897089
-      }
+      },
+      "batch": 2
     },
     {
       "id": "portrait-005",
@@ -931,7 +1027,8 @@
       "prompt": "Candid indoor portrait on Kodak Portra 400, a man laughing mid-conversation at a kitchen table, tungsten lamp warm on one side and cool window light on the other. Visible film grain, soft halation on the highlights, slightly warm cast. 50mm, handheld, not looking at the camera.",
       "params": {
         "seed": 1126231015
-      }
+      },
+      "batch": 2
     },
     {
       "id": "portrait-007",
@@ -941,7 +1038,8 @@
       "prompt": "An oil painting portrait in the chiaroscuro tradition, three-quarter view, single warm light source from upper left, background falling to near black. Visible brushwork in the flesh tones, glazed shadows, muted earth palette of ochre, umber and lead white. Not photorealistic — the paint should be visible.",
       "params": {
         "seed": 1461986812
-      }
+      },
+      "batch": 2
     },
     {
       "id": "portrait-009",
@@ -951,7 +1049,8 @@
       "prompt": "Black and white portrait shot in harsh overhead noon sun, deep shadows in the eye sockets and under the nose, strong contrast, grain pushed. Subject squinting slightly, sweat on the forehead, plain concrete wall behind. Tri-X pushed to 1600, 35mm.",
       "params": {
         "seed": 1915439531
-      }
+      },
+      "batch": 2
     },
     {
       "id": "portrait-011",
@@ -961,7 +1060,8 @@
       "prompt": "A charcoal portrait drawn on mid-grey toned paper, white chalk for the highlights, compressed charcoal for the darks, the paper tone doing the mid-values. Loose hatching around the edges, tight rendering only around the eyes. Smudged, worked, visibly hand-made.",
       "params": {
         "seed": 121909817
-      }
+      },
+      "batch": 2
     },
     {
       "id": "infographic-001",
@@ -971,7 +1071,8 @@
       "prompt": "A minimal quote card layout: the words \"MEASURE TWICE\" set large in a condensed grotesque, a thin horizontal rule beneath, and \"CUT ONCE\" smaller and right-aligned below it. Cream background, near-black type, generous margins. Nothing else in the frame.",
       "params": {
         "seed": 662649445
-      }
+      },
+      "batch": 2
     },
     {
       "id": "infographic-002",
@@ -981,7 +1082,8 @@
       "prompt": "A bento-box dashboard layout with four rounded rectangular modules of different sizes on a soft grey background. Each module holds a simple abstract chart — one bar, one donut, one sparkline, one large number. Soft shadows, generous padding, one teal accent colour, no legible body text.",
       "params": {
         "seed": 1870145278
-      }
+      },
+      "batch": 2
     },
     {
       "id": "infographic-003",
@@ -991,7 +1093,8 @@
       "prompt": "A technical cutaway of a thermos flask, drawn as a clean line diagram with the interior layers visible, thin leader lines pointing out from four components to empty label positions at the edges. No text on the labels — just the lines and the dots. White background, single ink weight.",
       "params": {
         "seed": 2045906439
-      }
+      },
+      "batch": 2
     },
     {
       "id": "infographic-005",
@@ -1001,7 +1104,8 @@
       "prompt": "A vintage patent illustration of a folding bicycle, black ink line work on aged off-white paper, hatched shading, numbered reference marks beside the components, a ruled border around the sheet. Figure numbers only, no descriptive text. The aesthetic of a 1920s patent office filing.",
       "params": {
         "seed": 1151604106
-      }
+      },
+      "batch": 2
     },
     {
       "id": "infographic-006",
@@ -1011,7 +1115,8 @@
       "prompt": "A weather card: a large simple cloud-and-rain glyph centred, the numerals \"14°\" beneath it in a geometric sans, and nothing else. Deep blue gradient background, white elements, soft outer glow on the glyph. Square, app-icon proportions.",
       "params": {
         "seed": 487662832
-      }
+      },
+      "batch": 2
     },
     {
       "id": "infographic-008",
@@ -1021,7 +1126,8 @@
       "prompt": "A horizontal timeline drawn as a flat ribbon curving gently across the frame, five circular markers spaced along it, alternating above and below, each marker containing a single simple icon. One accent colour against off-white, plenty of empty space. No text.",
       "params": {
         "seed": 1089997705
-      }
+      },
+      "batch": 2
     },
     {
       "id": "infographic-009",
@@ -1031,7 +1137,8 @@
       "prompt": "A clean two-column comparison layout, left column headed \"BEFORE\" and right headed \"AFTER\", each column a stack of four rounded rows with a check or cross glyph and a short blank bar where text would sit. Light background, green ticks, red crosses, hairline dividers.",
       "params": {
         "seed": 536645071
-      }
+      },
+      "batch": 2
     },
     {
       "id": "infographic-010",
@@ -1041,7 +1148,8 @@
       "prompt": "Three isometric blocks arranged diagonally across the frame representing stages of a process, connected by thick arrows, each block a simplified object — a box, a gear, a package. Flat colour with a single light source, long soft shadows, pastel palette, white background.",
       "params": {
         "seed": 2043998615
-      }
+      },
+      "batch": 2
     },
     {
       "id": "collectible-001",
@@ -1051,7 +1159,8 @@
       "prompt": "A stylised vinyl collectible figure of a small astronaut sealed in a blister pack against a printed cardboard backer, shot straight on under even studio light. The plastic bubble catches a soft reflection. Matte figure finish, chunky proportions, oversized helmet. The backer is a flat two-colour print.",
       "params": {
         "seed": 641600971
-      }
+      },
+      "batch": 2
     },
     {
       "id": "collectible-002",
@@ -1061,7 +1170,8 @@
       "prompt": "A hard enamel pin shaped like a crescent moon with a small star, gold plating between the colour fields, pinned to indigo denim. Macro, shallow depth of field, raking light picking out the polished metal ridges and the slight dome of the enamel.",
       "params": {
         "seed": 317255029
-      }
+      },
+      "batch": 2
     },
     {
       "id": "collectible-005",
@@ -1071,7 +1181,8 @@
       "prompt": "A hand-knitted plush fox sitting on a pale wooden shelf, chunky visible stitches in rust and cream yarn, slightly uneven ears, embroidered eyes. Soft window light from the left, plain white wall behind, shallow depth of field.",
       "params": {
         "seed": 1717706071
-      }
+      },
+      "batch": 2
     },
     {
       "id": "collectible-006",
@@ -1081,7 +1192,8 @@
       "prompt": "A 1:64 die-cast model of a boxy 1980s estate car on a black acrylic turntable, three-quarter front view, studio strip lights reflected in the paint as two long soft highlights. Rubber tyres, printed number plate, tiny visible casting seam along the roof.",
       "params": {
         "seed": 161380541
-      }
+      },
+      "batch": 2
     },
     {
       "id": "collectible-007",
@@ -1091,7 +1203,8 @@
       "prompt": "A miniature diorama sealed inside a clear glass jar: a tiny pine forest on a mossy hill with a single lit cabin window, cast in clear resin that reads as still water at the base. Backlit so the resin glows, everything else in shadow. Macro, dark background.",
       "params": {
         "seed": 506403015
-      }
+      },
+      "batch": 2
     },
     {
       "id": "stationery-001",
@@ -1101,7 +1214,8 @@
       "prompt": "A letterpress business card photographed at a raking angle so the deep impression of the type casts visible shadow in the cotton stock. The card reads \"NORTHFIELD & CO\" in a small caps serif with a thin rule beneath. Ecru paper, single black ink, deckled edge on one side.",
       "params": {
         "seed": 1926545409
-      }
+      },
+      "batch": 2
     },
     {
       "id": "stationery-002",
@@ -1111,7 +1225,8 @@
       "prompt": "A deep red wax seal pressed with a simple monogram, closing the flap of a kraft paper envelope on a dark wood surface. Warm side light, the wax showing the ridge and slight overflow of a real pour. Shallow depth of field, envelope corner in frame.",
       "params": {
         "seed": 444300041
-      }
+      },
+      "batch": 2
     },
     {
       "id": "stationery-003",
@@ -1121,7 +1236,8 @@
       "prompt": "An open notebook flat lay on a linen surface, ruled cream pages, a fountain pen resting in the gutter, a small brass paperclip at the corner. Soft even overhead light, no harsh shadows, muted palette. The pages are blank — no writing.",
       "params": {
         "seed": 1719173423
-      }
+      },
+      "batch": 2
     },
     {
       "id": "stationery-004",
@@ -1131,7 +1247,8 @@
       "prompt": "A brown paper parcel tied with cotton twine, a plain white shipping label affixed at a slight angle reading \"FRAGILE\" in bold condensed capitals with a thick black border. Overhead studio light, visible paper fibre and the shadow line under the twine.",
       "params": {
         "seed": 1043227084
-      }
+      },
+      "batch": 2
     },
     {
       "id": "stationery-005",
@@ -1141,7 +1258,8 @@
       "prompt": "A torn ticket stub on a dark surface, letterpress-printed in two colours with \"ADMIT ONE\" across the middle and a perforated edge where the other half was removed. Aged card stock, slight foxing, one corner soft with wear. Macro, single light from the left.",
       "params": {
         "seed": 1333487198
-      }
+      },
+      "batch": 2
     },
     {
       "id": "stationery-006",
@@ -1151,11 +1269,551 @@
       "prompt": "A rubber stamp impression of the word \"PAID\" struck in red ink at a slight angle on an off-white document, deliberately uneven — heavier on one side, a gap where the rubber lifted. The wooden stamp itself resting beside it, out of focus. Overhead, flat light.",
       "params": {
         "seed": 2044996526
-      }
+      },
+      "batch": 2
+    },
+    {
+      "id": "food-001",
+      "category": "food",
+      "title": "Cut sourdough loaf, side light",
+      "image": "images/food-001.webp",
+      "prompt": "A sourdough loaf cut in half on a floured board, hard side light from the left raking across the open crumb so every hole casts its own shadow. Blistered dark crust, flour dusting the surface, a serrated knife just out of the frame edge. Shot at f/8, tight.",
+      "params": {
+        "seed": 207887450
+      },
+      "batch": 3
+    },
+    {
+      "id": "food-002",
+      "category": "food",
+      "title": "Ramen bowl, overhead steam",
+      "image": "images/food-002.webp",
+      "prompt": "An overhead shot of a ramen bowl on dark wood, soft-boiled egg halved and glossy, nori standing at the edge, chopped scallion scattered. Steam rising and catching a backlight. Deep tonkotsu broth, visible fat droplets, condensation on the rim of the bowl.",
+      "params": {
+        "seed": 996431689
+      },
+      "batch": 3
+    },
+    {
+      "id": "food-004",
+      "category": "food",
+      "title": "Citrus cross-sections on marble",
+      "image": "images/food-004.webp",
+      "prompt": "Halved citrus fruits arranged on white marble, shot straight down under a large diffuse source. Blood orange, grapefruit, lime, lemon. Juice beading on the cut faces, translucent segments, a few seeds visible. Cool, clean, high key, no props.",
+      "params": {
+        "seed": 1002826123
+      },
+      "batch": 3
+    },
+    {
+      "id": "food-005",
+      "category": "food",
+      "title": "Cast iron steak, hard rim light",
+      "image": "images/food-005.webp",
+      "prompt": "A steak resting in a cast iron pan, dark crust with visible sear marks, one hard light from behind creating a bright rim along the top edge and rendering the rest in deep shadow. Butter foaming at the base, thyme sprigs, tongs at the frame edge.",
+      "params": {
+        "seed": 752325181
+      },
+      "batch": 3
+    },
+    {
+      "id": "food-006",
+      "category": "food",
+      "title": "Ice cream melting, tight macro",
+      "image": "images/food-006.webp",
+      "prompt": "Macro of a scoop of pistachio ice cream beginning to melt on a ceramic plate, one drip running down and pooling. Visible nut fragments and ice crystals, cold blue-white light, condensation on the plate. Extremely shallow depth of field.",
+      "params": {
+        "seed": 1757822826
+      },
+      "batch": 3
+    },
+    {
+      "id": "food-007",
+      "category": "food",
+      "title": "Market vegetable stall, overcast",
+      "image": "images/food-007.webp",
+      "prompt": "A market stall of root vegetables under flat overcast light, mud still on the carrots and beetroot, crates stacked at angles, a canvas awning cutting the top of the frame. Documentary, 35mm, colours slightly desaturated by the grey sky.",
+      "params": {
+        "seed": 1110593834
+      },
+      "batch": 3
+    },
+    {
+      "id": "food-008",
+      "category": "food",
+      "title": "Layer cake cross-section",
+      "image": "images/food-008.webp",
+      "prompt": "A slice removed from a four-layer cake so the cross-section faces camera, buttercream between each layer, crumb visible and slightly moist. Even soft light, pale pink background, cake stand edge in frame. Straight on, symmetrical.",
+      "params": {
+        "seed": 1632613977
+      },
+      "batch": 3
+    },
+    {
+      "id": "food-009",
+      "category": "food",
+      "title": "Whisky glass, single hard source",
+      "image": "images/food-009.webp",
+      "prompt": "A cut crystal glass of whisky on dark slate, a single hard light behind and to the right throwing the cut facets into bright caustics on the stone. Large clear ice sphere, amber liquid, everything else black. Product-grade, no props.",
+      "params": {
+        "seed": 1133820066
+      },
+      "batch": 3
+    },
+    {
+      "id": "food-010",
+      "category": "food",
+      "title": "Dumplings in a bamboo steamer",
+      "image": "images/food-010.webp",
+      "prompt": "Open bamboo steamer of pleated dumplings, translucent wrappers showing the filling through, steam still rising. Warm overhead light, a second closed steamer stacked beneath, dark table. Slight top-down angle, shallow focus falling off at the back.",
+      "params": {
+        "seed": 1310175144
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-001",
+      "category": "interior",
+      "title": "Sunlit reading corner",
+      "image": "images/interior-001.webp",
+      "prompt": "A reading corner in late afternoon: a worn leather armchair, a floor lamp switched off, low sun coming through a tall window and throwing a hard trapezoid of light across the floorboards and up the wall. Dust in the beam. Wide, 24mm, no people.",
+      "params": {
+        "seed": 633029565
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-002",
+      "category": "interior",
+      "title": "Concrete stairwell, top light",
+      "image": "images/interior-002.webp",
+      "prompt": "A brutalist concrete stairwell shot upward, daylight entering from a skylight far above and falling off with distance. Board-formed concrete texture, steel handrail, deep shadow in the lower flights. Symmetrical composition, ultra-wide.",
+      "params": {
+        "seed": 1168418123
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-003",
+      "category": "interior",
+      "title": "Kitchen at blue hour",
+      "image": "images/interior-003.webp",
+      "prompt": "A kitchen at blue hour, under-cabinet lights the only warm source, cool blue window light balancing it from the left. Marble worktop, a single glass left out, everything tidy. Mixed colour temperature held rather than corrected. Tripod, long exposure.",
+      "params": {
+        "seed": 1981161439
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-004",
+      "category": "interior",
+      "title": "Empty gallery room",
+      "image": "images/interior-004.webp",
+      "prompt": "An empty white gallery room with a polished concrete floor, track lighting pointing at bare walls, one doorway leading to a darker second room. No artwork, no people. Even diffuse light, straight-on one-point perspective, 28mm.",
+      "params": {
+        "seed": 1318705704
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-005",
+      "category": "interior",
+      "title": "Attic workshop, north light",
+      "image": "images/interior-005.webp",
+      "prompt": "An attic workshop under a sloping roof with a north-facing skylight, workbench cluttered with hand tools, sawdust on the floor, exposed rafters. Soft even daylight with no direct sun. Warm wood tones, slight haze, 35mm.",
+      "params": {
+        "seed": 613896431
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-006",
+      "category": "interior",
+      "title": "Hotel corridor, receding lights",
+      "image": "images/interior-006.webp",
+      "prompt": "A long hotel corridor with identical doors receding to a vanishing point, wall sconces at regular intervals creating a rhythm of pools of light on patterned carpet. Slightly wide, dead centre, symmetrical. Nobody in frame.",
+      "params": {
+        "seed": 965972945
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-007",
+      "category": "interior",
+      "title": "Greenhouse interior, humid light",
+      "image": "images/interior-007.webp",
+      "prompt": "Inside a Victorian glasshouse, wrought iron ribs overhead, condensation on the panes diffusing the sunlight into a soft glow. Palms and ferns crowding a central path, terracotta pots, water on the flagstones. Humid, green, slightly overexposed.",
+      "params": {
+        "seed": 1871087603
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-008",
+      "category": "interior",
+      "title": "Japanese tatami room",
+      "image": "images/interior-008.webp",
+      "prompt": "A tatami room with shoji screens filtering daylight into an even soft wash, a low wooden table, one cushion, an alcove with a single branch in a vase. Nothing else. Straight on, symmetrical, muted natural palette.",
+      "params": {
+        "seed": 1875634416
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-009",
+      "category": "interior",
+      "title": "Basement server room",
+      "image": "images/interior-009.webp",
+      "prompt": "A basement server room lit only by rack indicator LEDs and one open cabinet door spilling white light, cable bundles running overhead in trays, polished raised floor reflecting the glow. Cold, blue-green, long exposure, nobody present.",
+      "params": {
+        "seed": 769155750
+      },
+      "batch": 3
+    },
+    {
+      "id": "interior-010",
+      "category": "interior",
+      "title": "Loft under renovation",
+      "image": "images/interior-010.webp",
+      "prompt": "A loft mid-renovation: plaster dust, a stepladder, plastic sheeting over a window softening the light, bare brick where the plaster has come off, exposed joists. Work lights on stands casting hard overlapping shadows. Documentary, wide.",
+      "params": {
+        "seed": 736283544
+      },
+      "batch": 3
+    },
+    {
+      "id": "pattern-001",
+      "category": "pattern",
+      "title": "Botanical block print repeat",
+      "image": "images/pattern-001.webp",
+      "prompt": "A seamless botanical repeat in the style of a hand-carved block print: fern fronds and seed heads in dark indigo on unbleached linen, slight registration wobble and visible ink texture where the block pressed unevenly. Flat, straight on, edge to edge.",
+      "params": {
+        "seed": 1576109877
+      },
+      "batch": 3
+    },
+    {
+      "id": "pattern-002",
+      "category": "pattern",
+      "title": "Geometric bauhaus repeat",
+      "image": "images/pattern-002.webp",
+      "prompt": "A seamless geometric pattern of circles, quarter-circles and thin rules in primary red, blue, yellow and black on cream, arranged on a strict grid. Flat vector, no shading, no texture. Fills the frame edge to edge with no border.",
+      "params": {
+        "seed": 1026790550
+      },
+      "batch": 3
+    },
+    {
+      "id": "pattern-003",
+      "category": "pattern",
+      "title": "Marbled paper, combed",
+      "image": "images/pattern-003.webp",
+      "prompt": "Traditional combed marbled paper: teal, ochre and oxblood pigments drawn into a regular feathered comb pattern on a pale ground, with the fine veining of real size-bath marbling. Fills the frame, no border, no paper edge visible.",
+      "params": {
+        "seed": 1341762699
+      },
+      "batch": 3
+    },
+    {
+      "id": "pattern-004",
+      "category": "pattern",
+      "title": "Terrazzo surface",
+      "image": "images/pattern-004.webp",
+      "prompt": "A terrazzo surface shot flat and straight down: irregular chips of marble in sage, terracotta and charcoal set into a warm off-white binder, polished so each chip has a slight sheen. Even lighting, no shadows, fills the frame.",
+      "params": {
+        "seed": 1380217993
+      },
+      "batch": 3
+    },
+    {
+      "id": "pattern-005",
+      "category": "pattern",
+      "title": "Art deco fan repeat",
+      "image": "images/pattern-005.webp",
+      "prompt": "A seamless art deco pattern of overlapping fan shapes in gold on deep green, thin gold outlines, stepped scallops, strict horizontal rows. Flat, screen-print feel, no gradients. Edge to edge, no border.",
+      "params": {
+        "seed": 1139303172
+      },
+      "batch": 3
+    },
+    {
+      "id": "pattern-006",
+      "category": "pattern",
+      "title": "Woodgrain, quarter sawn",
+      "image": "images/pattern-006.webp",
+      "prompt": "A close, flat photograph of quarter-sawn oak, the medullary rays showing as pale flecks across straight grain lines. Even soft light, no shadows, no edges of the board visible. Filling the frame like a material swatch.",
+      "params": {
+        "seed": 1026021497
+      },
+      "batch": 3
+    },
+    {
+      "id": "pattern-007",
+      "category": "pattern",
+      "title": "Hand-drawn stripe, wobbly",
+      "image": "images/pattern-007.webp",
+      "prompt": "A seamless stripe pattern drawn by hand with a brush: uneven vertical stripes in ink blue on off-white, each one varying in width and opacity where the brush ran dry. Visible bristle marks. Flat, edge to edge, no border.",
+      "params": {
+        "seed": 967510819
+      },
+      "batch": 3
+    },
+    {
+      "id": "pattern-008",
+      "category": "pattern",
+      "title": "Cyanotype fern repeat",
+      "image": "images/pattern-008.webp",
+      "prompt": "A seamless repeat of fern silhouettes as a cyanotype photogram — white plant shapes against deep Prussian blue, soft edges where the leaves lifted off the paper, uneven wash in the blue. Fills the frame, no border.",
+      "params": {
+        "seed": 958813884
+      },
+      "batch": 3
+    },
+    {
+      "id": "brand-mark-001",
+      "category": "brand-mark",
+      "title": "Wordmark: HALLOW",
+      "image": "images/brand-mark-001.webp",
+      "prompt": "A wordmark reading exactly \"HALLOW\" in a high-contrast serif with generous letterspacing, set in near-black on a warm off-white field, centred with a lot of air around it. Nothing else in the frame. Flat, no texture, no effects.",
+      "params": {
+        "seed": 1564712968
+      },
+      "batch": 3
+    },
+    {
+      "id": "brand-mark-003",
+      "category": "brand-mark",
+      "title": "Embossed logo on leather",
+      "image": "images/brand-mark-003.webp",
+      "prompt": "The word \"FIELDNOTE\" blind-embossed into tan vegetable-tanned leather, raking light from the left so the impression reads entirely through shadow with no ink. Visible leather grain and a slight sheen on the raised edges. Macro, tight crop.",
+      "params": {
+        "seed": 28931635
+      },
+      "batch": 3
+    },
+    {
+      "id": "brand-mark-004",
+      "category": "brand-mark",
+      "title": "Neon sign, one word",
+      "image": "images/brand-mark-004.webp",
+      "prompt": "A neon sign reading exactly \"OPEN\" in warm pink script, mounted on a dark brick wall at night, the glass tubing visible with its supports and the glow spilling onto the brick behind. Slight haze, no other signage in frame.",
+      "params": {
+        "seed": 221054103
+      },
+      "batch": 3
+    },
+    {
+      "id": "brand-mark-005",
+      "category": "brand-mark",
+      "title": "Etched brass plate",
+      "image": "images/brand-mark-005.webp",
+      "prompt": "A brass plaque etched with \"EST 1904\" in engraved capitals filled with black, mounted with four visible screws on a weathered stone wall. Patina and verdigris in the recesses, hard afternoon sun raking across at an angle. Macro.",
+      "params": {
+        "seed": 638748744
+      },
+      "batch": 3
+    },
+    {
+      "id": "brand-mark-006",
+      "category": "brand-mark",
+      "title": "Foil-stamped logo on box",
+      "image": "images/brand-mark-006.webp",
+      "prompt": "A matte charcoal gift box with the word \"ASTER\" foil-stamped in copper on the lid, shot at a low three-quarter angle so the foil catches a single highlight and reads dark elsewhere. Soft studio light, seamless grey background.",
+      "params": {
+        "seed": 204370515
+      },
+      "batch": 3
+    },
+    {
+      "id": "brand-mark-007",
+      "category": "brand-mark",
+      "title": "Painted ghost sign",
+      "image": "images/brand-mark-007.webp",
+      "prompt": "A faded painted ghost sign on an old brick wall reading \"COOPERAGE\" in tall condensed capitals, the paint worn back to brick in patches, sun-bleached from red to dusty pink. Straight on, flat afternoon light, no other text.",
+      "params": {
+        "seed": 757705299
+      },
+      "batch": 3
+    },
+    {
+      "id": "brand-mark-008",
+      "category": "brand-mark",
+      "title": "Sandblasted glass door",
+      "image": "images/brand-mark-008.webp",
+      "prompt": "A frosted sandblasted panel on a glass door reading \"STUDIO 4\", the letters clear against the frosted ground, a blurred interior visible through them. Even daylight, brass handle at the frame edge, straight on.",
+      "params": {
+        "seed": 2068017137
+      },
+      "batch": 3
+    },
+    {
+      "id": "miniature-001",
+      "category": "miniature",
+      "title": "Tilt-shift harbour",
+      "image": "images/miniature-001.webp",
+      "prompt": "A harbour seen from high above with a strong tilt-shift effect: a narrow band of sharp focus across the quay and everything above and below thrown into heavy blur, colours pushed to high saturation so the boats and containers read as plastic toys.",
+      "params": {
+        "seed": 707503180
+      },
+      "batch": 3
+    },
+    {
+      "id": "miniature-002",
+      "category": "miniature",
+      "title": "Model railway station",
+      "image": "images/miniature-002.webp",
+      "prompt": "A finely detailed HO-scale model railway station on a layout, tiny figures on the platform, static grass and lichen trees, a locomotive at the edge of frame. Shot at platform height with shallow depth of field so the scale reads ambiguous.",
+      "params": {
+        "seed": 1975224634
+      },
+      "batch": 3
+    },
+    {
+      "id": "miniature-003",
+      "category": "miniature",
+      "title": "Paper-craft city block",
+      "image": "images/miniature-003.webp",
+      "prompt": "A city block built entirely from folded and cut card: buildings, street trees and a bus, all in muted paper colours with visible fold creases and cut edges. Soft directional light casting clean shadows on a paper ground. Three-quarter view.",
+      "params": {
+        "seed": 885394300
+      },
+      "batch": 3
+    },
+    {
+      "id": "miniature-004",
+      "category": "miniature",
+      "title": "Snow globe interior",
+      "image": "images/miniature-004.webp",
+      "prompt": "Looking into a snow globe: a tiny alpine chalet with lit windows on a white base, glitter suspended mid-fall in the water, the glass distorting the background into a soft ring. Dark surround, single warm light source, macro.",
+      "params": {
+        "seed": 657474403
+      },
+      "batch": 3
+    },
+    {
+      "id": "miniature-005",
+      "category": "miniature",
+      "title": "Bonsai on a stand",
+      "image": "images/miniature-005.webp",
+      "prompt": "A mature bonsai pine in a shallow unglazed pot on a dark wooden stand, moss on the soil, needle detail crisp, shot against a plain grey studio background under soft directional light. The trunk gnarled and wired. Straight on, full tree.",
+      "params": {
+        "seed": 1743541111
+      },
+      "batch": 3
+    },
+    {
+      "id": "miniature-006",
+      "category": "miniature",
+      "title": "Cutaway dollhouse room",
+      "image": "images/miniature-006.webp",
+      "prompt": "A dollhouse room seen with its fourth wall removed: miniature furniture, a rug, a tiny lamp actually lit, patterned wallpaper. Shot straight on so it reads as a stage set. Warm practical light from inside, cool ambient from outside.",
+      "params": {
+        "seed": 1895175876
+      },
+      "batch": 3
+    },
+    {
+      "id": "miniature-007",
+      "category": "miniature",
+      "title": "Sand table battlefield",
+      "image": "images/miniature-007.webp",
+      "prompt": "A wargaming sand table from a low angle: sculpted terrain, lichen scrub, painted infantry figures in loose formation behind a ridge, a ruined building of foam board. Overcast studio light, shallow focus on the front rank.",
+      "params": {
+        "seed": 568280305
+      },
+      "batch": 3
+    },
+    {
+      "id": "miniature-008",
+      "category": "miniature",
+      "title": "Miniature food, macro",
+      "image": "images/miniature-008.webp",
+      "prompt": "A miniature clay breakfast — fried egg, toast, tomato — on a plate the size of a coin, held between finger and thumb for scale at the edge of frame. Extreme macro, the polymer clay texture and tool marks visible up close.",
+      "params": {
+        "seed": 1295431062
+      },
+      "batch": 3
+    },
+    {
+      "id": "coloring-page-001",
+      "category": "coloring-page",
+      "title": "Coloring page: garden scene",
+      "image": "images/coloring-page-001.webp",
+      "prompt": "A children's coloring page: a garden scene with a watering can, sunflowers, a snail and a butterfly, drawn as clean uniform black outlines on pure white with no shading, no grey, no fill. Thick friendly lines, generous white areas to colour in.",
+      "params": {
+        "seed": 230163006
+      },
+      "batch": 3
+    },
+    {
+      "id": "coloring-page-002",
+      "category": "coloring-page",
+      "title": "Coloring page: sea creatures",
+      "image": "images/coloring-page-002.webp",
+      "prompt": "A children's coloring page of sea creatures — an octopus, two fish, a starfish and seaweed — as bold even black outlines on white, no shading or hatching anywhere, simple shapes, large enclosed areas. Nothing filled in.",
+      "params": {
+        "seed": 927169882
+      },
+      "batch": 3
+    },
+    {
+      "id": "coloring-page-003",
+      "category": "coloring-page",
+      "title": "Coloring page: mandala",
+      "image": "images/coloring-page-003.webp",
+      "prompt": "A symmetrical mandala coloring page: concentric rings of petals, leaves and geometric motifs in fine even black line on white, eightfold symmetry, every region closed so it can be coloured. No fills, no grey, no shading.",
+      "params": {
+        "seed": 690682918
+      },
+      "batch": 3
+    },
+    {
+      "id": "coloring-page-004",
+      "category": "coloring-page",
+      "title": "Coloring page: dinosaur",
+      "image": "images/coloring-page-004.webp",
+      "prompt": "A friendly cartoon stegosaurus for a children's coloring book, thick black outlines only on white, simple ferns behind it, no shading, no texture, no fill. Rounded shapes suitable for a young child with crayons.",
+      "params": {
+        "seed": 343603193
+      },
+      "batch": 3
+    },
+    {
+      "id": "coloring-page-005",
+      "category": "coloring-page",
+      "title": "Coloring page: cityscape",
+      "image": "images/coloring-page-005.webp",
+      "prompt": "A coloring page of a stylised city skyline with varied building shapes, windows drawn as simple rectangles, a bridge and a few clouds, all as clean uniform black outlines on white. No shading, no solid black areas, no fill.",
+      "params": {
+        "seed": 797917670
+      },
+      "batch": 3
+    },
+    {
+      "id": "coloring-page-006",
+      "category": "coloring-page",
+      "title": "Coloring page: teacup still life",
+      "image": "images/coloring-page-006.webp",
+      "prompt": "A coloring page still life: a teacup on a saucer, a teapot, a slice of cake on a plate and a folded napkin, drawn in even black outline on white with decorative patterns on the china left as empty outlines to colour. No shading.",
+      "params": {
+        "seed": 1880531119
+      },
+      "batch": 3
+    },
+    {
+      "id": "ui-004",
+      "category": "ui",
+      "title": "Login screen",
+      "image": "images/ui-004.webp",
+      "prompt": "A minimal login screen: a small logo mark, the heading \"Sign in\", an email field, a password field, a primary button reading \"Continue\", and a small link beneath. Centred card on a soft gradient background. Nothing else.",
+      "params": {
+        "seed": 1367300139
+      },
+      "batch": 3
     }
   ],
   "findings": {
-    "_intro": "Everything below was measured while building this catalog, not quoted from the model card. 150 generations went in across two batches, 112 are here, 38 were cut. Each claim names the entries that demonstrate it, and every entry carries the seed that produced it, so you can check any of this against the images in this repo. Batch two kept a higher share — 27 of 36 against 85 of 114 — because it was written knowing what batch one had already ruled out. That is what these findings are for.",
+    "_intro": "Everything below was measured while building this catalog, not quoted from the model card. 210 generations across three batches, 161 are here, 49 were cut. Each claim names the entries that demonstrate it, every entry carries the seed that produced it and the batch it came from, so you can check any of this against the images in this repo. Keep rates rose batch over batch — 85 of 114, then 27 of 36, then 49 of 60 — because each batch was written knowing what the last one ruled out. The exception is deliberate: one category in batch three was included expecting it to fail.",
     "items": [
       {
         "title": "Text survives one sign and dies on a list",
@@ -1180,6 +1838,18 @@
       {
         "title": "Single-string stationery is where this model is strongest",
         "body": "The six `stationery-*` entries all rendered their text correctly on the first attempt — `NORTHFIELD & CO`, `FRAGILE`, `ADMIT ONE`, `PAID` — with no retries and nothing cut. That is the only category in this catalog with a 100% keep rate.\n\n`stationery-006` is the one to look at: the red `PAID` impression on the paper is correct, and the rubber stamp lying beside it carries the same word **mirrored**, which is what a real stamp face does. Nobody asked for that.\n\nThis is the same rule as the typography finding, seen from the useful side. One string in one frame is not a limitation to work around; it is the shape the model is actually good at."
+      },
+      {
+        "title": "Interface mockups: the layout is always right and the words are always wrong",
+        "body": "I added ten UI mockups to batch three expecting nine of them to fail, and nine of them failed. That was the point — a limit you only predict is not a measured limit.\n\nWhat is striking is *which* half breaks. The structure is consistently correct: `ui-002` has three grouped sections of three rows with a toggle on each, some on and some off, hairlines between; `ui-008` has alternating chat bubbles with avatars, timestamps and a pinned input; `ui-010` has three kanban columns with count badges, tag pills and avatars. Every one of those is exactly what was asked for.\n\nThe strings are not. `ui-002` renders the first section header as `Settings` and then degrades to `Sectings` for the next two. `ui-006` fails at the day headers *and* at the dates — the first week reads 5, 6, 51, 13, which is not a week.\n\nThe one that worked is **ui-004**, the login screen, and it worked because it has four short real strings: `Sign in`, `Email`, `Password`, `Continue`. All four are letter-perfect. The same effect shows in the cuts — `ui-007` got `Add to cart` exactly right while inventing gibberish for the product title.\n\nPractical rule: this model will give you a convincing UI *composition* to trace over, and you must replace every word in it."
+      },
+      {
+        "title": "It renders words, not letters",
+        "body": "`brand-mark-002` asked for a monogram of the letters `KJ` interlocked in a circle. It came back with three letterforms, none of them clearly a J. Everything around it is perfect — the circular rule, the single ink weight, the symmetry.\n\nThat is the only text failure in a category that otherwise went seven for eight, and the seven that worked were all *words*: `HALLOW`, `FIELDNOTE`, `OPEN`, `EST 1904`, `ASTER`, `COOPERAGE`, `STUDIO 4`. Nine letters rendered correctly in `COOPERAGE`; two letters failed in `KJ`.\n\nSo the limit is not length, and it is not even string count on its own. An arbitrary letter pair has no word for the model to reach for. If you need specific initials, expect to set them yourself."
+      },
+      {
+        "title": "\"Seamless\" produces a pattern that does not tile",
+        "body": "All eight `pattern-*` prompts asked for a seamless repeat. I tiled the outputs and measured the seam by comparing each image's left edge column against its right, and its top row against its bottom, against the baseline difference between two arbitrary interior columns of the same image.\n\n**One of the eight tiles.** That one is `pattern-007`, vertical hand-drawn stripes, where the edges match because vertical stripes match trivially — structural luck, not the instruction being followed. `pattern-005` tiles horizontally and not vertically. The remaining six have edge differences at or above their own interior baseline, meaning the two edges are as unrelated as two random slices.\n\nThe images are good. Several are genuinely beautiful surface designs. They are just not repeat tiles, and if you drop one into a wallpaper or textile pipeline expecting it to run, it will seam.\n\nPractical rule: treat these as one-off surfaces. Making them actually tile is a post-process, not a prompt."
       }
     ]
   },
@@ -1194,7 +1864,8 @@
         "image": "images/failures/fail-menu.webp",
         "params": {
           "seed": 1729505870
-        }
+        },
+        "batch": 1
       },
       {
         "id": "fail-spines",
@@ -1204,7 +1875,8 @@
         "image": "images/failures/fail-spines.webp",
         "params": {
           "seed": 1095803014
-        }
+        },
+        "batch": 1
       },
       {
         "id": "fail-map",
@@ -1214,7 +1886,8 @@
         "image": "images/failures/fail-map.webp",
         "params": {
           "seed": 57616412
-        }
+        },
+        "batch": 1
       },
       {
         "id": "fail-timeline",
@@ -1224,7 +1897,8 @@
         "image": "images/failures/fail-timeline.webp",
         "params": {
           "seed": 797625079
-        }
+        },
+        "batch": 1
       },
       {
         "id": "fail-korean",
@@ -1234,7 +1908,8 @@
         "image": "images/failures/fail-korean.webp",
         "params": {
           "seed": 1910572019
-        }
+        },
+        "batch": 1
       },
       {
         "id": "fail-terminal",
@@ -1244,7 +1919,8 @@
         "image": "images/failures/fail-terminal.webp",
         "params": {
           "seed": 1530960951
-        }
+        },
+        "batch": 1
       },
       {
         "id": "fail-identity",
@@ -1256,7 +1932,8 @@
         "image": "images/failures/fail-identity.webp",
         "params": {
           "seed": 1317515569
-        }
+        },
+        "batch": 1
       },
       {
         "id": "fail-removal",
@@ -1268,7 +1945,8 @@
         "image": "images/failures/fail-removal.webp",
         "params": {
           "seed": 1499506316
-        }
+        },
+        "batch": 1
       },
       {
         "id": "portrait-006",
@@ -1278,7 +1956,8 @@
         "image": "images/failures/portrait-006.webp",
         "params": {
           "seed": 2099062475
-        }
+        },
+        "batch": 2
       },
       {
         "id": "portrait-008",
@@ -1288,7 +1967,8 @@
         "image": "images/failures/portrait-008.webp",
         "params": {
           "seed": 1251562984
-        }
+        },
+        "batch": 2
       },
       {
         "id": "portrait-010",
@@ -1298,7 +1978,8 @@
         "image": "images/failures/portrait-010.webp",
         "params": {
           "seed": 416503906
-        }
+        },
+        "batch": 2
       },
       {
         "id": "portrait-012",
@@ -1308,7 +1989,8 @@
         "image": "images/failures/portrait-012.webp",
         "params": {
           "seed": 639894452
-        }
+        },
+        "batch": 2
       },
       {
         "id": "infographic-004",
@@ -1318,7 +2000,8 @@
         "image": "images/failures/infographic-004.webp",
         "params": {
           "seed": 1043088059
-        }
+        },
+        "batch": 2
       },
       {
         "id": "infographic-007",
@@ -1328,7 +2011,8 @@
         "image": "images/failures/infographic-007.webp",
         "params": {
           "seed": 125241101
-        }
+        },
+        "batch": 2
       },
       {
         "id": "collectible-003",
@@ -1338,7 +2022,8 @@
         "image": "images/failures/collectible-003.webp",
         "params": {
           "seed": 1958353167
-        }
+        },
+        "batch": 2
       },
       {
         "id": "collectible-004",
@@ -1348,7 +2033,8 @@
         "image": "images/failures/collectible-004.webp",
         "params": {
           "seed": 167021886
-        }
+        },
+        "batch": 2
       },
       {
         "id": "collectible-008",
@@ -1358,7 +2044,129 @@
         "image": "images/failures/collectible-008.webp",
         "params": {
           "seed": 1935262212
-        }
+        },
+        "batch": 2
+      },
+      {
+        "id": "food-003",
+        "claim": "Mechanism: the espresso renders as an amber disc where the basket should be, and one stream instead of two",
+        "expected": "Two thin streams from a portafilter",
+        "prompt": "A double espresso extracting into a clear glass, backlit so the crema glows amber and the two streams are visible as thin ropes of dark liquid. Steam, a chrome portafilter above, everything else falling to near black. Macro, 1/500s, frozen.",
+        "image": "images/failures/food-003.webp",
+        "params": {
+          "seed": 117001054
+        },
+        "batch": 3
+      },
+      {
+        "id": "brand-mark-002",
+        "claim": "Letters: asked for the monogram 'KJ', got three letterforms that are not those two",
+        "expected": "The letters K and J interlocked",
+        "prompt": "A monogram mark: the letters \"KJ\" interlocked and enclosed in a thin circular rule, drawn in a single ink weight, deep navy on cream. Geometric construction, no serifs, perfectly symmetrical. Centred, flat, nothing else.",
+        "image": "images/failures/brand-mark-002.webp",
+        "params": {
+          "seed": 1276536027
+        },
+        "batch": 3
+      },
+      {
+        "id": "ui-001",
+        "claim": "UI: every invented label is noise while the currency amounts render correctly",
+        "expected": "Transaction names, dates and amounts",
+        "prompt": "A mobile app dashboard mockup rendered on a phone screen: a greeting header, a large balance figure, four labelled icon buttons in a row, and a scrollable list of five transactions each with a name, a date and an amount. Clean light UI, one teal accent, San Francisco-style type.",
+        "image": "images/failures/ui-001.webp",
+        "params": {
+          "seed": 1378883083
+        },
+        "batch": 3
+      },
+      {
+        "id": "ui-002",
+        "claim": "UI: the first section header reads 'Settings'; the next two degrade to 'Sectings'",
+        "expected": "Three section headers and six row labels",
+        "prompt": "An iOS-style settings screen: three grouped sections, each with three rows, every row carrying a label on the left and a toggle switch on the right, some on and some off. Section headers in small grey caps. Light mode, hairline dividers.",
+        "image": "images/failures/ui-002.webp",
+        "params": {
+          "seed": 1537435411
+        },
+        "batch": 3
+      },
+      {
+        "id": "ui-003",
+        "claim": "UI: metric numbers survive, every label around them does not",
+        "expected": "Four labelled metric cards and a five-row table",
+        "prompt": "A desktop web analytics dashboard in dark mode: a left sidebar of navigation items, four metric cards across the top each with a label and a large number, a wide line chart below, and a data table at the bottom with five rows and four columns.",
+        "image": "images/failures/ui-003.webp",
+        "params": {
+          "seed": 401297056
+        },
+        "batch": 3
+      },
+      {
+        "id": "ui-005",
+        "claim": "UI: a code editor renders as convincing syntax-coloured noise with no readable token",
+        "expected": "Syntax-highlighted code",
+        "prompt": "A code editor window in a dark theme: a file tree on the left, a tab bar with three tabs, line numbers down the gutter, and syntax-highlighted code filling the pane. A status bar along the bottom. Realistic monospace rendering.",
+        "image": "images/failures/ui-005.webp",
+        "params": {
+          "seed": 1224413193
+        },
+        "batch": 3
+      },
+      {
+        "id": "ui-006",
+        "claim": "UI: the day headers fail and so do the dates — 5, 6, 51, 13 is not a week",
+        "expected": "Seven weekday headers and a sequential date grid",
+        "prompt": "A calendar month view: seven day-of-week headers, a grid of date cells, and coloured event pills spanning some of them. Today's cell highlighted with a filled circle. Light theme, thin dividers, one accent colour.",
+        "image": "images/failures/ui-006.webp",
+        "params": {
+          "seed": 982476354
+        },
+        "batch": 3
+      },
+      {
+        "id": "ui-007",
+        "claim": "UI: 'Add to cart' is correct, the product title is not, and the size buttons all read 'Size'",
+        "expected": "A product title, a price, and size options",
+        "prompt": "An e-commerce product page: a large product photo on the left, on the right a title, a price, a star rating with a review count, size buttons in a row, and an \"Add to cart\" button. Breadcrumbs at the top. Clean, generous white space.",
+        "image": "images/failures/ui-007.webp",
+        "params": {
+          "seed": 1056892936
+        },
+        "batch": 3
+      },
+      {
+        "id": "ui-008",
+        "claim": "UI: chat bubbles are structurally perfect and every message is unreadable",
+        "expected": "Readable alternating messages",
+        "prompt": "A messaging interface: alternating chat bubbles, incoming grey on the left and outgoing blue on the right, timestamps under each, an avatar beside the incoming ones, and a text input with a send button pinned at the bottom.",
+        "image": "images/failures/ui-008.webp",
+        "params": {
+          "seed": 880659524
+        },
+        "batch": 3
+      },
+      {
+        "id": "ui-009",
+        "claim": "UI: the illustration is good, the headline and the button label are not",
+        "expected": "A headline, supporting text and a button label",
+        "prompt": "An app onboarding slide: a large friendly illustration in the upper two thirds, a short bold headline beneath it, one line of smaller supporting text, three page dots with the second one filled, and a full-width button at the bottom.",
+        "image": "images/failures/ui-009.webp",
+        "params": {
+          "seed": 727964264
+        },
+        "batch": 3
+      },
+      {
+        "id": "ui-010",
+        "claim": "UI: all three columns are literally headed 'Kanban' — the model rendered the word from the prompt",
+        "expected": "Three distinct column names",
+        "prompt": "A kanban board with three columns headed by short labels and a count badge each, holding cards with a title line, a coloured tag and a small avatar. Light grey board background, white cards with soft shadows.",
+        "image": "images/failures/ui-010.webp",
+        "params": {
+          "seed": 1672153217
+        },
+        "batch": 3
       }
     ]
   },
@@ -1430,6 +2238,6 @@
       "jamez-bondos has not been pushed since 2025-05-26."
     ]
   },
-  "generations": 150,
-  "spend": 1.26
+  "generations": 210,
+  "spend": 1.76
 }

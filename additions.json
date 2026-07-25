@@ -1,372 +1,615 @@
 {
-  "_what": "Batch 2. The first 85 entries were built to test the model — lighting behaviour, typography limits, medium transfer. Measured against the catalogs that actually win in this niche, that is a test suite where readers want a want-list: the 12,956-star nano-banana catalog opens with seventeen profile-avatar prompts before anything else, then infographics, then collectibles. None of those categories existed here. These do not replace the test-suite entries; they sit beside them, under the same rule that every seed is recorded and every failure is kept.",
+  "_what": "Batch 3. Batch 2 established that demand categories keep better than test categories — 27 of 36 against 85 of 114 — because they were written knowing what batch 1 ruled out. This batch does the same thing in six directions nobody has covered here yet, and deliberately includes one category (ui) that the text findings predict will mostly fail, because a prediction that is never tested is not a finding.",
   "model": "Krea 2 Turbo",
   "repo": "sjh9714/awesome-krea-2",
   "categories": {
-    "portrait": "Profile pictures and avatars — the single most requested category in every prompt catalog measured",
-    "infographic": "Explainer layouts, quote cards, dashboards — text-heavy by design, which is where this model is weakest and most worth documenting",
-    "collectible": "Figurines, pins, keycaps, trading cards — physical-object mockups",
-    "stationery": "Cards, letterheads, packaging inserts"
+    "food": "Food and drink, studio and in-context",
+    "interior": "Rooms, architecture, spatial light",
+    "pattern": "Repeating surface design — textile, wallpaper, wrapping",
+    "brand-mark": "Logos and marks. Single short strings, which the typography findings predict is the model's strongest text case",
+    "miniature": "Tilt-shift, dioramas, scale models of places",
+    "coloring-page": "Uncoloured line art for printing",
+    "ui": "App and web interface mockups. Included as a deliberate test of the multi-string text limit, not because it is expected to work"
   },
   "entries": [
     {
-      "id": "portrait-001",
-      "category": "portrait",
-      "title": "Window-light portrait, 85mm",
-      "image": "images/portrait-001.webp",
-      "prompt": "A portrait of a woman in her thirties beside a north-facing window, 85mm at f/1.8, soft directional daylight falling across one side of the face and the other dropping into gentle shadow. Natural skin texture with visible pores, no retouching, catchlight in both eyes. Charcoal wool sweater, plain warm grey wall behind, shallow depth of field.",
+      "id": "food-001",
+      "category": "food",
+      "title": "Cut sourdough loaf, side light",
+      "image": "images/food-001.webp",
+      "prompt": "A sourdough loaf cut in half on a floured board, hard side light from the left raking across the open crumb so every hole casts its own shadow. Blistered dark crust, flour dusting the surface, a serrated knife just out of the frame edge. Shot at f/8, tight.",
       "params": {
-        "seed": 1613165866
+        "seed": 207887450
       }
     },
     {
-      "id": "portrait-002",
-      "category": "portrait",
-      "title": "High-contrast studio, single hard light",
-      "image": "images/portrait-002.webp",
-      "prompt": "Studio portrait of a man in his forties, single hard light high and to camera left, deep shadow filling the right of the face, black seamless background. Sharp specular highlight on the cheekbone, close-cropped beard, direct eye contact with the lens. Medium format look, 110mm equivalent.",
+      "id": "food-002",
+      "category": "food",
+      "title": "Ramen bowl, overhead steam",
+      "image": "images/food-002.webp",
+      "prompt": "An overhead shot of a ramen bowl on dark wood, soft-boiled egg halved and glossy, nori standing at the edge, chopped scallion scattered. Steam rising and catching a backlight. Deep tonkotsu broth, visible fat droplets, condensation on the rim of the bowl.",
       "params": {
-        "seed": 1110166560
+        "seed": 996431689
       }
     },
     {
-      "id": "portrait-003",
-      "category": "portrait",
-      "title": "Golden hour backlit, rim light",
-      "image": "images/portrait-003.webp",
-      "prompt": "Backlit outdoor portrait at golden hour, sun directly behind the subject creating a bright rim along the hair and shoulders, face lifted by soft bounce. Warm haze, out-of-focus grass and fence line behind. Linen shirt, relaxed expression, 135mm compression, f/2.",
+      "id": "food-003",
+      "category": "food",
+      "title": "Espresso pour, backlit",
+      "image": "images/food-003.webp",
+      "prompt": "A double espresso extracting into a clear glass, backlit so the crema glows amber and the two streams are visible as thin ropes of dark liquid. Steam, a chrome portafilter above, everything else falling to near black. Macro, 1/500s, frozen.",
       "params": {
-        "seed": 648134594
+        "seed": 117001054
       }
     },
     {
-      "id": "portrait-004",
-      "category": "portrait",
-      "title": "Overcast environmental portrait",
-      "image": "images/portrait-004.webp",
-      "prompt": "Environmental portrait of a woodworker standing in her shop doorway under flat overcast light, sawdust on a canvas apron, hands relaxed at her sides. The shop interior falls off into darkness behind her. 35mm, waist up, documentary framing with the doorframe as a natural border.",
+      "id": "food-004",
+      "category": "food",
+      "title": "Citrus cross-sections on marble",
+      "image": "images/food-004.webp",
+      "prompt": "Halved citrus fruits arranged on white marble, shot straight down under a large diffuse source. Blood orange, grapefruit, lime, lemon. Juice beading on the cut faces, translucent segments, a few seeds visible. Cool, clean, high key, no props.",
       "params": {
-        "seed": 1794897089
+        "seed": 1002826123
       }
     },
     {
-      "id": "portrait-005",
-      "category": "portrait",
-      "title": "Portra 400 candid, mixed indoor light",
-      "image": "images/portrait-005.webp",
-      "prompt": "Candid indoor portrait on Kodak Portra 400, a man laughing mid-conversation at a kitchen table, tungsten lamp warm on one side and cool window light on the other. Visible film grain, soft halation on the highlights, slightly warm cast. 50mm, handheld, not looking at the camera.",
+      "id": "food-005",
+      "category": "food",
+      "title": "Cast iron steak, hard rim light",
+      "image": "images/food-005.webp",
+      "prompt": "A steak resting in a cast iron pan, dark crust with visible sear marks, one hard light from behind creating a bright rim along the top edge and rendering the rest in deep shadow. Butter foaming at the base, thyme sprigs, tongs at the frame edge.",
       "params": {
-        "seed": 1126231015
+        "seed": 752325181
       }
     },
     {
-      "id": "portrait-006",
-      "category": "portrait",
-      "title": "Profile silhouette against sky",
-      "image": "images/portrait-006.webp",
-      "prompt": "Pure profile view of a person against a bright overcast sky, exposed for the sky so the face reads as a clean dark silhouette with only the eyelash line and nose bridge catching light. Minimal, high key background, no detail in the shadow. Square crop.",
+      "id": "food-006",
+      "category": "food",
+      "title": "Ice cream melting, tight macro",
+      "image": "images/food-006.webp",
+      "prompt": "Macro of a scoop of pistachio ice cream beginning to melt on a ceramic plate, one drip running down and pooling. Visible nut fragments and ice crystals, cold blue-white light, condensation on the plate. Extremely shallow depth of field.",
       "params": {
-        "seed": 2099062475
+        "seed": 1757822826
       }
     },
     {
-      "id": "portrait-007",
-      "category": "portrait",
-      "title": "Painterly oil portrait, chiaroscuro",
-      "image": "images/portrait-007.webp",
-      "prompt": "An oil painting portrait in the chiaroscuro tradition, three-quarter view, single warm light source from upper left, background falling to near black. Visible brushwork in the flesh tones, glazed shadows, muted earth palette of ochre, umber and lead white. Not photorealistic — the paint should be visible.",
+      "id": "food-007",
+      "category": "food",
+      "title": "Market vegetable stall, overcast",
+      "image": "images/food-007.webp",
+      "prompt": "A market stall of root vegetables under flat overcast light, mud still on the carrots and beetroot, crates stacked at angles, a canvas awning cutting the top of the frame. Documentary, 35mm, colours slightly desaturated by the grey sky.",
       "params": {
-        "seed": 1461986812
+        "seed": 1110593834
       }
     },
     {
-      "id": "portrait-008",
-      "category": "portrait",
-      "title": "Flat vector avatar, two tones",
-      "image": "images/portrait-008.webp",
-      "prompt": "A flat vector avatar bust of a person with short curly hair and round glasses, exactly two flat colours plus white, no gradients, no outlines, geometric simplification of the features. Centred in a circle on a plain background. The kind of mark that still reads at 32 pixels.",
+      "id": "food-008",
+      "category": "food",
+      "title": "Layer cake cross-section",
+      "image": "images/food-008.webp",
+      "prompt": "A slice removed from a four-layer cake so the cross-section faces camera, buttercream between each layer, crumb visible and slightly moist. Even soft light, pale pink background, cake stand edge in frame. Straight on, symmetrical.",
       "params": {
-        "seed": 1251562984
+        "seed": 1632613977
       }
     },
     {
-      "id": "portrait-009",
-      "category": "portrait",
-      "title": "Black and white, harsh noon sun",
-      "image": "images/portrait-009.webp",
-      "prompt": "Black and white portrait shot in harsh overhead noon sun, deep shadows in the eye sockets and under the nose, strong contrast, grain pushed. Subject squinting slightly, sweat on the forehead, plain concrete wall behind. Tri-X pushed to 1600, 35mm.",
+      "id": "food-009",
+      "category": "food",
+      "title": "Whisky glass, single hard source",
+      "image": "images/food-009.webp",
+      "prompt": "A cut crystal glass of whisky on dark slate, a single hard light behind and to the right throwing the cut facets into bright caustics on the stone. Large clear ice sphere, amber liquid, everything else black. Product-grade, no props.",
       "params": {
-        "seed": 1915439531
+        "seed": 1133820066
       }
     },
     {
-      "id": "portrait-010",
-      "category": "portrait",
-      "title": "Neon-lit night portrait",
-      "image": "images/portrait-010.webp",
-      "prompt": "Night portrait lit only by shop signage, magenta from frame left and cyan from frame right meeting across the face, wet street reflections out of focus behind. Rain on the shoulders of a dark jacket. 50mm at f/1.4, slight motion in the background, subject still and sharp.",
+      "id": "food-010",
+      "category": "food",
+      "title": "Dumplings in a bamboo steamer",
+      "image": "images/food-010.webp",
+      "prompt": "Open bamboo steamer of pleated dumplings, translucent wrappers showing the filling through, steam still rising. Warm overhead light, a second closed steamer stacked beneath, dark table. Slight top-down angle, shallow focus falling off at the back.",
       "params": {
-        "seed": 416503906
+        "seed": 1310175144
       }
     },
     {
-      "id": "portrait-011",
-      "category": "portrait",
-      "title": "Charcoal drawing on toned paper",
-      "image": "images/portrait-011.webp",
-      "prompt": "A charcoal portrait drawn on mid-grey toned paper, white chalk for the highlights, compressed charcoal for the darks, the paper tone doing the mid-values. Loose hatching around the edges, tight rendering only around the eyes. Smudged, worked, visibly hand-made.",
+      "id": "interior-001",
+      "category": "interior",
+      "title": "Sunlit reading corner",
+      "image": "images/interior-001.webp",
+      "prompt": "A reading corner in late afternoon: a worn leather armchair, a floor lamp switched off, low sun coming through a tall window and throwing a hard trapezoid of light across the floorboards and up the wall. Dust in the beam. Wide, 24mm, no people.",
       "params": {
-        "seed": 121909817
+        "seed": 633029565
       }
     },
     {
-      "id": "portrait-012",
-      "category": "portrait",
-      "title": "Corporate headshot, clean and even",
-      "image": "images/portrait-012.webp",
-      "prompt": "A clean corporate headshot, large softbox front and slightly above, subtle fill from below, seamless mid-grey background with a soft gradient. Navy blazer, neutral friendly expression, sharp from the eyes to the collar. The kind of image that goes on a company about page.",
+      "id": "interior-002",
+      "category": "interior",
+      "title": "Concrete stairwell, top light",
+      "image": "images/interior-002.webp",
+      "prompt": "A brutalist concrete stairwell shot upward, daylight entering from a skylight far above and falling off with distance. Board-formed concrete texture, steel handrail, deep shadow in the lower flights. Symmetrical composition, ultra-wide.",
       "params": {
-        "seed": 639894452
+        "seed": 1168418123
       }
     },
     {
-      "id": "infographic-001",
-      "category": "infographic",
-      "title": "Quote card with rule lines",
-      "image": "images/infographic-001.webp",
-      "prompt": "A minimal quote card layout: the words \"MEASURE TWICE\" set large in a condensed grotesque, a thin horizontal rule beneath, and \"CUT ONCE\" smaller and right-aligned below it. Cream background, near-black type, generous margins. Nothing else in the frame.",
+      "id": "interior-003",
+      "category": "interior",
+      "title": "Kitchen at blue hour",
+      "image": "images/interior-003.webp",
+      "prompt": "A kitchen at blue hour, under-cabinet lights the only warm source, cool blue window light balancing it from the left. Marble worktop, a single glass left out, everything tidy. Mixed colour temperature held rather than corrected. Tripod, long exposure.",
       "params": {
-        "seed": 662649445
+        "seed": 1981161439
       }
     },
     {
-      "id": "infographic-002",
-      "category": "infographic",
-      "title": "Bento grid, four modules",
-      "image": "images/infographic-002.webp",
-      "prompt": "A bento-box dashboard layout with four rounded rectangular modules of different sizes on a soft grey background. Each module holds a simple abstract chart — one bar, one donut, one sparkline, one large number. Soft shadows, generous padding, one teal accent colour, no legible body text.",
+      "id": "interior-004",
+      "category": "interior",
+      "title": "Empty gallery room",
+      "image": "images/interior-004.webp",
+      "prompt": "An empty white gallery room with a polished concrete floor, track lighting pointing at bare walls, one doorway leading to a darker second room. No artwork, no people. Even diffuse light, straight-on one-point perspective, 28mm.",
       "params": {
-        "seed": 1870145278
+        "seed": 1318705704
       }
     },
     {
-      "id": "infographic-003",
-      "category": "infographic",
-      "title": "Cutaway diagram with leader lines",
-      "image": "images/infographic-003.webp",
-      "prompt": "A technical cutaway of a thermos flask, drawn as a clean line diagram with the interior layers visible, thin leader lines pointing out from four components to empty label positions at the edges. No text on the labels — just the lines and the dots. White background, single ink weight.",
+      "id": "interior-005",
+      "category": "interior",
+      "title": "Attic workshop, north light",
+      "image": "images/interior-005.webp",
+      "prompt": "An attic workshop under a sloping roof with a north-facing skylight, workbench cluttered with hand tools, sawdust on the floor, exposed rafters. Soft even daylight with no direct sun. Warm wood tones, slight haze, 35mm.",
       "params": {
-        "seed": 2045906439
+        "seed": 613896431
       }
     },
     {
-      "id": "infographic-004",
-      "category": "infographic",
-      "title": "Chalkboard summary, three points",
-      "image": "images/infographic-004.webp",
-      "prompt": "A slate chalkboard with a hand-lettered heading reading \"TODAY\" and three short bullet lines beneath it, drawn in white chalk with a yellow chalk underline on the heading. Chalk dust haze, uneven pressure, a partly erased smudge in one corner. Shot straight on.",
+      "id": "interior-006",
+      "category": "interior",
+      "title": "Hotel corridor, receding lights",
+      "image": "images/interior-006.webp",
+      "prompt": "A long hotel corridor with identical doors receding to a vanishing point, wall sconces at regular intervals creating a rhythm of pools of light on patterned carpet. Slightly wide, dead centre, symmetrical. Nobody in frame.",
       "params": {
-        "seed": 1043088059
+        "seed": 965972945
       }
     },
     {
-      "id": "infographic-005",
-      "category": "infographic",
-      "title": "Vintage patent drawing",
-      "image": "images/infographic-005.webp",
-      "prompt": "A vintage patent illustration of a folding bicycle, black ink line work on aged off-white paper, hatched shading, numbered reference marks beside the components, a ruled border around the sheet. Figure numbers only, no descriptive text. The aesthetic of a 1920s patent office filing.",
+      "id": "interior-007",
+      "category": "interior",
+      "title": "Greenhouse interior, humid light",
+      "image": "images/interior-007.webp",
+      "prompt": "Inside a Victorian glasshouse, wrought iron ribs overhead, condensation on the panes diffusing the sunlight into a soft glow. Palms and ferns crowding a central path, terracotta pots, water on the flagstones. Humid, green, slightly overexposed.",
       "params": {
-        "seed": 1151604106
+        "seed": 1871087603
       }
     },
     {
-      "id": "infographic-006",
-      "category": "infographic",
-      "title": "Weather card, single glyph",
-      "image": "images/infographic-006.webp",
-      "prompt": "A weather card: a large simple cloud-and-rain glyph centred, the numerals \"14°\" beneath it in a geometric sans, and nothing else. Deep blue gradient background, white elements, soft outer glow on the glyph. Square, app-icon proportions.",
+      "id": "interior-008",
+      "category": "interior",
+      "title": "Japanese tatami room",
+      "image": "images/interior-008.webp",
+      "prompt": "A tatami room with shoji screens filtering daylight into an even soft wash, a low wooden table, one cushion, an alcove with a single branch in a vase. Nothing else. Straight on, symmetrical, muted natural palette.",
       "params": {
-        "seed": 487662832
+        "seed": 1875634416
       }
     },
     {
-      "id": "infographic-007",
-      "category": "infographic",
-      "title": "Watercolour map with regions",
-      "image": "images/infographic-007.webp",
-      "prompt": "A watercolour map of an invented island divided into five regions, each washed in a different muted colour with visible pigment granulation and soft bleeding at the borders. Thin brown ink coastline drawn over the wash, a small compass rose in the corner. No place names.",
+      "id": "interior-009",
+      "category": "interior",
+      "title": "Basement server room",
+      "image": "images/interior-009.webp",
+      "prompt": "A basement server room lit only by rack indicator LEDs and one open cabinet door spilling white light, cable bundles running overhead in trays, polished raised floor reflecting the glow. Cold, blue-green, long exposure, nobody present.",
       "params": {
-        "seed": 125241101
+        "seed": 769155750
       }
     },
     {
-      "id": "infographic-008",
-      "category": "infographic",
-      "title": "Timeline ribbon, five markers",
-      "image": "images/infographic-008.webp",
-      "prompt": "A horizontal timeline drawn as a flat ribbon curving gently across the frame, five circular markers spaced along it, alternating above and below, each marker containing a single simple icon. One accent colour against off-white, plenty of empty space. No text.",
+      "id": "interior-010",
+      "category": "interior",
+      "title": "Loft under renovation",
+      "image": "images/interior-010.webp",
+      "prompt": "A loft mid-renovation: plaster dust, a stepladder, plastic sheeting over a window softening the light, bare brick where the plaster has come off, exposed joists. Work lights on stands casting hard overlapping shadows. Documentary, wide.",
       "params": {
-        "seed": 1089997705
+        "seed": 736283544
       }
     },
     {
-      "id": "infographic-009",
-      "category": "infographic",
-      "title": "Comparison table, two columns",
-      "image": "images/infographic-009.webp",
-      "prompt": "A clean two-column comparison layout, left column headed \"BEFORE\" and right headed \"AFTER\", each column a stack of four rounded rows with a check or cross glyph and a short blank bar where text would sit. Light background, green ticks, red crosses, hairline dividers.",
+      "id": "pattern-001",
+      "category": "pattern",
+      "title": "Botanical block print repeat",
+      "image": "images/pattern-001.webp",
+      "prompt": "A seamless botanical repeat in the style of a hand-carved block print: fern fronds and seed heads in dark indigo on unbleached linen, slight registration wobble and visible ink texture where the block pressed unevenly. Flat, straight on, edge to edge.",
       "params": {
-        "seed": 536645071
+        "seed": 1576109877
       }
     },
     {
-      "id": "infographic-010",
-      "category": "infographic",
-      "title": "Isometric process, three stages",
-      "image": "images/infographic-010.webp",
-      "prompt": "Three isometric blocks arranged diagonally across the frame representing stages of a process, connected by thick arrows, each block a simplified object — a box, a gear, a package. Flat colour with a single light source, long soft shadows, pastel palette, white background.",
+      "id": "pattern-002",
+      "category": "pattern",
+      "title": "Geometric bauhaus repeat",
+      "image": "images/pattern-002.webp",
+      "prompt": "A seamless geometric pattern of circles, quarter-circles and thin rules in primary red, blue, yellow and black on cream, arranged on a strict grid. Flat vector, no shading, no texture. Fills the frame edge to edge with no border.",
       "params": {
-        "seed": 2043998615
+        "seed": 1026790550
       }
     },
     {
-      "id": "collectible-001",
-      "category": "collectible",
-      "title": "Vinyl figure in blister pack",
-      "image": "images/collectible-001.webp",
-      "prompt": "A stylised vinyl collectible figure of a small astronaut sealed in a blister pack against a printed cardboard backer, shot straight on under even studio light. The plastic bubble catches a soft reflection. Matte figure finish, chunky proportions, oversized helmet. The backer is a flat two-colour print.",
+      "id": "pattern-003",
+      "category": "pattern",
+      "title": "Marbled paper, combed",
+      "image": "images/pattern-003.webp",
+      "prompt": "Traditional combed marbled paper: teal, ochre and oxblood pigments drawn into a regular feathered comb pattern on a pale ground, with the fine veining of real size-bath marbling. Fills the frame, no border, no paper edge visible.",
       "params": {
-        "seed": 641600971
+        "seed": 1341762699
       }
     },
     {
-      "id": "collectible-002",
-      "category": "collectible",
-      "title": "Enamel pin on denim",
-      "image": "images/collectible-002.webp",
-      "prompt": "A hard enamel pin shaped like a crescent moon with a small star, gold plating between the colour fields, pinned to indigo denim. Macro, shallow depth of field, raking light picking out the polished metal ridges and the slight dome of the enamel.",
+      "id": "pattern-004",
+      "category": "pattern",
+      "title": "Terrazzo surface",
+      "image": "images/pattern-004.webp",
+      "prompt": "A terrazzo surface shot flat and straight down: irregular chips of marble in sage, terracotta and charcoal set into a warm off-white binder, polished so each chip has a slight sheen. Even lighting, no shadows, fills the frame.",
       "params": {
-        "seed": 317255029
+        "seed": 1380217993
       }
     },
     {
-      "id": "collectible-003",
-      "category": "collectible",
-      "title": "Keycap set, macro",
-      "image": "images/collectible-003.webp",
-      "prompt": "Four artisan keycaps arranged in a row on a dark desk mat, each cast in translucent resin with a different suspended pigment swirl, dye-sublimated legends on the flat top. Macro at f/5.6, soft top light, visible resin depth and a tiny air bubble in one cap.",
+      "id": "pattern-005",
+      "category": "pattern",
+      "title": "Art deco fan repeat",
+      "image": "images/pattern-005.webp",
+      "prompt": "A seamless art deco pattern of overlapping fan shapes in gold on deep green, thin gold outlines, stepped scallops, strict horizontal rows. Flat, screen-print feel, no gradients. Edge to edge, no border.",
       "params": {
-        "seed": 1958353167
+        "seed": 1139303172
       }
     },
     {
-      "id": "collectible-004",
-      "category": "collectible",
-      "title": "Trading card with foil border",
-      "image": "images/collectible-004.webp",
-      "prompt": "A collectible trading card lying at a slight angle on black felt, holographic foil border catching a rainbow sheen, illustrated creature artwork in the central panel, rounded corners, a thin dark frame. The foil should scatter light unevenly across the border only.",
+      "id": "pattern-006",
+      "category": "pattern",
+      "title": "Woodgrain, quarter sawn",
+      "image": "images/pattern-006.webp",
+      "prompt": "A close, flat photograph of quarter-sawn oak, the medullary rays showing as pale flecks across straight grain lines. Even soft light, no shadows, no edges of the board visible. Filling the frame like a material swatch.",
       "params": {
-        "seed": 167021886
+        "seed": 1026021497
       }
     },
     {
-      "id": "collectible-005",
-      "category": "collectible",
-      "title": "Knitted plush on shelf",
-      "image": "images/collectible-005.webp",
-      "prompt": "A hand-knitted plush fox sitting on a pale wooden shelf, chunky visible stitches in rust and cream yarn, slightly uneven ears, embroidered eyes. Soft window light from the left, plain white wall behind, shallow depth of field.",
+      "id": "pattern-007",
+      "category": "pattern",
+      "title": "Hand-drawn stripe, wobbly",
+      "image": "images/pattern-007.webp",
+      "prompt": "A seamless stripe pattern drawn by hand with a brush: uneven vertical stripes in ink blue on off-white, each one varying in width and opacity where the brush ran dry. Visible bristle marks. Flat, edge to edge, no border.",
       "params": {
-        "seed": 1717706071
+        "seed": 967510819
       }
     },
     {
-      "id": "collectible-006",
-      "category": "collectible",
-      "title": "Die-cast model on turntable",
-      "image": "images/collectible-006.webp",
-      "prompt": "A 1:64 die-cast model of a boxy 1980s estate car on a black acrylic turntable, three-quarter front view, studio strip lights reflected in the paint as two long soft highlights. Rubber tyres, printed number plate, tiny visible casting seam along the roof.",
+      "id": "pattern-008",
+      "category": "pattern",
+      "title": "Cyanotype fern repeat",
+      "image": "images/pattern-008.webp",
+      "prompt": "A seamless repeat of fern silhouettes as a cyanotype photogram — white plant shapes against deep Prussian blue, soft edges where the leaves lifted off the paper, uneven wash in the blue. Fills the frame, no border.",
       "params": {
-        "seed": 161380541
+        "seed": 958813884
       }
     },
     {
-      "id": "collectible-007",
-      "category": "collectible",
-      "title": "Resin diorama in a jar",
-      "image": "images/collectible-007.webp",
-      "prompt": "A miniature diorama sealed inside a clear glass jar: a tiny pine forest on a mossy hill with a single lit cabin window, cast in clear resin that reads as still water at the base. Backlit so the resin glows, everything else in shadow. Macro, dark background.",
+      "id": "brand-mark-001",
+      "category": "brand-mark",
+      "title": "Wordmark: HALLOW",
+      "image": "images/brand-mark-001.webp",
+      "prompt": "A wordmark reading exactly \"HALLOW\" in a high-contrast serif with generous letterspacing, set in near-black on a warm off-white field, centred with a lot of air around it. Nothing else in the frame. Flat, no texture, no effects.",
       "params": {
-        "seed": 506403015
+        "seed": 1564712968
       }
     },
     {
-      "id": "collectible-008",
-      "category": "collectible",
-      "title": "Rubber duck, studio product shot",
-      "image": "images/collectible-008.webp",
-      "prompt": "A matte black rubber duck on a white acrylic surface with a soft reflection beneath it, single large softbox above and behind, a thin rim of light along the top edge of the head and back. Minimal, high-end product photography of a deliberately silly object.",
+      "id": "brand-mark-002",
+      "category": "brand-mark",
+      "title": "Monogram in a circle",
+      "image": "images/brand-mark-002.webp",
+      "prompt": "A monogram mark: the letters \"KJ\" interlocked and enclosed in a thin circular rule, drawn in a single ink weight, deep navy on cream. Geometric construction, no serifs, perfectly symmetrical. Centred, flat, nothing else.",
       "params": {
-        "seed": 1935262212
+        "seed": 1276536027
       }
     },
     {
-      "id": "stationery-001",
-      "category": "stationery",
-      "title": "Letterpress card, deep impression",
-      "image": "images/stationery-001.webp",
-      "prompt": "A letterpress business card photographed at a raking angle so the deep impression of the type casts visible shadow in the cotton stock. The card reads \"NORTHFIELD & CO\" in a small caps serif with a thin rule beneath. Ecru paper, single black ink, deckled edge on one side.",
+      "id": "brand-mark-003",
+      "category": "brand-mark",
+      "title": "Embossed logo on leather",
+      "image": "images/brand-mark-003.webp",
+      "prompt": "The word \"FIELDNOTE\" blind-embossed into tan vegetable-tanned leather, raking light from the left so the impression reads entirely through shadow with no ink. Visible leather grain and a slight sheen on the raised edges. Macro, tight crop.",
       "params": {
-        "seed": 1926545409
+        "seed": 28931635
       }
     },
     {
-      "id": "stationery-002",
-      "category": "stationery",
-      "title": "Wax seal on kraft envelope",
-      "image": "images/stationery-002.webp",
-      "prompt": "A deep red wax seal pressed with a simple monogram, closing the flap of a kraft paper envelope on a dark wood surface. Warm side light, the wax showing the ridge and slight overflow of a real pour. Shallow depth of field, envelope corner in frame.",
+      "id": "brand-mark-004",
+      "category": "brand-mark",
+      "title": "Neon sign, one word",
+      "image": "images/brand-mark-004.webp",
+      "prompt": "A neon sign reading exactly \"OPEN\" in warm pink script, mounted on a dark brick wall at night, the glass tubing visible with its supports and the glow spilling onto the brick behind. Slight haze, no other signage in frame.",
       "params": {
-        "seed": 444300041
+        "seed": 221054103
       }
     },
     {
-      "id": "stationery-003",
-      "category": "stationery",
-      "title": "Notebook flat lay, ruled paper",
-      "image": "images/stationery-003.webp",
-      "prompt": "An open notebook flat lay on a linen surface, ruled cream pages, a fountain pen resting in the gutter, a small brass paperclip at the corner. Soft even overhead light, no harsh shadows, muted palette. The pages are blank — no writing.",
+      "id": "brand-mark-005",
+      "category": "brand-mark",
+      "title": "Etched brass plate",
+      "image": "images/brand-mark-005.webp",
+      "prompt": "A brass plaque etched with \"EST 1904\" in engraved capitals filled with black, mounted with four visible screws on a weathered stone wall. Patina and verdigris in the recesses, hard afternoon sun raking across at an angle. Macro.",
       "params": {
-        "seed": 1719173423
+        "seed": 638748744
       }
     },
     {
-      "id": "stationery-004",
-      "category": "stationery",
-      "title": "Shipping label on parcel",
-      "image": "images/stationery-004.webp",
-      "prompt": "A brown paper parcel tied with cotton twine, a plain white shipping label affixed at a slight angle reading \"FRAGILE\" in bold condensed capitals with a thick black border. Overhead studio light, visible paper fibre and the shadow line under the twine.",
+      "id": "brand-mark-006",
+      "category": "brand-mark",
+      "title": "Foil-stamped logo on box",
+      "image": "images/brand-mark-006.webp",
+      "prompt": "A matte charcoal gift box with the word \"ASTER\" foil-stamped in copper on the lid, shot at a low three-quarter angle so the foil catches a single highlight and reads dark elsewhere. Soft studio light, seamless grey background.",
       "params": {
-        "seed": 1043227084
+        "seed": 204370515
       }
     },
     {
-      "id": "stationery-005",
-      "category": "stationery",
-      "title": "Ticket stub, torn edge",
-      "image": "images/stationery-005.webp",
-      "prompt": "A torn ticket stub on a dark surface, letterpress-printed in two colours with \"ADMIT ONE\" across the middle and a perforated edge where the other half was removed. Aged card stock, slight foxing, one corner soft with wear. Macro, single light from the left.",
+      "id": "brand-mark-007",
+      "category": "brand-mark",
+      "title": "Painted ghost sign",
+      "image": "images/brand-mark-007.webp",
+      "prompt": "A faded painted ghost sign on an old brick wall reading \"COOPERAGE\" in tall condensed capitals, the paint worn back to brick in patches, sun-bleached from red to dusty pink. Straight on, flat afternoon light, no other text.",
       "params": {
-        "seed": 1333487198
+        "seed": 757705299
       }
     },
     {
-      "id": "stationery-006",
-      "category": "stationery",
-      "title": "Rubber stamp impression",
-      "image": "images/stationery-006.webp",
-      "prompt": "A rubber stamp impression of the word \"PAID\" struck in red ink at a slight angle on an off-white document, deliberately uneven — heavier on one side, a gap where the rubber lifted. The wooden stamp itself resting beside it, out of focus. Overhead, flat light.",
+      "id": "brand-mark-008",
+      "category": "brand-mark",
+      "title": "Sandblasted glass door",
+      "image": "images/brand-mark-008.webp",
+      "prompt": "A frosted sandblasted panel on a glass door reading \"STUDIO 4\", the letters clear against the frosted ground, a blurred interior visible through them. Even daylight, brass handle at the frame edge, straight on.",
       "params": {
-        "seed": 2044996526
+        "seed": 2068017137
+      }
+    },
+    {
+      "id": "miniature-001",
+      "category": "miniature",
+      "title": "Tilt-shift harbour",
+      "image": "images/miniature-001.webp",
+      "prompt": "A harbour seen from high above with a strong tilt-shift effect: a narrow band of sharp focus across the quay and everything above and below thrown into heavy blur, colours pushed to high saturation so the boats and containers read as plastic toys.",
+      "params": {
+        "seed": 707503180
+      }
+    },
+    {
+      "id": "miniature-002",
+      "category": "miniature",
+      "title": "Model railway station",
+      "image": "images/miniature-002.webp",
+      "prompt": "A finely detailed HO-scale model railway station on a layout, tiny figures on the platform, static grass and lichen trees, a locomotive at the edge of frame. Shot at platform height with shallow depth of field so the scale reads ambiguous.",
+      "params": {
+        "seed": 1975224634
+      }
+    },
+    {
+      "id": "miniature-003",
+      "category": "miniature",
+      "title": "Paper-craft city block",
+      "image": "images/miniature-003.webp",
+      "prompt": "A city block built entirely from folded and cut card: buildings, street trees and a bus, all in muted paper colours with visible fold creases and cut edges. Soft directional light casting clean shadows on a paper ground. Three-quarter view.",
+      "params": {
+        "seed": 885394300
+      }
+    },
+    {
+      "id": "miniature-004",
+      "category": "miniature",
+      "title": "Snow globe interior",
+      "image": "images/miniature-004.webp",
+      "prompt": "Looking into a snow globe: a tiny alpine chalet with lit windows on a white base, glitter suspended mid-fall in the water, the glass distorting the background into a soft ring. Dark surround, single warm light source, macro.",
+      "params": {
+        "seed": 657474403
+      }
+    },
+    {
+      "id": "miniature-005",
+      "category": "miniature",
+      "title": "Bonsai on a stand",
+      "image": "images/miniature-005.webp",
+      "prompt": "A mature bonsai pine in a shallow unglazed pot on a dark wooden stand, moss on the soil, needle detail crisp, shot against a plain grey studio background under soft directional light. The trunk gnarled and wired. Straight on, full tree.",
+      "params": {
+        "seed": 1743541111
+      }
+    },
+    {
+      "id": "miniature-006",
+      "category": "miniature",
+      "title": "Cutaway dollhouse room",
+      "image": "images/miniature-006.webp",
+      "prompt": "A dollhouse room seen with its fourth wall removed: miniature furniture, a rug, a tiny lamp actually lit, patterned wallpaper. Shot straight on so it reads as a stage set. Warm practical light from inside, cool ambient from outside.",
+      "params": {
+        "seed": 1895175876
+      }
+    },
+    {
+      "id": "miniature-007",
+      "category": "miniature",
+      "title": "Sand table battlefield",
+      "image": "images/miniature-007.webp",
+      "prompt": "A wargaming sand table from a low angle: sculpted terrain, lichen scrub, painted infantry figures in loose formation behind a ridge, a ruined building of foam board. Overcast studio light, shallow focus on the front rank.",
+      "params": {
+        "seed": 568280305
+      }
+    },
+    {
+      "id": "miniature-008",
+      "category": "miniature",
+      "title": "Miniature food, macro",
+      "image": "images/miniature-008.webp",
+      "prompt": "A miniature clay breakfast — fried egg, toast, tomato — on a plate the size of a coin, held between finger and thumb for scale at the edge of frame. Extreme macro, the polymer clay texture and tool marks visible up close.",
+      "params": {
+        "seed": 1295431062
+      }
+    },
+    {
+      "id": "coloring-page-001",
+      "category": "coloring-page",
+      "title": "Coloring page: garden scene",
+      "image": "images/coloring-page-001.webp",
+      "prompt": "A children's coloring page: a garden scene with a watering can, sunflowers, a snail and a butterfly, drawn as clean uniform black outlines on pure white with no shading, no grey, no fill. Thick friendly lines, generous white areas to colour in.",
+      "params": {
+        "seed": 230163006
+      }
+    },
+    {
+      "id": "coloring-page-002",
+      "category": "coloring-page",
+      "title": "Coloring page: sea creatures",
+      "image": "images/coloring-page-002.webp",
+      "prompt": "A children's coloring page of sea creatures — an octopus, two fish, a starfish and seaweed — as bold even black outlines on white, no shading or hatching anywhere, simple shapes, large enclosed areas. Nothing filled in.",
+      "params": {
+        "seed": 927169882
+      }
+    },
+    {
+      "id": "coloring-page-003",
+      "category": "coloring-page",
+      "title": "Coloring page: mandala",
+      "image": "images/coloring-page-003.webp",
+      "prompt": "A symmetrical mandala coloring page: concentric rings of petals, leaves and geometric motifs in fine even black line on white, eightfold symmetry, every region closed so it can be coloured. No fills, no grey, no shading.",
+      "params": {
+        "seed": 690682918
+      }
+    },
+    {
+      "id": "coloring-page-004",
+      "category": "coloring-page",
+      "title": "Coloring page: dinosaur",
+      "image": "images/coloring-page-004.webp",
+      "prompt": "A friendly cartoon stegosaurus for a children's coloring book, thick black outlines only on white, simple ferns behind it, no shading, no texture, no fill. Rounded shapes suitable for a young child with crayons.",
+      "params": {
+        "seed": 343603193
+      }
+    },
+    {
+      "id": "coloring-page-005",
+      "category": "coloring-page",
+      "title": "Coloring page: cityscape",
+      "image": "images/coloring-page-005.webp",
+      "prompt": "A coloring page of a stylised city skyline with varied building shapes, windows drawn as simple rectangles, a bridge and a few clouds, all as clean uniform black outlines on white. No shading, no solid black areas, no fill.",
+      "params": {
+        "seed": 797917670
+      }
+    },
+    {
+      "id": "coloring-page-006",
+      "category": "coloring-page",
+      "title": "Coloring page: teacup still life",
+      "image": "images/coloring-page-006.webp",
+      "prompt": "A coloring page still life: a teacup on a saucer, a teapot, a slice of cake on a plate and a folded napkin, drawn in even black outline on white with decorative patterns on the china left as empty outlines to colour. No shading.",
+      "params": {
+        "seed": 1880531119
+      }
+    },
+    {
+      "id": "ui-001",
+      "category": "ui",
+      "title": "Mobile app dashboard mockup",
+      "image": "images/ui-001.webp",
+      "prompt": "A mobile app dashboard mockup rendered on a phone screen: a greeting header, a large balance figure, four labelled icon buttons in a row, and a scrollable list of five transactions each with a name, a date and an amount. Clean light UI, one teal accent, San Francisco-style type.",
+      "params": {
+        "seed": 1378883083
+      }
+    },
+    {
+      "id": "ui-002",
+      "category": "ui",
+      "title": "Settings screen with toggles",
+      "image": "images/ui-002.webp",
+      "prompt": "An iOS-style settings screen: three grouped sections, each with three rows, every row carrying a label on the left and a toggle switch on the right, some on and some off. Section headers in small grey caps. Light mode, hairline dividers.",
+      "params": {
+        "seed": 1537435411
+      }
+    },
+    {
+      "id": "ui-003",
+      "category": "ui",
+      "title": "Desktop analytics dashboard",
+      "image": "images/ui-003.webp",
+      "prompt": "A desktop web analytics dashboard in dark mode: a left sidebar of navigation items, four metric cards across the top each with a label and a large number, a wide line chart below, and a data table at the bottom with five rows and four columns.",
+      "params": {
+        "seed": 401297056
+      }
+    },
+    {
+      "id": "ui-004",
+      "category": "ui",
+      "title": "Login screen",
+      "image": "images/ui-004.webp",
+      "prompt": "A minimal login screen: a small logo mark, the heading \"Sign in\", an email field, a password field, a primary button reading \"Continue\", and a small link beneath. Centred card on a soft gradient background. Nothing else.",
+      "params": {
+        "seed": 1367300139
+      }
+    },
+    {
+      "id": "ui-005",
+      "category": "ui",
+      "title": "Code editor window",
+      "image": "images/ui-005.webp",
+      "prompt": "A code editor window in a dark theme: a file tree on the left, a tab bar with three tabs, line numbers down the gutter, and syntax-highlighted code filling the pane. A status bar along the bottom. Realistic monospace rendering.",
+      "params": {
+        "seed": 1224413193
+      }
+    },
+    {
+      "id": "ui-006",
+      "category": "ui",
+      "title": "Calendar month view",
+      "image": "images/ui-006.webp",
+      "prompt": "A calendar month view: seven day-of-week headers, a grid of date cells, and coloured event pills spanning some of them. Today's cell highlighted with a filled circle. Light theme, thin dividers, one accent colour.",
+      "params": {
+        "seed": 982476354
+      }
+    },
+    {
+      "id": "ui-007",
+      "category": "ui",
+      "title": "E-commerce product page",
+      "image": "images/ui-007.webp",
+      "prompt": "An e-commerce product page: a large product photo on the left, on the right a title, a price, a star rating with a review count, size buttons in a row, and an \"Add to cart\" button. Breadcrumbs at the top. Clean, generous white space.",
+      "params": {
+        "seed": 1056892936
+      }
+    },
+    {
+      "id": "ui-008",
+      "category": "ui",
+      "title": "Chat interface",
+      "image": "images/ui-008.webp",
+      "prompt": "A messaging interface: alternating chat bubbles, incoming grey on the left and outgoing blue on the right, timestamps under each, an avatar beside the incoming ones, and a text input with a send button pinned at the bottom.",
+      "params": {
+        "seed": 880659524
+      }
+    },
+    {
+      "id": "ui-009",
+      "category": "ui",
+      "title": "Onboarding carousel slide",
+      "image": "images/ui-009.webp",
+      "prompt": "An app onboarding slide: a large friendly illustration in the upper two thirds, a short bold headline beneath it, one line of smaller supporting text, three page dots with the second one filled, and a full-width button at the bottom.",
+      "params": {
+        "seed": 727964264
+      }
+    },
+    {
+      "id": "ui-010",
+      "category": "ui",
+      "title": "Kanban board",
+      "image": "images/ui-010.webp",
+      "prompt": "A kanban board with three columns headed by short labels and a count badge each, holding cards with a title line, a coloured tag and a small avatar. Light grey board background, white cards with soft shadows.",
+      "params": {
+        "seed": 1672153217
       }
     }
   ]

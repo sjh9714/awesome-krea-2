@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">Krea 2 Turbo 的 112 条可复现提示词，覆盖 11 个类别。每条提示词可直接复制，每张图片都是实际输出。</p>
+<p align="center">Krea 2 Turbo 的 161 条可复现提示词，覆盖 18 个类别。每条提示词可直接复制，每张图片都是实际输出。</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
@@ -15,7 +15,7 @@
 
 ## 类别
 
-**112 条提示词，每条都有 seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6
+**161 条提示词，每条都有 seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1
 
 
 ## photography
@@ -1435,6 +1435,629 @@ A rubber stamp impression of the word "PAID" struck in red ink at a slight angle
 ```
 
 `seed: 2044996526`
+
+
+## food
+
+_Food and drink, studio and in-context_
+
+### Cut sourdough loaf, side light
+
+<img src="images/food-001.webp" width="420" alt="Cut sourdough loaf, side light">
+
+**提示词**
+
+```text
+A sourdough loaf cut in half on a floured board, hard side light from the left raking across the open crumb so every hole casts its own shadow. Blistered dark crust, flour dusting the surface, a serrated knife just out of the frame edge. Shot at f/8, tight.
+```
+
+`seed: 207887450`
+
+### Ramen bowl, overhead steam
+
+<img src="images/food-002.webp" width="420" alt="Ramen bowl, overhead steam">
+
+**提示词**
+
+```text
+An overhead shot of a ramen bowl on dark wood, soft-boiled egg halved and glossy, nori standing at the edge, chopped scallion scattered. Steam rising and catching a backlight. Deep tonkotsu broth, visible fat droplets, condensation on the rim of the bowl.
+```
+
+`seed: 996431689`
+
+### Citrus cross-sections on marble
+
+<img src="images/food-004.webp" width="420" alt="Citrus cross-sections on marble">
+
+**提示词**
+
+```text
+Halved citrus fruits arranged on white marble, shot straight down under a large diffuse source. Blood orange, grapefruit, lime, lemon. Juice beading on the cut faces, translucent segments, a few seeds visible. Cool, clean, high key, no props.
+```
+
+`seed: 1002826123`
+
+### Cast iron steak, hard rim light
+
+<img src="images/food-005.webp" width="420" alt="Cast iron steak, hard rim light">
+
+**提示词**
+
+```text
+A steak resting in a cast iron pan, dark crust with visible sear marks, one hard light from behind creating a bright rim along the top edge and rendering the rest in deep shadow. Butter foaming at the base, thyme sprigs, tongs at the frame edge.
+```
+
+`seed: 752325181`
+
+### Ice cream melting, tight macro
+
+<img src="images/food-006.webp" width="420" alt="Ice cream melting, tight macro">
+
+**提示词**
+
+```text
+Macro of a scoop of pistachio ice cream beginning to melt on a ceramic plate, one drip running down and pooling. Visible nut fragments and ice crystals, cold blue-white light, condensation on the plate. Extremely shallow depth of field.
+```
+
+`seed: 1757822826`
+
+### Market vegetable stall, overcast
+
+<img src="images/food-007.webp" width="420" alt="Market vegetable stall, overcast">
+
+**提示词**
+
+```text
+A market stall of root vegetables under flat overcast light, mud still on the carrots and beetroot, crates stacked at angles, a canvas awning cutting the top of the frame. Documentary, 35mm, colours slightly desaturated by the grey sky.
+```
+
+`seed: 1110593834`
+
+### Layer cake cross-section
+
+<img src="images/food-008.webp" width="420" alt="Layer cake cross-section">
+
+**提示词**
+
+```text
+A slice removed from a four-layer cake so the cross-section faces camera, buttercream between each layer, crumb visible and slightly moist. Even soft light, pale pink background, cake stand edge in frame. Straight on, symmetrical.
+```
+
+`seed: 1632613977`
+
+### Whisky glass, single hard source
+
+<img src="images/food-009.webp" width="420" alt="Whisky glass, single hard source">
+
+**提示词**
+
+```text
+A cut crystal glass of whisky on dark slate, a single hard light behind and to the right throwing the cut facets into bright caustics on the stone. Large clear ice sphere, amber liquid, everything else black. Product-grade, no props.
+```
+
+`seed: 1133820066`
+
+### Dumplings in a bamboo steamer
+
+<img src="images/food-010.webp" width="420" alt="Dumplings in a bamboo steamer">
+
+**提示词**
+
+```text
+Open bamboo steamer of pleated dumplings, translucent wrappers showing the filling through, steam still rising. Warm overhead light, a second closed steamer stacked beneath, dark table. Slight top-down angle, shallow focus falling off at the back.
+```
+
+`seed: 1310175144`
+
+
+## interior
+
+_Rooms, architecture, spatial light_
+
+### Sunlit reading corner
+
+<img src="images/interior-001.webp" width="420" alt="Sunlit reading corner">
+
+**提示词**
+
+```text
+A reading corner in late afternoon: a worn leather armchair, a floor lamp switched off, low sun coming through a tall window and throwing a hard trapezoid of light across the floorboards and up the wall. Dust in the beam. Wide, 24mm, no people.
+```
+
+`seed: 633029565`
+
+### Concrete stairwell, top light
+
+<img src="images/interior-002.webp" width="420" alt="Concrete stairwell, top light">
+
+**提示词**
+
+```text
+A brutalist concrete stairwell shot upward, daylight entering from a skylight far above and falling off with distance. Board-formed concrete texture, steel handrail, deep shadow in the lower flights. Symmetrical composition, ultra-wide.
+```
+
+`seed: 1168418123`
+
+### Kitchen at blue hour
+
+<img src="images/interior-003.webp" width="420" alt="Kitchen at blue hour">
+
+**提示词**
+
+```text
+A kitchen at blue hour, under-cabinet lights the only warm source, cool blue window light balancing it from the left. Marble worktop, a single glass left out, everything tidy. Mixed colour temperature held rather than corrected. Tripod, long exposure.
+```
+
+`seed: 1981161439`
+
+### Empty gallery room
+
+<img src="images/interior-004.webp" width="420" alt="Empty gallery room">
+
+**提示词**
+
+```text
+An empty white gallery room with a polished concrete floor, track lighting pointing at bare walls, one doorway leading to a darker second room. No artwork, no people. Even diffuse light, straight-on one-point perspective, 28mm.
+```
+
+`seed: 1318705704`
+
+### Attic workshop, north light
+
+<img src="images/interior-005.webp" width="420" alt="Attic workshop, north light">
+
+**提示词**
+
+```text
+An attic workshop under a sloping roof with a north-facing skylight, workbench cluttered with hand tools, sawdust on the floor, exposed rafters. Soft even daylight with no direct sun. Warm wood tones, slight haze, 35mm.
+```
+
+`seed: 613896431`
+
+### Hotel corridor, receding lights
+
+<img src="images/interior-006.webp" width="420" alt="Hotel corridor, receding lights">
+
+**提示词**
+
+```text
+A long hotel corridor with identical doors receding to a vanishing point, wall sconces at regular intervals creating a rhythm of pools of light on patterned carpet. Slightly wide, dead centre, symmetrical. Nobody in frame.
+```
+
+`seed: 965972945`
+
+### Greenhouse interior, humid light
+
+<img src="images/interior-007.webp" width="420" alt="Greenhouse interior, humid light">
+
+**提示词**
+
+```text
+Inside a Victorian glasshouse, wrought iron ribs overhead, condensation on the panes diffusing the sunlight into a soft glow. Palms and ferns crowding a central path, terracotta pots, water on the flagstones. Humid, green, slightly overexposed.
+```
+
+`seed: 1871087603`
+
+### Japanese tatami room
+
+<img src="images/interior-008.webp" width="420" alt="Japanese tatami room">
+
+**提示词**
+
+```text
+A tatami room with shoji screens filtering daylight into an even soft wash, a low wooden table, one cushion, an alcove with a single branch in a vase. Nothing else. Straight on, symmetrical, muted natural palette.
+```
+
+`seed: 1875634416`
+
+### Basement server room
+
+<img src="images/interior-009.webp" width="420" alt="Basement server room">
+
+**提示词**
+
+```text
+A basement server room lit only by rack indicator LEDs and one open cabinet door spilling white light, cable bundles running overhead in trays, polished raised floor reflecting the glow. Cold, blue-green, long exposure, nobody present.
+```
+
+`seed: 769155750`
+
+### Loft under renovation
+
+<img src="images/interior-010.webp" width="420" alt="Loft under renovation">
+
+**提示词**
+
+```text
+A loft mid-renovation: plaster dust, a stepladder, plastic sheeting over a window softening the light, bare brick where the plaster has come off, exposed joists. Work lights on stands casting hard overlapping shadows. Documentary, wide.
+```
+
+`seed: 736283544`
+
+
+## pattern
+
+_Repeating surface design — textile, wallpaper, wrapping_
+
+### Botanical block print repeat
+
+<img src="images/pattern-001.webp" width="420" alt="Botanical block print repeat">
+
+**提示词**
+
+```text
+A seamless botanical repeat in the style of a hand-carved block print: fern fronds and seed heads in dark indigo on unbleached linen, slight registration wobble and visible ink texture where the block pressed unevenly. Flat, straight on, edge to edge.
+```
+
+`seed: 1576109877`
+
+### Geometric bauhaus repeat
+
+<img src="images/pattern-002.webp" width="420" alt="Geometric bauhaus repeat">
+
+**提示词**
+
+```text
+A seamless geometric pattern of circles, quarter-circles and thin rules in primary red, blue, yellow and black on cream, arranged on a strict grid. Flat vector, no shading, no texture. Fills the frame edge to edge with no border.
+```
+
+`seed: 1026790550`
+
+### Marbled paper, combed
+
+<img src="images/pattern-003.webp" width="420" alt="Marbled paper, combed">
+
+**提示词**
+
+```text
+Traditional combed marbled paper: teal, ochre and oxblood pigments drawn into a regular feathered comb pattern on a pale ground, with the fine veining of real size-bath marbling. Fills the frame, no border, no paper edge visible.
+```
+
+`seed: 1341762699`
+
+### Terrazzo surface
+
+<img src="images/pattern-004.webp" width="420" alt="Terrazzo surface">
+
+**提示词**
+
+```text
+A terrazzo surface shot flat and straight down: irregular chips of marble in sage, terracotta and charcoal set into a warm off-white binder, polished so each chip has a slight sheen. Even lighting, no shadows, fills the frame.
+```
+
+`seed: 1380217993`
+
+### Art deco fan repeat
+
+<img src="images/pattern-005.webp" width="420" alt="Art deco fan repeat">
+
+**提示词**
+
+```text
+A seamless art deco pattern of overlapping fan shapes in gold on deep green, thin gold outlines, stepped scallops, strict horizontal rows. Flat, screen-print feel, no gradients. Edge to edge, no border.
+```
+
+`seed: 1139303172`
+
+### Woodgrain, quarter sawn
+
+<img src="images/pattern-006.webp" width="420" alt="Woodgrain, quarter sawn">
+
+**提示词**
+
+```text
+A close, flat photograph of quarter-sawn oak, the medullary rays showing as pale flecks across straight grain lines. Even soft light, no shadows, no edges of the board visible. Filling the frame like a material swatch.
+```
+
+`seed: 1026021497`
+
+### Hand-drawn stripe, wobbly
+
+<img src="images/pattern-007.webp" width="420" alt="Hand-drawn stripe, wobbly">
+
+**提示词**
+
+```text
+A seamless stripe pattern drawn by hand with a brush: uneven vertical stripes in ink blue on off-white, each one varying in width and opacity where the brush ran dry. Visible bristle marks. Flat, edge to edge, no border.
+```
+
+`seed: 967510819`
+
+### Cyanotype fern repeat
+
+<img src="images/pattern-008.webp" width="420" alt="Cyanotype fern repeat">
+
+**提示词**
+
+```text
+A seamless repeat of fern silhouettes as a cyanotype photogram — white plant shapes against deep Prussian blue, soft edges where the leaves lifted off the paper, uneven wash in the blue. Fills the frame, no border.
+```
+
+`seed: 958813884`
+
+
+## brand-mark
+
+_Logos and marks. Single short strings, which the typography findings predict is the model's strongest text case_
+
+### Wordmark: HALLOW
+
+<img src="images/brand-mark-001.webp" width="420" alt="Wordmark: HALLOW">
+
+**提示词**
+
+```text
+A wordmark reading exactly "HALLOW" in a high-contrast serif with generous letterspacing, set in near-black on a warm off-white field, centred with a lot of air around it. Nothing else in the frame. Flat, no texture, no effects.
+```
+
+`seed: 1564712968`
+
+### Embossed logo on leather
+
+<img src="images/brand-mark-003.webp" width="420" alt="Embossed logo on leather">
+
+**提示词**
+
+```text
+The word "FIELDNOTE" blind-embossed into tan vegetable-tanned leather, raking light from the left so the impression reads entirely through shadow with no ink. Visible leather grain and a slight sheen on the raised edges. Macro, tight crop.
+```
+
+`seed: 28931635`
+
+### Neon sign, one word
+
+<img src="images/brand-mark-004.webp" width="420" alt="Neon sign, one word">
+
+**提示词**
+
+```text
+A neon sign reading exactly "OPEN" in warm pink script, mounted on a dark brick wall at night, the glass tubing visible with its supports and the glow spilling onto the brick behind. Slight haze, no other signage in frame.
+```
+
+`seed: 221054103`
+
+### Etched brass plate
+
+<img src="images/brand-mark-005.webp" width="420" alt="Etched brass plate">
+
+**提示词**
+
+```text
+A brass plaque etched with "EST 1904" in engraved capitals filled with black, mounted with four visible screws on a weathered stone wall. Patina and verdigris in the recesses, hard afternoon sun raking across at an angle. Macro.
+```
+
+`seed: 638748744`
+
+### Foil-stamped logo on box
+
+<img src="images/brand-mark-006.webp" width="420" alt="Foil-stamped logo on box">
+
+**提示词**
+
+```text
+A matte charcoal gift box with the word "ASTER" foil-stamped in copper on the lid, shot at a low three-quarter angle so the foil catches a single highlight and reads dark elsewhere. Soft studio light, seamless grey background.
+```
+
+`seed: 204370515`
+
+### Painted ghost sign
+
+<img src="images/brand-mark-007.webp" width="420" alt="Painted ghost sign">
+
+**提示词**
+
+```text
+A faded painted ghost sign on an old brick wall reading "COOPERAGE" in tall condensed capitals, the paint worn back to brick in patches, sun-bleached from red to dusty pink. Straight on, flat afternoon light, no other text.
+```
+
+`seed: 757705299`
+
+### Sandblasted glass door
+
+<img src="images/brand-mark-008.webp" width="420" alt="Sandblasted glass door">
+
+**提示词**
+
+```text
+A frosted sandblasted panel on a glass door reading "STUDIO 4", the letters clear against the frosted ground, a blurred interior visible through them. Even daylight, brass handle at the frame edge, straight on.
+```
+
+`seed: 2068017137`
+
+
+## miniature
+
+_Tilt-shift, dioramas, scale models of places_
+
+### Tilt-shift harbour
+
+<img src="images/miniature-001.webp" width="420" alt="Tilt-shift harbour">
+
+**提示词**
+
+```text
+A harbour seen from high above with a strong tilt-shift effect: a narrow band of sharp focus across the quay and everything above and below thrown into heavy blur, colours pushed to high saturation so the boats and containers read as plastic toys.
+```
+
+`seed: 707503180`
+
+### Model railway station
+
+<img src="images/miniature-002.webp" width="420" alt="Model railway station">
+
+**提示词**
+
+```text
+A finely detailed HO-scale model railway station on a layout, tiny figures on the platform, static grass and lichen trees, a locomotive at the edge of frame. Shot at platform height with shallow depth of field so the scale reads ambiguous.
+```
+
+`seed: 1975224634`
+
+### Paper-craft city block
+
+<img src="images/miniature-003.webp" width="420" alt="Paper-craft city block">
+
+**提示词**
+
+```text
+A city block built entirely from folded and cut card: buildings, street trees and a bus, all in muted paper colours with visible fold creases and cut edges. Soft directional light casting clean shadows on a paper ground. Three-quarter view.
+```
+
+`seed: 885394300`
+
+### Snow globe interior
+
+<img src="images/miniature-004.webp" width="420" alt="Snow globe interior">
+
+**提示词**
+
+```text
+Looking into a snow globe: a tiny alpine chalet with lit windows on a white base, glitter suspended mid-fall in the water, the glass distorting the background into a soft ring. Dark surround, single warm light source, macro.
+```
+
+`seed: 657474403`
+
+### Bonsai on a stand
+
+<img src="images/miniature-005.webp" width="420" alt="Bonsai on a stand">
+
+**提示词**
+
+```text
+A mature bonsai pine in a shallow unglazed pot on a dark wooden stand, moss on the soil, needle detail crisp, shot against a plain grey studio background under soft directional light. The trunk gnarled and wired. Straight on, full tree.
+```
+
+`seed: 1743541111`
+
+### Cutaway dollhouse room
+
+<img src="images/miniature-006.webp" width="420" alt="Cutaway dollhouse room">
+
+**提示词**
+
+```text
+A dollhouse room seen with its fourth wall removed: miniature furniture, a rug, a tiny lamp actually lit, patterned wallpaper. Shot straight on so it reads as a stage set. Warm practical light from inside, cool ambient from outside.
+```
+
+`seed: 1895175876`
+
+### Sand table battlefield
+
+<img src="images/miniature-007.webp" width="420" alt="Sand table battlefield">
+
+**提示词**
+
+```text
+A wargaming sand table from a low angle: sculpted terrain, lichen scrub, painted infantry figures in loose formation behind a ridge, a ruined building of foam board. Overcast studio light, shallow focus on the front rank.
+```
+
+`seed: 568280305`
+
+### Miniature food, macro
+
+<img src="images/miniature-008.webp" width="420" alt="Miniature food, macro">
+
+**提示词**
+
+```text
+A miniature clay breakfast — fried egg, toast, tomato — on a plate the size of a coin, held between finger and thumb for scale at the edge of frame. Extreme macro, the polymer clay texture and tool marks visible up close.
+```
+
+`seed: 1295431062`
+
+
+## coloring-page
+
+_Uncoloured line art for printing_
+
+### Coloring page: garden scene
+
+<img src="images/coloring-page-001.webp" width="420" alt="Coloring page: garden scene">
+
+**提示词**
+
+```text
+A children's coloring page: a garden scene with a watering can, sunflowers, a snail and a butterfly, drawn as clean uniform black outlines on pure white with no shading, no grey, no fill. Thick friendly lines, generous white areas to colour in.
+```
+
+`seed: 230163006`
+
+### Coloring page: sea creatures
+
+<img src="images/coloring-page-002.webp" width="420" alt="Coloring page: sea creatures">
+
+**提示词**
+
+```text
+A children's coloring page of sea creatures — an octopus, two fish, a starfish and seaweed — as bold even black outlines on white, no shading or hatching anywhere, simple shapes, large enclosed areas. Nothing filled in.
+```
+
+`seed: 927169882`
+
+### Coloring page: mandala
+
+<img src="images/coloring-page-003.webp" width="420" alt="Coloring page: mandala">
+
+**提示词**
+
+```text
+A symmetrical mandala coloring page: concentric rings of petals, leaves and geometric motifs in fine even black line on white, eightfold symmetry, every region closed so it can be coloured. No fills, no grey, no shading.
+```
+
+`seed: 690682918`
+
+### Coloring page: dinosaur
+
+<img src="images/coloring-page-004.webp" width="420" alt="Coloring page: dinosaur">
+
+**提示词**
+
+```text
+A friendly cartoon stegosaurus for a children's coloring book, thick black outlines only on white, simple ferns behind it, no shading, no texture, no fill. Rounded shapes suitable for a young child with crayons.
+```
+
+`seed: 343603193`
+
+### Coloring page: cityscape
+
+<img src="images/coloring-page-005.webp" width="420" alt="Coloring page: cityscape">
+
+**提示词**
+
+```text
+A coloring page of a stylised city skyline with varied building shapes, windows drawn as simple rectangles, a bridge and a few clouds, all as clean uniform black outlines on white. No shading, no solid black areas, no fill.
+```
+
+`seed: 797917670`
+
+### Coloring page: teacup still life
+
+<img src="images/coloring-page-006.webp" width="420" alt="Coloring page: teacup still life">
+
+**提示词**
+
+```text
+A coloring page still life: a teacup on a saucer, a teapot, a slice of cake on a plate and a folded napkin, drawn in even black outline on white with decorative patterns on the china left as empty outlines to colour. No shading.
+```
+
+`seed: 1880531119`
+
+
+## ui
+
+_App and web interface mockups. Included as a deliberate test of the multi-string text limit, not because it is expected to work_
+
+### Login screen
+
+<img src="images/ui-004.webp" width="420" alt="Login screen">
+
+**提示词**
+
+```text
+A minimal login screen: a small logo mark, the heading "Sign in", an email field, a password field, a primary button reading "Continue", and a small link beneath. Centred card on a soft gradient background. Nothing else.
+```
+
+`seed: 1367300139`
 
 
 ## 参与贡献

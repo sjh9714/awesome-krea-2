@@ -1,0 +1,1 @@
+A minimal login screen: a small logo mark, the heading "Sign in", an email field, a password field, a primary button reading "Continue", and a small link beneath. Centred card on a soft gradient background. Nothing else.

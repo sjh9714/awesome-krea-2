@@ -1,0 +1,7 @@
+A pixel-art tileset for a dungeon: stone floor, wall, door and stair tiles laid out in a grid, hard-edged pixels with no anti-aliasing, a limited palette of about sixteen colours. Chunky and readable at small size. No text.
+An isometric pixel-art room: a desk, a bed, a rug and a window, drawn on a strict 2:1 isometric grid with hard pixel edges and dithered shading. Muted palette, no anti-aliasing, no text.
+A pixel-art side-scrolling landscape with three depth layers: dark foreground trees, mid-ground hills, pale distant mountains, each flatter and lighter than the last. Hard pixel edges, dithered skies, limited palette.
+A grid of sixteen pixel-art food icons — bread, fish, apple, cheese and so on — each drawn in a small square cell with hard pixel edges, black outlines and a limited palette. Even spacing, plain background, no text.
+A pixel-art sunset sky rendered entirely with ordered dithering between four colours, the dither pattern clearly visible as alternating pixels, a flat black horizon line across the lower third. No smooth gradients anywhere.
+A pixel-art portrait bust at very low resolution, perhaps thirty-two pixels across, so each pixel is a large visible square. Limited palette, hard edges, readable features built from very few pixels. Plain background.
+A pixel-art game shop interface: a bordered panel with item slots in a grid, a coin icon and a scroll bar, drawn with hard pixel edges and a limited palette. The panel border built from repeated corner and edge tiles. No text.

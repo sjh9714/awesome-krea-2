@@ -278,6 +278,19 @@ def render_readme(data: dict, lang: str = "en") -> str:
         # The five editing-* entries turned out to generalise unevenly once they
         # were run against sources they were not derived from, which is a result
         # that belongs next to them rather than only in the other repo.
+        # Measured on 6,670 r/StableDiffusion posts since 2026-05-01: the
+        # highest-scoring post in that subreddit over the window is a Krea 2
+        # styles *wildcards txt* at 1,717 points. A resource that drops into a
+        # workflow beats one you have to browse. Same content, different
+        # packaging, so it belongs above the fold rather than in a subfolder.
+        L.append("## Drop-in wildcards\n")
+        L.append("Every prompt here is also available one-per-line for a ComfyUI wildcard or "
+                 "dynamic-prompt node — [`wildcards/`](wildcards/), with `all.txt` plus one file "
+                 "per category. The seeds cannot travel in that format, so a prompt pulled from "
+                 "there will not reproduce the image in this catalog; take the seed from "
+                 "`prompts.json` if you want the exact frame. The cut generations are excluded "
+                 "from the wildcards on purpose.\n")
+
         L.append("## The image-to-image entries, taken further\n")
         L.append("The five `editing-*` entries were pulled out into "
                  "[**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for "

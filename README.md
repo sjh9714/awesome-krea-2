@@ -207,6 +207,10 @@ That reading is not promoted to a finding here. Promoting a two-domain coinciden
 
 The prediction and the result are in the toolkit repo at `playbooks/weave-prediction.md`, timestamped by the commits either side of the generation run.
 
+## Drop-in wildcards
+
+Every prompt here is also available one-per-line for a ComfyUI wildcard or dynamic-prompt node — [`wildcards/`](wildcards/), with `all.txt` plus one file per category. The seeds cannot travel in that format, so a prompt pulled from there will not reproduce the image in this catalog; take the seed from `prompts.json` if you want the exact frame. The cut generations are excluded from the wildcards on purpose.
+
 ## The image-to-image entries, taken further
 
 The five `editing-*` entries were pulled out into [**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for Claude Code and Codex, and each one was re-run against a source it was *not* derived from. Two held, two came back partial, one failed — and the failures produced a sharper rule than this catalog started with: **geometry is locked, material is not.** Relighting wet rice terraces under hard sun keeps every contour in position and returns dry stone.

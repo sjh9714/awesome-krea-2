@@ -446,7 +446,19 @@ def cmd_build(langs: list[str]) -> int:
     print("\nBefore you push: host the images IN THIS REPO or on your own R2/S3.")
     print("External CDN links are the one reliable way this format dies — link rot")
     print("turns a 10k-star catalog into a wall of broken images 18 months later.")
-    return 0
+
+    # The README the build just wrote is the thing that goes public, so it is
+    # checked here rather than left to whoever remembers. A guard nobody runs is
+    # not a guard: the count contradiction that prompted verify.py sat live for
+    # five hours precisely because checking was optional.
+    print()
+    sys.stdout.flush()  # the child writes straight to the tty; without this its
+                        # output lands above ours and reads as a different run
+    rc = subprocess.call([sys.executable, str(HERE / "verify.py")])
+    if rc:
+        print("\nverify.py failed — the README that was just written contradicts the data.",
+              file=sys.stderr)
+    return rc
 
 
 def main() -> int:

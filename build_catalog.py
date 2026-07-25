@@ -267,6 +267,19 @@ def render_readme(data: dict, lang: str = "en") -> str:
                          + (f' <br>`seed: {seed}`' if seed else "") + " |")
             L.append("")
 
+    cmp = data.get("comparison")
+    if cmp and lang == "en":
+        L.append("## How this compares\n")
+        L.append(f"{cmp['_intro']}\n")
+        L.append("| | " + " | ".join(cmp["cols"]) + " |")
+        L.append("|---" * (len(cmp["cols"]) + 1) + "|")
+        for r in cmp["rows"]:
+            L.append("| " + " | ".join(r) + " |")
+        L.append("")
+        for n in cmp.get("_notes", []):
+            L.append(f"- {n}")
+        L.append("")
+
     L.append(f"## {T['toc']}\n")
     for c in cats:
         L.append(f"- [{c}](#{c}) — {len([e for e in cats[c] if (HERE / e['image']).exists()])}")

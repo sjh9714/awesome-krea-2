@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">393 reproducible prompts for Krea 2 Turbo, across 50 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
+<p align="center">483 reproducible prompts for Krea 2 Turbo, across 62 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
@@ -15,13 +15,13 @@
 
 ## Categories
 
-**393 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 4 · [period](#period) 8 · [jewellery](#jewellery) 8 · [hands](#hands) 7 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8
+**483 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 4 · [period](#period) 8 · [jewellery](#jewellery) 8 · [hands](#hands) 7 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8
 
 ## What this model actually does
 
-Everything below was measured while building this catalog, not quoted from the model card. 463 generations across seven batches, 393 are here, 70 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.
+Everything below was measured while building this catalog, not quoted from the model card. 561 generations across eight batches, 483 are here, 78 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.
 
-Four of these findings replace earlier ones that were wrong, and every one of the four was overturned by a controlled experiment built to confirm it. The shape repeats: a rule inferred from one or two failures, then a ladder that holds everything constant except the single variable, and the rule turns out to have been about something else. The corrections are the most useful thing here.
+Five of these findings replace or retract earlier ones that were wrong, and every one of the five was overturned by a controlled experiment built to confirm it. The last of them was killed by a prediction written down before the images existed. The corrections are the most useful thing here.
 
 ### It renders text you write. It cannot invent text.
 
@@ -81,9 +81,11 @@ Eight prompts, one oak table, one light direction, one framing, raising only the
 
 The one that failed is `hands-5`, fingers **fully interlaced**, and it failed in an interesting way: the anatomy did not collapse into extra digits, the model simply **did not do the gesture**. It returned a clasp — one hand's fingers lying over the back of the other — which is the easier grip it had already produced for `hands-4`.
 
-That is the same shape as the monogram finding two batches earlier. Letters render; letters asked to *interlock* and share strokes do not. Fingers render; fingers asked to *weave between* other fingers do not. Whatever this model is doing, forms that stay separable survive and forms asked to interpenetrate do not.
+When this was first written it was paired with the monogram finding and read as a rule about **interpenetration** — forms that stay separable survive, forms asked to pass through each other do not. **That rule is dead.** Batch eight tested it in a third domain with the prediction written down in advance, and four of four failure predictions were wrong: two interlocked chain links, a whole chain, a willow basket wall with the weavers passing correctly in front of and behind the stakes, and a continuous Celtic knotwork panel all came back correct. Chain and basketry interpenetrate far more than fingers do.
 
-Practical rule: hands are usable. Ask for grips, not for weaves.
+What survives is narrower and it is about this one gesture: **the model returned the more common grip instead of the rarer one.** Whether that generalises is an open question this catalog has not earned the right to answer — see the last finding.
+
+Practical rule: hands are usable. If a specific gesture matters, check that you got it rather than assuming.
 
 ### Character identity does not survive across generations
 
@@ -117,6 +119,8 @@ So the split is not numbers versus no numbers. It is **objects versus attributes
 
 Practical rule: if you can point at each one, ask for a number and expect to get it. If you are counting colours, zones, materials or light sources, count the output yourself.
 
+Batches seven and eight kept confirming it without being asked to. A hand held up showing **exactly 3 fingers** (`hands-8`) came back with exactly three. A comic page asked for **exactly 6 panels** (`comic-005`) came back with six. A grid of **sixteen** pixel food icons (`pixel-art-005`) came back four by four. Four bird wings, three hyacinth bulbs, three hammers, six chisels, three wine glasses — all correct. The rule has now held on eight independent occasions across five batches, and it has never once held for a colour count, a region count or a light count.
+
 ### Name a light and you get the light. Name the softbox and you get the softbox.
 
 Twice in one batch, naming the physical lighting equipment put that equipment in the frame as a subject.
@@ -149,7 +153,7 @@ At the time I read this as a hard limit on interface work. The `stringcount` lad
 
 Practical rule: mock up an interface by writing out every label you want to see. What you leave to the model comes back as noise; what you specify comes back correct.
 
-### Letters are fine. Interlocking them is not.
+### Letters are fine. A bespoke interlocked monogram is not.
 
 **Third correction, same cause: a claim built on one failure.**
 
@@ -159,9 +163,11 @@ Batch five put three more arbitrary letter pairs through. `monogram-002` asked f
 
 The one that failed again is `monogram-001`, R and W **interlocked** — and where the two forms overlap, the R reads as a P.
 
-So it was never about words. Letters render. What fails is asking the model to fuse two letterforms into a composite where they share strokes, because at that point neither letter has an intact shape to be drawn. A real ligature like Æ is a single glyph it already knows, which is why that one worked.
+So it was never about words. Letters render.
 
-Practical rule: set letters side by side, or ask for a ligature that actually exists. Do not ask for an invented interlock.
+This was originally written as a rule about **fusing forms so they share strokes**, and batch eight killed that reading — chain links, basketry and Celtic knotwork all interlace heavily and all came back correct. What is left is the narrow observation: `AE` is a ligature that already exists as a glyph and `HB` is two letters set side by side, while an interlocked `KJ` is a bespoke mark that does not exist anywhere.
+
+Practical rule: set letters side by side, or ask for a ligature that actually exists. An invented interlock is the one that failed twice.
 
 ### "Seamless" produces a pattern that does not tile
 
@@ -188,6 +194,18 @@ Practical rule: ask for nadir only on subjects that have no useful vertical, and
 The comparison was doing scale work and the model read it as identity. Every other creature prompt in the same batch landed: a hare with moth wings, an invented bioluminescent fish, a feathered theropod in snow. None of those contains a simile.
 
 Practical rule: give scale with a measurement or with something inert in the frame — "a beetle a metre long", "a beetle beside a fence post". Do not give scale by naming another animal, because the other animal can win.
+
+### A rule this catalog built, tested and had to throw away
+
+Two findings above once shared an explanation: letters asked to interlock failed, fingers asked to interlace failed, so the model must be unable to render forms that **pass through each other**. Two domains agreeing is persuasive, and it was wrong.
+
+Batch eight tested it in a third domain — rope and chain — with the per-entry prediction written down **before the images were generated**. Four entries were predicted to fail. All four succeeded: `weave-5` two interlocked chain links, `weave-6` a whole chain with every link through its neighbours, `weave-7` a willow basket wall with the weavers passing correctly in front of and behind each stake, and `weave-8` a Celtic knotwork panel interlacing continuously without a break. Chain and basketry interpenetrate far more than fingers do.
+
+The rule is dead. What it leaves behind is an observation, and it is only that: in every failure across all these batches, **what came back was the more common neighbour of what was asked for**. Interlaced fingers returned a clasp. An interlocked `KJ` returned a generic monogram. A figure-eight *knot* (`weave-4`) returned a figure-eight *shape*. A beetle the size of a pony returned a pony. Chains and baskets are among the most photographed objects there are, and they came out right.
+
+That reading is not promoted to a finding here. Promoting a two-domain coincidence is precisely the mistake that just cost this catalog a rule, and the replacement being a better story is not a reason to trust it. It needs its own experiment with its own prediction written first.
+
+The prediction and the result are in the toolkit repo at `playbooks/weave-prediction.md`, timestamped by the commits either side of the generation run.
 
 ## The image-to-image entries, taken further
 
@@ -262,6 +280,14 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/material-003.webp" width="150" alt="Surface: boiled wool felt came back as uniform grey noise with no nap and no fibre"> | Matted directional wool fibres | Surface: boiled wool felt came back as uniform grey noise with no nap and no fibre <br>`seed: 419888631` |
 | <img src="images/failures/material-004.webp" width="150" alt="Surface: asked for a fine crazed network in aged leather, returned smooth leather with soft creases"> | Crazed, worn leather grain | Surface: asked for a fine crazed network in aged leather, returned smooth leather with soft creases <br>`seed: 67212683` |
 | <img src="images/failures/material-007.webp" width="150" alt="Material: sand-cast bronze came back as pitted pale stone with no metal in it"> | Cast bronze, dark in the recesses and polished on the high points | Material: sand-cast bronze came back as pitted pale stone with no metal in it <br>`seed: 324747702` |
+| <img src="images/failures/weave-4.webp" width="150" alt="Knot: asked for a figure-eight knot, returned a figure-eight shape — two loops with a single crossing, never tied"> | A tied figure-eight knot | Knot: asked for a figure-eight knot, returned a figure-eight shape — two loops with a single crossing, never tied <br>`seed: 518928111` |
+| <img src="images/failures/tattoo-008.webp" width="150" alt="Framing: asked for a healed and a fresh tattoo on one arm, returned two arms with matching stars"> | Two tattoos side by side on one arm | Framing: asked for a healed and a fresh tattoo on one arm, returned two arms with matching stars <br>`seed: 378283143` |
+| <img src="images/failures/pixel-art-002.webp" width="150" alt="Animation: a four-frame walk cycle came back as six identical frames in the same pose"> | Four distinct frames of a walk | Animation: a four-frame walk cycle came back as six identical frames in the same pose <br>`seed: 1526433893` |
+| <img src="images/failures/knolling-001.webp" width="150" alt="Text: the lens caps carry invented branding, legible and wrong, in an otherwise perfect knoll"> | No text on the equipment | Text: the lens caps carry invented branding, legible and wrong, in an otherwise perfect knoll <br>`seed: 914939340` |
+| <img src="images/failures/knolling-002.webp" width="150" alt="Arrangement: asked for the pocket contents laid flat on a grid, returned them heaped in the pocket"> | Objects square to the frame with even gaps | Arrangement: asked for the pocket contents laid flat on a grid, returned them heaped in the pocket <br>`seed: 2139908382` |
+| <img src="images/failures/knolling-004.webp" width="150" alt="Contents: bicycle-specific tools were asked for and generic ones arrived, with invented sticker text"> | Tyre levers, patches, a pump | Contents: bicycle-specific tools were asked for and generic ones arrived, with invented sticker text <br>`seed: 545841073` |
+| <img src="images/failures/silhouette-004.webp" width="150" alt="Exposure: asked for hands as solid black against the window, returned them backlit and translucent"> | Hands as flat black shapes | Exposure: asked for hands as solid black against the window, returned them backlit and translucent <br>`seed: 1616657488` |
+| <img src="images/failures/mirror-004.webp" width="150" alt="Instruction: asked for nobody in the reflection, returned two hands pressed against the glass"> | An empty fogged mirror with a wiped arc | Instruction: asked for nobody in the reflection, returned two hands pressed against the glass <br>`seed: 404637919` |
 
 ## How this compares
 
@@ -5268,6 +5294,1146 @@ A long queue of people waiting along a plain brick wall in flat overcast light, 
 ```
 
 `seed: 1179753599`
+
+
+## weave
+
+_A controlled experiment: rope and chain from separable to fully interpenetrating, one surface and one light throughout_
+
+### Weave: three separate ropes
+
+<img src="images/weave-1.webp" width="420" alt="Weave: three separate ropes">
+
+**Prompt**
+
+```text
+Three separate lengths of natural hemp rope lying parallel and not touching on a plain grey concrete surface, shot from directly above under soft even light. Fibre twist clearly visible on each. Nothing else in frame.
+```
+
+`seed: 806878733`
+
+### Weave: two ropes crossing
+
+<img src="images/weave-2.webp" width="420" alt="Weave: two ropes crossing">
+
+**Prompt**
+
+```text
+Two lengths of natural hemp rope crossing over each other in a simple X on a plain grey concrete surface, shot from directly above under soft even light. Fibre twist clearly visible, one rope plainly lying on top of the other. Nothing else in frame.
+```
+
+`seed: 1857044032`
+
+### Weave: overhand knot
+
+<img src="images/weave-3.webp" width="420" alt="Weave: overhand knot">
+
+**Prompt**
+
+```text
+A single overhand knot tied loosely in a length of natural hemp rope on a plain grey concrete surface, shot from directly above under soft even light. The rope passes through its own loop once. Fibre twist clearly visible. Nothing else in frame.
+```
+
+`seed: 620932301`
+
+### Weave: two chain links
+
+<img src="images/weave-5.webp" width="420" alt="Weave: two chain links">
+
+**Prompt**
+
+```text
+Exactly 2 steel chain links interlocked with each other, lying on a plain grey concrete surface, shot from directly above under soft even light. Each link a closed oval of round bar, one passing through the other. Nothing else in frame.
+```
+
+`seed: 728314033`
+
+### Weave: a length of chain
+
+<img src="images/weave-6.webp" width="420" alt="Weave: a length of chain">
+
+**Prompt**
+
+```text
+A short length of heavy steel chain lying in a loose S on a plain grey concrete surface, shot from directly above under soft even light. Every link a closed oval of round bar passing through its two neighbours. Nothing else in frame.
+```
+
+`seed: 488066171`
+
+### Weave: basket wall
+
+<img src="images/weave-7.webp" width="420" alt="Weave: basket wall">
+
+**Prompt**
+
+```text
+A close view of the woven wall of a willow basket, the horizontal weavers passing alternately in front of and behind the vertical stakes. Soft even light, shot square on, the weave filling the frame. Nothing else visible.
+```
+
+`seed: 1404524049`
+
+### Weave: drawn knotwork
+
+<img src="images/weave-8.webp" width="420" alt="Weave: drawn knotwork">
+
+**Prompt**
+
+```text
+A drawn Celtic knotwork panel in black ink on cream paper: a single continuous interlaced band that passes alternately over and under itself throughout, no breaks, no colour, no border decoration. Flat, straight on, filling the frame.
+```
+
+`seed: 1984874786`
+
+
+## tattoo
+
+_Flash sheets and applied work_
+
+### American traditional flash sheet
+
+<img src="images/tattoo-001.webp" width="420" alt="American traditional flash sheet">
+
+**Prompt**
+
+```text
+An American traditional tattoo flash sheet on aged paper: a swallow, an anchor, a dagger and a rose arranged with space between them, bold black outlines, limited flat colour in red, green and yellow. No text, no border.
+```
+
+`seed: 1798763568`
+
+### Fine-line botanical, forearm
+
+<img src="images/tattoo-002.webp" width="420" alt="Fine-line botanical, forearm">
+
+**Prompt**
+
+```text
+A fine-line botanical tattoo on a forearm, single-weight black line with no shading, a sprig of yarrow following the muscle. Skin slightly reddened around the fresh work, natural window light, the rest of the arm out of focus.
+```
+
+`seed: 586501771`
+
+### Japanese sleeve, wave and koi
+
+<img src="images/tattoo-003.webp" width="420" alt="Japanese sleeve, wave and koi">
+
+**Prompt**
+
+```text
+A Japanese-style tattoo sleeve photographed on an upper arm: a koi against stylised wave patterns, bold black linework with grey wash and limited colour, the background waves flowing around the muscle. Studio light, plain backdrop.
+```
+
+`seed: 1099487398`
+
+### Blackwork geometric
+
+<img src="images/tattoo-004.webp" width="420" alt="Blackwork geometric">
+
+**Prompt**
+
+```text
+A blackwork geometric tattoo on a calf: dense solid black shapes with negative-space skin lines between them, sharp edges, no grey and no colour. Raking light so the fresh ink sits slightly proud. Plain background.
+```
+
+`seed: 472089204`
+
+### Stick and poke, small
+
+<img src="images/tattoo-005.webp" width="420" alt="Stick and poke, small">
+
+**Prompt**
+
+```text
+A small hand-poked tattoo on the inside of a wrist: a simple crescent moon in slightly uneven dots, the line wobbling where the hand moved. Macro, natural light, skin texture and fine hairs visible.
+```
+
+`seed: 445435906`
+
+### Woodcut-style raven
+
+<img src="images/tattoo-006.webp" width="420" alt="Woodcut-style raven">
+
+**Prompt**
+
+```text
+A woodcut-style tattoo of a raven on a shoulder blade, heavy parallel hatching for the shading and bold contour lines, no grey wash, no colour. Soft directional light, the shoulder turned away from camera.
+```
+
+`seed: 708038755`
+
+### Flash sheet, ocean set
+
+<img src="images/tattoo-007.webp" width="420" alt="Flash sheet, ocean set">
+
+**Prompt**
+
+```text
+A tattoo flash sheet of ocean motifs on off-white paper: a lighthouse, a whale tail, a compass rose and a knotted rope, evenly spaced, bold outlines with muted flat colour. No text anywhere on the sheet.
+```
+
+`seed: 943002415`
+
+
+## pixel-art
+
+_Low-resolution sprite and tile work_
+
+### Pixel tileset, dungeon
+
+<img src="images/pixel-art-001.webp" width="420" alt="Pixel tileset, dungeon">
+
+**Prompt**
+
+```text
+A pixel-art tileset for a dungeon: stone floor, wall, door and stair tiles laid out in a grid, hard-edged pixels with no anti-aliasing, a limited palette of about sixteen colours. Chunky and readable at small size. No text.
+```
+
+`seed: 808571885`
+
+### Isometric pixel room
+
+<img src="images/pixel-art-003.webp" width="420" alt="Isometric pixel room">
+
+**Prompt**
+
+```text
+An isometric pixel-art room: a desk, a bed, a rug and a window, drawn on a strict 2:1 isometric grid with hard pixel edges and dithered shading. Muted palette, no anti-aliasing, no text.
+```
+
+`seed: 1079501690`
+
+### Pixel landscape, parallax
+
+<img src="images/pixel-art-004.webp" width="420" alt="Pixel landscape, parallax">
+
+**Prompt**
+
+```text
+A pixel-art side-scrolling landscape with three depth layers: dark foreground trees, mid-ground hills, pale distant mountains, each flatter and lighter than the last. Hard pixel edges, dithered skies, limited palette.
+```
+
+`seed: 1194676723`
+
+### Pixel food icons
+
+<img src="images/pixel-art-005.webp" width="420" alt="Pixel food icons">
+
+**Prompt**
+
+```text
+A grid of sixteen pixel-art food icons — bread, fish, apple, cheese and so on — each drawn in a small square cell with hard pixel edges, black outlines and a limited palette. Even spacing, plain background, no text.
+```
+
+`seed: 25307749`
+
+### Dithered gradient sky
+
+<img src="images/pixel-art-006.webp" width="420" alt="Dithered gradient sky">
+
+**Prompt**
+
+```text
+A pixel-art sunset sky rendered entirely with ordered dithering between four colours, the dither pattern clearly visible as alternating pixels, a flat black horizon line across the lower third. No smooth gradients anywhere.
+```
+
+`seed: 1733307886`
+
+### Pixel portrait, 32x32 feel
+
+<img src="images/pixel-art-007.webp" width="420" alt="Pixel portrait, 32x32 feel">
+
+**Prompt**
+
+```text
+A pixel-art portrait bust at very low resolution, perhaps thirty-two pixels across, so each pixel is a large visible square. Limited palette, hard edges, readable features built from very few pixels. Plain background.
+```
+
+`seed: 324325015`
+
+### Pixel shop interface
+
+<img src="images/pixel-art-008.webp" width="420" alt="Pixel shop interface">
+
+**Prompt**
+
+```text
+A pixel-art game shop interface: a bordered panel with item slots in a grid, a coin icon and a scroll bar, drawn with hard pixel edges and a limited palette. The panel border built from repeated corner and edge tiles. No text.
+```
+
+`seed: 1430458668`
+
+
+## anatomy
+
+_Medical and natural-history illustration of bodies_
+
+### Engraved skeleton plate
+
+<img src="images/anatomy-001.webp" width="420" alt="Engraved skeleton plate">
+
+**Prompt**
+
+```text
+A 19th-century engraved anatomical plate of a human hand skeleton, fine line and stipple shading, bones separated slightly to show the joints, aged paper with a visible plate mark. No labels, no numbers.
+```
+
+`seed: 872437719`
+
+### Muscle study, red chalk
+
+<img src="images/anatomy-002.webp" width="420" alt="Muscle study, red chalk">
+
+**Prompt**
+
+```text
+An anatomical muscle study of a shoulder and upper arm drawn in red chalk on toned paper, fibres of each muscle group indicated by direction of stroke, white chalk for the highlights. Renaissance drawing, no labels.
+```
+
+`seed: 118298043`
+
+### Comparative bird wings
+
+<img src="images/anatomy-003.webp" width="420" alt="Comparative bird wings">
+
+**Prompt**
+
+```text
+A natural-history plate comparing four bird wings side by side, each drawn with the feathers laid out and the bone structure faintly indicated beneath, fine ink line with light watercolour. Cream paper, no captions.
+```
+
+`seed: 1996241764`
+
+### Cross-section, tree trunk
+
+<img src="images/anatomy-004.webp" width="420" alt="Cross-section, tree trunk">
+
+**Prompt**
+
+```text
+A botanical cross-section of a tree trunk drawn as a scientific illustration: bark, phloem, cambium, sapwood and heartwood as concentric zones with different hatching densities, one ray running outward. Ink on white, no labels.
+```
+
+`seed: 715025422`
+
+### Insect morphology plate
+
+<img src="images/anatomy-005.webp" width="420" alt="Insect morphology plate">
+
+**Prompt**
+
+```text
+A morphological plate of a beetle: dorsal view, ventral view and a detached leg and antenna drawn separately below, fine stipple shading, scientific precision. Ink on cream paper, no labels, no scale bar.
+```
+
+`seed: 1344360601`
+
+### Écorché figure study
+
+<img src="images/anatomy-006.webp" width="420" alt="Écorché figure study">
+
+**Prompt**
+
+```text
+An écorché study: a standing human figure with the skin removed to show the superficial musculature, drawn in graphite with careful modelling, three-quarter view against blank paper. Academic drawing, no labels.
+```
+
+`seed: 1451225607`
+
+### Heart, wax model photograph
+
+<img src="images/anatomy-007.webp" width="420" alt="Heart, wax model photograph">
+
+**Prompt**
+
+```text
+A photograph of an antique anatomical wax model of a human heart on a wooden stand, the wax yellowed and slightly crazed with age, vessels painted in faded red and blue. Museum lighting, dark background, no signage.
+```
+
+`seed: 1466015518`
+
+### Fish skeleton, prepared
+
+<img src="images/anatomy-008.webp" width="420" alt="Fish skeleton, prepared">
+
+**Prompt**
+
+```text
+A prepared fish skeleton mounted flat on a pale board, every rib and fin ray intact, photographed straight down under even light. The bones dry and slightly translucent. Museum specimen framing, no labels.
+```
+
+`seed: 521991243`
+
+
+## sculpture
+
+_Carved, cast and modelled form_
+
+### Marble drapery, close
+
+<img src="images/sculpture-001.webp" width="420" alt="Marble drapery, close">
+
+**Prompt**
+
+```text
+A close view of carved marble drapery falling over a knee, the folds undercut so they cast their own shadows, chisel marks visible in the deeper recesses. Raking light, plain dark background, no face in frame.
+```
+
+`seed: 374186321`
+
+### Bronze patina, weathered
+
+<img src="images/sculpture-002.webp" width="420" alt="Bronze patina, weathered">
+
+**Prompt**
+
+```text
+A weathered outdoor bronze sculpture photographed close: green and brown patina streaked by rain, the high points rubbed back to metal by hands. Overcast light, the form abstract enough that no subject reads. Shallow focus.
+```
+
+`seed: 735427878`
+
+### Clay maquette on a turntable
+
+<img src="images/sculpture-003.webp" width="420" alt="Clay maquette on a turntable">
+
+**Prompt**
+
+```text
+An unfired clay maquette of a seated figure on a sculptor's turntable, tool marks and thumbprints all over the surface, an armature wire visible at one ankle. Studio light, plain wall, work in progress rather than finished.
+```
+
+`seed: 1128908131`
+
+### Carved stone lettering
+
+<img src="images/sculpture-004.webp" width="420" alt="Carved stone lettering">
+
+**Prompt**
+
+```text
+Letters cut into a slate slab reading exactly "IN MEMORIAM" in a chiselled Roman capital, V-cut so each stroke catches light on one side and shadow on the other. Raking light, straight on, nothing else on the slab.
+```
+
+`seed: 361575210`
+
+### Welded steel assembly
+
+<img src="images/sculpture-005.webp" width="420" alt="Welded steel assembly">
+
+**Prompt**
+
+```text
+An abstract welded steel sculpture in a yard, plate and box section joined with visible weld beads left unground, surface rusted to an even orange. Flat overcast light, grass at the base, no plinth.
+```
+
+`seed: 1421146345`
+
+### Plaster cast, chipped
+
+<img src="images/sculpture-006.webp" width="420" alt="Plaster cast, chipped">
+
+**Prompt**
+
+```text
+A plaster cast of a classical torso in a drawing studio, chipped at one shoulder and grey with age and dust, lit by a single high window. Cream plaster against a dark wall, easels out of focus behind.
+```
+
+`seed: 1371886322`
+
+### Wood carving, gouge marks
+
+<img src="images/sculpture-007.webp" width="420" alt="Wood carving, gouge marks">
+
+**Prompt**
+
+```text
+A carved wooden form showing deliberate gouge facets across the whole surface, no sanding, the grain running diagonally through the cuts. Warm side light so every facet reads. Plain background, no subject that resolves.
+```
+
+`seed: 7962539`
+
+### Kinetic mobile, hanging
+
+<img src="images/sculpture-008.webp" width="420" alt="Kinetic mobile, hanging">
+
+**Prompt**
+
+```text
+A hanging kinetic mobile of painted metal shapes on fine wires, balanced at several levels, photographed against a plain white wall so the shapes and their shadows overlap. Soft light, slight motion blur on the lowest element.
+```
+
+`seed: 1946227466`
+
+
+## plant
+
+_Houseplants and cultivated growth_
+
+### Monstera against a wall
+
+<img src="images/plant-001.webp" width="420" alt="Monstera against a wall">
+
+**Prompt**
+
+```text
+A mature monstera in a terracotta pot against a plain plaster wall, hard afternoon side light throwing the leaf fenestrations as sharp shadows on the plaster. A few brown leaf tips left in. Straight on, no styling.
+```
+
+`seed: 1052177918`
+
+### Fern in a cold frame
+
+<img src="images/plant-002.webp" width="420" alt="Fern in a cold frame">
+
+**Prompt**
+
+```text
+A hart's tongue fern growing in a cold frame, condensation on the glass above it diffusing the light, dead leaves and grit around the crown. Damp, green, no sun. Shot low through the open frame.
+```
+
+`seed: 1833217793`
+
+### Seedlings under a window
+
+<img src="images/plant-003.webp" width="420" alt="Seedlings under a window">
+
+**Prompt**
+
+```text
+A tray of tomato seedlings on a windowsill leaning toward the light, some leggy, a hand-written wooden label pushed into the compost with no legible writing on it. Soft window light, condensation on the glass.
+```
+
+`seed: 104532641`
+
+### Bark and lichen, close
+
+<img src="images/plant-004.webp" width="420" alt="Bark and lichen, close">
+
+**Prompt**
+
+```text
+Close view of an old oak trunk with lichen and moss in the fissures, damp after rain so the colours are saturated, a single fern growing out of a crack. Soft woodland light, shallow focus falling off around the fern.
+```
+
+`seed: 27024972`
+
+### Cactus collection, hard light
+
+<img src="images/plant-005.webp" width="420" alt="Cactus collection, hard light">
+
+**Prompt**
+
+```text
+A shelf of small cacti in matching clay pots under hard low sun, every spine casting a long fine shadow on the shelf and the wall behind. Warm colour, high contrast, straight on, nothing else in frame.
+```
+
+`seed: 264106417`
+
+### Cut stems in water
+
+<img src="images/plant-006.webp" width="420" alt="Cut stems in water">
+
+**Prompt**
+
+```text
+Cut flower stems standing in a clear glass jar of water on a windowsill, the stems refracting and offsetting at the waterline, a few bubbles clinging to them below. Backlit, cool light, plain background.
+```
+
+`seed: 1776160555`
+
+### Greenhouse staging
+
+<img src="images/plant-007.webp" width="420" alt="Greenhouse staging">
+
+**Prompt**
+
+```text
+Staging in a working greenhouse: trays of plants at different stages, clay pots stacked, a watering can and a trowel, algae on the glass overhead. Humid diffused light, everything used, nobody present.
+```
+
+`seed: 1944966882`
+
+### Ivy taking a wall
+
+<img src="images/plant-008.webp" width="420" alt="Ivy taking a wall">
+
+**Prompt**
+
+```text
+Ivy climbing a brick wall, the aerial roots gripping the mortar, older growth woody at the base and new leaves pale at the tips. Flat overcast light, straight on, the wall filling the frame.
+```
+
+`seed: 1981899165`
+
+### Bulbs forced in glass
+
+<img src="images/plant-009.webp" width="420" alt="Bulbs forced in glass">
+
+**Prompt**
+
+```text
+Hyacinth bulbs forced in clear glass vases so the white roots fill the water below and the shoots rise above, three of them in a row on a windowsill. Backlit, the roots sharply defined, cool winter light.
+```
+
+`seed: 1137985015`
+
+### Fallen leaves, wet path
+
+<img src="images/plant-010.webp" width="420" alt="Fallen leaves, wet path">
+
+**Prompt**
+
+```text
+Fallen leaves plastered to a wet path, each one darkened and stuck flat, colours ranging from ochre to near black, a few still holding their shape above the rest. Straight down, flat overcast light, no horizon.
+```
+
+`seed: 1166752125`
+
+
+## tool
+
+_Hand tools and workshop equipment_
+
+### Plane on a bench
+
+<img src="images/tool-001.webp" width="420" alt="Plane on a bench">
+
+**Prompt**
+
+```text
+A wooden-bodied hand plane resting on its side on a workbench beside a curl of shaving, the sole polished bright by use and the body darkened by handling. Warm side light, sawdust in the bench grain.
+```
+
+`seed: 2687447`
+
+### Anvil and hammers
+
+<img src="images/tool-002.webp" width="420" alt="Anvil and hammers">
+
+**Prompt**
+
+```text
+A blacksmith's anvil with three hammers of different weights resting on and around it, scale and soot on the face, the horn worn bright. Dim forge interior with one window, warm light from the left.
+```
+
+`seed: 1451291682`
+
+### Socket set, open case
+
+<img src="images/tool-003.webp" width="420" alt="Socket set, open case">
+
+**Prompt**
+
+```text
+An open socket set case shot from directly above, sockets seated in their moulded tray in ascending size, a few missing from their slots, oil marks on the foam. Even workshop light, no legible markings.
+```
+
+`seed: 204857629`
+
+### Sharpening stone and knife
+
+<img src="images/tool-004.webp" width="420" alt="Sharpening stone and knife">
+
+**Prompt**
+
+```text
+A water stone on a wooden base with a kitchen knife laid across it, slurry pooled at one end, the stone dished slightly from years of use. Soft directional light, macro, the bevel catching a highlight.
+```
+
+`seed: 219309586`
+
+### Bench vice, worn jaws
+
+<img src="images/tool-005.webp" width="420" alt="Bench vice, worn jaws">
+
+**Prompt**
+
+```text
+A heavy engineer's bench vice bolted to a scarred workbench, the jaw faces chipped and the paint worn through on the handle. Overcast light from a workshop window, metal filings on the bench around it.
+```
+
+`seed: 1781327008`
+
+### Chisels in a roll
+
+<img src="images/tool-006.webp" width="420" alt="Chisels in a roll">
+
+**Prompt**
+
+```text
+A canvas tool roll opened flat with six chisels in their pockets, handles worn smooth, edges bright where they have been honed. Shot from directly above, soft even light, the canvas stained with oil.
+```
+
+`seed: 784598398`
+
+### Wrench on a nut, greasy
+
+<img src="images/tool-007.webp" width="420" alt="Wrench on a nut, greasy">
+
+**Prompt**
+
+```text
+An open-ended wrench engaged on a rusted nut, grease on the jaws and the thread, the metal around it scarred from previous attempts. Macro, hard raking light, shallow focus. No hands in frame.
+```
+
+`seed: 1661979018`
+
+### Soldering station, close
+
+<img src="images/tool-008.webp" width="420" alt="Soldering station, close">
+
+**Prompt**
+
+```text
+A soldering iron in its stand beside a coil of solder and a small circuit board, flux residue on the board, the tip tinned and slightly oxidised. Warm bench light, macro, shallow focus. No hands in frame.
+```
+
+`seed: 924155302`
+
+
+## knolling
+
+_Objects arranged flat and square to the frame_
+
+### Baking equipment
+
+<img src="images/knolling-003.webp" width="420" alt="Baking equipment">
+
+**Prompt**
+
+```text
+Baking equipment arranged flat and square on a marble surface: scales, a scraper, a whisk, two tins and a folded cloth, plus small bowls of flour and salt. Aligned to a grid with even spacing, shot straight down.
+```
+
+`seed: 251379512`
+
+### Sewing kit
+
+<img src="images/knolling-005.webp" width="420" alt="Sewing kit">
+
+**Prompt**
+
+```text
+A sewing kit arranged flat on linen: scissors, a tape measure coiled, thread spools in a row, pins in a cushion, a thimble and a seam ripper. Square to the frame, even gaps, shot straight down under soft light.
+```
+
+`seed: 1903543889`
+
+### Fishing tackle
+
+<img src="images/knolling-006.webp" width="420" alt="Fishing tackle">
+
+**Prompt**
+
+```text
+Fishing tackle knolled on weathered wood: a reel, spools of line, a small box of flies, forceps, floats in a row and a folded net. Aligned to a grid, even spacing, straight down, flat overcast light.
+```
+
+`seed: 127924666`
+
+### Desk drawer, emptied
+
+<img src="images/knolling-007.webp" width="420" alt="Desk drawer, emptied">
+
+**Prompt**
+
+```text
+The contents of a desk drawer laid out flat and square on the desk itself: pencils in a row, a stapler, paperclips grouped, an eraser, a ruler and a roll of tape. Even gaps, shot straight down, cool north light.
+```
+
+`seed: 1338922538`
+
+### Coffee kit
+
+<img src="images/knolling-008.webp" width="420" alt="Coffee kit">
+
+**Prompt**
+
+```text
+Coffee-making equipment knolled on a concrete surface: a grinder, a dripper, filters fanned slightly, a scale, a kettle and a cup, arranged on a grid with even spacing. Straight down, soft even light, no beans spilled.
+```
+
+`seed: 793490821`
+
+
+## silhouette
+
+_Subjects reduced to shape against light_
+
+### Figure in a doorway
+
+<img src="images/silhouette-001.webp" width="420" alt="Figure in a doorway">
+
+**Prompt**
+
+```text
+A figure standing in a bright doorway seen from inside a dark room, exposed for the doorway so the figure and the frame read as clean black shapes against white. No detail in the shadow at all. Straight on, symmetrical.
+```
+
+`seed: 809416368`
+
+### Trees against fog
+
+<img src="images/silhouette-002.webp" width="420" alt="Trees against fog">
+
+**Prompt**
+
+```text
+Bare trees receding into fog, the nearest almost black and each rank behind it paler, so the image reads as flat layered shapes rather than depth. No sky detail, no ground detail, no colour.
+```
+
+`seed: 2025912881`
+
+### Crane against sunset
+
+<img src="images/silhouette-003.webp" width="420" alt="Crane against sunset">
+
+**Prompt**
+
+```text
+A construction crane in full silhouette against a graded orange and violet sky, every strut and cable reading as a black line. No detail in the crane, no foreground, the sky perfectly smooth.
+```
+
+`seed: 1093323322`
+
+### Cyclist on a ridge
+
+<img src="images/silhouette-005.webp" width="420" alt="Cyclist on a ridge">
+
+**Prompt**
+
+```text
+A cyclist crossing a ridge line in silhouette against a pale overcast sky, the bicycle's frame and wheels reading as line and the rider as a solid shape. Wide, the ridge as a simple curve across the lower frame.
+```
+
+`seed: 2075454854`
+
+### Bottles on a sill
+
+<img src="images/silhouette-006.webp" width="420" alt="Bottles on a sill">
+
+**Prompt**
+
+```text
+A row of glass bottles on a windowsill photographed against the bright window, their profiles reading as dark outlines with light passing through the glass so the necks glow. Nothing else in frame, no colour.
+```
+
+`seed: 763629602`
+
+### Birds on a wire
+
+<img src="images/silhouette-007.webp" width="420" alt="Birds on a wire">
+
+**Prompt**
+
+```text
+Birds spaced along a wire in silhouette against a flat overcast sky, each one a small solid shape, the wire a thin line sagging between two poles out of frame. Minimal, high key, no other detail.
+```
+
+`seed: 1599517231`
+
+### Ferns backlit to black
+
+<img src="images/silhouette-008.webp" width="420" alt="Ferns backlit to black">
+
+**Prompt**
+
+```text
+Fern fronds photographed against a bright sky and exposed so they render as black lacework, every pinna separate and readable as shape. No green, no sky detail, the pattern filling the frame.
+```
+
+`seed: 239403001`
+
+
+## mirror
+
+_Reflections and what they get right_
+
+### Still lake, whole reflection
+
+<img src="images/mirror-001.webp" width="420" alt="Still lake, whole reflection">
+
+**Prompt**
+
+```text
+A mountain reflected in perfectly still water at dawn, the reflection nearly complete with only a faint break where a current passes. Shot so the waterline sits exactly across the middle of the frame. Muted cold light.
+```
+
+`seed: 1857318294`
+
+### Shop window, two worlds
+
+<img src="images/mirror-002.webp" width="420" alt="Shop window, two worlds">
+
+**Prompt**
+
+```text
+A shop window at dusk in which the lit interior and the reflected street overlap at similar brightness, so both read at once. Parked cars reflected across a display. Nobody identifiable, no legible signage.
+```
+
+`seed: 89009176`
+
+### Wet pavement after rain
+
+<img src="images/mirror-003.webp" width="420" alt="Wet pavement after rain">
+
+**Prompt**
+
+```text
+A wet pavement after rain reflecting a row of buildings and a lamp, the reflection broken where the surface is textured and sharp where a puddle is still. Shot low, the puddle occupying the lower half. Night, warm lights.
+```
+
+`seed: 1764404241`
+
+### Car wing mirror
+
+<img src="images/mirror-005.webp" width="420" alt="Car wing mirror">
+
+**Prompt**
+
+```text
+A car wing mirror in close view reflecting a road receding behind, the mirror housing sharp and the reflected scene slightly compressed by the convex curve. Rain beading on the housing. Overcast, no legible text.
+```
+
+`seed: 286347384`
+
+### Facing mirrors, corridor
+
+<img src="images/mirror-006.webp" width="420" alt="Facing mirrors, corridor">
+
+**Prompt**
+
+```text
+Two mirrors facing each other on opposite walls of a plain corridor, producing a receding corridor of reflections that gets dimmer and greener with each bounce. Nobody in frame. Even artificial light.
+```
+
+`seed: 1877205886`
+
+### Polished steel counter
+
+<img src="images/mirror-007.webp" width="420" alt="Polished steel counter">
+
+**Prompt**
+
+```text
+A polished stainless steel counter reflecting an overhead ceiling and a row of hanging pans, the reflection softened and slightly distorted by the brushed grain. Shot at a low angle, kitchen light, nobody present.
+```
+
+`seed: 371991096`
+
+### Puddle upside down
+
+<img src="images/mirror-008.webp" width="420" alt="Puddle upside down">
+
+**Prompt**
+
+```text
+A single puddle on tarmac photographed so tightly that only the reflected sky and building fill the frame, with a rim of wet asphalt at the very edge. The image reads inverted until you find the edge. Overcast.
+```
+
+`seed: 469746667`
+
+
+## mineral
+
+_Crystals, ores and cut stone_
+
+### Amethyst geode, split
+
+<img src="images/mineral-001.webp" width="420" alt="Amethyst geode, split">
+
+**Prompt**
+
+```text
+A split amethyst geode photographed against black, the crystal-lined cavity catching a single light so the points glitter while the rough outer rind stays dark. Macro, deep purple grading to near clear at the tips.
+```
+
+`seed: 1645708822`
+
+### Pyrite cubes in matrix
+
+<img src="images/mineral-002.webp" width="420" alt="Pyrite cubes in matrix">
+
+**Prompt**
+
+```text
+Natural pyrite cubes embedded in a grey rock matrix, the metallic faces striated and catching hard light, the matrix dull around them. Macro, dark background, the cubes at slightly different angles.
+```
+
+`seed: 361333150`
+
+### Malachite, banded
+
+<img src="images/mineral-003.webp" width="420" alt="Malachite, banded">
+
+**Prompt**
+
+```text
+A polished slice of banded malachite filling the frame, concentric green bands of varying tone and width, the polish showing a soft sheen. Even light, no edges of the slice visible, almost abstract.
+```
+
+`seed: 1587099661`
+
+### Quartz point, backlit
+
+<img src="images/mineral-004.webp" width="420" alt="Quartz point, backlit">
+
+**Prompt**
+
+```text
+A single clear quartz point backlit against black so the internal fractures and a small inclusion read as bright planes inside the stone. Macro, the termination sharp, the base rough where it broke from the matrix.
+```
+
+`seed: 1821760512`
+
+### Meteorite, etched
+
+<img src="images/mineral-005.webp" width="420" alt="Meteorite, etched">
+
+**Prompt**
+
+```text
+A cut and acid-etched iron meteorite slice showing the crystalline Widmanstätten pattern as interlocking bands, the surface faintly reflective. Macro, raking light, dark background, no scale reference.
+```
+
+`seed: 1107576610`
+
+### Rough opal in host rock
+
+<img src="images/mineral-006.webp" width="420" alt="Rough opal in host rock">
+
+**Prompt**
+
+```text
+Rough precious opal still in its ironstone host, a seam of colour play flashing green and orange along one edge while the rest stays dull brown. Macro, one hard light moved to catch the fire.
+```
+
+`seed: 1732379579`
+
+### Salt crystals growing
+
+<img src="images/mineral-007.webp" width="420" alt="Salt crystals growing">
+
+**Prompt**
+
+```text
+Halite crystals grown on a string in a jar, cubic and stepped, cloudy at the centre and clearer at the faces, still wet from the solution. Backlit, macro, the string just visible through them.
+```
+
+`seed: 1046939819`
+
+### Slate with pyrite bloom
+
+<img src="images/mineral-008.webp" width="420" alt="Slate with pyrite bloom">
+
+**Prompt**
+
+```text
+A split slab of dark slate with a bloom of small brassy pyrite crystals scattered across the bedding plane, the slate matte and the pyrite bright. Raking light, shot straight down, no edges of the slab.
+```
+
+`seed: 1654852533`
+
+
+## seasonal
+
+_Weather-marked moments in the year_
+
+### First frost on a gate
+
+<img src="images/seasonal-001.webp" width="420" alt="First frost on a gate">
+
+**Prompt**
+
+```text
+The first hard frost of the year on a wooden field gate, crystals picked out along the top rail and the hinge, the field beyond still green and unfrosted where the sun has reached. Low morning light, cold blue shadows.
+```
+
+`seed: 4600144`
+
+### Blossom on wet tarmac
+
+<img src="images/seasonal-002.webp" width="420" alt="Blossom on wet tarmac">
+
+**Prompt**
+
+```text
+Fallen cherry blossom stuck to wet tarmac after rain, drifted along the kerb line, a few petals still falling and blurred. Shot straight down, flat grey light, the pink against the dark road.
+```
+
+`seed: 796042065`
+
+### Hay meadow, midsummer
+
+<img src="images/seasonal-003.webp" width="420" alt="Hay meadow, midsummer">
+
+**Prompt**
+
+```text
+A hay meadow at midsummer just before cutting, grasses and seed heads at chest height moving in wind, a hard blue sky above. Shot from inside the crop looking up and out, strong sun, deep shadows between stems.
+```
+
+`seed: 1484674026`
+
+### Bonfire smoke at dusk
+
+<img src="images/seasonal-004.webp" width="420" alt="Bonfire smoke at dusk">
+
+**Prompt**
+
+```text
+Smoke from an allotment bonfire hanging low in still autumn air at dusk, the last light catching it from the side, bare fruit trees behind. Nobody present, warm grey palette, everything damp.
+```
+
+`seed: 220422761`
+
+### Snow on a car roof
+
+<img src="images/seasonal-005.webp" width="420" alt="Snow on a car roof">
+
+**Prompt**
+
+```text
+A car parked overnight under fresh snow, an even blanket on the roof and bonnet with the shape of the vehicle still readable beneath, one wiper standing proud. Flat morning light, an untouched street behind.
+```
+
+`seed: 32247102`
+
+### Rockpool at low spring tide
+
+<img src="images/seasonal-006.webp" width="420" alt="Rockpool at low spring tide">
+
+**Prompt**
+
+```text
+A rockpool exposed at the lowest spring tide, weed collapsed on the rock around it, anemones closed, the water absolutely still and clear. Shot from above, overcast light, no reflections on the surface.
+```
+
+`seed: 1892545042`
+
+### Harvest dust at evening
+
+<img src="images/seasonal-007.webp" width="420" alt="Harvest dust at evening">
+
+**Prompt**
+
+```text
+Dust hanging over a stubble field in the last hour of light after harvesting, the low sun turning it gold, bales scattered at intervals into the distance. Long lens compression, no machinery in frame.
+```
+
+`seed: 1003507973`
+
+### Ice on a puddle, broken
+
+<img src="images/seasonal-008.webp" width="420" alt="Ice on a puddle, broken">
+
+**Prompt**
+
+```text
+A thin sheet of ice over a puddle, broken through in the middle by a boot so the plates have tilted and refrozen at angles, trapped air white beneath them. Shot straight down, cold flat light, macro-ish.
+```
+
+`seed: 353654491`
 
 
 ## Contributing

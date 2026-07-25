@@ -161,13 +161,14 @@ def render_readme(data: dict, lang: str = "en") -> str:
 
     kept = [e for e in entries if (HERE / e["image"]).exists()]
     n, ncat = len(kept), len(cats)
+    nfail = len((data.get('failures') or {}).get('entries', []))
     model = data.get("model", "the model")
 
     T = {
         "en": {
             "gallery_link": "Browse the gallery →",
             "toc_entries": "prompts, every one with its seed",
-            "tagline": f"{n} reproducible prompts for {model}, across {ncat} categories. Every prompt is copy-pasteable and every image is the actual output.",
+            "tagline": f"{n} {model} prompts with the seed that produced each one, plus the {nfail} generations that failed and why. Five of the findings here replace earlier ones that were wrong.",
             "toc": "Categories",
             "prompt": "Prompt",
             "contrib": "Contributing",
@@ -186,7 +187,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
         "zh": {
             "gallery_link": "浏览画廊 →",
             "toc_entries": "条提示词，每条都有 seed",
-            "tagline": f"{model} 的 {n} 条可复现提示词，覆盖 {ncat} 个类别。每条提示词可直接复制，每张图片都是实际输出。",
+            "tagline": f"{n} 条 {model} 提示词，每条都附带产出它的 seed，外加 {nfail} 次失败的生成及其原因。这里有五条发现推翻了此前写错的结论。",
             "toc": "类别",
             "prompt": "提示词",
             "contrib": "参与贡献",
@@ -197,7 +198,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
         "ko": {
             "gallery_link": "갤러리 보기 →",
             "toc_entries": "개 프롬프트, 전부 시드 기록",
-            "tagline": f"{model}용 재현 가능한 프롬프트 {n}개, {ncat}개 카테고리. 모든 프롬프트는 복사해서 바로 쓸 수 있고 모든 이미지는 실제 출력물입니다.",
+            "tagline": f"{model} 프롬프트 {n}개, 각각을 만든 시드까지. 그리고 실패한 생성 {nfail}개와 그 이유. 여기 발견 다섯 개는 앞서 틀리게 썼던 것을 대체한 것입니다.",
             "toc": "카테고리",
             "prompt": "프롬프트",
             "contrib": "기여하기",
@@ -218,10 +219,13 @@ def render_readme(data: dict, lang: str = "en") -> str:
     # "here is what I found". Do not build a GIF — measured lift was zero.
     if (HERE / "hero.webp").exists():
         L.append('<p align="center">')
+        # Alt text is regenerated with the hero. The first version outlived its
+        # own claims by three batches and described findings this catalog had
+        # already disproved.
         L.append('  <img src="hero.webp" width="912" '
-                 'alt="Three findings: text holds on one sign and collapses on a list; '
-                 'character identity does not survive a second generation; '
-                 'image-to-image changes medium but not scene contents">')
+                 'alt="Three findings: it renders text you write out and cannot invent text; '
+                 'hands are 7 of 8 and the miss is a gesture rather than the anatomy; '
+                 'a rule built from two domains that had to be thrown away in a third">')
         L.append("</p>\n")
     else:
         L.append('<p align="center">')
@@ -254,14 +258,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
     if nav:
         L.append(f"<p align=\"center\">{nav}</p>\n")
 
-    # A table of contents. Both top catalogs carry one; at 85+ entries a reader
-    # cannot see the shape of the thing by scrolling.
-    by_cat: dict[str, int] = {}
-    for e in kept:
-        by_cat[e["category"]] = by_cat.get(e["category"], 0) + 1
-    L.append(f"## {T['toc']}\n")
-    L.append(f"**{len(kept)} {T['toc_entries']}** · " + " · ".join(
-        f"[{c}](#{c.lower().replace(' ', '-')}) {n}" for c, n in by_cat.items()) + "\n")
+
 
     # The findings are what this catalog has that a bare prompt dump does not.
     # They go above the index because they are the reason to read the rest.
@@ -359,6 +356,16 @@ def render_readme(data: dict, lang: str = "en") -> str:
     # The category index lives directly under the title now, not here. Both of
     # the highest-star catalogs in this niche put it in the first screen, and a
     # second copy after the findings was just a duplicate heading.
+    # The index sits here, after the findings, not above them. A wall of 62
+    # category links is the least interesting thing in this repository and it
+    # was the second thing a visitor saw.
+    by_cat: dict[str, int] = {}
+    for e in kept:
+        by_cat[e["category"]] = by_cat.get(e["category"], 0) + 1
+    L.append(f"## {T['toc']}\n")
+    L.append(f"**{len(kept)} {T['toc_entries']}** · " + " · ".join(
+        f"[{c}](#{c.lower().replace(' ', '-')}) {n}" for c, n in by_cat.items()) + "\n")
+
     for c, items in cats.items():
         items = [e for e in items if (HERE / e["image"]).exists()]
         if not items:

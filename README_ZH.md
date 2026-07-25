@@ -1,8 +1,8 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">Krea 2 Turbo 的 483 条可复现提示词，覆盖 62 个类别。每条提示词可直接复制，每张图片都是实际输出。</p>
+<p align="center">483 条 Krea 2 Turbo 提示词，每条都附带产出它的 seed，外加 57 次失败的生成及其原因。这里有五条发现推翻了此前写错的结论。</p>
 
 <p align="center">
-  <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
+  <img src="hero.webp" width="912" alt="Three findings: it renders text you write out and cannot invent text; hands are 7 of 8 and the miss is a gesture rather than the anatomy; a rule built from two domains that had to be thrown away in a third">
 </p>
 
 <p align="center">

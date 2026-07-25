@@ -1,8 +1,8 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">Krea 2 Turbo용 재현 가능한 프롬프트 483개, 62개 카테고리. 모든 프롬프트는 복사해서 바로 쓸 수 있고 모든 이미지는 실제 출력물입니다.</p>
+<p align="center">Krea 2 Turbo 프롬프트 483개, 각각을 만든 시드까지. 그리고 실패한 생성 57개와 그 이유. 여기 발견 다섯 개는 앞서 틀리게 썼던 것을 대체한 것입니다.</p>
 
 <p align="center">
-  <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
+  <img src="hero.webp" width="912" alt="Three findings: it renders text you write out and cannot invent text; hands are 7 of 8 and the miss is a gesture rather than the anatomy; a rule built from two domains that had to be thrown away in a third">
 </p>
 
 <p align="center">

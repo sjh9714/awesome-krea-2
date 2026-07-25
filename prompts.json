@@ -896,5 +896,94 @@
         "body": "Image-to-image is reliable when you ask for a different *rendering* of the same scene. Rice terraces became a convincing gouache painting with the terrace contours intact (**editing-003**); a woodblock wave took a dusk palette while every keyblock outline stayed put (**editing-005**); an exploded camera diagram became a clean cyanotype blueprint with every component in place (**editing-008**).\n\nIt is unreliable when you ask it to add or remove *things*. Three attempts failed and were cut rather than shipped with captions that did not match the images: removing the steam from a mug returned the steam; adding snow and sea ice to a coastline returned the same coastline slightly cooler; darkening a sauna's window returned the window still lit.\n\n`strength` between 0.50 and 0.60 preserved composition while allowing the medium to change. No value made object-level edits work."
       }
     ]
+  },
+  "failures": {
+    "_what": "Deliberately reproduced failures. Every claim in the README's findings section points at one of these, with the seed that produced it, so the limits are checkable rather than asserted. These are NOT part of the 85-entry catalog.",
+    "entries": [
+      {
+        "id": "fail-menu",
+        "claim": "Text: a list of many strings collapses after the first few",
+        "prompt": "A cafe chalkboard, straight on, filled edge to edge with hand-lettered menu items in white and pale yellow chalk. Legible items include \"FILTER 4.50\", \"CORTADO 4.00\", \"OAT +0.60\". Slight chalk dust haze, uneven letter weights, a small drawn coffee cherry in the corner.",
+        "expected": "Ten legible menu rows",
+        "image": "images/failures/fail-menu.webp",
+        "params": {
+          "seed": 1729505870
+        }
+      },
+      {
+        "id": "fail-spines",
+        "claim": "Text: twelve independent strings in one frame, all unreadable",
+        "prompt": "A tight row of twelve hardback book spines on a shelf, shot straight on so all titles are legible. Varying cloth colours and foil-stamped serif titles. Invent plausible titles in English. Even soft light, no glare on the foil, shallow depth so the spine faces are sharp and the shelf edge falls off.",
+        "expected": "Twelve readable invented titles",
+        "image": "images/failures/fail-spines.webp",
+        "params": {
+          "seed": 1095803014
+        }
+      },
+      {
+        "id": "fail-map",
+        "claim": "Text: thirty station names, none of them words",
+        "prompt": "A stylised city transit map with four coloured lines, interchange stations shown as white circles with black outlines, and legible station names in a condensed sans-serif. 45-degree angles only, even line spacing, a small legend in the lower left.",
+        "expected": "Legible station names",
+        "image": "images/failures/fail-map.webp",
+        "params": {
+          "seed": 57616412
+        }
+      },
+      {
+        "id": "fail-timeline",
+        "claim": "Text: years render, labels do not",
+        "prompt": "A horizontal timeline spanning 1970 to 2030 with eight milestone markers above and below the axis alternately, each with a year and a short two-word label. Even tick spacing, one accent colour, plenty of white space, everything legible at a glance.",
+        "expected": "Eight year+label pairs",
+        "image": "images/failures/fail-timeline.webp",
+        "params": {
+          "seed": 797625079
+        }
+      },
+      {
+        "id": "fail-korean",
+        "claim": "Text: Korean fails one character in, and looks clean if you cannot read it",
+        "prompt": "A hand-painted shopfront sign in Seoul reading exactly \"정직한 국수\" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light, no other signage in frame.",
+        "expected": "정직한 국수",
+        "image": "images/failures/fail-korean.webp",
+        "params": {
+          "seed": 1910572019
+        }
+      },
+      {
+        "id": "fail-terminal",
+        "claim": "Text: the command line renders, the output beneath it does not",
+        "prompt": "A photograph of a CRT monitor displaying a green-phosphor terminal, scanlines and slight bloom visible. The visible text reads \"$ make install\" followed by three lines of plausible build output. Shot at a slight angle so the glass curvature is apparent, dark room, the monitor is the only light source.",
+        "expected": "$ make install plus three lines of build output",
+        "image": "images/failures/fail-terminal.webp",
+        "params": {
+          "seed": 1530960951
+        }
+      },
+      {
+        "id": "fail-identity",
+        "claim": "Identity: at strength 0.72 the scene is new and the person is not the same",
+        "prompt": "The same woman from the reference sheet, now lit only by the blue glow of a laptop screen in a dark room. Same silver crop, same scar above the right eyebrow, same wire frames, same navy sweater. Identity must be unmistakably the same person.",
+        "expected": "The woman from reference-sheet-001",
+        "source": "reference-sheet-001",
+        "strength": 0.72,
+        "image": "images/failures/fail-identity.webp",
+        "params": {
+          "seed": 1317515569
+        }
+      },
+      {
+        "id": "fail-removal",
+        "claim": "Editing: asked to remove the steam, returns the steam",
+        "prompt": "Same mug, same table, same backlight. Remove the steam entirely and let the coffee surface go still and mirror-flat, reflecting the window.",
+        "expected": "No steam",
+        "source": "product-009",
+        "strength": 0.5,
+        "image": "images/failures/fail-removal.webp",
+        "params": {
+          "seed": 1499506316
+        }
+      }
+    ]
   }
 }

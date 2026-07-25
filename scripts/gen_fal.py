@@ -200,6 +200,7 @@ def main() -> int:
     ap.add_argument("--out", help="output path for --prompt")
     ap.add_argument("--only", help="comma-separated categories")
     ap.add_argument("--id", help="comma-separated entry ids")
+    ap.add_argument("--sources", help="extra manifest to resolve `source` ids against")
     ap.add_argument("--force", action="store_true", help="regenerate existing images")
     ap.add_argument("--image-size", default="square_hd",
                     help="square_hd | landscape_16_9 | portrait_4_3 | ...")
@@ -257,6 +258,13 @@ def main() -> int:
         return 0
 
     by_id = {x["id"]: x for x in manifest["entries"]}
+    # A failures manifest cites entries that live in the main catalog, so source
+    # lookup has to be able to span manifests.
+    if args.sources:
+        extra = json.loads(Path(args.sources).read_text(encoding="utf-8"))
+        for x in extra["entries"]:
+            by_id.setdefault(x["id"], x)
+        src_root = Path(args.sources).parent
     ok, failed, flagged = 0, [], []
     for i, e in enumerate(todo, 1):
         dest = root / e["image"]
@@ -272,6 +280,8 @@ def main() -> int:
                 if not src:
                     raise RuntimeError(f"source '{src_id}' not in manifest")
                 src_path = root / src["image"]
+                if not src_path.exists() and args.sources:
+                    src_path = src_root / src["image"]
                 if not src_path.exists():
                     raise RuntimeError(f"source image missing: {src['image']} — generate it first")
                 model = args.i2i_model

@@ -2,14 +2,7 @@
 <p align="center">85 reproducible prompts for Krea 2 Turbo, across 7 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
 
 <p align="center">
-  <img src="images/photography-001.webp" width="180" alt="Ceramicist at golden hour, 85mm">
-  <img src="images/photography-002.webp" width="180" alt="Rain-soaked crosswalk, neon reflections">
-  <img src="images/photography-003.webp" width="180" alt="Cold-lit surgical corridor">
-  <img src="images/photography-004.webp" width="180" alt="Portra 400 family kitchen">
-  <img src="images/photography-005.webp" width="180" alt="Macro: solder joint">
-  <img src="images/photography-006.webp" width="180" alt="Overcast coastline, long exposure">
-  <img src="images/photography-007.webp" width="180" alt="Backlit dust in a warehouse">
-  <img src="images/photography-008.webp" width="180" alt="Flash-lit street portrait at night">
+  <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
 </p>
 
 <p align="center">[ZH](README_ZH.md) · [KO](README_KO.md)</p>
@@ -46,6 +39,31 @@ Image-to-image is reliable when you ask for a different *rendering* of the same 
 It is unreliable when you ask it to add or remove *things*. Three attempts failed and were cut rather than shipped with captions that did not match the images: removing the steam from a mug returned the steam; adding snow and sea ice to a coastline returned the same coastline slightly cooler; darkening a sauna's window returned the window still lit.
 
 `strength` between 0.50 and 0.60 preserved composition while allowing the medium to change. No value made object-level edits work.
+
+## Check any of this yourself
+
+Every entry carries the seed that produced it, so no claim here has to be taken on trust:
+
+```bash
+python3 scripts/regen.py --id typography-012
+```
+
+Regenerating two entries and comparing against the files in this repo gave a mean per-pixel difference of 1.3 and 1.5 out of 255, which is WebP re-encoding loss. The seed reproduces the generation; the repo stores the re-encode.
+
+## The failures, kept as evidence
+
+Deliberately reproduced failures. Every claim in the README's findings section points at one of these, with the seed that produced it, so the limits are checkable rather than asserted. These are NOT part of the 85-entry catalog.
+
+| | What was asked for | What came back |
+|---|---|---|
+| <img src="images/failures/fail-menu.webp" width="150" alt="Text: a list of many strings collapses after the first few"> | Ten legible menu rows | Text: a list of many strings collapses after the first few <br>`seed: 1729505870` |
+| <img src="images/failures/fail-spines.webp" width="150" alt="Text: twelve independent strings in one frame, all unreadable"> | Twelve readable invented titles | Text: twelve independent strings in one frame, all unreadable <br>`seed: 1095803014` |
+| <img src="images/failures/fail-map.webp" width="150" alt="Text: thirty station names, none of them words"> | Legible station names | Text: thirty station names, none of them words <br>`seed: 57616412` |
+| <img src="images/failures/fail-timeline.webp" width="150" alt="Text: years render, labels do not"> | Eight year+label pairs | Text: years render, labels do not <br>`seed: 797625079` |
+| <img src="images/failures/fail-korean.webp" width="150" alt="Text: Korean fails one character in, and looks clean if you cannot read it"> | 정직한 국수 | Text: Korean fails one character in, and looks clean if you cannot read it <br>`seed: 1910572019` |
+| <img src="images/failures/fail-terminal.webp" width="150" alt="Text: the command line renders, the output beneath it does not"> | $ make install plus three lines of build output | Text: the command line renders, the output beneath it does not <br>`seed: 1530960951` |
+| <img src="images/failures/fail-identity.webp" width="150" alt="Identity: at strength 0.72 the scene is new and the person is not the same"> | The woman from reference-sheet-001 | Identity: at strength 0.72 the scene is new and the person is not the same <br>`seed: 1317515569` |
+| <img src="images/failures/fail-removal.webp" width="150" alt="Editing: asked to remove the steam, returns the steam"> | No steam | Editing: asked to remove the steam, returns the steam <br>`seed: 1499506316` |
 
 ## Categories
 

@@ -206,13 +206,20 @@ def render_readme(data: dict, lang: str = "en") -> str:
     L.append(f"<h1 align=\"center\">{title}</h1>")
     L.append(f"<p align=\"center\">{T['tagline']}</p>\n")
 
-    # Hero grid. Measured: a static hero image inside the first 1500 chars appeared
-    # in 32/32 of the fastest-moving repos. An animated GIF showed zero lift
-    # (19% of breakouts vs 20% of controls) — do not spend a day making one.
-    hero = kept[:8]
-    if hero:
-        L.append("<p align=\"center\">")
-        for e in hero:
+    # A static hero inside the first 1500 chars appeared in 32/32 of the
+    # fastest-moving repos measured. A composite that states the three findings
+    # beats a thumbnail grid: the grid says "here are images", the composite says
+    # "here is what I found". Do not build a GIF — measured lift was zero.
+    if (HERE / "hero.webp").exists():
+        L.append('<p align="center">')
+        L.append('  <img src="hero.webp" width="912" '
+                 'alt="Three findings: text holds on one sign and collapses on a list; '
+                 'character identity does not survive a second generation; '
+                 'image-to-image changes medium but not scene contents">')
+        L.append("</p>\n")
+    else:
+        L.append('<p align="center">')
+        for e in kept[:8]:
             L.append(f'  <img src="{e["image"]}" width="180" alt="{e["title"]}">')
         L.append("</p>\n")
 
@@ -234,6 +241,31 @@ def render_readme(data: dict, lang: str = "en") -> str:
         for item in f.get("items", []):
             L.append(f"### {item['title']}\n")
             L.append(f"{item['body']}\n")
+
+    if lang == "en":
+        L.append("## Check any of this yourself\n")
+        L.append("Every entry carries the seed that produced it, so no claim here has to be "
+                 "taken on trust:\n")
+        L.append("```bash\npython3 scripts/regen.py --id typography-012\n```")
+        L.append("\nRegenerating two entries and comparing against the files in this repo gave "
+                 "a mean per-pixel difference of 1.3 and 1.5 out of 255, which is WebP "
+                 "re-encoding loss. The seed reproduces the generation; the repo stores the "
+                 "re-encode.\n")
+
+        fails = data.get("failures")
+        if fails:
+            L.append("## The failures, kept as evidence\n")
+            L.append(f"{fails.get('_what','')}\n")
+            L.append("| | What was asked for | What came back |")
+            L.append("|---|---|---|")
+            for f in fails.get("entries", []):
+                if not (HERE / f["image"]).exists():
+                    continue
+                seed = (f.get("params") or {}).get("seed")
+                L.append(f'| <img src="{f["image"]}" width="150" alt="{f["claim"]}"> '
+                         f'| {f.get("expected","")} | {f["claim"]}'
+                         + (f' <br>`seed: {seed}`' if seed else "") + " |")
+            L.append("")
 
     L.append(f"## {T['toc']}\n")
     for c in cats:

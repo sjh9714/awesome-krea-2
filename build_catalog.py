@@ -153,6 +153,25 @@ def gh_anchor(text: str) -> str:
     return _re.sub(r"[^a-z0-9 -]", "", text.lower()).strip().replace(" ", "-")
 
 
+def counts(data: dict, s: str) -> str:
+    """Substitute {generations}, {kept} and {failures} from the manifest.
+
+    These numbers drifted once and it was the worst possible kind of drift. The
+    hands category was withdrawn, the subtitle and the findings were updated to
+    476 kept / 64 cut, and this paragraph went on saying 483 and 78 — so a
+    document whose entire argument is that the counts were checked contradicted
+    itself two paragraphs apart, on the page a public post was pointing at.
+
+    A count that has to be retyped when the data changes will eventually be
+    wrong. Substituted, it cannot be. str.replace rather than str.format so a
+    stray brace in prose cannot raise."""
+    for token, value in (("{generations}", data.get("generations", 0)),
+                         ("{kept}", len(data.get("entries", []))),
+                         ("{failures}", len(data.get("failures", {}).get("entries", [])))):
+        s = s.replace(token, f"{value:,}" if value >= 10000 else str(value))
+    return s
+
+
 def render_readme(data: dict, lang: str = "en") -> str:
     entries = data["entries"]
     cats: OrderedDict[str, list] = OrderedDict()
@@ -266,7 +285,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
     if f and lang == "en":
         L.append("## What this model actually does\n")
         if f.get("_intro"):
-            L.append(f"{f['_intro']}\n")
+            L.append(f"{counts(data, f['_intro'])}\n")
         for item in f.get("items", []):
             L.append(f"### {item['title']}\n")
             L.append(f"{item['body']}\n")

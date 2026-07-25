@@ -23,6 +23,11 @@ import html
 import json
 from pathlib import Path
 
+# Shared with the README builder rather than copied. The gallery and the README
+# print the same intro paragraph, so two copies of the substitution would be two
+# places for the counts to drift apart — which is the bug this fixes.
+from build_catalog import counts
+
 HERE = Path(__file__).resolve().parent
 
 CSS = """
@@ -115,7 +120,7 @@ def main() -> int:
     f = d.get("findings")
     if f:
         L.append("<h2>What this model actually does</h2>")
-        L.append(f'<p class=cat-desc>{html.escape(f.get("_intro",""))}</p>')
+        L.append(f'<p class=cat-desc>{html.escape(counts(d, f.get("_intro","")))}</p>')
         for it in f.get("items", []):
             L.append(f'<div class=finding><h3>{html.escape(it["title"])}</h3>{md_lite(it["body"])}</div>')
 

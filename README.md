@@ -15,7 +15,7 @@
 
 ## What this model actually does
 
-Everything below was measured while building this catalog, not quoted from the model card. 561 generations across eight batches, 483 are here, 78 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.
+Everything below was measured while building this catalog, not quoted from the model card. 561 generations across eight batches; 476 are here, and 64 more are kept as failures with the reason each one was cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.
 
 Five of these findings replace or retract earlier ones that were wrong, and every one of the five was overturned by a controlled experiment built to confirm it. The last of them was killed by a prediction written down before the images existed. The corrections are the most useful thing here — including one made by a reader on Reddit two hours after this was published, who counted fingers I had only glanced at.
 

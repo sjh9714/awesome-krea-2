@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+raw/
+
+# API keys. This MUST stay here: instantiate.py copies the toolkit's .env into
+# the new repo so batch generation works from a sibling directory, and without
+# this line the first `git add -A` publishes the key.
+.env
+.env.*
+!.env.example

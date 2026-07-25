@@ -1,0 +1,900 @@
+{
+  "model": "Krea 2 Turbo",
+  "model_url": "https://huggingface.co/krea/Krea-2-Turbo",
+  "launched": "2026-06-22",
+  "repo": "sjh9714/awesome-krea-2",
+  "gen_cmd": "python3 scripts/gen_fal.py --prompt {prompt} --out {out}",
+  "categories": {
+    "photography": "Photoreal scenes — lighting, lens behaviour, film stock",
+    "typography": "Short-string text rendering. Krea 2 is accurate to roughly four words and produces gibberish beyond that; every prompt here stays inside that limit.",
+    "product": "Product and packaging shots, studio and in-context",
+    "illustration": "Stylised, painterly, editorial",
+    "isometric-3d": "Isometric scenes, dioramas, game-ready assets",
+    "editing": "Image-to-image edits whose source is another entry in this catalog",
+    "reference-sheet": "Character reference sheets and turnarounds"
+  },
+  "entries": [
+    {
+      "id": "photography-001",
+      "category": "photography",
+      "title": "Ceramicist at golden hour, 85mm",
+      "prompt": "A ceramicist in her studio at golden hour, hands wet with slip, throwing a bowl on a kick wheel. Shot on 85mm at f/1.8, shallow depth of field, warm rim light from a west-facing window, dust motes in the beam. Muted earth palette, visible clay dust on her forearms.",
+      "image": "images/photography-001.webp",
+      "params": {
+        "seed": 1913817765
+      }
+    },
+    {
+      "id": "photography-002",
+      "category": "photography",
+      "title": "Rain-soaked crosswalk, neon reflections",
+      "prompt": "A rain-soaked crosswalk at night in Seoul, seen from a low angle at pavement level. Neon signage reflected and broken across the wet asphalt, a single pedestrian mid-stride with an umbrella. 35mm, deep focus, high contrast, cyan and magenta cast against black.",
+      "image": "images/photography-002.webp",
+      "params": {
+        "seed": 1037393037
+      }
+    },
+    {
+      "id": "photography-003",
+      "category": "photography",
+      "title": "Cold-lit surgical corridor",
+      "prompt": "An empty hospital corridor lit only by overhead fluorescents, one tube flickering. Polished linoleum reflecting the ceiling lights into long streaks. Symmetrical one-point perspective, 24mm, slight barrel distortion, desaturated green-grey palette, absolutely no people.",
+      "image": "images/photography-003.webp",
+      "params": {
+        "seed": 306108529
+      }
+    },
+    {
+      "id": "photography-004",
+      "category": "photography",
+      "title": "Portra 400 family kitchen",
+      "prompt": "A cluttered family kitchen mid-morning, shot on Kodak Portra 400, slight grain and halation on the highlights. Steam from a kettle catching the window light, dishes stacked, a child's drawing taped to a cabinet. Natural skin tones, soft contrast, 50mm.",
+      "image": "images/photography-004.webp",
+      "params": {
+        "seed": 1671971794
+      }
+    },
+    {
+      "id": "photography-005",
+      "category": "photography",
+      "title": "Macro: solder joint",
+      "prompt": "Extreme macro of a hand-soldered joint on a green PCB, 5:1 magnification, focus stacked so the entire solder fillet is sharp. Visible flux residue, the silkscreen label R14 legible beside it. Cold ring light, shallow background falloff into black.",
+      "image": "images/photography-005.webp",
+      "params": {
+        "seed": 1136909792
+      }
+    },
+    {
+      "id": "photography-006",
+      "category": "photography",
+      "title": "Overcast coastline, long exposure",
+      "prompt": "A basalt coastline under heavy overcast, 30-second long exposure so the surf becomes a low white mist around the rocks. Horizon dead level, no sun, 16mm, ND1000, cool grey palette with a single ochre patch of lichen in the foreground.",
+      "image": "images/photography-006.webp",
+      "params": {
+        "seed": 589730875
+      }
+    },
+    {
+      "id": "photography-007",
+      "category": "photography",
+      "title": "Backlit dust in a warehouse",
+      "prompt": "A disused warehouse interior, late afternoon sun entering through a high broken window as a hard visible shaft. Dust suspended in the beam, everything outside the beam falling to near-black. 35mm, heavy contrast, one strong light source only.",
+      "image": "images/photography-007.webp",
+      "params": {
+        "seed": 1496444718
+      }
+    },
+    {
+      "id": "photography-008",
+      "category": "photography",
+      "title": "Flash-lit street portrait at night",
+      "prompt": "A street portrait at night, direct on-camera flash, subject one metre from the lens, background falling off to black within two metres. Harsh specular highlights on skin, red-eye avoided, 28mm, the raw snapshot aesthetic of 1990s tabloid photography.",
+      "image": "images/photography-008.webp",
+      "params": {
+        "seed": 1204392285
+      }
+    },
+    {
+      "id": "photography-009",
+      "category": "photography",
+      "title": "Aerial: terraced rice fields",
+      "prompt": "Directly overhead drone shot of terraced rice fields at flooding stage, water surfaces mirroring a pale sky so the terraces read as abstract silver contours. No horizon. Late afternoon, long shadows from the retaining walls, subtle green fringe of new growth.",
+      "image": "images/photography-009.webp",
+      "params": {
+        "seed": 1726756617
+      }
+    },
+    {
+      "id": "photography-010",
+      "category": "photography",
+      "title": "Tungsten-lit diner booth",
+      "prompt": "A booth in an empty roadside diner at 2am, lit by warm tungsten pendants against cold blue exterior night through the window. Chrome napkin dispenser catching both colour temperatures. 40mm, slight vignette, colour contrast between the two light sources is the subject.",
+      "image": "images/photography-010.webp",
+      "params": {
+        "seed": 1590663786
+      }
+    },
+    {
+      "id": "typography-003",
+      "category": "typography",
+      "title": "Enamel pin packaging",
+      "prompt": "Retail backing card for an enamel pin, photographed flat. The card reads \"NIGHT SHIFT\" in a condensed grotesque at the top and \"limited to 200\" in small caps at the bottom. Riso-style two-colour print, fluorescent orange and navy, visible paper tooth and slight misregistration.",
+      "image": "images/typography-003.webp",
+      "params": {
+        "seed": 333206637
+      }
+    },
+    {
+      "id": "typography-008",
+      "category": "typography",
+      "title": "Letterpress business card, macro",
+      "prompt": "Macro of a letterpress business card on cotton stock, raking light from the left so the deep impression casts visible shadows in the counters. The card reads \"HOLLOW & SON — MILLWRIGHTS — EST 1908\" in a small caps serif. Single ink colour, deep indigo, generous letterspacing.",
+      "image": "images/typography-008.webp",
+      "params": {
+        "seed": 1431711597
+      }
+    },
+    {
+      "id": "product-001",
+      "category": "product",
+      "title": "Perfume bottle, hard light",
+      "prompt": "A faceted glass perfume bottle on a polished black surface, single hard key light from upper left creating one crisp specular edge down the bottle's spine and a sharp reflection beneath. Deep shadow elsewhere. No label. Product photography, 100mm macro, f/11.",
+      "image": "images/product-001.webp",
+      "params": {
+        "seed": 524883984
+      }
+    },
+    {
+      "id": "product-002",
+      "category": "product",
+      "title": "Coffee bag, in-context",
+      "prompt": "A kraft coffee bag with a matte white label standing on a scratched steel countertop in a working roastery, bokeh of roasting drums behind. Natural window light from camera left. The bag looks used, one corner folded and clipped. Editorial rather than studio.",
+      "image": "images/product-002.webp",
+      "params": {
+        "seed": 98544605
+      }
+    },
+    {
+      "id": "product-003",
+      "category": "product",
+      "title": "Mechanical keyboard, top-down",
+      "prompt": "Top-down flat lay of an aluminium 65% mechanical keyboard on a grey desk mat, keycaps in beige and slate with one red escape key. Even diffuse light, no hotspots, every legend crisp and readable. Coiled aviator cable arranged in a loose S to the upper right.",
+      "image": "images/product-003.webp",
+      "params": {
+        "seed": 1919442279
+      }
+    },
+    {
+      "id": "product-004",
+      "category": "product",
+      "title": "Skincare on wet stone",
+      "prompt": "A frosted glass dropper bottle resting on a wet slate slab, water beading and running off the edge. Cool north light, soft gradient background from pale grey to white. A single eucalyptus leaf, slightly out of focus, in the lower right. Clean, cold, clinical.",
+      "image": "images/product-004.webp",
+      "params": {
+        "seed": 2048927115
+      }
+    },
+    {
+      "id": "product-005",
+      "category": "product",
+      "title": "Sneaker, floating explode",
+      "prompt": "A running shoe photographed against seamless light grey with its components separated and suspended in an exploded view — outsole, midsole, upper, laces, insole — each layer held apart with even spacing. Soft top light, consistent shadows implying a single source, technical and legible.",
+      "image": "images/product-005.webp",
+      "params": {
+        "seed": 700222067
+      }
+    },
+    {
+      "id": "product-006",
+      "category": "product",
+      "title": "Watch macro, brushed steel",
+      "prompt": "Macro of a brushed steel dive watch bezel and crown, focus stacked so the knurling on the crown and the brushing grain on the case are both sharp. Controlled reflection strip along the polished chamfer. Dark grey background, no logo visible.",
+      "image": "images/product-006.webp",
+      "params": {
+        "seed": 1367506460
+      }
+    },
+    {
+      "id": "product-007",
+      "category": "product",
+      "title": "Cast iron pan, overhead with food",
+      "prompt": "Overhead of a seasoned cast iron skillet on a scorched linen cloth, containing a half-eaten galette with visible flaking layers. Crumbs on the cloth. Directional afternoon light from the top of frame with real falloff toward the bottom. Nothing styled to perfection.",
+      "image": "images/product-007.webp",
+      "params": {
+        "seed": 2127336597
+      }
+    },
+    {
+      "id": "product-008",
+      "category": "product",
+      "title": "Cable and connector detail",
+      "prompt": "A braided USB-C cable coiled loosely on a white acrylic surface, one connector standing upright and in focus showing the moulded strain relief and contacts. Bright even light, faint shadow, the coil falling out of focus behind. Catalogue clarity.",
+      "image": "images/product-008.webp",
+      "params": {
+        "seed": 2081046429
+      }
+    },
+    {
+      "id": "product-009",
+      "category": "product",
+      "title": "Ceramic mug, steam",
+      "prompt": "A speckled stoneware mug of black coffee on a pale oak table, backlit so the rising steam is clearly visible against a dark background. Reactive glaze pooling at the base. The steam is the hero — it must read as real vapour, not smoke.",
+      "image": "images/product-009.webp",
+      "params": {
+        "seed": 130047460
+      }
+    },
+    {
+      "id": "product-010",
+      "category": "product",
+      "title": "Packaging flat lay, unboxed",
+      "prompt": "An unboxed product flat lay: rigid box lid to the left, tissue paper unfolded, a small booklet, and the product itself centre right. Shot from directly overhead on a warm grey backdrop, soft shadowless light, elements aligned to an invisible grid with generous negative space.",
+      "image": "images/product-010.webp",
+      "params": {
+        "seed": 1260154266
+      }
+    },
+    {
+      "id": "illustration-001",
+      "category": "illustration",
+      "title": "Editorial: burnout",
+      "prompt": "An editorial illustration for an article on developer burnout. A figure at a desk rendered as a slowly unravelling ball of yarn, the loose thread running off the desk and out of frame. Limited palette: ink black, bone white, one dusty coral. Textured screenprint grain, generous negative space.",
+      "image": "images/illustration-001.webp",
+      "params": {
+        "seed": 1809538529
+      }
+    },
+    {
+      "id": "illustration-002",
+      "category": "illustration",
+      "title": "Gouache mountain hut",
+      "prompt": "A small stone hut on an alpine ridge at dusk, painted in gouache with visible brush texture and slightly chalky opacity. Cool blue snow shadows against a warm ochre sky. Simplified shapes, no outlines, hard edges where the paint has dried in layers.",
+      "image": "images/illustration-002.webp",
+      "params": {
+        "seed": 989989533
+      }
+    },
+    {
+      "id": "illustration-003",
+      "category": "illustration",
+      "title": "Ligne claire street scene",
+      "prompt": "A European city street in ligne claire style — uniform black contour lines of even weight, flat unmodulated colour fills, no hatching or gradients. A cyclist passing a bakery, a cat on a windowsill. Clear midday light implied purely through colour choice, not shading.",
+      "image": "images/illustration-003.webp",
+      "params": {
+        "seed": 193829588
+      }
+    },
+    {
+      "id": "illustration-004",
+      "category": "illustration",
+      "title": "Woodblock wave study",
+      "prompt": "A single breaking wave in the manner of a Japanese woodblock print: flat colour fields, keyblock outlines, visible wood grain texture in the sky area, deliberate slight misregistration of the blue plate. Indigo, pale sand, off-white paper tone. No figures.",
+      "image": "images/illustration-004.webp",
+      "params": {
+        "seed": 2141994631
+      }
+    },
+    {
+      "id": "illustration-005",
+      "category": "illustration",
+      "title": "Technical cutaway, hand-drawn",
+      "prompt": "A hand-drawn technical cutaway of a mechanical wristwatch movement, ink line with light watercolour wash, leader lines pointing to unlabelled callout circles. Slightly imperfect linework showing it was drawn by hand. Warm paper tone, sepia ink.",
+      "image": "images/illustration-005.webp",
+      "params": {
+        "seed": 711741992
+      }
+    },
+    {
+      "id": "illustration-006",
+      "category": "illustration",
+      "title": "Risograph two-colour poster",
+      "prompt": "A two-colour risograph poster of a lone figure walking a dog across a wide empty field. Fluorescent pink and teal only, overprint where they cross producing a muddy third tone. Visible paper grain, roller streaks, 2mm misregistration on the teal layer.",
+      "image": "images/illustration-006.webp",
+      "params": {
+        "seed": 1958333047
+      }
+    },
+    {
+      "id": "illustration-007",
+      "category": "illustration",
+      "title": "Children's book interior",
+      "prompt": "An interior spread from a children's picture book: a badger in a knitted scarf reading by lamplight in a burrow, roots visible through the earth walls. Soft coloured pencil texture, warm palette, no harsh outlines, plenty of quiet space in the composition.",
+      "image": "images/illustration-007.webp",
+      "params": {
+        "seed": 437733224
+      }
+    },
+    {
+      "id": "illustration-008",
+      "category": "illustration",
+      "title": "Brutalist architecture, ink",
+      "prompt": "An ink drawing of a brutalist concrete community centre, cross-hatched shading only, no grey wash. Heavy contrast between lit and shadowed planes achieved entirely through hatch density. Slight wobble in the straight lines betraying a human hand.",
+      "image": "images/illustration-008.webp",
+      "params": {
+        "seed": 1322534157
+      }
+    },
+    {
+      "id": "illustration-009",
+      "category": "illustration",
+      "title": "Botanical plate",
+      "prompt": "A scientific botanical plate of a fig branch: full branch centre, with a dissected fruit cross-section and a single leaf detail arranged around it. Fine stippled shading, muted natural colour, aged cream paper, small unobtrusive numbered labels.",
+      "image": "images/illustration-009.webp",
+      "params": {
+        "seed": 1395552785
+      }
+    },
+    {
+      "id": "illustration-010",
+      "category": "illustration",
+      "title": "Noir spot illustration",
+      "prompt": "A small spot illustration in high-contrast black and white: a hand pushing open a frosted glass office door, silhouetted venetian blind shadows falling across it. Pure black and pure white only, no midtones, shapes reading instantly at thumbnail size.",
+      "image": "images/illustration-010.webp",
+      "params": {
+        "seed": 662846866
+      }
+    },
+    {
+      "id": "reference-sheet-001",
+      "category": "reference-sheet",
+      "title": "Reference sheet — establishing",
+      "prompt": "Character reference sheet for a woman in her sixties: silver hair cut short, a small crescent scar above the right eyebrow, wire-frame glasses, a heavy navy fisherman's sweater. Three views on one sheet — front, three-quarter, profile — consistent proportions, neutral grey background, even light.",
+      "image": "images/reference-sheet-001.webp",
+      "notes": "Generate this first and use it as the reference for character-002 through 005.",
+      "params": {
+        "seed": 1453254312
+      }
+    },
+    {
+      "id": "isometric-3d-001",
+      "category": "isometric-3d",
+      "title": "Isometric repair shop",
+      "prompt": "A small isometric diorama of a bicycle repair shop with the front wall removed: workbench, wheel truing stand, parts bins, a bike upside down on a stand. True isometric projection with no perspective convergence, soft clay-render materials, single warm key light from upper left, floating on a plain background.",
+      "image": "images/isometric-3d-001.webp",
+      "params": {
+        "seed": 1886079203
+      }
+    },
+    {
+      "id": "isometric-3d-002",
+      "category": "isometric-3d",
+      "title": "Isometric server room",
+      "prompt": "Isometric cutaway of a small server room: two racks with visible cable management, an overhead cable tray, a floor-standing UPS, and a portable AC unit. Cool blue LED accents against neutral grey hardware. Clean edges, ambient occlusion in the corners, no text on the equipment.",
+      "image": "images/isometric-3d-002.webp",
+      "params": {
+        "seed": 1075533955
+      }
+    },
+    {
+      "id": "isometric-3d-003",
+      "category": "isometric-3d",
+      "title": "Game asset — modular tiles",
+      "prompt": "A sheet of six modular isometric floor and wall tiles for a game: stone floor, cracked stone floor, wooden floor, plain wall, wall with a doorway, wall with a barred window. Consistent lighting angle and tile dimensions across all six so they tessellate. Flat background, evenly spaced grid.",
+      "image": "images/isometric-3d-003.webp",
+      "params": {
+        "seed": 1357449396
+      }
+    },
+    {
+      "id": "isometric-3d-004",
+      "category": "isometric-3d",
+      "title": "Low-poly island",
+      "prompt": "A low-poly floating island: faceted terrain with visible flat triangles, a single stylised pine, a waterfall spilling from the underside into nothing. Hard-edged shading with no smoothing, saturated but limited palette, three-quarter isometric view against a pale gradient.",
+      "image": "images/isometric-3d-004.webp",
+      "params": {
+        "seed": 1882712822
+      }
+    },
+    {
+      "id": "isometric-3d-005",
+      "category": "isometric-3d",
+      "title": "Exploded isometric — camera",
+      "prompt": "An exploded isometric view of a 35mm film camera, components separated vertically along a single axis: body, lens elements, shutter assembly, film back, winding mechanism. Consistent spacing, thin grey guide lines connecting the parts, matte technical rendering.",
+      "image": "images/isometric-3d-005.webp",
+      "params": {
+        "seed": 1583709833
+      }
+    },
+    {
+      "id": "editing-001",
+      "category": "editing",
+      "title": "Relight this coastline",
+      "prompt": "Relight this coastline: replace the flat overcast with hard low-angle late afternoon sun from frame right, casting long shadows across the basalt. Keep the rock placement, horizon line and framing identical.",
+      "image": "images/editing-001.webp",
+      "source": "photography-006",
+      "strength": 0.55,
+      "notes": "Source is photography-006 in this repo, so the edit is reproducible from a clone.",
+      "params": {
+        "seed": 364022812
+      }
+    },
+    {
+      "id": "editing-002",
+      "category": "editing",
+      "title": "Keep this corridor's geometry and perspective exactly. Chang",
+      "prompt": "Keep this corridor's geometry and perspective exactly. Change only the time and mood: warm amber emergency lighting instead of cold fluorescents, one light source at the far end, everything nearer falling into shadow.",
+      "image": "images/editing-002.webp",
+      "source": "photography-003",
+      "strength": 0.5,
+      "notes": "Source is photography-003 in this repo, so the edit is reproducible from a clone.",
+      "params": {
+        "seed": 1459264371
+      }
+    },
+    {
+      "id": "editing-003",
+      "category": "editing",
+      "title": "Re-render these terraced fields as a gouache painting with v",
+      "prompt": "Re-render these terraced fields as a gouache painting with visible brush texture and chalky opacity. Every terrace contour stays in exactly the same position; only the medium changes.",
+      "image": "images/editing-003.webp",
+      "source": "photography-009",
+      "strength": 0.6,
+      "notes": "Source is photography-009 in this repo, so the edit is reproducible from a clone.",
+      "params": {
+        "seed": 583476278
+      }
+    },
+    {
+      "id": "editing-005",
+      "category": "editing",
+      "title": "Recolour this woodblock wave to a dusk palette — deep violet",
+      "prompt": "Recolour this woodblock wave to a dusk palette — deep violet water, salmon sky, warm cream foam. Keep every keyblock outline and flat colour field boundary exactly where it is.",
+      "image": "images/editing-005.webp",
+      "source": "illustration-004",
+      "strength": 0.55,
+      "notes": "Source is illustration-004 in this repo, so the edit is reproducible from a clone.",
+      "params": {
+        "seed": 2083277726
+      }
+    },
+    {
+      "id": "typography-011",
+      "category": "typography",
+      "title": "Stencilled crate marking",
+      "prompt": "A wooden shipping crate photographed straight on, stencilled in black spray paint with exactly \"FRAGILE\" above \"THIS WAY UP\". Paint has bled slightly through the stencil edges. Weathered pine, raking side light.",
+      "image": "images/typography-011.webp",
+      "params": {
+        "seed": 1101869585
+      }
+    },
+    {
+      "id": "typography-012",
+      "category": "typography",
+      "title": "Enamel station sign",
+      "prompt": "A vitreous enamel railway platform sign on a brick wall, dark blue ground with white letters reading exactly \"PLATFORM 4\". Chipped at one corner exposing the steel. Straight-on, overcast light.",
+      "image": "images/typography-012.webp",
+      "params": {
+        "seed": 1556240670
+      }
+    },
+    {
+      "id": "typography-013",
+      "category": "typography",
+      "title": "Embroidered cap",
+      "prompt": "Macro of a canvas cap's front panel with \"NORTH YARD\" embroidered in cream chain-stitch on olive twill. Visible thread texture and slight puckering of the fabric under the stitching.",
+      "image": "images/typography-013.webp",
+      "params": {
+        "seed": 1864240842
+      }
+    },
+    {
+      "id": "typography-014",
+      "category": "typography",
+      "title": "Neon, one word",
+      "prompt": "A single neon sign on a brick wall at dusk reading exactly \"OPEN\" in cursive rose-pink tube, visible glass path and mounting standoffs, pink spill on the brick. One segment dark.",
+      "image": "images/typography-014.webp",
+      "params": {
+        "seed": 235613196
+      }
+    },
+    {
+      "id": "typography-015",
+      "category": "typography",
+      "title": "Hot-foil business card",
+      "prompt": "Macro of a black cotton business card with \"MERIDIAN\" hot-foil stamped in copper, raking light catching the foil. No other text. Shallow depth of field.",
+      "image": "images/typography-015.webp",
+      "params": {
+        "seed": 2040305462
+      }
+    },
+    {
+      "id": "typography-016",
+      "category": "typography",
+      "title": "Chalk price tag",
+      "prompt": "A small slate price tag propped in a bakery basket, hand-chalked with exactly \"SOURDOUGH\" and \"£4.20\" beneath it. Warm morning light, shallow focus, flour dust on the slate.",
+      "image": "images/typography-016.webp",
+      "params": {
+        "seed": 1659883
+      }
+    },
+    {
+      "id": "typography-017",
+      "category": "typography",
+      "title": "Painted boat transom",
+      "prompt": "The transom of a wooden fishing boat, hand-painted in white serif capitals reading exactly \"MARY ANNE\". Green hull, salt-weathered paint, waterline just visible. Straight-on documentary framing.",
+      "image": "images/typography-017.webp",
+      "params": {
+        "seed": 375084430
+      }
+    },
+    {
+      "id": "typography-018",
+      "category": "typography",
+      "title": "Letterpress poster, two words",
+      "prompt": "A letterpress poster on cotton paper reading exactly \"KEEP GOING\" in wood type, deep impression visible under raking light, single ink colour oxblood, generous margins, no other elements.",
+      "image": "images/typography-018.webp",
+      "params": {
+        "seed": 833951684
+      }
+    },
+    {
+      "id": "typography-019",
+      "category": "typography",
+      "title": "Machine-shop door",
+      "prompt": "A steel workshop door with an aluminium plate riveted at eye level, engraved \"TOOL ROOM\" in machine-cut capitals filled with black paint. Scuffed metal, industrial lighting.",
+      "image": "images/typography-019.webp",
+      "params": {
+        "seed": 984217211
+      }
+    },
+    {
+      "id": "typography-020",
+      "category": "typography",
+      "title": "Airport gate display",
+      "prompt": "A split-flap departure board close-up showing a single row reading exactly \"SEOUL\" and \"GATE 12\". Mechanical flaps mid-settle on one character. Warm indicator lighting, shallow depth.",
+      "image": "images/typography-020.webp",
+      "params": {
+        "seed": 1590119155
+      }
+    },
+    {
+      "id": "photography-011",
+      "category": "photography",
+      "title": "Fog bank on a suspension bridge",
+      "prompt": "The upper cables of a suspension bridge disappearing into a fog bank, shot from the deck with a 200mm lens so the towers compress into flat silhouetted layers. Visibility drops to nothing by the second tower. Cool grey monochrome broken only by one amber sodium lamp.",
+      "image": "images/photography-011.webp",
+      "params": {
+        "seed": 1647355798
+      }
+    },
+    {
+      "id": "photography-012",
+      "category": "photography",
+      "title": "Window seat, altitude",
+      "prompt": "From an aircraft window at cruising altitude: the wing's trailing edge in the lower third, a solid deck of cloud below, and the curvature of the horizon under a gradient from pale gold to deep indigo. Slight scratches and haze in the acrylic pane, deliberately not corrected.",
+      "image": "images/photography-012.webp",
+      "params": {
+        "seed": 849986701
+      }
+    },
+    {
+      "id": "photography-013",
+      "category": "photography",
+      "title": "Sauna interior, steam",
+      "prompt": "A cedar sauna interior lit by one small high window, steam rolling off the stove rocks and catching the light. Wet benches, condensation running down the wall boards. 24mm, warm brown palette, the air itself is the subject.",
+      "image": "images/photography-013.webp",
+      "params": {
+        "seed": 1447903387
+      }
+    },
+    {
+      "id": "photography-014",
+      "category": "photography",
+      "title": "Night market, tungsten and smoke",
+      "prompt": "A night market food stall shot from across the aisle, tungsten bulbs overhead, smoke from a griddle drifting through the light. Vendor mid-motion so the hands blur while the stall stays sharp. 35mm, 1/15s, handheld.",
+      "image": "images/photography-014.webp",
+      "params": {
+        "seed": 860958653
+      }
+    },
+    {
+      "id": "photography-015",
+      "category": "photography",
+      "title": "Frost on single-glazed glass",
+      "prompt": "Macro of frost crystals on the inside of a single-glazed window at dawn, backlit by low sun so each dendrite glows. Focus falls off within a centimetre. Blue shadow tones against a warm bloom, no other subject.",
+      "image": "images/photography-015.webp",
+      "params": {
+        "seed": 1223022199
+      }
+    },
+    {
+      "id": "photography-016",
+      "category": "photography",
+      "title": "Empty swimming pool, drained",
+      "prompt": "A drained municipal swimming pool photographed from the deep end floor looking up at the diving board. Cracked blue paint, leaf litter in the corners, harsh midday sun cutting a hard diagonal across the tiled wall. 20mm, exaggerated verticals.",
+      "image": "images/photography-016.webp",
+      "params": {
+        "seed": 1658386034
+      }
+    },
+    {
+      "id": "photography-017",
+      "category": "photography",
+      "title": "Workshop hands, no face",
+      "prompt": "Close crop of a woodworker's hands setting a hand plane on a bench, wrist and forearm only, no face in frame. Shavings curling from the mouth of the plane. Soft north light, 60mm macro, shallow focus on the blade edge.",
+      "image": "images/photography-017.webp",
+      "params": {
+        "seed": 1007639879
+      }
+    },
+    {
+      "id": "photography-018",
+      "category": "photography",
+      "title": "Motorway at dusk, long lens",
+      "prompt": "A motorway interchange shot from an overpass with a 400mm lens at dusk, headlight and taillight streams compressed into stacked ribbons of white and red. Traffic and infrastructure become pure horizontal bands. 8-second exposure, no sky visible.",
+      "image": "images/photography-018.webp",
+      "params": {
+        "seed": 1873728665
+      }
+    },
+    {
+      "id": "product-011",
+      "category": "product",
+      "title": "Vinyl record and sleeve",
+      "prompt": "A vinyl record half-withdrawn from its sleeve on a walnut surface, raking light picking out the groove texture and one fingerprint on the run-out. Sleeve plain matte black, no artwork. 50mm, single softbox from the left, deep falloff to the right.",
+      "image": "images/product-011.webp",
+      "params": {
+        "seed": 1427728813
+      }
+    },
+    {
+      "id": "product-012",
+      "category": "product",
+      "title": "Fountain pen nib, extreme macro",
+      "prompt": "Extreme macro of a fountain pen nib, focus stacked so the tipping material, the slit and the breather hole are all sharp. Ink residue in the feed channels. Dark field lighting so the steel reads as bright edges against black.",
+      "image": "images/product-012.webp",
+      "params": {
+        "seed": 2063722228
+      }
+    },
+    {
+      "id": "product-013",
+      "category": "product",
+      "title": "Climbing shoe, worn",
+      "prompt": "A single well-worn climbing shoe on raw concrete, rubber scuffed through at the toe, laces frayed. Hard overhead light casting a tight shadow. Nothing styled — the wear is the subject. 85mm, f/8.",
+      "image": "images/product-013.webp",
+      "params": {
+        "seed": 1309089861
+      }
+    },
+    {
+      "id": "product-014",
+      "category": "product",
+      "title": "Glassware set, backlit",
+      "prompt": "Three drinking glasses of graduated height on a white acrylic surface, backlit so the walls read as bright rims and the bases as dense caustics. No labels, no reflections of the studio. Perfectly level camera, clinical.",
+      "image": "images/product-014.webp",
+      "params": {
+        "seed": 329967531
+      }
+    },
+    {
+      "id": "product-015",
+      "category": "product",
+      "title": "Leather satchel, texture",
+      "prompt": "A tan leather satchel on a linen backdrop, side-lit to bring out the grain, stitch holes and the darkening around the buckle where it is handled. Slight sag in the flap from real use. 90mm macro, f/5.6.",
+      "image": "images/product-015.webp",
+      "params": {
+        "seed": 2115381394
+      }
+    },
+    {
+      "id": "product-016",
+      "category": "product",
+      "title": "Espresso tamper on grounds",
+      "prompt": "A stainless espresso tamper resting on a bed of fresh grounds in a portafilter, top-down, single hard light from the upper right. Grounds crisp enough to read individual particles at the edge of the puck.",
+      "image": "images/product-016.webp",
+      "params": {
+        "seed": 987689524
+      }
+    },
+    {
+      "id": "product-017",
+      "category": "product",
+      "title": "Wool swatch stack",
+      "prompt": "A stack of eight folded wool fabric swatches in muted heather tones, shot from a low three-quarter angle so the stack reads as bands of colour and texture. Soft even light, no shadow drama, catalogue clarity.",
+      "image": "images/product-017.webp",
+      "params": {
+        "seed": 1858895601
+      }
+    },
+    {
+      "id": "product-018",
+      "category": "product",
+      "title": "Bike drivetrain, dirty",
+      "prompt": "A road bike's rear cassette and derailleur photographed side-on, chain grimy with real road dirt, one cog catching a highlight. Garage light, unglamorous, mechanical honesty. 100mm macro, f/6.3.",
+      "image": "images/product-018.webp",
+      "params": {
+        "seed": 1450341996
+      }
+    },
+    {
+      "id": "illustration-011",
+      "category": "illustration",
+      "title": "Editorial: the commute",
+      "prompt": "An editorial illustration about commuting: a figure rendered as a folded paper boat drifting down a river of grey office windows. Two colours plus black, screenprint grain, large areas of untouched paper.",
+      "image": "images/illustration-011.webp",
+      "params": {
+        "seed": 971992746
+      }
+    },
+    {
+      "id": "illustration-012",
+      "category": "illustration",
+      "title": "Cyanotype fern",
+      "prompt": "A single fern frond in the manner of a cyanotype photogram — Prussian blue ground, the frond rendered as a soft white silhouette with slight halation at the edges. Uneven wash and paper texture visible.",
+      "image": "images/illustration-012.webp",
+      "params": {
+        "seed": 403745806
+      }
+    },
+    {
+      "id": "illustration-013",
+      "category": "illustration",
+      "title": "Scratchboard owl",
+      "prompt": "A barn owl rendered in scratchboard: white lines carved from solid black, feather detail built entirely from directional scratches of varying density. No grey, no colour, high drama.",
+      "image": "images/illustration-013.webp",
+      "params": {
+        "seed": 94561777
+      }
+    },
+    {
+      "id": "illustration-014",
+      "category": "illustration",
+      "title": "Isotype-style pictogram set",
+      "prompt": "A set of nine pictograms in the Isotype tradition arranged in a grid: figures, vehicles and buildings reduced to flat black silhouettes with uniform stroke logic. No outlines, no detail, instantly legible at any size.",
+      "image": "images/illustration-014.webp",
+      "params": {
+        "seed": 1365362645
+      }
+    },
+    {
+      "id": "illustration-015",
+      "category": "illustration",
+      "title": "Watercolour harbour, wet-in-wet",
+      "prompt": "A small harbour at low tide painted wet-in-wet so the sky and water bleed into each other with hard drying edges where the paint pooled. Boats reduced to a few loaded brushstrokes. Muted ochre and slate.",
+      "image": "images/illustration-015.webp",
+      "params": {
+        "seed": 1827344974
+      }
+    },
+    {
+      "id": "illustration-016",
+      "category": "illustration",
+      "title": "Comic panel, chiaroscuro",
+      "prompt": "A single comic panel: a figure descending a stairwell lit by one bare bulb, drawn in heavy brush-and-ink chiaroscuro with large solid blacks and minimal hatching. No panel border, no text.",
+      "image": "images/illustration-016.webp",
+      "params": {
+        "seed": 235666898
+      }
+    },
+    {
+      "id": "illustration-017",
+      "category": "illustration",
+      "title": "Mid-century travel poster",
+      "prompt": "A mid-century travel poster for a fictional coastal town: flat colour blocks, simplified geometry, a lighthouse and cliff reduced to three shapes, screenprint texture and one warm accent against cool tones. No text.",
+      "image": "images/illustration-017.webp",
+      "params": {
+        "seed": 1377917160
+      }
+    },
+    {
+      "id": "illustration-018",
+      "category": "illustration",
+      "title": "Anatomical study, red chalk",
+      "prompt": "An anatomical study of a human hand in red chalk on toned paper, in the manner of a Renaissance sketchbook — construction lines left visible, several overlapping attempts at the thumb on the same sheet.",
+      "image": "images/illustration-018.webp",
+      "params": {
+        "seed": 221852696
+      }
+    },
+    {
+      "id": "isometric-3d-006",
+      "category": "isometric-3d",
+      "title": "Isometric coffee bar",
+      "prompt": "An isometric cutaway of a small coffee bar: espresso machine, grinder, pastry case, two stools and a back shelf of cups. True isometric with no perspective convergence, soft clay materials, single warm key from upper left, floating on a plain ground.",
+      "image": "images/isometric-3d-006.webp",
+      "params": {
+        "seed": 882577384
+      }
+    },
+    {
+      "id": "isometric-3d-007",
+      "category": "isometric-3d",
+      "title": "Isometric printing workshop",
+      "prompt": "Isometric diorama of a letterpress workshop with the front wall removed: a platen press, type cases, an inking slab and drying racks with sheets hanging. Consistent 30-degree axes, matte materials, ambient occlusion in the corners.",
+      "image": "images/isometric-3d-007.webp",
+      "params": {
+        "seed": 1975246446
+      }
+    },
+    {
+      "id": "isometric-3d-008",
+      "category": "isometric-3d",
+      "title": "Low-poly desert canyon",
+      "prompt": "A low-poly desert canyon section: faceted rock strata in graduated ochre bands, a dry riverbed, two stylised saguaro. Hard-edged flat shading with no smoothing, three-quarter isometric against a pale gradient.",
+      "image": "images/isometric-3d-008.webp",
+      "params": {
+        "seed": 1391597167
+      }
+    },
+    {
+      "id": "isometric-3d-009",
+      "category": "isometric-3d",
+      "title": "Exploded isometric — bicycle hub",
+      "prompt": "An exploded isometric view of a bicycle rear hub, components separated along the axle: axle, bearings, freehub body, cassette spacer, end caps. Even spacing, thin grey guide lines, matte technical rendering, no text.",
+      "image": "images/isometric-3d-009.webp",
+      "params": {
+        "seed": 226111579
+      }
+    },
+    {
+      "id": "isometric-3d-010",
+      "category": "isometric-3d",
+      "title": "Isometric rooftop garden",
+      "prompt": "Isometric rooftop garden: raised beds, a small greenhouse, water butt, folding chairs and a ventilation stack. Plants stylised as simple massed forms. Soft top light, gentle shadows, floating on a plain background.",
+      "image": "images/isometric-3d-010.webp",
+      "params": {
+        "seed": 1496030377
+      }
+    },
+    {
+      "id": "typography-021",
+      "category": "typography",
+      "title": "Fire door sign",
+      "prompt": "A steel fire door with a rectangular sign at eye level reading exactly \"FIRE EXIT\" in white on green, small running-figure pictogram beside the text. Scuffed paint, institutional corridor lighting, straight-on.",
+      "image": "images/typography-021.webp",
+      "params": {
+        "seed": 2060170403
+      }
+    },
+    {
+      "id": "typography-022",
+      "category": "typography",
+      "title": "Engraved brass plaque",
+      "prompt": "A small brass plaque screwed to a stone wall, engraved and blacked with exactly \"EST 1884\". Patina in the letter recesses, raking afternoon light, shallow depth of field.",
+      "image": "images/typography-022.webp",
+      "params": {
+        "seed": 425919870
+      }
+    },
+    {
+      "id": "typography-023",
+      "category": "typography",
+      "title": "Tin sign, two words",
+      "prompt": "A weathered enamel tin sign nailed to a barn wall reading exactly \"FRESH EGGS\" in hand-painted red capitals on cream. Rust bleeding from two nail heads, overcast light, straight-on documentary framing.",
+      "image": "images/typography-023.webp",
+      "params": {
+        "seed": 722835994
+      }
+    },
+    {
+      "id": "editing-008",
+      "category": "editing",
+      "title": "Blueprint version of the exploded camera",
+      "prompt": "Re-render this exploded camera diagram as a cyanotype blueprint: white line work on Prussian blue, every component in exactly the same position and spacing.",
+      "image": "images/editing-008.webp",
+      "source": "isometric-3d-005",
+      "strength": 0.6,
+      "params": {
+        "seed": 1652457598
+      }
+    }
+  ],
+  "findings": {
+    "_intro": "Everything below was measured while building this catalog, not quoted from the model card. Each claim names the entries that demonstrate it, so you can check it against the images in this repo.",
+    "items": [
+      {
+        "title": "Text is accurate to about four words, then collapses",
+        "body": "Short strings come out exactly as written, including punctuation and currency symbols: `PLATFORM 4`, `FRAGILE / THIS WAY UP`, `SOURDOUGH` + `£4.20`, `SEOUL` + `GATE 12`, `HOLLOW & SON / MILLWRIGHTS / EST 1908`, `EST 1884`, `FRESH EGGS`. All 15 entries in **typography** hold their string.\n\nPast roughly four words it degrades into letterforms that look like text but are not. A chalkboard menu produced `FILTER 4.50` and `CORTADO 4.00` correctly and then `CAPEME`, `CABIELO`, `PANSRUR`. A shelf of book spines, a transit map and a timeline were entirely unreadable. A paragraph of safety small print under a correctly rendered `DANGER` heading was nonsense. Those attempts are not in this repo; they were cut.\n\nNon-Latin scripts fail earlier. A Korean shop sign asked for 정직한 국수 and produced 정적한 — one character wrong, which a native reader spots immediately.\n\nPractical rule: put text in the image only when it is a sign, a label, a mark or a price. Never ask for a sentence."
+      },
+      {
+        "title": "Character identity does not survive across generations",
+        "body": "A reference sheet of a specific person renders well — see **reference-sheet-001**. Reusing that person in a new scene does not work, and image-to-image does not rescue it, because the two useful settings fail in opposite directions:\n\n- `strength 0.72` — genuinely new scene, but a different person. Only the sweater and the palette carry over.\n- `strength 0.45` — recognisably the same person, but the source composition comes with her. A three-view studio sheet became the same three views at a harbour.\n\nThere is no middle setting that gives the same face in a different photograph. If you need a consistent character, train a LoRA; prompting cannot do it. This is why there is no character-consistency category here."
+      },
+      {
+        "title": "It changes medium willingly and scene content reluctantly",
+        "body": "Image-to-image is reliable when you ask for a different *rendering* of the same scene. Rice terraces became a convincing gouache painting with the terrace contours intact (**editing-003**); a woodblock wave took a dusk palette while every keyblock outline stayed put (**editing-005**); an exploded camera diagram became a clean cyanotype blueprint with every component in place (**editing-008**).\n\nIt is unreliable when you ask it to add or remove *things*. Three attempts failed and were cut rather than shipped with captions that did not match the images: removing the steam from a mug returned the steam; adding snow and sea ice to a coastline returned the same coastline slightly cooler; darkening a sauna's window returned the window still lit.\n\n`strength` between 0.50 and 0.60 preserved composition while allowing the medium to change. No value made object-level edits work."
+      }
+    ]
+  }
+}

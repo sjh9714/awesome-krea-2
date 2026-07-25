@@ -247,10 +247,26 @@ def render_readme(data: dict, lang: str = "en") -> str:
         L.append("Every entry carries the seed that produced it, so no claim here has to be "
                  "taken on trust:\n")
         L.append("```bash\npython3 scripts/regen.py --id typography-012\n```")
-        L.append("\nRegenerating two entries and comparing against the files in this repo gave "
-                 "a mean per-pixel difference of 1.3 and 1.5 out of 255, which is WebP "
-                 "re-encoding loss. The seed reproduces the generation; the repo stores the "
+        L.append("\nRegenerating two text-to-image entries and comparing against the files in "
+                 "this repo gave a mean per-pixel difference of 1.3 and 1.5 out of 255, which is "
+                 "WebP re-encoding loss. The seed reproduces the generation; the repo stores the "
                  "re-encode.\n")
+        # Measured after publication and corrected here rather than left to be
+        # discovered: the endpoint is deterministic (a repeat run with identical
+        # seed, strength, prompt and input bytes differed on 0 of 1,048,576
+        # pixels), so the only thing that moves an image-to-image re-run is the
+        # input. The sources in this repo are the WebP re-encodes, not the PNGs
+        # the edits were actually made from, and that is worth an order of
+        # magnitude: 17.0/255 against 1.3/255.
+        L.append("The five `editing-*` entries are the exception, and the number is much larger. "
+                 "The endpoint itself is deterministic — a repeat run at identical seed, strength, "
+                 "prompt and input bytes came back pixel-identical, 0 of 1,048,576 pixels "
+                 "different. But an image-to-image re-run from a clone is fed the WebP in this "
+                 "repo, not the original PNG the edit was made from, and that input difference "
+                 "compounds: regenerating `editing-003` this way gives a mean per-pixel difference "
+                 "of **17.0 out of 255**. The composition, palette and medium come back; the "
+                 "brush-level texture does not. Read those five as reproducible edits, not as "
+                 "reproducible pixels.\n")
 
         fails = data.get("failures")
         if fails:

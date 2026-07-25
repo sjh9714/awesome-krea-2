@@ -151,12 +151,24 @@ def main() -> int:
                      f'<div class=seed>seed {seed}</div></figcaption></figure>')
         L.append("</div>")
 
+    # The reproducibility sentence has to be exact, because the whole claim here
+    # is that you can check it yourself. Measured 2026-07-25: the endpoint is
+    # deterministic — same seed, strength, prompt and input bytes returned a
+    # pixel-identical image across two runs (0 of 1,048,576 pixels differed). But
+    # the images in this repo are lossy WebP re-encodes, so re-running an
+    # image-to-image entry against the copy here does not hand the model the
+    # bytes that produced the original. Composition, palette and medium come
+    # back; brush-level texture does not. Text-to-image entries take no image
+    # input and are unaffected.
     L.append('<footer>Prompts are MIT. The images are AI-generated output from '
              f'{html.escape(model)}, presented as model output rather than as photographs or human '
              'artwork, and were produced by the repository owner under the Krea 2 Community '
              'License. The safety checker was left enabled for every request; one image it '
              'flagged was dropped. Images are re-encoded from PNG to WebP to keep the repository '
-             'clonable, and the recorded seeds regenerate the originals.</footer>')
+             'clonable. The endpoint is deterministic, so a recorded seed regenerates a '
+             'text-to-image entry exactly. The five image-to-image entries are re-runnable from '
+             'the WebP source in this repo rather than the original PNG, so they reproduce the '
+             'edit — composition, palette, medium — but not the exact pixels.</footer>')
     L.append("</div></body></html>")
 
     out.write_text("\n".join(L), encoding="utf-8")

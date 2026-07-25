@@ -187,7 +187,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
         "en": {
             "gallery_link": "Browse the gallery →",
             "toc_entries": "prompts, every one with its seed",
-            "tagline": f"{n} {model} prompts with the seed that produced each one, plus the {nfail} generations that failed and why. Five of the findings here replace earlier ones that were wrong.",
+            "tagline": f"{n} {model} prompts with the seed that produced each one, plus the {nfail} generations that failed and why. Every claim here was measured against those images, not quoted from the model card.",
             "toc": "Categories",
             "prompt": "Prompt",
             "contrib": "Contributing",
@@ -206,7 +206,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
         "zh": {
             "gallery_link": "浏览画廊 →",
             "toc_entries": "条提示词，每条都有 seed",
-            "tagline": f"{n} 条 {model} 提示词，每条都附带产出它的 seed，外加 {nfail} 次失败的生成及其原因。这里有五条发现推翻了此前写错的结论。",
+            "tagline": f"{n} 条 {model} 提示词，每条都附带产出它的 seed，外加 {nfail} 次失败的生成及其原因。这里的每条结论都是在这些图上实测出来的，不是抄模型卡。",
             "toc": "类别",
             "prompt": "提示词",
             "contrib": "参与贡献",
@@ -217,7 +217,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
         "ko": {
             "gallery_link": "갤러리 보기 →",
             "toc_entries": "개 프롬프트, 전부 시드 기록",
-            "tagline": f"{model} 프롬프트 {n}개, 각각을 만든 시드까지. 그리고 실패한 생성 {nfail}개와 그 이유. 여기 발견 다섯 개는 앞서 틀리게 썼던 것을 대체한 것입니다.",
+            "tagline": f"{model} 프롬프트 {n}개, 각각을 만든 시드까지. 그리고 실패한 생성 {nfail}개와 그 이유. 여기 있는 결론은 전부 이 이미지들로 직접 측정한 것이고, 모델 카드에서 옮겨온 것이 아닙니다.",
             "toc": "카테고리",
             "prompt": "프롬프트",
             "contrib": "기여하기",
@@ -242,9 +242,13 @@ def render_readme(data: dict, lang: str = "en") -> str:
         # own claims by three batches and described findings this catalog had
         # already disproved.
         L.append('  <img src="hero.webp" width="912" '
-                 'alt="Three findings: it renders text you write out and cannot invent text; '
-                 'the hands claim was wrong and a reader counted six digits on two of them; '
-                 'a rule built from two domains that had to be thrown away in a third">')
+                 'alt="A six-panel grid, a working case above a failure in each of three columns. '
+                 'Text: a brass nameplate carrying eight specified strings, all correct, above a '
+                 'chalkboard menu whose unspecified rows came back as nonsense words. Hands: a hand '
+                 'raising exactly the three fingers asked for, on a hand with six digits, above '
+                 'clasped hands where interlaced fingers were asked for. Interlocking: a chain with '
+                 'every link through its neighbour, above a rope lying in a figure-eight shape that '
+                 'was never tied.">')
         L.append("</p>\n")
     else:
         L.append('<p align="center">')

@@ -1,8 +1,8 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">476 Krea 2 Turbo prompts with the seed that produced each one, plus the 64 generations that failed and why. Five of the findings here replace earlier ones that were wrong.</p>
+<p align="center">476 Krea 2 Turbo prompts with the seed that produced each one, plus the 64 generations that failed and why. Every claim here was measured against those images, not quoted from the model card.</p>
 
 <p align="center">
-  <img src="hero.webp" width="912" alt="Three findings: it renders text you write out and cannot invent text; the hands claim was wrong and a reader counted six digits on two of them; a rule built from two domains that had to be thrown away in a third">
+  <img src="hero.webp" width="912" alt="A six-panel grid, a working case above a failure in each of three columns. Text: a brass nameplate carrying eight specified strings, all correct, above a chalkboard menu whose unspecified rows came back as nonsense words. Hands: a hand raising exactly the three fingers asked for, on a hand with six digits, above clasped hands where interlaced fingers were asked for. Interlocking: a chain with every link through its neighbour, above a rope lying in a figure-eight shape that was never tied.">
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 Everything below was measured while building this catalog, not quoted from the model card. 561 generations across eight batches; 476 are here, and 64 more are kept as failures with the reason each one was cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.
 
-Five of these findings replace or retract earlier ones that were wrong, and every one of the five was overturned by a controlled experiment built to confirm it. The last of them was killed by a prediction written down before the images existed. The corrections are the most useful thing here — including one made by a reader on Reddit two hours after this was published, who counted fingers I had only glanced at.
+Five of these findings replace earlier ones. Four were overturned by experiments built to confirm them, the last of those by a prediction written down before the images existed. The fifth was overturned by a reader on Reddit two hours after this was published, who counted fingers I had only glanced at.
 
 ### It renders text you write. It cannot invent text.
 

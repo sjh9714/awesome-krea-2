@@ -1,8 +1,8 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">476 条 Krea 2 Turbo 提示词，每条都附带产出它的 seed，外加 64 次失败的生成及其原因。这里有五条发现推翻了此前写错的结论。</p>
+<p align="center">476 条 Krea 2 Turbo 提示词，每条都附带产出它的 seed，外加 64 次失败的生成及其原因。这里的每条结论都是在这些图上实测出来的，不是抄模型卡。</p>
 
 <p align="center">
-  <img src="hero.webp" width="912" alt="Three findings: it renders text you write out and cannot invent text; the hands claim was wrong and a reader counted six digits on two of them; a rule built from two domains that had to be thrown away in a third">
+  <img src="hero.webp" width="912" alt="A six-panel grid, a working case above a failure in each of three columns. Text: a brass nameplate carrying eight specified strings, all correct, above a chalkboard menu whose unspecified rows came back as nonsense words. Hands: a hand raising exactly the three fingers asked for, on a hand with six digits, above clasped hands where interlaced fingers were asked for. Interlocking: a chain with every link through its neighbour, above a rope lying in a figure-eight shape that was never tied.">
 </p>
 
 <p align="center">

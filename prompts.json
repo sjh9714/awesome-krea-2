@@ -29,7 +29,14 @@
     "fashion": "Garments, textile detail, lookbook and flat lay",
     "automotive": "Cars and motorcycles, studio and location",
     "exterior": "Buildings from outside — facades, materials, weather",
-    "abstract": "Non-representational: fluid, macro, gradient, texture"
+    "abstract": "Non-representational: fluid, macro, gradient, texture",
+    "objectcount": "A controlled experiment: one shelf, one object, two to eight of them, everything else held constant",
+    "monogram": "A second look at arbitrary letter pairs, which failed once in batch four",
+    "poster": "Poster and cover layouts. Every string is written out in the prompt — a direct test of the batch-four finding",
+    "still-life": "Arranged objects, classical and modern",
+    "macro-nature": "Insects, botanicals and small structures at high magnification",
+    "street": "Unposed public scenes",
+    "night": "After dark — available light, long exposure, astro"
   },
   "entries": [
     {
@@ -2444,14 +2451,553 @@
         "seed": 838584990
       },
       "batch": 4
+    },
+    {
+      "id": "objectcount-2",
+      "category": "objectcount",
+      "title": "Count: 2 eggs",
+      "image": "images/objectcount-2.webp",
+      "prompt": "Exactly 2 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.",
+      "params": {
+        "seed": 1121773227
+      },
+      "batch": 5
+    },
+    {
+      "id": "objectcount-3",
+      "category": "objectcount",
+      "title": "Count: 3 eggs",
+      "image": "images/objectcount-3.webp",
+      "prompt": "Exactly 3 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.",
+      "params": {
+        "seed": 13160654
+      },
+      "batch": 5
+    },
+    {
+      "id": "objectcount-4",
+      "category": "objectcount",
+      "title": "Count: 4 eggs",
+      "image": "images/objectcount-4.webp",
+      "prompt": "Exactly 4 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.",
+      "params": {
+        "seed": 1716350491
+      },
+      "batch": 5
+    },
+    {
+      "id": "objectcount-5",
+      "category": "objectcount",
+      "title": "Count: 5 eggs",
+      "image": "images/objectcount-5.webp",
+      "prompt": "Exactly 5 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.",
+      "params": {
+        "seed": 7277243
+      },
+      "batch": 5
+    },
+    {
+      "id": "objectcount-6",
+      "category": "objectcount",
+      "title": "Count: 6 eggs",
+      "image": "images/objectcount-6.webp",
+      "prompt": "Exactly 6 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.",
+      "params": {
+        "seed": 344187822
+      },
+      "batch": 5
+    },
+    {
+      "id": "objectcount-7",
+      "category": "objectcount",
+      "title": "Count: 7 eggs",
+      "image": "images/objectcount-7.webp",
+      "prompt": "Exactly 7 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.",
+      "params": {
+        "seed": 1044080084
+      },
+      "batch": 5
+    },
+    {
+      "id": "objectcount-8",
+      "category": "objectcount",
+      "title": "Count: 8 eggs",
+      "image": "images/objectcount-8.webp",
+      "prompt": "Exactly 8 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.",
+      "params": {
+        "seed": 205379899
+      },
+      "batch": 5
+    },
+    {
+      "id": "monogram-002",
+      "category": "monogram",
+      "title": "Monogram: AE ligature",
+      "image": "images/monogram-002.webp",
+      "prompt": "An engraved ligature of the two letters A and E joined into a single form, cut into polished brass with the grooves darkened, macro, raking light. The ligature reads exactly: AE",
+      "params": {
+        "seed": 1348613049
+      },
+      "batch": 5
+    },
+    {
+      "id": "monogram-003",
+      "category": "monogram",
+      "title": "Monogram: HB embossed",
+      "image": "images/monogram-003.webp",
+      "prompt": "The two letters H and B side by side, blind-embossed into cream cotton paper, raking light so they read entirely through shadow. Wide letterspacing, high-contrast serif. The impression reads exactly: HB",
+      "params": {
+        "seed": 1941203383
+      },
+      "batch": 5
+    },
+    {
+      "id": "poster-001",
+      "category": "poster",
+      "title": "Swiss grid concert poster",
+      "image": "images/poster-001.webp",
+      "prompt": "A Swiss-style concert poster on a strict grid: the word \"KLANG\" set very large in a bold grotesque across the upper half, \"14 MARCH\" beneath it in small caps, and \"HALLE 7\" bottom right. Red on off-white, one diagonal rule, generous white space. No other text.",
+      "params": {
+        "seed": 779075243
+      },
+      "batch": 5
+    },
+    {
+      "id": "poster-002",
+      "category": "poster",
+      "title": "Vintage travel poster",
+      "image": "images/poster-002.webp",
+      "prompt": "A 1930s-style travel poster, flat screen-printed colour, stylised mountains and a lake. The word \"ALPINA\" arcs across the sky in a geometric sans, and \"BY RAIL\" sits in a small band at the foot. Muted teal, ochre and cream. No other text.",
+      "params": {
+        "seed": 927458607
+      },
+      "batch": 5
+    },
+    {
+      "id": "poster-003",
+      "category": "poster",
+      "title": "Album cover, minimal",
+      "image": "images/poster-003.webp",
+      "prompt": "A square album cover: a single dark circle centred on a warm grey field, the word \"LOWLIGHT\" set small in the lower left in a light sans, and \"SIDE A\" in the lower right. Nothing else. Flat, no texture, generous margins.",
+      "params": {
+        "seed": 1102144654
+      },
+      "batch": 5
+    },
+    {
+      "id": "poster-005",
+      "category": "poster",
+      "title": "Exhibition poster, type only",
+      "image": "images/poster-005.webp",
+      "prompt": "A type-only exhibition poster: \"WORKS ON PAPER\" set in three stacked lines of a high-contrast serif, filling most of the sheet, with \"GALLERY NINE\" small and centred beneath. Black on warm white, tight leading, wide margins. No image, no other text.",
+      "params": {
+        "seed": 1486768439
+      },
+      "batch": 5
+    },
+    {
+      "id": "poster-006",
+      "category": "poster",
+      "title": "Risograph gig poster",
+      "image": "images/poster-006.webp",
+      "prompt": "A two-colour risograph gig poster in fluorescent pink and blue with visible misregistration and paper texture. The word \"STATIC\" is set huge and distressed across the centre, with \"FRIDAY\" beneath it. Halftone dots visible. No other text.",
+      "params": {
+        "seed": 2144045641
+      },
+      "batch": 5
+    },
+    {
+      "id": "poster-007",
+      "category": "poster",
+      "title": "Safety notice, industrial",
+      "image": "images/poster-007.webp",
+      "prompt": "An industrial safety notice printed on a metal plate bolted to a wall: \"EYE PROTECTION\" in bold condensed capitals on a yellow band, a black triangle warning symbol above it, and \"AREA 4\" stencilled beneath. Weathered, scratched, hard raking light.",
+      "params": {
+        "seed": 1652078050
+      },
+      "batch": 5
+    },
+    {
+      "id": "poster-008",
+      "category": "poster",
+      "title": "Book cover, spine and face",
+      "image": "images/poster-008.webp",
+      "prompt": "A hardback book standing on a plain surface, three-quarter view so the cover and spine are both visible. The cover reads \"THE LONG FIELD\" in a modern serif with \"E. HALLIDAY\" small beneath; the spine repeats \"THE LONG FIELD\" vertically. Cloth binding, foil-stamped, single warm light.",
+      "params": {
+        "seed": 2085405029
+      },
+      "batch": 5
+    },
+    {
+      "id": "poster-009",
+      "category": "poster",
+      "title": "Wine label on bottle",
+      "image": "images/poster-009.webp",
+      "prompt": "A wine bottle shot straight on against a dark ground, the label reading \"CLOS MARIN\" in an engraved serif with \"2019\" beneath it and \"MIS EN BOUTEILLE\" in tiny capitals at the foot. Cream paper label, deep green glass, single soft light from the left.",
+      "params": {
+        "seed": 278755335
+      },
+      "batch": 5
+    },
+    {
+      "id": "poster-010",
+      "category": "poster",
+      "title": "Protest placard, hand-lettered",
+      "image": "images/poster-010.webp",
+      "prompt": "A hand-lettered cardboard placard held up outdoors, the words \"MEND IT\" painted in thick uneven black brush capitals with \"DON'T END IT\" smaller beneath. Corrugated board texture, drips, overcast daylight, blurred crowd behind. No other text.",
+      "params": {
+        "seed": 889409508
+      },
+      "batch": 5
+    },
+    {
+      "id": "still-life-001",
+      "category": "still-life",
+      "title": "Dutch vanitas",
+      "image": "images/still-life-001.webp",
+      "prompt": "A Dutch vanitas still life: a pewter jug, a half-peeled lemon with the rind spiralling over the table edge, a snuffed candle and a folded cloth, lit from a single high window on the left and falling to deep brown shadow. Oil on panel, visible glazing.",
+      "params": {
+        "seed": 474373990
+      },
+      "batch": 5
+    },
+    {
+      "id": "still-life-002",
+      "category": "still-life",
+      "title": "Tools laid out, top-down",
+      "image": "images/still-life-002.webp",
+      "prompt": "A set of woodworking hand tools arranged flat and shot directly overhead on grey linen: a marking gauge, two chisels, a brass-backed saw and a plane. Aligned to an invisible grid, even soft light, patina and use visible on each.",
+      "params": {
+        "seed": 1498493405
+      },
+      "batch": 5
+    },
+    {
+      "id": "still-life-003",
+      "category": "still-life",
+      "title": "Glassware, backlit",
+      "image": "images/still-life-003.webp",
+      "prompt": "Five pieces of clear laboratory glassware of different heights arranged in a line and backlit against a white ground, so each reads as an outline of refraction and caustic. No labels, no liquid, no props. Straight on, symmetrical light.",
+      "params": {
+        "seed": 81785803
+      },
+      "batch": 5
+    },
+    {
+      "id": "still-life-004",
+      "category": "still-life",
+      "title": "Breakfast table, morning sun",
+      "image": "images/still-life-004.webp",
+      "prompt": "A breakfast table in low morning sun: a cafetière, one cup, a torn piece of bread and a folded newspaper, hard light throwing long shadows across a scrubbed pine table. Crumbs, a spill ring, nothing styled. 35mm, slight angle.",
+      "params": {
+        "seed": 1891948431
+      },
+      "batch": 5
+    },
+    {
+      "id": "still-life-005",
+      "category": "still-life",
+      "title": "Ceramics on a shelf",
+      "image": "images/still-life-005.webp",
+      "prompt": "Six pieces of studio ceramics on a plain wooden shelf, glazes ranging from matte oatmeal to glossy tenmoku, one piece deliberately turned to show a chipped foot. Soft directional light from the left, plain wall, straight on.",
+      "params": {
+        "seed": 452847039
+      },
+      "batch": 5
+    },
+    {
+      "id": "still-life-006",
+      "category": "still-life",
+      "title": "Dried botanicals in glass",
+      "image": "images/still-life-006.webp",
+      "prompt": "Dried seed heads and grasses in a clear glass bottle on a windowsill, backlit so the structures read as silhouettes with light finding the gaps. Dust on the glass, cool overcast light, plain wall behind. Muted, almost monochrome.",
+      "params": {
+        "seed": 819096213
+      },
+      "batch": 5
+    },
+    {
+      "id": "still-life-007",
+      "category": "still-life",
+      "title": "Fruit under hard light",
+      "image": "images/still-life-007.webp",
+      "prompt": "Three pears on a matte black surface under a single hard light from above and behind, casting long crisp shadows toward camera. Skin texture and bloom visible, one pear bruised. Deep shadow everywhere else. Product-grade but severe.",
+      "params": {
+        "seed": 1126053453
+      },
+      "batch": 5
+    },
+    {
+      "id": "still-life-008",
+      "category": "still-life",
+      "title": "Desk objects, cool light",
+      "image": "images/still-life-008.webp",
+      "prompt": "An arrangement of desk objects on a concrete surface in cool north light: a fountain pen, a brass ruler, a folded pair of spectacles and a stone. Restrained palette, soft shadows, everything placed with deliberate spacing. Overhead, straight down.",
+      "params": {
+        "seed": 503659668
+      },
+      "batch": 5
+    },
+    {
+      "id": "macro-nature-001",
+      "category": "macro-nature",
+      "title": "Dragonfly wing, macro",
+      "image": "images/macro-nature-001.webp",
+      "prompt": "Extreme macro of a dragonfly wing against a dark ground, the venation reading as an irregular lattice, faint iridescence where the light catches the membrane. Focus-stacked sharpness edge to edge, no other part of the insect visible.",
+      "params": {
+        "seed": 1381046048
+      },
+      "batch": 5
+    },
+    {
+      "id": "macro-nature-002",
+      "category": "macro-nature",
+      "title": "Dew on spider silk",
+      "image": "images/macro-nature-002.webp",
+      "prompt": "Macro of dew beads strung along spider silk at dawn, each drop acting as a lens and inverting the blurred green background inside it. The silk sagging under the weight. Extremely shallow depth of field, backlit.",
+      "params": {
+        "seed": 2054476156
+      },
+      "batch": 5
+    },
+    {
+      "id": "macro-nature-003",
+      "category": "macro-nature",
+      "title": "Moss and sporophytes",
+      "image": "images/macro-nature-003.webp",
+      "prompt": "Macro of a moss cushion with sporophyte stalks rising from it, each capsule catching a soft rim of light, the moss leaves translucent green. Damp, a few water droplets held between the leaves. Low angle, dark background.",
+      "params": {
+        "seed": 36645787
+      },
+      "batch": 5
+    },
+    {
+      "id": "macro-nature-004",
+      "category": "macro-nature",
+      "title": "Butterfly scales",
+      "image": "images/macro-nature-004.webp",
+      "prompt": "Extreme macro of butterfly wing scales, individual overlapping scales visible like roof tiles, colour shifting from orange to black across the frame. So close that the pattern reads as abstract structure rather than as a wing.",
+      "params": {
+        "seed": 265148793
+      },
+      "batch": 5
+    },
+    {
+      "id": "macro-nature-005",
+      "category": "macro-nature",
+      "title": "Frost on a leaf edge",
+      "image": "images/macro-nature-005.webp",
+      "prompt": "Macro of ice crystals growing along the serrated edge of a fallen leaf, needle-like formations catching cold morning light, the leaf itself dark and out of focus behind. Blue shadows, white crystals, very shallow focus.",
+      "params": {
+        "seed": 1307082473
+      },
+      "batch": 5
+    },
+    {
+      "id": "macro-nature-006",
+      "category": "macro-nature",
+      "title": "Bee on a thistle",
+      "image": "images/macro-nature-006.webp",
+      "prompt": "A bumblebee working a thistle flower, pollen visible on the leg baskets and dusting the hairs of the thorax, individual florets sharp. Soft overcast light, green background thrown completely out of focus. 1/1000s.",
+      "params": {
+        "seed": 33348605
+      },
+      "batch": 5
+    },
+    {
+      "id": "macro-nature-007",
+      "category": "macro-nature",
+      "title": "Fern crozier unfurling",
+      "image": "images/macro-nature-007.webp",
+      "prompt": "A fern crozier beginning to unfurl, the tight spiral covered in fine pale hairs backlit into a halo, the rest of the plant dark. Shallow focus running down the spiral. Damp woodland light, cool and green.",
+      "params": {
+        "seed": 728116494
+      },
+      "batch": 5
+    },
+    {
+      "id": "macro-nature-008",
+      "category": "macro-nature",
+      "title": "Seed head, backlit",
+      "image": "images/macro-nature-008.webp",
+      "prompt": "A dandelion seed head backlit against black, each pappus rendered as a fine bright filament, two seeds already detached and drifting at the frame edge. Focus on the near seeds, falling off across the sphere.",
+      "params": {
+        "seed": 316013847
+      },
+      "batch": 5
+    },
+    {
+      "id": "street-001",
+      "category": "street",
+      "title": "Crossing in rain",
+      "image": "images/street-001.webp",
+      "prompt": "A pedestrian crossing in heavy rain shot from across the road, umbrellas overlapping into a single dark mass, one figure stepping off the kerb. Wet asphalt reflecting shop light. 35mm, grainy, unposed, faces not identifiable.",
+      "params": {
+        "seed": 1097435078
+      },
+      "batch": 5
+    },
+    {
+      "id": "street-002",
+      "category": "street",
+      "title": "Market alley, hard shadow",
+      "image": "images/street-002.webp",
+      "prompt": "A narrow market alley at midday, a hard band of sunlight cutting diagonally across the frame and everything outside it in deep shade, two figures crossing the light. Awnings, crates, no legible signage. Documentary, 28mm.",
+      "params": {
+        "seed": 873659330
+      },
+      "batch": 5
+    },
+    {
+      "id": "street-003",
+      "category": "street",
+      "title": "Bus window, condensation",
+      "image": "images/street-003.webp",
+      "prompt": "Seen from outside: a bus window fogged with condensation, one passenger's shoulder and the back of a head visible through a wiped patch, street light smearing on the wet glass. Winter evening, cool colours, nobody identifiable.",
+      "params": {
+        "seed": 2114954097
+      },
+      "batch": 5
+    },
+    {
+      "id": "street-004",
+      "category": "street",
+      "title": "Laundry between buildings",
+      "image": "images/street-004.webp",
+      "prompt": "Washing strung on lines between two tenement buildings, seen looking straight up so the sheets and shirts read as flat shapes against a bright overcast sky. Cables, satellite dishes, weathered render. High contrast, graphic.",
+      "params": {
+        "seed": 2017379999
+      },
+      "batch": 5
+    },
+    {
+      "id": "street-005",
+      "category": "street",
+      "title": "Cafe window, reflection layered",
+      "image": "images/street-005.webp",
+      "prompt": "A cafe window at dusk with the interior and the reflected street overlapping into one layered image — a seated figure inside, passing traffic reflected across them. Nobody identifiable. 50mm, available light, slight motion.",
+      "params": {
+        "seed": 1477003290
+      },
+      "batch": 5
+    },
+    {
+      "id": "street-006",
+      "category": "street",
+      "title": "Underpass, single figure",
+      "image": "images/street-006.webp",
+      "prompt": "A tiled pedestrian underpass lit by strip lights, one distant figure walking away, the tiling receding to a bright mouth at the far end. Symmetrical, wide, damp floor reflecting the lights. Nobody's face visible.",
+      "params": {
+        "seed": 1057881872
+      },
+      "batch": 5
+    },
+    {
+      "id": "street-007",
+      "category": "street",
+      "title": "Fish market, early",
+      "image": "images/street-007.webp",
+      "prompt": "An early-morning fish market: crushed ice, crates, hoses running water across a concrete floor, workers in rubber aprons at the edge of frame with their backs to camera. Cold overhead light, wet everywhere, unposed.",
+      "params": {
+        "seed": 698283678
+      },
+      "batch": 5
+    },
+    {
+      "id": "street-008",
+      "category": "street",
+      "title": "Steps in low sun",
+      "image": "images/street-008.webp",
+      "prompt": "A flight of city steps in low evening sun, the treads throwing a hard sawtooth of shadow, one figure climbing halfway up rendered almost as a silhouette. Long lens compression, warm light, no faces.",
+      "params": {
+        "seed": 1750591874
+      },
+      "batch": 5
+    },
+    {
+      "id": "night-001",
+      "category": "night",
+      "title": "Star trails over a ridge",
+      "image": "images/night-001.webp",
+      "prompt": "Star trails circling the pole above a dark ridgeline, concentric arcs of white and faint colour on a deep blue-black sky, the land below rendered only as a black silhouette. Very long exposure, no light pollution, no foreground light.",
+      "params": {
+        "seed": 123461485
+      },
+      "batch": 5
+    },
+    {
+      "id": "night-003",
+      "category": "night",
+      "title": "Petrol station at 3am",
+      "image": "images/night-003.webp",
+      "prompt": "An empty petrol station forecourt at three in the morning, fluorescent canopy lights the only source, spilling hard white onto wet concrete and falling to black beyond. No cars, no people. Wide, tripod, long exposure.",
+      "params": {
+        "seed": 105373578
+      },
+      "batch": 5
+    },
+    {
+      "id": "night-004",
+      "category": "night",
+      "title": "Fog under a streetlight",
+      "image": "images/night-004.webp",
+      "prompt": "Thick fog under a single sodium streetlight, the beam made visible as a solid orange cone, everything beyond it lost. A bare tree half-visible at the edge of the light. Long exposure, no other light source in frame.",
+      "params": {
+        "seed": 1765268212
+      },
+      "batch": 5
+    },
+    {
+      "id": "night-005",
+      "category": "night",
+      "title": "City from a hill, blue hour",
+      "image": "images/night-005.webp",
+      "prompt": "A city seen from a hill at the end of blue hour, streetlights and windows as a dense field of warm points against the last cold blue in the sky. Foreground grass dark and unlit. Long lens compression, tripod, no star trails.",
+      "params": {
+        "seed": 662128052
+      },
+      "batch": 5
+    },
+    {
+      "id": "night-006",
+      "category": "night",
+      "title": "Lightning over plain",
+      "image": "images/night-006.webp",
+      "prompt": "A single lightning bolt striking a flat plain at night, branching downward, the flash illuminating the underside of the storm cloud and a thin strip of ground. Everything else black. Long exposure caught mid-strike.",
+      "params": {
+        "seed": 766980854
+      },
+      "batch": 5
+    },
+    {
+      "id": "night-007",
+      "category": "night",
+      "title": "Campfire, faces out of frame",
+      "image": "images/night-007.webp",
+      "prompt": "A campfire at night shot low and close, the flames the only light source, sparks rising, a ring of stones and two pairs of boots at the edge of the light. Nobody's face in frame. Warm falloff to complete black.",
+      "params": {
+        "seed": 1933212622
+      },
+      "batch": 5
+    },
+    {
+      "id": "night-008",
+      "category": "night",
+      "title": "Aurora over snow",
+      "image": "images/night-008.webp",
+      "prompt": "An aurora arc over a snow-covered plain, green with a magenta lower fringe, its structure showing vertical rays. The snow picking up the green cast faintly. A dark treeline at the horizon. No moon, no artificial light.",
+      "params": {
+        "seed": 1239744985
+      },
+      "batch": 5
     }
   ],
   "findings": {
-    "_intro": "Everything below was measured while building this catalog, not quoted from the model card. 270 generations across four batches, 218 are here, 52 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.\n\nThe first finding replaces one that stood here for three batches and was wrong. It was overturned by an experiment built to confirm it, which is the best argument I can make for running the experiment.",
+    "_intro": "Everything below was measured while building this catalog, not quoted from the model card. 322 generations across five batches, 267 are here, 55 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.\n\nThree of these findings replace earlier ones that were wrong, and all three were overturned by controlled experiments built to confirm them. The pattern is the same every time: a rule inferred from one or two failures, and a ladder that holds everything constant except the one variable, which then shows the rule was about something else.",
     "items": [
       {
         "title": "It renders text you write. It cannot invent text.",
-        "body": "**This replaces the finding that stood here for three batches, and the replacement came from an experiment designed to confirm it.**\n\nThe old claim was that text fails by *count*: one sign holds, a list collapses, and somewhere between four strings and six there is a ceiling. To find the ceiling I built a ladder — the same brass nameplate, the same style, the same short word-like strings, varying only in how many share the frame. `stringcount-1` through `stringcount-8`.\n\n**All eight are correct.** VULCAN. 1938. MODEL 7. SHEFFIELD. SERIAL 4412. 440 VOLTS. 50 CYCLES. MADE IN ENGLAND. Every string legible, on a plate, at eight independent strings. The single error in the whole ladder is a spurious `7` after SHEFFIELD in `stringcount-5`.\n\nSo count was never the variable. Going back through every text failure in this repo, the split is exact and it is about **who wrote the string**:\n\n- The chalkboard menu specified `FILTER 4.50`, `CORTADO 4.00` and `OAT +0.60` and asked the model to fill the rest of the board. **Those three rendered correctly.** The unspecified rows came back `CAPEME`, `CABIELO`, `PANSRUR`.\n- The twelve book spines said \"invent plausible titles\". Twelve failures.\n- The transit map asked for \"legible station names\" without naming any. Thirty failures.\n- The timeline fixed the range at 1970–2030 and left the labels free. **The years rendered. The labels did not.**\n- The terminal specified `$ make install` and asked for \"three lines of plausible build output\". **The command rendered. The output did not.**\n- Of ten UI mockups, the one that worked is `ui-004`, where every string was written out: `Sign in`, `Email`, `Password`, `Continue`. In the cuts, `ui-007` got `Add to cart` exactly right beside an invented product title of pure noise, and `ui-010`, given no column names at all, headed all three columns with the word `Kanban` — reaching for the nearest word in the prompt.\n\nThere is one genuine exception, and it is about script rather than authorship: Korean fails even when written out. See below.\n\n**Practical rule: write out every string you want to see, in the prompt, exactly. Never ask this model to make up a word.** Eight strings is not a limit — it is just where I stopped testing."
+        "body": "**This replaces the finding that stood here for three batches, and the replacement came from an experiment designed to confirm it.**\n\nThe old claim was that text fails by *count*: one sign holds, a list collapses, and somewhere between four strings and six there is a ceiling. To find the ceiling I built a ladder — the same brass nameplate, the same style, the same short word-like strings, varying only in how many share the frame. `stringcount-1` through `stringcount-8`.\n\n**All eight are correct.** VULCAN. 1938. MODEL 7. SHEFFIELD. SERIAL 4412. 440 VOLTS. 50 CYCLES. MADE IN ENGLAND. Every string legible, on a plate, at eight independent strings. The single error in the whole ladder is a spurious `7` after SHEFFIELD in `stringcount-5`.\n\nSo count was never the variable. Going back through every text failure in this repo, the split is exact and it is about **who wrote the string**:\n\n- The chalkboard menu specified `FILTER 4.50`, `CORTADO 4.00` and `OAT +0.60` and asked the model to fill the rest of the board. **Those three rendered correctly.** The unspecified rows came back `CAPEME`, `CABIELO`, `PANSRUR`.\n- The twelve book spines said \"invent plausible titles\". Twelve failures.\n- The transit map asked for \"legible station names\" without naming any. Thirty failures.\n- The timeline fixed the range at 1970–2030 and left the labels free. **The years rendered. The labels did not.**\n- The terminal specified `$ make install` and asked for \"three lines of plausible build output\". **The command rendered. The output did not.**\n- Of ten UI mockups, the one that worked is `ui-004`, where every string was written out: `Sign in`, `Email`, `Password`, `Continue`. In the cuts, `ui-007` got `Add to cart` exactly right beside an invented product title of pure noise, and `ui-010`, given no column names at all, headed all three columns with the word `Kanban` — reaching for the nearest word in the prompt.\n\nThere is one genuine exception, and it is about script rather than authorship: Korean fails even when written out. See below.\n\n**Practical rule: write out every string you want to see, in the prompt, exactly. Never ask this model to make up a word.** Eight strings is not a limit — it is just where I stopped testing.\n\n**Batch five tested this on purpose.** If the rule is right, a category built entirely on written-out strings should work. Ten poster and packaging layouts, every string specified: `KLANG` / `14 MARCH` / `HALLE 7`; `ALPINA` / `BY RAIL`; `LOWLIGHT` / `SIDE A`; `WORKS ON PAPER` / `GALLERY NINE`; `STATIC` / `FRIDAY`; `EYE PROTECTION` / `AREA 4`; `CLOS MARIN` / `2019` / `MIS EN BOUTEILLE`; `MEND IT` / `DON'T END IT`. **All correct.** `poster-008` carries five strings across a book cover and its spine, including the title repeated vertically, and every one of them is right.\n\nOne of the ten failed, and not by count: `poster-004` renders `NORTHERN LIGHT` with **both R's mirrored**. The string is right and the glyph is drawn backwards. So specifying the text buys you the text, not a guarantee about every letterform in it — read the output."
       },
       {
         "title": "Korean fails even when you write it out",
@@ -2466,8 +3012,8 @@
         "body": "Image-to-image is reliable when you ask for a different *rendering* of the same scene. Rice terraces became a convincing gouache painting with the terrace contours intact (**editing-003**); a woodblock wave took a dusk palette while every keyblock outline stayed put (**editing-005**); an exploded camera diagram became a clean cyanotype blueprint with every component in place (**editing-008**).\n\nIt is unreliable when you ask it to add or remove *things*. Three attempts failed and were cut rather than shipped with captions that did not match the images: removing the steam from a mug returned the steam; adding snow and sea ice to a coastline returned the same coastline slightly cooler; darkening a sauna's window returned the window still lit.\n\n`strength` between 0.50 and 0.60 preserved composition while allowing the medium to change. No value made object-level edits work."
       },
       {
-        "title": "Numbers in a prompt are treated as flavour, not as a count",
-        "body": "Every constraint phrased as a quantity was ignored while the surrounding description was followed closely.\n\nI asked for a flat avatar in **exactly two flat colours plus white, no gradients** and got four colours with shading on the neck (**portrait-008**). I asked for a watercolour map **divided into five regions** and got eight (**infographic-007**). Both images are otherwise good — the avatar is clean, the map is genuinely lovely watercolour — which is what makes this worth writing down: the failure is invisible unless you go back and count.\n\nNote what did work. `infographic-009` asked for two columns of four rows and delivered exactly that; `infographic-008` asked for five markers and delivered five. The difference is that those counts are **structural** — a layout with a wrong number of rows stops looking like a table. A colour count or a region count has no structure holding it, so nothing pushes back.\n\nPractical rule: if a number matters and the layout would not visibly break without it, count the output yourself."
+        "title": "It counts objects. It does not count attributes.",
+        "body": "**This is the second finding in this catalog overturned by an experiment built to confirm it.**\n\nIt used to say numbers were treated as flavour: I had asked for \"exactly two flat colours\" and got four, and for a map \"divided into five regions\" and got eight. To find where counting breaks I ran a ladder — one slate shelf, one white ceramic egg, `exactly N` of them, N from two to eight, nothing else changed. `objectcount-2` through `objectcount-8`.\n\n**All seven are correct.** Two eggs, three, four, five, six, seven, eight. Counted straight off the shelf. Elsewhere in the same batch, `still-life-003` asked for five pieces of glassware and delivered five, `still-life-005` asked for six ceramics and delivered six, `still-life-007` asked for three pears and delivered three.\n\nSo the split is not numbers versus no numbers. It is **objects versus attributes**:\n\n- **Discrete separable things that are the subject of the frame get counted.** Eggs, pears, columns, markers, table rows, cake layers.\n- **Attributes and emergent divisions do not.** \"Exactly two flat colours\" is a property of the rendering, not a set of objects, and came back as four with shading (`portrait-008`). \"Five regions\" on a watercolour map are boundaries that emerge from where the pigment stops, not things you could point at one at a time, and came back as eight (`infographic-007`). \"One light source\" is not a visible object either, and produced two lamps.\n\nPractical rule: if you can point at each one, ask for a number and expect to get it. If you are counting colours, zones, materials or light sources, count the output yourself."
       },
       {
         "title": "Name a light and you get the light. Name the softbox and you get the softbox.",
@@ -2482,8 +3028,8 @@
         "body": "I added ten UI mockups to batch three expecting nine of them to fail, and nine of them failed. That was the point — a limit you only predict is not a measured limit.\n\nWhat is striking is *which* half breaks. The structure is consistently correct: `ui-002` has three grouped sections of three rows with a toggle on each, some on and some off, hairlines between; `ui-008` has alternating chat bubbles with avatars, timestamps and a pinned input; `ui-010` has three kanban columns with count badges, tag pills and avatars. Every one of those is exactly what was asked for.\n\nThe strings are not. `ui-002` renders the first section header as `Settings` and then degrades to `Sectings` for the next two. `ui-006` fails at the day headers *and* at the dates — the first week reads 5, 6, 51, 13, which is not a week.\n\nThe one that worked is **ui-004**, the login screen, and it worked because it has four short real strings: `Sign in`, `Email`, `Password`, `Continue`. All four are letter-perfect. The same effect shows in the cuts — `ui-007` got `Add to cart` exactly right while inventing gibberish for the product title.\n\nAt the time I read this as a hard limit on interface work. The `stringcount` ladder shows it is not: **the strings failed because I did not write them.** `ui-004` proves it from inside the same category — four written-out strings, four correct renders — and `ui-010` proves it from the other side, heading all three columns `Kanban` because that was the only word I had given it.\n\nPractical rule: mock up an interface by writing out every label you want to see. What you leave to the model comes back as noise; what you specify comes back correct."
       },
       {
-        "title": "It renders words, not letters",
-        "body": "`brand-mark-002` asked for a monogram of the letters `KJ` interlocked in a circle. It came back with three letterforms, none of them clearly a J. Everything around it is perfect — the circular rule, the single ink weight, the symmetry.\n\nThat is the only text failure in a category that otherwise went seven for eight, and the seven that worked were all *words*: `HALLOW`, `FIELDNOTE`, `OPEN`, `EST 1904`, `ASTER`, `COOPERAGE`, `STUDIO 4`. Nine letters rendered correctly in `COOPERAGE`; two letters failed in `KJ`.\n\nSo the limit is not length, and it is not even string count on its own. An arbitrary letter pair has no word for the model to reach for. If you need specific initials, expect to set them yourself."
+        "title": "Letters are fine. Interlocking them is not.",
+        "body": "**Third correction, same cause: a claim built on one failure.**\n\nBatch four asked for a monogram of the letters `KJ` interlocked in a circle, got three letterforms, and concluded that the model renders words and not arbitrary letters — reasoning that `COOPERAGE` at nine letters worked while `KJ` at two did not.\n\nBatch five put three more arbitrary letter pairs through. `monogram-002` asked for an A and an E joined into a ligature and returned a clean, correct engraved Æ. `monogram-003` asked for H and B side by side, blind-embossed, and returned exactly that. Both are arbitrary pairs and neither is a word.\n\nThe one that failed again is `monogram-001`, R and W **interlocked** — and where the two forms overlap, the R reads as a P.\n\nSo it was never about words. Letters render. What fails is asking the model to fuse two letterforms into a composite where they share strokes, because at that point neither letter has an intact shape to be drawn. A real ligature like Æ is a single glyph it already knows, which is why that one worked.\n\nPractical rule: set letters side by side, or ask for a ligature that actually exists. Do not ask for an invented interlock."
       },
       {
         "title": "\"Seamless\" produces a pattern that does not tile",
@@ -2838,6 +3384,39 @@
           "seed": 478699619
         },
         "batch": 4
+      },
+      {
+        "id": "monogram-001",
+        "claim": "Letters: asked to interlock R and W, the R reads as a P where the two forms overlap",
+        "expected": "R and W, both legible",
+        "prompt": "A monogram mark: the two letters R and W interlocked inside a thin circular rule, drawn in a single ink weight, deep navy on cream. Geometric, no serifs, symmetrical. The mark reads exactly: RW",
+        "image": "images/failures/monogram-001.webp",
+        "params": {
+          "seed": 1193159535
+        },
+        "batch": 5
+      },
+      {
+        "id": "poster-004",
+        "claim": "Glyph: the string is right and both R's are drawn mirrored — NOЯTHEЯN LIGHT",
+        "expected": "NORTHERN LIGHT",
+        "prompt": "A film festival poster: a high-contrast black and white photograph of a hand holding film stock filling the frame, with \"NORTHERN LIGHT\" reversed out in white across the middle and \"FILM WEEK\" small at the bottom. Nothing else printed.",
+        "image": "images/failures/poster-004.webp",
+        "params": {
+          "seed": 1064082710
+        },
+        "batch": 5
+      },
+      {
+        "id": "night-002",
+        "claim": "Scene: the reflection never resolves into water; the lower half reads as a second sky",
+        "expected": "The Milky Way reflected in still water",
+        "prompt": "The Milky Way core rising over still water, its dust lanes clearly structured, the reflection breaking slightly in the surface. A dark shoreline at the bottom of frame. Astro exposure, high ISO grain visible, no artificial light.",
+        "image": "images/failures/night-002.webp",
+        "params": {
+          "seed": 1089231047
+        },
+        "batch": 5
       }
     ]
   },
@@ -2909,6 +3488,6 @@
       "jamez-bondos has not been pushed since 2025-05-26."
     ]
   },
-  "generations": 270,
-  "spend": 2.26
+  "generations": 322,
+  "spend": 2.7
 }

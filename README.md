@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">218 reproducible prompts for Krea 2 Turbo, across 25 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
+<p align="center">267 reproducible prompts for Krea 2 Turbo, across 32 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
@@ -15,13 +15,13 @@
 
 ## Categories
 
-**218 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7
+**267 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7
 
 ## What this model actually does
 
-Everything below was measured while building this catalog, not quoted from the model card. 270 generations across four batches, 218 are here, 52 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.
+Everything below was measured while building this catalog, not quoted from the model card. 322 generations across five batches, 267 are here, 55 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.
 
-The first finding replaces one that stood here for three batches and was wrong. It was overturned by an experiment built to confirm it, which is the best argument I can make for running the experiment.
+Three of these findings replace earlier ones that were wrong, and all three were overturned by controlled experiments built to confirm them. The pattern is the same every time: a rule inferred from one or two failures, and a ladder that holds everything constant except the one variable, which then shows the rule was about something else.
 
 ### It renders text you write. It cannot invent text.
 
@@ -43,6 +43,10 @@ So count was never the variable. Going back through every text failure in this r
 There is one genuine exception, and it is about script rather than authorship: Korean fails even when written out. See below.
 
 **Practical rule: write out every string you want to see, in the prompt, exactly. Never ask this model to make up a word.** Eight strings is not a limit — it is just where I stopped testing.
+
+**Batch five tested this on purpose.** If the rule is right, a category built entirely on written-out strings should work. Ten poster and packaging layouts, every string specified: `KLANG` / `14 MARCH` / `HALLE 7`; `ALPINA` / `BY RAIL`; `LOWLIGHT` / `SIDE A`; `WORKS ON PAPER` / `GALLERY NINE`; `STATIC` / `FRIDAY`; `EYE PROTECTION` / `AREA 4`; `CLOS MARIN` / `2019` / `MIS EN BOUTEILLE`; `MEND IT` / `DON'T END IT`. **All correct.** `poster-008` carries five strings across a book cover and its spine, including the title repeated vertically, and every one of them is right.
+
+One of the ten failed, and not by count: `poster-004` renders `NORTHERN LIGHT` with **both R's mirrored**. The string is right and the glyph is drawn backwards. So specifying the text buys you the text, not a guarantee about every letterform in it — read the output.
 
 ### Korean fails even when you write it out
 
@@ -69,15 +73,20 @@ It is unreliable when you ask it to add or remove *things*. Three attempts faile
 
 `strength` between 0.50 and 0.60 preserved composition while allowing the medium to change. No value made object-level edits work.
 
-### Numbers in a prompt are treated as flavour, not as a count
+### It counts objects. It does not count attributes.
 
-Every constraint phrased as a quantity was ignored while the surrounding description was followed closely.
+**This is the second finding in this catalog overturned by an experiment built to confirm it.**
 
-I asked for a flat avatar in **exactly two flat colours plus white, no gradients** and got four colours with shading on the neck (**portrait-008**). I asked for a watercolour map **divided into five regions** and got eight (**infographic-007**). Both images are otherwise good — the avatar is clean, the map is genuinely lovely watercolour — which is what makes this worth writing down: the failure is invisible unless you go back and count.
+It used to say numbers were treated as flavour: I had asked for "exactly two flat colours" and got four, and for a map "divided into five regions" and got eight. To find where counting breaks I ran a ladder — one slate shelf, one white ceramic egg, `exactly N` of them, N from two to eight, nothing else changed. `objectcount-2` through `objectcount-8`.
 
-Note what did work. `infographic-009` asked for two columns of four rows and delivered exactly that; `infographic-008` asked for five markers and delivered five. The difference is that those counts are **structural** — a layout with a wrong number of rows stops looking like a table. A colour count or a region count has no structure holding it, so nothing pushes back.
+**All seven are correct.** Two eggs, three, four, five, six, seven, eight. Counted straight off the shelf. Elsewhere in the same batch, `still-life-003` asked for five pieces of glassware and delivered five, `still-life-005` asked for six ceramics and delivered six, `still-life-007` asked for three pears and delivered three.
 
-Practical rule: if a number matters and the layout would not visibly break without it, count the output yourself.
+So the split is not numbers versus no numbers. It is **objects versus attributes**:
+
+- **Discrete separable things that are the subject of the frame get counted.** Eggs, pears, columns, markers, table rows, cake layers.
+- **Attributes and emergent divisions do not.** "Exactly two flat colours" is a property of the rendering, not a set of objects, and came back as four with shading (`portrait-008`). "Five regions" on a watercolour map are boundaries that emerge from where the pigment stops, not things you could point at one at a time, and came back as eight (`infographic-007`). "One light source" is not a visible object either, and produced two lamps.
+
+Practical rule: if you can point at each one, ask for a number and expect to get it. If you are counting colours, zones, materials or light sources, count the output yourself.
 
 ### Name a light and you get the light. Name the softbox and you get the softbox.
 
@@ -111,13 +120,19 @@ At the time I read this as a hard limit on interface work. The `stringcount` lad
 
 Practical rule: mock up an interface by writing out every label you want to see. What you leave to the model comes back as noise; what you specify comes back correct.
 
-### It renders words, not letters
+### Letters are fine. Interlocking them is not.
 
-`brand-mark-002` asked for a monogram of the letters `KJ` interlocked in a circle. It came back with three letterforms, none of them clearly a J. Everything around it is perfect — the circular rule, the single ink weight, the symmetry.
+**Third correction, same cause: a claim built on one failure.**
 
-That is the only text failure in a category that otherwise went seven for eight, and the seven that worked were all *words*: `HALLOW`, `FIELDNOTE`, `OPEN`, `EST 1904`, `ASTER`, `COOPERAGE`, `STUDIO 4`. Nine letters rendered correctly in `COOPERAGE`; two letters failed in `KJ`.
+Batch four asked for a monogram of the letters `KJ` interlocked in a circle, got three letterforms, and concluded that the model renders words and not arbitrary letters — reasoning that `COOPERAGE` at nine letters worked while `KJ` at two did not.
 
-So the limit is not length, and it is not even string count on its own. An arbitrary letter pair has no word for the model to reach for. If you need specific initials, expect to set them yourself.
+Batch five put three more arbitrary letter pairs through. `monogram-002` asked for an A and an E joined into a ligature and returned a clean, correct engraved Æ. `monogram-003` asked for H and B side by side, blind-embossed, and returned exactly that. Both are arbitrary pairs and neither is a word.
+
+The one that failed again is `monogram-001`, R and W **interlocked** — and where the two forms overlap, the R reads as a P.
+
+So it was never about words. Letters render. What fails is asking the model to fuse two letterforms into a composite where they share strokes, because at that point neither letter has an intact shape to be drawn. A real ligature like Æ is a single glyph it already knows, which is why that one worked.
+
+Practical rule: set letters side by side, or ask for a ligature that actually exists. Do not ask for an invented interlock.
 
 ### "Seamless" produces a pattern that does not tile
 
@@ -184,6 +199,9 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/fashion-007.webp" width="150" alt="Composition: asked for the rail end-on as receding silhouettes, got it side-on with the hangers showing"> | An end-on rail reading as layered silhouettes | Composition: asked for the rail end-on as receding silhouettes, got it side-on with the hangers showing <br>`seed: 1999599151` |
 | <img src="images/failures/automotive-002.webp" width="150" alt="Text: the tyre sidewall lettering is legible enough to read as wrong"> | Out-of-focus sidewall lettering | Text: the tyre sidewall lettering is legible enough to read as wrong <br>`seed: 318918336` |
 | <img src="images/failures/abstract-004.webp" width="150" alt="Colour: 'coloured light trails' came back as four pale near-white lines"> | Crossing, looping, coloured trails | Colour: 'coloured light trails' came back as four pale near-white lines <br>`seed: 478699619` |
+| <img src="images/failures/monogram-001.webp" width="150" alt="Letters: asked to interlock R and W, the R reads as a P where the two forms overlap"> | R and W, both legible | Letters: asked to interlock R and W, the R reads as a P where the two forms overlap <br>`seed: 1193159535` |
+| <img src="images/failures/poster-004.webp" width="150" alt="Glyph: the string is right and both R's are drawn mirrored — NOЯTHEЯN LIGHT"> | NORTHERN LIGHT | Glyph: the string is right and both R's are drawn mirrored — NOЯTHEЯN LIGHT <br>`seed: 1064082710` |
+| <img src="images/failures/night-002.webp" width="150" alt="Scene: the reflection never resolves into water; the lower half reads as a second sky"> | The Milky Way reflected in still water | Scene: the reflection never resolves into water; the lower half reads as a second sky <br>`seed: 1089231047` |
 
 ## How this compares
 
@@ -2965,6 +2983,629 @@ A stream of molten metal pouring in a dark foundry, sparks arcing away from the 
 ```
 
 `seed: 838584990`
+
+
+## objectcount
+
+_A controlled experiment: one shelf, one object, two to eight of them, everything else held constant_
+
+### Count: 2 eggs
+
+<img src="images/objectcount-2.webp" width="420" alt="Count: 2 eggs">
+
+**Prompt**
+
+```text
+Exactly 2 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.
+```
+
+`seed: 1121773227`
+
+### Count: 3 eggs
+
+<img src="images/objectcount-3.webp" width="420" alt="Count: 3 eggs">
+
+**Prompt**
+
+```text
+Exactly 3 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.
+```
+
+`seed: 13160654`
+
+### Count: 4 eggs
+
+<img src="images/objectcount-4.webp" width="420" alt="Count: 4 eggs">
+
+**Prompt**
+
+```text
+Exactly 4 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.
+```
+
+`seed: 1716350491`
+
+### Count: 5 eggs
+
+<img src="images/objectcount-5.webp" width="420" alt="Count: 5 eggs">
+
+**Prompt**
+
+```text
+Exactly 5 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.
+```
+
+`seed: 7277243`
+
+### Count: 6 eggs
+
+<img src="images/objectcount-6.webp" width="420" alt="Count: 6 eggs">
+
+**Prompt**
+
+```text
+Exactly 6 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.
+```
+
+`seed: 344187822`
+
+### Count: 7 eggs
+
+<img src="images/objectcount-7.webp" width="420" alt="Count: 7 eggs">
+
+**Prompt**
+
+```text
+Exactly 7 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.
+```
+
+`seed: 1044080084`
+
+### Count: 8 eggs
+
+<img src="images/objectcount-8.webp" width="420" alt="Count: 8 eggs">
+
+**Prompt**
+
+```text
+Exactly 8 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.
+```
+
+`seed: 205379899`
+
+
+## monogram
+
+_A second look at arbitrary letter pairs, which failed once in batch four_
+
+### Monogram: AE ligature
+
+<img src="images/monogram-002.webp" width="420" alt="Monogram: AE ligature">
+
+**Prompt**
+
+```text
+An engraved ligature of the two letters A and E joined into a single form, cut into polished brass with the grooves darkened, macro, raking light. The ligature reads exactly: AE
+```
+
+`seed: 1348613049`
+
+### Monogram: HB embossed
+
+<img src="images/monogram-003.webp" width="420" alt="Monogram: HB embossed">
+
+**Prompt**
+
+```text
+The two letters H and B side by side, blind-embossed into cream cotton paper, raking light so they read entirely through shadow. Wide letterspacing, high-contrast serif. The impression reads exactly: HB
+```
+
+`seed: 1941203383`
+
+
+## poster
+
+_Poster and cover layouts. Every string is written out in the prompt — a direct test of the batch-four finding_
+
+### Swiss grid concert poster
+
+<img src="images/poster-001.webp" width="420" alt="Swiss grid concert poster">
+
+**Prompt**
+
+```text
+A Swiss-style concert poster on a strict grid: the word "KLANG" set very large in a bold grotesque across the upper half, "14 MARCH" beneath it in small caps, and "HALLE 7" bottom right. Red on off-white, one diagonal rule, generous white space. No other text.
+```
+
+`seed: 779075243`
+
+### Vintage travel poster
+
+<img src="images/poster-002.webp" width="420" alt="Vintage travel poster">
+
+**Prompt**
+
+```text
+A 1930s-style travel poster, flat screen-printed colour, stylised mountains and a lake. The word "ALPINA" arcs across the sky in a geometric sans, and "BY RAIL" sits in a small band at the foot. Muted teal, ochre and cream. No other text.
+```
+
+`seed: 927458607`
+
+### Album cover, minimal
+
+<img src="images/poster-003.webp" width="420" alt="Album cover, minimal">
+
+**Prompt**
+
+```text
+A square album cover: a single dark circle centred on a warm grey field, the word "LOWLIGHT" set small in the lower left in a light sans, and "SIDE A" in the lower right. Nothing else. Flat, no texture, generous margins.
+```
+
+`seed: 1102144654`
+
+### Exhibition poster, type only
+
+<img src="images/poster-005.webp" width="420" alt="Exhibition poster, type only">
+
+**Prompt**
+
+```text
+A type-only exhibition poster: "WORKS ON PAPER" set in three stacked lines of a high-contrast serif, filling most of the sheet, with "GALLERY NINE" small and centred beneath. Black on warm white, tight leading, wide margins. No image, no other text.
+```
+
+`seed: 1486768439`
+
+### Risograph gig poster
+
+<img src="images/poster-006.webp" width="420" alt="Risograph gig poster">
+
+**Prompt**
+
+```text
+A two-colour risograph gig poster in fluorescent pink and blue with visible misregistration and paper texture. The word "STATIC" is set huge and distressed across the centre, with "FRIDAY" beneath it. Halftone dots visible. No other text.
+```
+
+`seed: 2144045641`
+
+### Safety notice, industrial
+
+<img src="images/poster-007.webp" width="420" alt="Safety notice, industrial">
+
+**Prompt**
+
+```text
+An industrial safety notice printed on a metal plate bolted to a wall: "EYE PROTECTION" in bold condensed capitals on a yellow band, a black triangle warning symbol above it, and "AREA 4" stencilled beneath. Weathered, scratched, hard raking light.
+```
+
+`seed: 1652078050`
+
+### Book cover, spine and face
+
+<img src="images/poster-008.webp" width="420" alt="Book cover, spine and face">
+
+**Prompt**
+
+```text
+A hardback book standing on a plain surface, three-quarter view so the cover and spine are both visible. The cover reads "THE LONG FIELD" in a modern serif with "E. HALLIDAY" small beneath; the spine repeats "THE LONG FIELD" vertically. Cloth binding, foil-stamped, single warm light.
+```
+
+`seed: 2085405029`
+
+### Wine label on bottle
+
+<img src="images/poster-009.webp" width="420" alt="Wine label on bottle">
+
+**Prompt**
+
+```text
+A wine bottle shot straight on against a dark ground, the label reading "CLOS MARIN" in an engraved serif with "2019" beneath it and "MIS EN BOUTEILLE" in tiny capitals at the foot. Cream paper label, deep green glass, single soft light from the left.
+```
+
+`seed: 278755335`
+
+### Protest placard, hand-lettered
+
+<img src="images/poster-010.webp" width="420" alt="Protest placard, hand-lettered">
+
+**Prompt**
+
+```text
+A hand-lettered cardboard placard held up outdoors, the words "MEND IT" painted in thick uneven black brush capitals with "DON'T END IT" smaller beneath. Corrugated board texture, drips, overcast daylight, blurred crowd behind. No other text.
+```
+
+`seed: 889409508`
+
+
+## still-life
+
+_Arranged objects, classical and modern_
+
+### Dutch vanitas
+
+<img src="images/still-life-001.webp" width="420" alt="Dutch vanitas">
+
+**Prompt**
+
+```text
+A Dutch vanitas still life: a pewter jug, a half-peeled lemon with the rind spiralling over the table edge, a snuffed candle and a folded cloth, lit from a single high window on the left and falling to deep brown shadow. Oil on panel, visible glazing.
+```
+
+`seed: 474373990`
+
+### Tools laid out, top-down
+
+<img src="images/still-life-002.webp" width="420" alt="Tools laid out, top-down">
+
+**Prompt**
+
+```text
+A set of woodworking hand tools arranged flat and shot directly overhead on grey linen: a marking gauge, two chisels, a brass-backed saw and a plane. Aligned to an invisible grid, even soft light, patina and use visible on each.
+```
+
+`seed: 1498493405`
+
+### Glassware, backlit
+
+<img src="images/still-life-003.webp" width="420" alt="Glassware, backlit">
+
+**Prompt**
+
+```text
+Five pieces of clear laboratory glassware of different heights arranged in a line and backlit against a white ground, so each reads as an outline of refraction and caustic. No labels, no liquid, no props. Straight on, symmetrical light.
+```
+
+`seed: 81785803`
+
+### Breakfast table, morning sun
+
+<img src="images/still-life-004.webp" width="420" alt="Breakfast table, morning sun">
+
+**Prompt**
+
+```text
+A breakfast table in low morning sun: a cafetière, one cup, a torn piece of bread and a folded newspaper, hard light throwing long shadows across a scrubbed pine table. Crumbs, a spill ring, nothing styled. 35mm, slight angle.
+```
+
+`seed: 1891948431`
+
+### Ceramics on a shelf
+
+<img src="images/still-life-005.webp" width="420" alt="Ceramics on a shelf">
+
+**Prompt**
+
+```text
+Six pieces of studio ceramics on a plain wooden shelf, glazes ranging from matte oatmeal to glossy tenmoku, one piece deliberately turned to show a chipped foot. Soft directional light from the left, plain wall, straight on.
+```
+
+`seed: 452847039`
+
+### Dried botanicals in glass
+
+<img src="images/still-life-006.webp" width="420" alt="Dried botanicals in glass">
+
+**Prompt**
+
+```text
+Dried seed heads and grasses in a clear glass bottle on a windowsill, backlit so the structures read as silhouettes with light finding the gaps. Dust on the glass, cool overcast light, plain wall behind. Muted, almost monochrome.
+```
+
+`seed: 819096213`
+
+### Fruit under hard light
+
+<img src="images/still-life-007.webp" width="420" alt="Fruit under hard light">
+
+**Prompt**
+
+```text
+Three pears on a matte black surface under a single hard light from above and behind, casting long crisp shadows toward camera. Skin texture and bloom visible, one pear bruised. Deep shadow everywhere else. Product-grade but severe.
+```
+
+`seed: 1126053453`
+
+### Desk objects, cool light
+
+<img src="images/still-life-008.webp" width="420" alt="Desk objects, cool light">
+
+**Prompt**
+
+```text
+An arrangement of desk objects on a concrete surface in cool north light: a fountain pen, a brass ruler, a folded pair of spectacles and a stone. Restrained palette, soft shadows, everything placed with deliberate spacing. Overhead, straight down.
+```
+
+`seed: 503659668`
+
+
+## macro-nature
+
+_Insects, botanicals and small structures at high magnification_
+
+### Dragonfly wing, macro
+
+<img src="images/macro-nature-001.webp" width="420" alt="Dragonfly wing, macro">
+
+**Prompt**
+
+```text
+Extreme macro of a dragonfly wing against a dark ground, the venation reading as an irregular lattice, faint iridescence where the light catches the membrane. Focus-stacked sharpness edge to edge, no other part of the insect visible.
+```
+
+`seed: 1381046048`
+
+### Dew on spider silk
+
+<img src="images/macro-nature-002.webp" width="420" alt="Dew on spider silk">
+
+**Prompt**
+
+```text
+Macro of dew beads strung along spider silk at dawn, each drop acting as a lens and inverting the blurred green background inside it. The silk sagging under the weight. Extremely shallow depth of field, backlit.
+```
+
+`seed: 2054476156`
+
+### Moss and sporophytes
+
+<img src="images/macro-nature-003.webp" width="420" alt="Moss and sporophytes">
+
+**Prompt**
+
+```text
+Macro of a moss cushion with sporophyte stalks rising from it, each capsule catching a soft rim of light, the moss leaves translucent green. Damp, a few water droplets held between the leaves. Low angle, dark background.
+```
+
+`seed: 36645787`
+
+### Butterfly scales
+
+<img src="images/macro-nature-004.webp" width="420" alt="Butterfly scales">
+
+**Prompt**
+
+```text
+Extreme macro of butterfly wing scales, individual overlapping scales visible like roof tiles, colour shifting from orange to black across the frame. So close that the pattern reads as abstract structure rather than as a wing.
+```
+
+`seed: 265148793`
+
+### Frost on a leaf edge
+
+<img src="images/macro-nature-005.webp" width="420" alt="Frost on a leaf edge">
+
+**Prompt**
+
+```text
+Macro of ice crystals growing along the serrated edge of a fallen leaf, needle-like formations catching cold morning light, the leaf itself dark and out of focus behind. Blue shadows, white crystals, very shallow focus.
+```
+
+`seed: 1307082473`
+
+### Bee on a thistle
+
+<img src="images/macro-nature-006.webp" width="420" alt="Bee on a thistle">
+
+**Prompt**
+
+```text
+A bumblebee working a thistle flower, pollen visible on the leg baskets and dusting the hairs of the thorax, individual florets sharp. Soft overcast light, green background thrown completely out of focus. 1/1000s.
+```
+
+`seed: 33348605`
+
+### Fern crozier unfurling
+
+<img src="images/macro-nature-007.webp" width="420" alt="Fern crozier unfurling">
+
+**Prompt**
+
+```text
+A fern crozier beginning to unfurl, the tight spiral covered in fine pale hairs backlit into a halo, the rest of the plant dark. Shallow focus running down the spiral. Damp woodland light, cool and green.
+```
+
+`seed: 728116494`
+
+### Seed head, backlit
+
+<img src="images/macro-nature-008.webp" width="420" alt="Seed head, backlit">
+
+**Prompt**
+
+```text
+A dandelion seed head backlit against black, each pappus rendered as a fine bright filament, two seeds already detached and drifting at the frame edge. Focus on the near seeds, falling off across the sphere.
+```
+
+`seed: 316013847`
+
+
+## street
+
+_Unposed public scenes_
+
+### Crossing in rain
+
+<img src="images/street-001.webp" width="420" alt="Crossing in rain">
+
+**Prompt**
+
+```text
+A pedestrian crossing in heavy rain shot from across the road, umbrellas overlapping into a single dark mass, one figure stepping off the kerb. Wet asphalt reflecting shop light. 35mm, grainy, unposed, faces not identifiable.
+```
+
+`seed: 1097435078`
+
+### Market alley, hard shadow
+
+<img src="images/street-002.webp" width="420" alt="Market alley, hard shadow">
+
+**Prompt**
+
+```text
+A narrow market alley at midday, a hard band of sunlight cutting diagonally across the frame and everything outside it in deep shade, two figures crossing the light. Awnings, crates, no legible signage. Documentary, 28mm.
+```
+
+`seed: 873659330`
+
+### Bus window, condensation
+
+<img src="images/street-003.webp" width="420" alt="Bus window, condensation">
+
+**Prompt**
+
+```text
+Seen from outside: a bus window fogged with condensation, one passenger's shoulder and the back of a head visible through a wiped patch, street light smearing on the wet glass. Winter evening, cool colours, nobody identifiable.
+```
+
+`seed: 2114954097`
+
+### Laundry between buildings
+
+<img src="images/street-004.webp" width="420" alt="Laundry between buildings">
+
+**Prompt**
+
+```text
+Washing strung on lines between two tenement buildings, seen looking straight up so the sheets and shirts read as flat shapes against a bright overcast sky. Cables, satellite dishes, weathered render. High contrast, graphic.
+```
+
+`seed: 2017379999`
+
+### Cafe window, reflection layered
+
+<img src="images/street-005.webp" width="420" alt="Cafe window, reflection layered">
+
+**Prompt**
+
+```text
+A cafe window at dusk with the interior and the reflected street overlapping into one layered image — a seated figure inside, passing traffic reflected across them. Nobody identifiable. 50mm, available light, slight motion.
+```
+
+`seed: 1477003290`
+
+### Underpass, single figure
+
+<img src="images/street-006.webp" width="420" alt="Underpass, single figure">
+
+**Prompt**
+
+```text
+A tiled pedestrian underpass lit by strip lights, one distant figure walking away, the tiling receding to a bright mouth at the far end. Symmetrical, wide, damp floor reflecting the lights. Nobody's face visible.
+```
+
+`seed: 1057881872`
+
+### Fish market, early
+
+<img src="images/street-007.webp" width="420" alt="Fish market, early">
+
+**Prompt**
+
+```text
+An early-morning fish market: crushed ice, crates, hoses running water across a concrete floor, workers in rubber aprons at the edge of frame with their backs to camera. Cold overhead light, wet everywhere, unposed.
+```
+
+`seed: 698283678`
+
+### Steps in low sun
+
+<img src="images/street-008.webp" width="420" alt="Steps in low sun">
+
+**Prompt**
+
+```text
+A flight of city steps in low evening sun, the treads throwing a hard sawtooth of shadow, one figure climbing halfway up rendered almost as a silhouette. Long lens compression, warm light, no faces.
+```
+
+`seed: 1750591874`
+
+
+## night
+
+_After dark — available light, long exposure, astro_
+
+### Star trails over a ridge
+
+<img src="images/night-001.webp" width="420" alt="Star trails over a ridge">
+
+**Prompt**
+
+```text
+Star trails circling the pole above a dark ridgeline, concentric arcs of white and faint colour on a deep blue-black sky, the land below rendered only as a black silhouette. Very long exposure, no light pollution, no foreground light.
+```
+
+`seed: 123461485`
+
+### Petrol station at 3am
+
+<img src="images/night-003.webp" width="420" alt="Petrol station at 3am">
+
+**Prompt**
+
+```text
+An empty petrol station forecourt at three in the morning, fluorescent canopy lights the only source, spilling hard white onto wet concrete and falling to black beyond. No cars, no people. Wide, tripod, long exposure.
+```
+
+`seed: 105373578`
+
+### Fog under a streetlight
+
+<img src="images/night-004.webp" width="420" alt="Fog under a streetlight">
+
+**Prompt**
+
+```text
+Thick fog under a single sodium streetlight, the beam made visible as a solid orange cone, everything beyond it lost. A bare tree half-visible at the edge of the light. Long exposure, no other light source in frame.
+```
+
+`seed: 1765268212`
+
+### City from a hill, blue hour
+
+<img src="images/night-005.webp" width="420" alt="City from a hill, blue hour">
+
+**Prompt**
+
+```text
+A city seen from a hill at the end of blue hour, streetlights and windows as a dense field of warm points against the last cold blue in the sky. Foreground grass dark and unlit. Long lens compression, tripod, no star trails.
+```
+
+`seed: 662128052`
+
+### Lightning over plain
+
+<img src="images/night-006.webp" width="420" alt="Lightning over plain">
+
+**Prompt**
+
+```text
+A single lightning bolt striking a flat plain at night, branching downward, the flash illuminating the underside of the storm cloud and a thin strip of ground. Everything else black. Long exposure caught mid-strike.
+```
+
+`seed: 766980854`
+
+### Campfire, faces out of frame
+
+<img src="images/night-007.webp" width="420" alt="Campfire, faces out of frame">
+
+**Prompt**
+
+```text
+A campfire at night shot low and close, the flames the only light source, sparks rising, a ring of stones and two pairs of boots at the edge of the light. Nobody's face in frame. Warm falloff to complete black.
+```
+
+`seed: 1933212622`
+
+### Aurora over snow
+
+<img src="images/night-008.webp" width="420" alt="Aurora over snow">
+
+**Prompt**
+
+```text
+An aurora arc over a snow-covered plain, green with a magenta lower fringe, its structure showing vertical rays. The snow picking up the green cast faintly. A dark treeline at the horizon. No moon, no artificial light.
+```
+
+`seed: 1239744985`
 
 
 ## Contributing

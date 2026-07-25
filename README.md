@@ -40,6 +40,12 @@ It is unreliable when you ask it to add or remove *things*. Three attempts faile
 
 `strength` between 0.50 and 0.60 preserved composition while allowing the medium to change. No value made object-level edits work.
 
+## The image-to-image entries, taken further
+
+The five `editing-*` entries were pulled out into [**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for Claude Code and Codex, and each one was re-run against a source it was *not* derived from. Two held, two came back partial, one failed — and the failures produced a sharper rule than this catalog started with: **geometry is locked, material is not.** Relighting wet rice terraces under hard sun keeps every contour in position and returns dry stone.
+
+That repo also carries the two edits cut from here as refusals: it blocks an object-removal or character-consistency request before it is spent, and shows you the image where it already failed.
+
 ## Check any of this yourself
 
 Every entry carries the seed that produced it, so no claim here has to be taken on trust:

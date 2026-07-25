@@ -243,6 +243,21 @@ def render_readme(data: dict, lang: str = "en") -> str:
             L.append(f"{item['body']}\n")
 
     if lang == "en":
+        # The five editing-* entries turned out to generalise unevenly once they
+        # were run against sources they were not derived from, which is a result
+        # that belongs next to them rather than only in the other repo.
+        L.append("## The image-to-image entries, taken further\n")
+        L.append("The five `editing-*` entries were pulled out into "
+                 "[**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for "
+                 "Claude Code and Codex, and each one was re-run against a source it was *not* "
+                 "derived from. Two held, two came back partial, one failed — and the failures "
+                 "produced a sharper rule than this catalog started with: **geometry is locked, "
+                 "material is not.** Relighting wet rice terraces under hard sun keeps every "
+                 "contour in position and returns dry stone.\n")
+        L.append("That repo also carries the two edits cut from here as refusals: it blocks an "
+                 "object-removal or character-consistency request before it is spent, and shows "
+                 "you the image where it already failed.\n")
+
         L.append("## Check any of this yourself\n")
         L.append("Every entry carries the seed that produced it, so no claim here has to be "
                  "taken on trust:\n")

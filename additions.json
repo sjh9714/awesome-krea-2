@@ -9,80 +9,365 @@
     "stationery": "Cards, letterheads, packaging inserts"
   },
   "entries": [
-    {"id":"portrait-001","category":"portrait","title":"Window-light portrait, 85mm","image":"images/portrait-001.webp",
-     "prompt":"A portrait of a woman in her thirties beside a north-facing window, 85mm at f/1.8, soft directional daylight falling across one side of the face and the other dropping into gentle shadow. Natural skin texture with visible pores, no retouching, catchlight in both eyes. Charcoal wool sweater, plain warm grey wall behind, shallow depth of field."},
-    {"id":"portrait-002","category":"portrait","title":"High-contrast studio, single hard light","image":"images/portrait-002.webp",
-     "prompt":"Studio portrait of a man in his forties, single hard light high and to camera left, deep shadow filling the right of the face, black seamless background. Sharp specular highlight on the cheekbone, close-cropped beard, direct eye contact with the lens. Medium format look, 110mm equivalent."},
-    {"id":"portrait-003","category":"portrait","title":"Golden hour backlit, rim light","image":"images/portrait-003.webp",
-     "prompt":"Backlit outdoor portrait at golden hour, sun directly behind the subject creating a bright rim along the hair and shoulders, face lifted by soft bounce. Warm haze, out-of-focus grass and fence line behind. Linen shirt, relaxed expression, 135mm compression, f/2."},
-    {"id":"portrait-004","category":"portrait","title":"Overcast environmental portrait","image":"images/portrait-004.webp",
-     "prompt":"Environmental portrait of a woodworker standing in her shop doorway under flat overcast light, sawdust on a canvas apron, hands relaxed at her sides. The shop interior falls off into darkness behind her. 35mm, waist up, documentary framing with the doorframe as a natural border."},
-    {"id":"portrait-005","category":"portrait","title":"Portra 400 candid, mixed indoor light","image":"images/portrait-005.webp",
-     "prompt":"Candid indoor portrait on Kodak Portra 400, a man laughing mid-conversation at a kitchen table, tungsten lamp warm on one side and cool window light on the other. Visible film grain, soft halation on the highlights, slightly warm cast. 50mm, handheld, not looking at the camera."},
-    {"id":"portrait-006","category":"portrait","title":"Profile silhouette against sky","image":"images/portrait-006.webp",
-     "prompt":"Pure profile view of a person against a bright overcast sky, exposed for the sky so the face reads as a clean dark silhouette with only the eyelash line and nose bridge catching light. Minimal, high key background, no detail in the shadow. Square crop."},
-    {"id":"portrait-007","category":"portrait","title":"Painterly oil portrait, chiaroscuro","image":"images/portrait-007.webp",
-     "prompt":"An oil painting portrait in the chiaroscuro tradition, three-quarter view, single warm light source from upper left, background falling to near black. Visible brushwork in the flesh tones, glazed shadows, muted earth palette of ochre, umber and lead white. Not photorealistic — the paint should be visible."},
-    {"id":"portrait-008","category":"portrait","title":"Flat vector avatar, two tones","image":"images/portrait-008.webp",
-     "prompt":"A flat vector avatar bust of a person with short curly hair and round glasses, exactly two flat colours plus white, no gradients, no outlines, geometric simplification of the features. Centred in a circle on a plain background. The kind of mark that still reads at 32 pixels."},
-    {"id":"portrait-009","category":"portrait","title":"Black and white, harsh noon sun","image":"images/portrait-009.webp",
-     "prompt":"Black and white portrait shot in harsh overhead noon sun, deep shadows in the eye sockets and under the nose, strong contrast, grain pushed. Subject squinting slightly, sweat on the forehead, plain concrete wall behind. Tri-X pushed to 1600, 35mm."},
-    {"id":"portrait-010","category":"portrait","title":"Neon-lit night portrait","image":"images/portrait-010.webp",
-     "prompt":"Night portrait lit only by shop signage, magenta from frame left and cyan from frame right meeting across the face, wet street reflections out of focus behind. Rain on the shoulders of a dark jacket. 50mm at f/1.4, slight motion in the background, subject still and sharp."},
-    {"id":"portrait-011","category":"portrait","title":"Charcoal drawing on toned paper","image":"images/portrait-011.webp",
-     "prompt":"A charcoal portrait drawn on mid-grey toned paper, white chalk for the highlights, compressed charcoal for the darks, the paper tone doing the mid-values. Loose hatching around the edges, tight rendering only around the eyes. Smudged, worked, visibly hand-made."},
-    {"id":"portrait-012","category":"portrait","title":"Corporate headshot, clean and even","image":"images/portrait-012.webp",
-     "prompt":"A clean corporate headshot, large softbox front and slightly above, subtle fill from below, seamless mid-grey background with a soft gradient. Navy blazer, neutral friendly expression, sharp from the eyes to the collar. The kind of image that goes on a company about page."},
-
-    {"id":"infographic-001","category":"infographic","title":"Quote card with rule lines","image":"images/infographic-001.webp",
-     "prompt":"A minimal quote card layout: the words \"MEASURE TWICE\" set large in a condensed grotesque, a thin horizontal rule beneath, and \"CUT ONCE\" smaller and right-aligned below it. Cream background, near-black type, generous margins. Nothing else in the frame."},
-    {"id":"infographic-002","category":"infographic","title":"Bento grid, four modules","image":"images/infographic-002.webp",
-     "prompt":"A bento-box dashboard layout with four rounded rectangular modules of different sizes on a soft grey background. Each module holds a simple abstract chart — one bar, one donut, one sparkline, one large number. Soft shadows, generous padding, one teal accent colour, no legible body text."},
-    {"id":"infographic-003","category":"infographic","title":"Cutaway diagram with leader lines","image":"images/infographic-003.webp",
-     "prompt":"A technical cutaway of a thermos flask, drawn as a clean line diagram with the interior layers visible, thin leader lines pointing out from four components to empty label positions at the edges. No text on the labels — just the lines and the dots. White background, single ink weight."},
-    {"id":"infographic-004","category":"infographic","title":"Chalkboard summary, three points","image":"images/infographic-004.webp",
-     "prompt":"A slate chalkboard with a hand-lettered heading reading \"TODAY\" and three short bullet lines beneath it, drawn in white chalk with a yellow chalk underline on the heading. Chalk dust haze, uneven pressure, a partly erased smudge in one corner. Shot straight on."},
-    {"id":"infographic-005","category":"infographic","title":"Vintage patent drawing","image":"images/infographic-005.webp",
-     "prompt":"A vintage patent illustration of a folding bicycle, black ink line work on aged off-white paper, hatched shading, numbered reference marks beside the components, a ruled border around the sheet. Figure numbers only, no descriptive text. The aesthetic of a 1920s patent office filing."},
-    {"id":"infographic-006","category":"infographic","title":"Weather card, single glyph","image":"images/infographic-006.webp",
-     "prompt":"A weather card: a large simple cloud-and-rain glyph centred, the numerals \"14°\" beneath it in a geometric sans, and nothing else. Deep blue gradient background, white elements, soft outer glow on the glyph. Square, app-icon proportions."},
-    {"id":"infographic-007","category":"infographic","title":"Watercolour map with regions","image":"images/infographic-007.webp",
-     "prompt":"A watercolour map of an invented island divided into five regions, each washed in a different muted colour with visible pigment granulation and soft bleeding at the borders. Thin brown ink coastline drawn over the wash, a small compass rose in the corner. No place names."},
-    {"id":"infographic-008","category":"infographic","title":"Timeline ribbon, five markers","image":"images/infographic-008.webp",
-     "prompt":"A horizontal timeline drawn as a flat ribbon curving gently across the frame, five circular markers spaced along it, alternating above and below, each marker containing a single simple icon. One accent colour against off-white, plenty of empty space. No text."},
-    {"id":"infographic-009","category":"infographic","title":"Comparison table, two columns","image":"images/infographic-009.webp",
-     "prompt":"A clean two-column comparison layout, left column headed \"BEFORE\" and right headed \"AFTER\", each column a stack of four rounded rows with a check or cross glyph and a short blank bar where text would sit. Light background, green ticks, red crosses, hairline dividers."},
-    {"id":"infographic-010","category":"infographic","title":"Isometric process, three stages","image":"images/infographic-010.webp",
-     "prompt":"Three isometric blocks arranged diagonally across the frame representing stages of a process, connected by thick arrows, each block a simplified object — a box, a gear, a package. Flat colour with a single light source, long soft shadows, pastel palette, white background."},
-
-    {"id":"collectible-001","category":"collectible","title":"Vinyl figure in blister pack","image":"images/collectible-001.webp",
-     "prompt":"A stylised vinyl collectible figure of a small astronaut sealed in a blister pack against a printed cardboard backer, shot straight on under even studio light. The plastic bubble catches a soft reflection. Matte figure finish, chunky proportions, oversized helmet. The backer is a flat two-colour print."},
-    {"id":"collectible-002","category":"collectible","title":"Enamel pin on denim","image":"images/collectible-002.webp",
-     "prompt":"A hard enamel pin shaped like a crescent moon with a small star, gold plating between the colour fields, pinned to indigo denim. Macro, shallow depth of field, raking light picking out the polished metal ridges and the slight dome of the enamel."},
-    {"id":"collectible-003","category":"collectible","title":"Keycap set, macro","image":"images/collectible-003.webp",
-     "prompt":"Four artisan keycaps arranged in a row on a dark desk mat, each cast in translucent resin with a different suspended pigment swirl, dye-sublimated legends on the flat top. Macro at f/5.6, soft top light, visible resin depth and a tiny air bubble in one cap."},
-    {"id":"collectible-004","category":"collectible","title":"Trading card with foil border","image":"images/collectible-004.webp",
-     "prompt":"A collectible trading card lying at a slight angle on black felt, holographic foil border catching a rainbow sheen, illustrated creature artwork in the central panel, rounded corners, a thin dark frame. The foil should scatter light unevenly across the border only."},
-    {"id":"collectible-005","category":"collectible","title":"Knitted plush on shelf","image":"images/collectible-005.webp",
-     "prompt":"A hand-knitted plush fox sitting on a pale wooden shelf, chunky visible stitches in rust and cream yarn, slightly uneven ears, embroidered eyes. Soft window light from the left, plain white wall behind, shallow depth of field."},
-    {"id":"collectible-006","category":"collectible","title":"Die-cast model on turntable","image":"images/collectible-006.webp",
-     "prompt":"A 1:64 die-cast model of a boxy 1980s estate car on a black acrylic turntable, three-quarter front view, studio strip lights reflected in the paint as two long soft highlights. Rubber tyres, printed number plate, tiny visible casting seam along the roof."},
-    {"id":"collectible-007","category":"collectible","title":"Resin diorama in a jar","image":"images/collectible-007.webp",
-     "prompt":"A miniature diorama sealed inside a clear glass jar: a tiny pine forest on a mossy hill with a single lit cabin window, cast in clear resin that reads as still water at the base. Backlit so the resin glows, everything else in shadow. Macro, dark background."},
-    {"id":"collectible-008","category":"collectible","title":"Rubber duck, studio product shot","image":"images/collectible-008.webp",
-     "prompt":"A matte black rubber duck on a white acrylic surface with a soft reflection beneath it, single large softbox above and behind, a thin rim of light along the top edge of the head and back. Minimal, high-end product photography of a deliberately silly object."},
-
-    {"id":"stationery-001","category":"stationery","title":"Letterpress card, deep impression","image":"images/stationery-001.webp",
-     "prompt":"A letterpress business card photographed at a raking angle so the deep impression of the type casts visible shadow in the cotton stock. The card reads \"NORTHFIELD & CO\" in a small caps serif with a thin rule beneath. Ecru paper, single black ink, deckled edge on one side."},
-    {"id":"stationery-002","category":"stationery","title":"Wax seal on kraft envelope","image":"images/stationery-002.webp",
-     "prompt":"A deep red wax seal pressed with a simple monogram, closing the flap of a kraft paper envelope on a dark wood surface. Warm side light, the wax showing the ridge and slight overflow of a real pour. Shallow depth of field, envelope corner in frame."},
-    {"id":"stationery-003","category":"stationery","title":"Notebook flat lay, ruled paper","image":"images/stationery-003.webp",
-     "prompt":"An open notebook flat lay on a linen surface, ruled cream pages, a fountain pen resting in the gutter, a small brass paperclip at the corner. Soft even overhead light, no harsh shadows, muted palette. The pages are blank — no writing."},
-    {"id":"stationery-004","category":"stationery","title":"Shipping label on parcel","image":"images/stationery-004.webp",
-     "prompt":"A brown paper parcel tied with cotton twine, a plain white shipping label affixed at a slight angle reading \"FRAGILE\" in bold condensed capitals with a thick black border. Overhead studio light, visible paper fibre and the shadow line under the twine."},
-    {"id":"stationery-005","category":"stationery","title":"Ticket stub, torn edge","image":"images/stationery-005.webp",
-     "prompt":"A torn ticket stub on a dark surface, letterpress-printed in two colours with \"ADMIT ONE\" across the middle and a perforated edge where the other half was removed. Aged card stock, slight foxing, one corner soft with wear. Macro, single light from the left."},
-    {"id":"stationery-006","category":"stationery","title":"Rubber stamp impression","image":"images/stationery-006.webp",
-     "prompt":"A rubber stamp impression of the word \"PAID\" struck in red ink at a slight angle on an off-white document, deliberately uneven — heavier on one side, a gap where the rubber lifted. The wooden stamp itself resting beside it, out of focus. Overhead, flat light."}
+    {
+      "id": "portrait-001",
+      "category": "portrait",
+      "title": "Window-light portrait, 85mm",
+      "image": "images/portrait-001.webp",
+      "prompt": "A portrait of a woman in her thirties beside a north-facing window, 85mm at f/1.8, soft directional daylight falling across one side of the face and the other dropping into gentle shadow. Natural skin texture with visible pores, no retouching, catchlight in both eyes. Charcoal wool sweater, plain warm grey wall behind, shallow depth of field.",
+      "params": {
+        "seed": 1613165866
+      }
+    },
+    {
+      "id": "portrait-002",
+      "category": "portrait",
+      "title": "High-contrast studio, single hard light",
+      "image": "images/portrait-002.webp",
+      "prompt": "Studio portrait of a man in his forties, single hard light high and to camera left, deep shadow filling the right of the face, black seamless background. Sharp specular highlight on the cheekbone, close-cropped beard, direct eye contact with the lens. Medium format look, 110mm equivalent.",
+      "params": {
+        "seed": 1110166560
+      }
+    },
+    {
+      "id": "portrait-003",
+      "category": "portrait",
+      "title": "Golden hour backlit, rim light",
+      "image": "images/portrait-003.webp",
+      "prompt": "Backlit outdoor portrait at golden hour, sun directly behind the subject creating a bright rim along the hair and shoulders, face lifted by soft bounce. Warm haze, out-of-focus grass and fence line behind. Linen shirt, relaxed expression, 135mm compression, f/2.",
+      "params": {
+        "seed": 648134594
+      }
+    },
+    {
+      "id": "portrait-004",
+      "category": "portrait",
+      "title": "Overcast environmental portrait",
+      "image": "images/portrait-004.webp",
+      "prompt": "Environmental portrait of a woodworker standing in her shop doorway under flat overcast light, sawdust on a canvas apron, hands relaxed at her sides. The shop interior falls off into darkness behind her. 35mm, waist up, documentary framing with the doorframe as a natural border.",
+      "params": {
+        "seed": 1794897089
+      }
+    },
+    {
+      "id": "portrait-005",
+      "category": "portrait",
+      "title": "Portra 400 candid, mixed indoor light",
+      "image": "images/portrait-005.webp",
+      "prompt": "Candid indoor portrait on Kodak Portra 400, a man laughing mid-conversation at a kitchen table, tungsten lamp warm on one side and cool window light on the other. Visible film grain, soft halation on the highlights, slightly warm cast. 50mm, handheld, not looking at the camera.",
+      "params": {
+        "seed": 1126231015
+      }
+    },
+    {
+      "id": "portrait-006",
+      "category": "portrait",
+      "title": "Profile silhouette against sky",
+      "image": "images/portrait-006.webp",
+      "prompt": "Pure profile view of a person against a bright overcast sky, exposed for the sky so the face reads as a clean dark silhouette with only the eyelash line and nose bridge catching light. Minimal, high key background, no detail in the shadow. Square crop.",
+      "params": {
+        "seed": 2099062475
+      }
+    },
+    {
+      "id": "portrait-007",
+      "category": "portrait",
+      "title": "Painterly oil portrait, chiaroscuro",
+      "image": "images/portrait-007.webp",
+      "prompt": "An oil painting portrait in the chiaroscuro tradition, three-quarter view, single warm light source from upper left, background falling to near black. Visible brushwork in the flesh tones, glazed shadows, muted earth palette of ochre, umber and lead white. Not photorealistic — the paint should be visible.",
+      "params": {
+        "seed": 1461986812
+      }
+    },
+    {
+      "id": "portrait-008",
+      "category": "portrait",
+      "title": "Flat vector avatar, two tones",
+      "image": "images/portrait-008.webp",
+      "prompt": "A flat vector avatar bust of a person with short curly hair and round glasses, exactly two flat colours plus white, no gradients, no outlines, geometric simplification of the features. Centred in a circle on a plain background. The kind of mark that still reads at 32 pixels.",
+      "params": {
+        "seed": 1251562984
+      }
+    },
+    {
+      "id": "portrait-009",
+      "category": "portrait",
+      "title": "Black and white, harsh noon sun",
+      "image": "images/portrait-009.webp",
+      "prompt": "Black and white portrait shot in harsh overhead noon sun, deep shadows in the eye sockets and under the nose, strong contrast, grain pushed. Subject squinting slightly, sweat on the forehead, plain concrete wall behind. Tri-X pushed to 1600, 35mm.",
+      "params": {
+        "seed": 1915439531
+      }
+    },
+    {
+      "id": "portrait-010",
+      "category": "portrait",
+      "title": "Neon-lit night portrait",
+      "image": "images/portrait-010.webp",
+      "prompt": "Night portrait lit only by shop signage, magenta from frame left and cyan from frame right meeting across the face, wet street reflections out of focus behind. Rain on the shoulders of a dark jacket. 50mm at f/1.4, slight motion in the background, subject still and sharp.",
+      "params": {
+        "seed": 416503906
+      }
+    },
+    {
+      "id": "portrait-011",
+      "category": "portrait",
+      "title": "Charcoal drawing on toned paper",
+      "image": "images/portrait-011.webp",
+      "prompt": "A charcoal portrait drawn on mid-grey toned paper, white chalk for the highlights, compressed charcoal for the darks, the paper tone doing the mid-values. Loose hatching around the edges, tight rendering only around the eyes. Smudged, worked, visibly hand-made.",
+      "params": {
+        "seed": 121909817
+      }
+    },
+    {
+      "id": "portrait-012",
+      "category": "portrait",
+      "title": "Corporate headshot, clean and even",
+      "image": "images/portrait-012.webp",
+      "prompt": "A clean corporate headshot, large softbox front and slightly above, subtle fill from below, seamless mid-grey background with a soft gradient. Navy blazer, neutral friendly expression, sharp from the eyes to the collar. The kind of image that goes on a company about page.",
+      "params": {
+        "seed": 639894452
+      }
+    },
+    {
+      "id": "infographic-001",
+      "category": "infographic",
+      "title": "Quote card with rule lines",
+      "image": "images/infographic-001.webp",
+      "prompt": "A minimal quote card layout: the words \"MEASURE TWICE\" set large in a condensed grotesque, a thin horizontal rule beneath, and \"CUT ONCE\" smaller and right-aligned below it. Cream background, near-black type, generous margins. Nothing else in the frame.",
+      "params": {
+        "seed": 662649445
+      }
+    },
+    {
+      "id": "infographic-002",
+      "category": "infographic",
+      "title": "Bento grid, four modules",
+      "image": "images/infographic-002.webp",
+      "prompt": "A bento-box dashboard layout with four rounded rectangular modules of different sizes on a soft grey background. Each module holds a simple abstract chart — one bar, one donut, one sparkline, one large number. Soft shadows, generous padding, one teal accent colour, no legible body text.",
+      "params": {
+        "seed": 1870145278
+      }
+    },
+    {
+      "id": "infographic-003",
+      "category": "infographic",
+      "title": "Cutaway diagram with leader lines",
+      "image": "images/infographic-003.webp",
+      "prompt": "A technical cutaway of a thermos flask, drawn as a clean line diagram with the interior layers visible, thin leader lines pointing out from four components to empty label positions at the edges. No text on the labels — just the lines and the dots. White background, single ink weight.",
+      "params": {
+        "seed": 2045906439
+      }
+    },
+    {
+      "id": "infographic-004",
+      "category": "infographic",
+      "title": "Chalkboard summary, three points",
+      "image": "images/infographic-004.webp",
+      "prompt": "A slate chalkboard with a hand-lettered heading reading \"TODAY\" and three short bullet lines beneath it, drawn in white chalk with a yellow chalk underline on the heading. Chalk dust haze, uneven pressure, a partly erased smudge in one corner. Shot straight on.",
+      "params": {
+        "seed": 1043088059
+      }
+    },
+    {
+      "id": "infographic-005",
+      "category": "infographic",
+      "title": "Vintage patent drawing",
+      "image": "images/infographic-005.webp",
+      "prompt": "A vintage patent illustration of a folding bicycle, black ink line work on aged off-white paper, hatched shading, numbered reference marks beside the components, a ruled border around the sheet. Figure numbers only, no descriptive text. The aesthetic of a 1920s patent office filing.",
+      "params": {
+        "seed": 1151604106
+      }
+    },
+    {
+      "id": "infographic-006",
+      "category": "infographic",
+      "title": "Weather card, single glyph",
+      "image": "images/infographic-006.webp",
+      "prompt": "A weather card: a large simple cloud-and-rain glyph centred, the numerals \"14°\" beneath it in a geometric sans, and nothing else. Deep blue gradient background, white elements, soft outer glow on the glyph. Square, app-icon proportions.",
+      "params": {
+        "seed": 487662832
+      }
+    },
+    {
+      "id": "infographic-007",
+      "category": "infographic",
+      "title": "Watercolour map with regions",
+      "image": "images/infographic-007.webp",
+      "prompt": "A watercolour map of an invented island divided into five regions, each washed in a different muted colour with visible pigment granulation and soft bleeding at the borders. Thin brown ink coastline drawn over the wash, a small compass rose in the corner. No place names.",
+      "params": {
+        "seed": 125241101
+      }
+    },
+    {
+      "id": "infographic-008",
+      "category": "infographic",
+      "title": "Timeline ribbon, five markers",
+      "image": "images/infographic-008.webp",
+      "prompt": "A horizontal timeline drawn as a flat ribbon curving gently across the frame, five circular markers spaced along it, alternating above and below, each marker containing a single simple icon. One accent colour against off-white, plenty of empty space. No text.",
+      "params": {
+        "seed": 1089997705
+      }
+    },
+    {
+      "id": "infographic-009",
+      "category": "infographic",
+      "title": "Comparison table, two columns",
+      "image": "images/infographic-009.webp",
+      "prompt": "A clean two-column comparison layout, left column headed \"BEFORE\" and right headed \"AFTER\", each column a stack of four rounded rows with a check or cross glyph and a short blank bar where text would sit. Light background, green ticks, red crosses, hairline dividers.",
+      "params": {
+        "seed": 536645071
+      }
+    },
+    {
+      "id": "infographic-010",
+      "category": "infographic",
+      "title": "Isometric process, three stages",
+      "image": "images/infographic-010.webp",
+      "prompt": "Three isometric blocks arranged diagonally across the frame representing stages of a process, connected by thick arrows, each block a simplified object — a box, a gear, a package. Flat colour with a single light source, long soft shadows, pastel palette, white background.",
+      "params": {
+        "seed": 2043998615
+      }
+    },
+    {
+      "id": "collectible-001",
+      "category": "collectible",
+      "title": "Vinyl figure in blister pack",
+      "image": "images/collectible-001.webp",
+      "prompt": "A stylised vinyl collectible figure of a small astronaut sealed in a blister pack against a printed cardboard backer, shot straight on under even studio light. The plastic bubble catches a soft reflection. Matte figure finish, chunky proportions, oversized helmet. The backer is a flat two-colour print.",
+      "params": {
+        "seed": 641600971
+      }
+    },
+    {
+      "id": "collectible-002",
+      "category": "collectible",
+      "title": "Enamel pin on denim",
+      "image": "images/collectible-002.webp",
+      "prompt": "A hard enamel pin shaped like a crescent moon with a small star, gold plating between the colour fields, pinned to indigo denim. Macro, shallow depth of field, raking light picking out the polished metal ridges and the slight dome of the enamel.",
+      "params": {
+        "seed": 317255029
+      }
+    },
+    {
+      "id": "collectible-003",
+      "category": "collectible",
+      "title": "Keycap set, macro",
+      "image": "images/collectible-003.webp",
+      "prompt": "Four artisan keycaps arranged in a row on a dark desk mat, each cast in translucent resin with a different suspended pigment swirl, dye-sublimated legends on the flat top. Macro at f/5.6, soft top light, visible resin depth and a tiny air bubble in one cap.",
+      "params": {
+        "seed": 1958353167
+      }
+    },
+    {
+      "id": "collectible-004",
+      "category": "collectible",
+      "title": "Trading card with foil border",
+      "image": "images/collectible-004.webp",
+      "prompt": "A collectible trading card lying at a slight angle on black felt, holographic foil border catching a rainbow sheen, illustrated creature artwork in the central panel, rounded corners, a thin dark frame. The foil should scatter light unevenly across the border only.",
+      "params": {
+        "seed": 167021886
+      }
+    },
+    {
+      "id": "collectible-005",
+      "category": "collectible",
+      "title": "Knitted plush on shelf",
+      "image": "images/collectible-005.webp",
+      "prompt": "A hand-knitted plush fox sitting on a pale wooden shelf, chunky visible stitches in rust and cream yarn, slightly uneven ears, embroidered eyes. Soft window light from the left, plain white wall behind, shallow depth of field.",
+      "params": {
+        "seed": 1717706071
+      }
+    },
+    {
+      "id": "collectible-006",
+      "category": "collectible",
+      "title": "Die-cast model on turntable",
+      "image": "images/collectible-006.webp",
+      "prompt": "A 1:64 die-cast model of a boxy 1980s estate car on a black acrylic turntable, three-quarter front view, studio strip lights reflected in the paint as two long soft highlights. Rubber tyres, printed number plate, tiny visible casting seam along the roof.",
+      "params": {
+        "seed": 161380541
+      }
+    },
+    {
+      "id": "collectible-007",
+      "category": "collectible",
+      "title": "Resin diorama in a jar",
+      "image": "images/collectible-007.webp",
+      "prompt": "A miniature diorama sealed inside a clear glass jar: a tiny pine forest on a mossy hill with a single lit cabin window, cast in clear resin that reads as still water at the base. Backlit so the resin glows, everything else in shadow. Macro, dark background.",
+      "params": {
+        "seed": 506403015
+      }
+    },
+    {
+      "id": "collectible-008",
+      "category": "collectible",
+      "title": "Rubber duck, studio product shot",
+      "image": "images/collectible-008.webp",
+      "prompt": "A matte black rubber duck on a white acrylic surface with a soft reflection beneath it, single large softbox above and behind, a thin rim of light along the top edge of the head and back. Minimal, high-end product photography of a deliberately silly object.",
+      "params": {
+        "seed": 1935262212
+      }
+    },
+    {
+      "id": "stationery-001",
+      "category": "stationery",
+      "title": "Letterpress card, deep impression",
+      "image": "images/stationery-001.webp",
+      "prompt": "A letterpress business card photographed at a raking angle so the deep impression of the type casts visible shadow in the cotton stock. The card reads \"NORTHFIELD & CO\" in a small caps serif with a thin rule beneath. Ecru paper, single black ink, deckled edge on one side.",
+      "params": {
+        "seed": 1926545409
+      }
+    },
+    {
+      "id": "stationery-002",
+      "category": "stationery",
+      "title": "Wax seal on kraft envelope",
+      "image": "images/stationery-002.webp",
+      "prompt": "A deep red wax seal pressed with a simple monogram, closing the flap of a kraft paper envelope on a dark wood surface. Warm side light, the wax showing the ridge and slight overflow of a real pour. Shallow depth of field, envelope corner in frame.",
+      "params": {
+        "seed": 444300041
+      }
+    },
+    {
+      "id": "stationery-003",
+      "category": "stationery",
+      "title": "Notebook flat lay, ruled paper",
+      "image": "images/stationery-003.webp",
+      "prompt": "An open notebook flat lay on a linen surface, ruled cream pages, a fountain pen resting in the gutter, a small brass paperclip at the corner. Soft even overhead light, no harsh shadows, muted palette. The pages are blank — no writing.",
+      "params": {
+        "seed": 1719173423
+      }
+    },
+    {
+      "id": "stationery-004",
+      "category": "stationery",
+      "title": "Shipping label on parcel",
+      "image": "images/stationery-004.webp",
+      "prompt": "A brown paper parcel tied with cotton twine, a plain white shipping label affixed at a slight angle reading \"FRAGILE\" in bold condensed capitals with a thick black border. Overhead studio light, visible paper fibre and the shadow line under the twine.",
+      "params": {
+        "seed": 1043227084
+      }
+    },
+    {
+      "id": "stationery-005",
+      "category": "stationery",
+      "title": "Ticket stub, torn edge",
+      "image": "images/stationery-005.webp",
+      "prompt": "A torn ticket stub on a dark surface, letterpress-printed in two colours with \"ADMIT ONE\" across the middle and a perforated edge where the other half was removed. Aged card stock, slight foxing, one corner soft with wear. Macro, single light from the left.",
+      "params": {
+        "seed": 1333487198
+      }
+    },
+    {
+      "id": "stationery-006",
+      "category": "stationery",
+      "title": "Rubber stamp impression",
+      "image": "images/stationery-006.webp",
+      "prompt": "A rubber stamp impression of the word \"PAID\" struck in red ink at a slight angle on an off-white document, deliberately uneven — heavier on one side, a gap where the rubber lifted. The wooden stamp itself resting beside it, out of focus. Overhead, flat light.",
+      "params": {
+        "seed": 2044996526
+      }
+    }
   ]
 }

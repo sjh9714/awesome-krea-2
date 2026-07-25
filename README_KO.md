@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">Krea 2 Turbo용 재현 가능한 프롬프트 85개, 7개 카테고리. 모든 프롬프트는 복사해서 바로 쓸 수 있고 모든 이미지는 실제 출력물입니다.</p>
+<p align="center">Krea 2 Turbo용 재현 가능한 프롬프트 112개, 11개 카테고리. 모든 프롬프트는 복사해서 바로 쓸 수 있고 모든 이미지는 실제 출력물입니다.</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
@@ -15,7 +15,7 @@
 
 ## 카테고리
 
-**85 개 프롬프트, 전부 시드 기록** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5
+**112 개 프롬프트, 전부 시드 기록** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6
 
 
 ## photography
@@ -1091,6 +1091,350 @@ Re-render this exploded camera diagram as a cyanotype blueprint: white line work
 _Image-to-image from **Exploded isometric — camera** ([`isometric-3d-005`](#exploded-isometric--camera)) in this repo · `strength: 0.6`_
 
 `seed: 1652457598`
+
+
+## portrait
+
+_Profile pictures and avatars — the single most requested category in every prompt catalog measured_
+
+### Window-light portrait, 85mm
+
+<img src="images/portrait-001.webp" width="420" alt="Window-light portrait, 85mm">
+
+**프롬프트**
+
+```text
+A portrait of a woman in her thirties beside a north-facing window, 85mm at f/1.8, soft directional daylight falling across one side of the face and the other dropping into gentle shadow. Natural skin texture with visible pores, no retouching, catchlight in both eyes. Charcoal wool sweater, plain warm grey wall behind, shallow depth of field.
+```
+
+`seed: 1613165866`
+
+### High-contrast studio, single hard light
+
+<img src="images/portrait-002.webp" width="420" alt="High-contrast studio, single hard light">
+
+**프롬프트**
+
+```text
+Studio portrait of a man in his forties, single hard light high and to camera left, deep shadow filling the right of the face, black seamless background. Sharp specular highlight on the cheekbone, close-cropped beard, direct eye contact with the lens. Medium format look, 110mm equivalent.
+```
+
+`seed: 1110166560`
+
+### Golden hour backlit, rim light
+
+<img src="images/portrait-003.webp" width="420" alt="Golden hour backlit, rim light">
+
+**프롬프트**
+
+```text
+Backlit outdoor portrait at golden hour, sun directly behind the subject creating a bright rim along the hair and shoulders, face lifted by soft bounce. Warm haze, out-of-focus grass and fence line behind. Linen shirt, relaxed expression, 135mm compression, f/2.
+```
+
+`seed: 648134594`
+
+### Overcast environmental portrait
+
+<img src="images/portrait-004.webp" width="420" alt="Overcast environmental portrait">
+
+**프롬프트**
+
+```text
+Environmental portrait of a woodworker standing in her shop doorway under flat overcast light, sawdust on a canvas apron, hands relaxed at her sides. The shop interior falls off into darkness behind her. 35mm, waist up, documentary framing with the doorframe as a natural border.
+```
+
+`seed: 1794897089`
+
+### Portra 400 candid, mixed indoor light
+
+<img src="images/portrait-005.webp" width="420" alt="Portra 400 candid, mixed indoor light">
+
+**프롬프트**
+
+```text
+Candid indoor portrait on Kodak Portra 400, a man laughing mid-conversation at a kitchen table, tungsten lamp warm on one side and cool window light on the other. Visible film grain, soft halation on the highlights, slightly warm cast. 50mm, handheld, not looking at the camera.
+```
+
+`seed: 1126231015`
+
+### Painterly oil portrait, chiaroscuro
+
+<img src="images/portrait-007.webp" width="420" alt="Painterly oil portrait, chiaroscuro">
+
+**프롬프트**
+
+```text
+An oil painting portrait in the chiaroscuro tradition, three-quarter view, single warm light source from upper left, background falling to near black. Visible brushwork in the flesh tones, glazed shadows, muted earth palette of ochre, umber and lead white. Not photorealistic — the paint should be visible.
+```
+
+`seed: 1461986812`
+
+### Black and white, harsh noon sun
+
+<img src="images/portrait-009.webp" width="420" alt="Black and white, harsh noon sun">
+
+**프롬프트**
+
+```text
+Black and white portrait shot in harsh overhead noon sun, deep shadows in the eye sockets and under the nose, strong contrast, grain pushed. Subject squinting slightly, sweat on the forehead, plain concrete wall behind. Tri-X pushed to 1600, 35mm.
+```
+
+`seed: 1915439531`
+
+### Charcoal drawing on toned paper
+
+<img src="images/portrait-011.webp" width="420" alt="Charcoal drawing on toned paper">
+
+**프롬프트**
+
+```text
+A charcoal portrait drawn on mid-grey toned paper, white chalk for the highlights, compressed charcoal for the darks, the paper tone doing the mid-values. Loose hatching around the edges, tight rendering only around the eyes. Smudged, worked, visibly hand-made.
+```
+
+`seed: 121909817`
+
+
+## infographic
+
+_Explainer layouts, quote cards, dashboards — text-heavy by design, which is where this model is weakest and most worth documenting_
+
+### Quote card with rule lines
+
+<img src="images/infographic-001.webp" width="420" alt="Quote card with rule lines">
+
+**프롬프트**
+
+```text
+A minimal quote card layout: the words "MEASURE TWICE" set large in a condensed grotesque, a thin horizontal rule beneath, and "CUT ONCE" smaller and right-aligned below it. Cream background, near-black type, generous margins. Nothing else in the frame.
+```
+
+`seed: 662649445`
+
+### Bento grid, four modules
+
+<img src="images/infographic-002.webp" width="420" alt="Bento grid, four modules">
+
+**프롬프트**
+
+```text
+A bento-box dashboard layout with four rounded rectangular modules of different sizes on a soft grey background. Each module holds a simple abstract chart — one bar, one donut, one sparkline, one large number. Soft shadows, generous padding, one teal accent colour, no legible body text.
+```
+
+`seed: 1870145278`
+
+### Cutaway diagram with leader lines
+
+<img src="images/infographic-003.webp" width="420" alt="Cutaway diagram with leader lines">
+
+**프롬프트**
+
+```text
+A technical cutaway of a thermos flask, drawn as a clean line diagram with the interior layers visible, thin leader lines pointing out from four components to empty label positions at the edges. No text on the labels — just the lines and the dots. White background, single ink weight.
+```
+
+`seed: 2045906439`
+
+### Vintage patent drawing
+
+<img src="images/infographic-005.webp" width="420" alt="Vintage patent drawing">
+
+**프롬프트**
+
+```text
+A vintage patent illustration of a folding bicycle, black ink line work on aged off-white paper, hatched shading, numbered reference marks beside the components, a ruled border around the sheet. Figure numbers only, no descriptive text. The aesthetic of a 1920s patent office filing.
+```
+
+`seed: 1151604106`
+
+### Weather card, single glyph
+
+<img src="images/infographic-006.webp" width="420" alt="Weather card, single glyph">
+
+**프롬프트**
+
+```text
+A weather card: a large simple cloud-and-rain glyph centred, the numerals "14°" beneath it in a geometric sans, and nothing else. Deep blue gradient background, white elements, soft outer glow on the glyph. Square, app-icon proportions.
+```
+
+`seed: 487662832`
+
+### Timeline ribbon, five markers
+
+<img src="images/infographic-008.webp" width="420" alt="Timeline ribbon, five markers">
+
+**프롬프트**
+
+```text
+A horizontal timeline drawn as a flat ribbon curving gently across the frame, five circular markers spaced along it, alternating above and below, each marker containing a single simple icon. One accent colour against off-white, plenty of empty space. No text.
+```
+
+`seed: 1089997705`
+
+### Comparison table, two columns
+
+<img src="images/infographic-009.webp" width="420" alt="Comparison table, two columns">
+
+**프롬프트**
+
+```text
+A clean two-column comparison layout, left column headed "BEFORE" and right headed "AFTER", each column a stack of four rounded rows with a check or cross glyph and a short blank bar where text would sit. Light background, green ticks, red crosses, hairline dividers.
+```
+
+`seed: 536645071`
+
+### Isometric process, three stages
+
+<img src="images/infographic-010.webp" width="420" alt="Isometric process, three stages">
+
+**프롬프트**
+
+```text
+Three isometric blocks arranged diagonally across the frame representing stages of a process, connected by thick arrows, each block a simplified object — a box, a gear, a package. Flat colour with a single light source, long soft shadows, pastel palette, white background.
+```
+
+`seed: 2043998615`
+
+
+## collectible
+
+_Figurines, pins, keycaps, trading cards — physical-object mockups_
+
+### Vinyl figure in blister pack
+
+<img src="images/collectible-001.webp" width="420" alt="Vinyl figure in blister pack">
+
+**프롬프트**
+
+```text
+A stylised vinyl collectible figure of a small astronaut sealed in a blister pack against a printed cardboard backer, shot straight on under even studio light. The plastic bubble catches a soft reflection. Matte figure finish, chunky proportions, oversized helmet. The backer is a flat two-colour print.
+```
+
+`seed: 641600971`
+
+### Enamel pin on denim
+
+<img src="images/collectible-002.webp" width="420" alt="Enamel pin on denim">
+
+**프롬프트**
+
+```text
+A hard enamel pin shaped like a crescent moon with a small star, gold plating between the colour fields, pinned to indigo denim. Macro, shallow depth of field, raking light picking out the polished metal ridges and the slight dome of the enamel.
+```
+
+`seed: 317255029`
+
+### Knitted plush on shelf
+
+<img src="images/collectible-005.webp" width="420" alt="Knitted plush on shelf">
+
+**프롬프트**
+
+```text
+A hand-knitted plush fox sitting on a pale wooden shelf, chunky visible stitches in rust and cream yarn, slightly uneven ears, embroidered eyes. Soft window light from the left, plain white wall behind, shallow depth of field.
+```
+
+`seed: 1717706071`
+
+### Die-cast model on turntable
+
+<img src="images/collectible-006.webp" width="420" alt="Die-cast model on turntable">
+
+**프롬프트**
+
+```text
+A 1:64 die-cast model of a boxy 1980s estate car on a black acrylic turntable, three-quarter front view, studio strip lights reflected in the paint as two long soft highlights. Rubber tyres, printed number plate, tiny visible casting seam along the roof.
+```
+
+`seed: 161380541`
+
+### Resin diorama in a jar
+
+<img src="images/collectible-007.webp" width="420" alt="Resin diorama in a jar">
+
+**프롬프트**
+
+```text
+A miniature diorama sealed inside a clear glass jar: a tiny pine forest on a mossy hill with a single lit cabin window, cast in clear resin that reads as still water at the base. Backlit so the resin glows, everything else in shadow. Macro, dark background.
+```
+
+`seed: 506403015`
+
+
+## stationery
+
+_Cards, letterheads, packaging inserts_
+
+### Letterpress card, deep impression
+
+<img src="images/stationery-001.webp" width="420" alt="Letterpress card, deep impression">
+
+**프롬프트**
+
+```text
+A letterpress business card photographed at a raking angle so the deep impression of the type casts visible shadow in the cotton stock. The card reads "NORTHFIELD & CO" in a small caps serif with a thin rule beneath. Ecru paper, single black ink, deckled edge on one side.
+```
+
+`seed: 1926545409`
+
+### Wax seal on kraft envelope
+
+<img src="images/stationery-002.webp" width="420" alt="Wax seal on kraft envelope">
+
+**프롬프트**
+
+```text
+A deep red wax seal pressed with a simple monogram, closing the flap of a kraft paper envelope on a dark wood surface. Warm side light, the wax showing the ridge and slight overflow of a real pour. Shallow depth of field, envelope corner in frame.
+```
+
+`seed: 444300041`
+
+### Notebook flat lay, ruled paper
+
+<img src="images/stationery-003.webp" width="420" alt="Notebook flat lay, ruled paper">
+
+**프롬프트**
+
+```text
+An open notebook flat lay on a linen surface, ruled cream pages, a fountain pen resting in the gutter, a small brass paperclip at the corner. Soft even overhead light, no harsh shadows, muted palette. The pages are blank — no writing.
+```
+
+`seed: 1719173423`
+
+### Shipping label on parcel
+
+<img src="images/stationery-004.webp" width="420" alt="Shipping label on parcel">
+
+**프롬프트**
+
+```text
+A brown paper parcel tied with cotton twine, a plain white shipping label affixed at a slight angle reading "FRAGILE" in bold condensed capitals with a thick black border. Overhead studio light, visible paper fibre and the shadow line under the twine.
+```
+
+`seed: 1043227084`
+
+### Ticket stub, torn edge
+
+<img src="images/stationery-005.webp" width="420" alt="Ticket stub, torn edge">
+
+**프롬프트**
+
+```text
+A torn ticket stub on a dark surface, letterpress-printed in two colours with "ADMIT ONE" across the middle and a perforated edge where the other half was removed. Aged card stock, slight foxing, one corner soft with wear. Macro, single light from the left.
+```
+
+`seed: 1333487198`
+
+### Rubber stamp impression
+
+<img src="images/stationery-006.webp" width="420" alt="Rubber stamp impression">
+
+**프롬프트**
+
+```text
+A rubber stamp impression of the word "PAID" struck in red ink at a slight angle on an off-white document, deliberately uneven — heavier on one side, a gap where the rubber lifted. The wooden stamp itself resting beside it, out of focus. Overhead, flat light.
+```
+
+`seed: 2044996526`
 
 
 ## 기여하기

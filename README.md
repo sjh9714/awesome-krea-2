@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">85 reproducible prompts for Krea 2 Turbo, across 7 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
+<p align="center">112 reproducible prompts for Krea 2 Turbo, across 11 categories. Every prompt is copy-pasteable and every image is the actual output.</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
@@ -15,11 +15,11 @@
 
 ## Categories
 
-**85 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5
+**112 prompts, every one with its seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6
 
 ## What this model actually does
 
-Everything below was measured while building this catalog, not quoted from the model card. 114 generations went in, 85 are here, 29 were cut. Each claim names the entries that demonstrate it, and every entry carries the seed that produced it, so you can check any of this against the images in this repo.
+Everything below was measured while building this catalog, not quoted from the model card. 150 generations went in across two batches, 112 are here, 38 were cut. Each claim names the entries that demonstrate it, and every entry carries the seed that produced it, so you can check any of this against the images in this repo. Batch two kept a higher share — 27 of 36 against 85 of 114 — because it was written knowing what batch one had already ruled out. That is what these findings are for.
 
 ### Text survives one sign and dies on a list
 
@@ -49,6 +49,34 @@ Image-to-image is reliable when you ask for a different *rendering* of the same 
 It is unreliable when you ask it to add or remove *things*. Three attempts failed and were cut rather than shipped with captions that did not match the images: removing the steam from a mug returned the steam; adding snow and sea ice to a coastline returned the same coastline slightly cooler; darkening a sauna's window returned the window still lit.
 
 `strength` between 0.50 and 0.60 preserved composition while allowing the medium to change. No value made object-level edits work.
+
+### Numbers in a prompt are treated as flavour, not as a count
+
+Every constraint phrased as a quantity was ignored while the surrounding description was followed closely.
+
+I asked for a flat avatar in **exactly two flat colours plus white, no gradients** and got four colours with shading on the neck (**portrait-008**). I asked for a watercolour map **divided into five regions** and got eight (**infographic-007**). Both images are otherwise good — the avatar is clean, the map is genuinely lovely watercolour — which is what makes this worth writing down: the failure is invisible unless you go back and count.
+
+Note what did work. `infographic-009` asked for two columns of four rows and delivered exactly that; `infographic-008` asked for five markers and delivered five. The difference is that those counts are **structural** — a layout with a wrong number of rows stops looking like a table. A colour count or a region count has no structure holding it, so nothing pushes back.
+
+Practical rule: if a number matters and the layout would not visibly break without it, count the output yourself.
+
+### Name a light and you get the light. Name the softbox and you get the softbox.
+
+Twice in one batch, naming the physical lighting equipment put that equipment in the frame as a subject.
+
+`portrait-012` asked for a corporate headshot with a **large softbox front and slightly above** against a seamless grey background, and returned a portrait with two large white softboxes flanking the subject. `collectible-008` asked for a rubber duck under **a single large softbox above and behind** and returned a duck with a full lighting umbrella open behind it, filling half the frame.
+
+The prompts that worked describe the *light*, not the *fixture*: "hard low-angle late afternoon sun from frame right", "single hard light high and to camera left", "soft directional daylight". All three rendered the lighting condition with nothing extra in shot.
+
+Practical rule: say what the light does, never what makes it.
+
+### Single-string stationery is where this model is strongest
+
+The six `stationery-*` entries all rendered their text correctly on the first attempt — `NORTHFIELD & CO`, `FRAGILE`, `ADMIT ONE`, `PAID` — with no retries and nothing cut. That is the only category in this catalog with a 100% keep rate.
+
+`stationery-006` is the one to look at: the red `PAID` impression on the paper is correct, and the rubber stamp lying beside it carries the same word **mirrored**, which is what a real stamp face does. Nobody asked for that.
+
+This is the same rule as the typography finding, seen from the useful side. One string in one frame is not a limitation to work around; it is the shape the model is actually good at.
 
 ## The image-to-image entries, taken further
 
@@ -82,6 +110,15 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/fail-terminal.webp" width="150" alt="Text: the command line renders, the output beneath it does not"> | $ make install plus three lines of build output | Text: the command line renders, the output beneath it does not <br>`seed: 1530960951` |
 | <img src="images/failures/fail-identity.webp" width="150" alt="Identity: at strength 0.72 the scene is new and the person is not the same"> | The woman from reference-sheet-001 | Identity: at strength 0.72 the scene is new and the person is not the same <br>`seed: 1317515569` |
 | <img src="images/failures/fail-removal.webp" width="150" alt="Editing: asked to remove the steam, returns the steam"> | No steam | Editing: asked to remove the steam, returns the steam <br>`seed: 1499506316` |
+| <img src="images/failures/portrait-006.webp" width="150" alt="Portrait: asked for a silhouette, got a fully modelled face"> | A clean dark silhouette, exposed for the sky | Portrait: asked for a silhouette, got a fully modelled face <br>`seed: 2099062475` |
+| <img src="images/failures/portrait-008.webp" width="150" alt="Count: 'exactly two flat colours plus white' returned four plus shading"> | Two flat colours, no gradients | Count: 'exactly two flat colours plus white' returned four plus shading <br>`seed: 1251562984` |
+| <img src="images/failures/portrait-010.webp" width="150" alt="Light: two named colours from opposite sides did not cross on the face"> | Magenta from frame left and cyan from frame right meeting across the face | Light: two named colours from opposite sides did not cross on the face <br>`seed: 416503906` |
+| <img src="images/failures/portrait-012.webp" width="150" alt="Equipment: naming the softbox put the softbox in the frame"> | Seamless mid-grey background, light source out of shot | Equipment: naming the softbox put the softbox in the frame <br>`seed: 639894452` |
+| <img src="images/failures/infographic-004.webp" width="150" alt="Text: the chalk heading rendered, the three bullet lines under it did not"> | A heading plus three short bullet lines | Text: the chalk heading rendered, the three bullet lines under it did not <br>`seed: 1043088059` |
+| <img src="images/failures/infographic-007.webp" width="150" alt="Count: 'five regions' returned eight, and the ink coastline never appeared"> | Five regions with a thin brown ink coastline | Count: 'five regions' returned eight, and the ink coastline never appeared <br>`seed: 125241101` |
+| <img src="images/failures/collectible-003.webp" width="150" alt="Text: four keycap legends came back as letter-shaped noise"> | Four legible dye-sublimated legends | Text: four keycap legends came back as letter-shaped noise <br>`seed: 1958353167` |
+| <img src="images/failures/collectible-004.webp" width="150" alt="Layout: the creature artwork went to the top and the centre panel stayed empty"> | Illustrated creature artwork in the central panel | Layout: the creature artwork went to the top and the centre panel stayed empty <br>`seed: 167021886` |
+| <img src="images/failures/collectible-008.webp" width="150" alt="Equipment: naming the softbox put the softbox in the frame"> | A single softbox lighting the duck, out of shot | Equipment: naming the softbox put the softbox in the frame <br>`seed: 1935262212` |
 
 ## How this compares
 
@@ -89,7 +126,7 @@ Verified on 2026-07-25 by reading each repository's tree, README and data files,
 
 | | Prompts | Images in repo | Seeds / params | Failures shown | Measured cost |
 |---|---|---|---|---|---|
-| **this repo** | 85 | ✅ 93 | ✅ **all 85** | ✅ **8, with seeds** | ✅ **$0.96 / 114 gens** |
+| **this repo** | 85 | ✅ 93 | ✅ **all 85** | ✅ **8, with seeds** | ✅ **$1.26 / 150 gens** |
 | [YouMind/awesome-nano-banana-pro-prompts](https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts) · 12,956★ | 14,916 claimed, 129 in README | ❌ external CMS | ❌ | ❌ | ❌ |
 | [ZeroLu/awesome-nanobanana-pro](https://github.com/ZeroLu/awesome-nanobanana-pro) · 10,190★ | 70 | ❌ external, 3 already dead | ❌ | ❌ | ❌ |
 | [YouMind/awesome-gpt-image-2](https://github.com/YouMind-OpenLab/awesome-gpt-image-2) · 8,772★ | 13,663 claimed, 126 in README | ❌ external CMS | ❌ | ❌ | ❌ |
@@ -1177,6 +1214,350 @@ Re-render this exploded camera diagram as a cyanotype blueprint: white line work
 _Image-to-image from **Exploded isometric — camera** ([`isometric-3d-005`](#exploded-isometric--camera)) in this repo · `strength: 0.6`_
 
 `seed: 1652457598`
+
+
+## portrait
+
+_Profile pictures and avatars — the single most requested category in every prompt catalog measured_
+
+### Window-light portrait, 85mm
+
+<img src="images/portrait-001.webp" width="420" alt="Window-light portrait, 85mm">
+
+**Prompt**
+
+```text
+A portrait of a woman in her thirties beside a north-facing window, 85mm at f/1.8, soft directional daylight falling across one side of the face and the other dropping into gentle shadow. Natural skin texture with visible pores, no retouching, catchlight in both eyes. Charcoal wool sweater, plain warm grey wall behind, shallow depth of field.
+```
+
+`seed: 1613165866`
+
+### High-contrast studio, single hard light
+
+<img src="images/portrait-002.webp" width="420" alt="High-contrast studio, single hard light">
+
+**Prompt**
+
+```text
+Studio portrait of a man in his forties, single hard light high and to camera left, deep shadow filling the right of the face, black seamless background. Sharp specular highlight on the cheekbone, close-cropped beard, direct eye contact with the lens. Medium format look, 110mm equivalent.
+```
+
+`seed: 1110166560`
+
+### Golden hour backlit, rim light
+
+<img src="images/portrait-003.webp" width="420" alt="Golden hour backlit, rim light">
+
+**Prompt**
+
+```text
+Backlit outdoor portrait at golden hour, sun directly behind the subject creating a bright rim along the hair and shoulders, face lifted by soft bounce. Warm haze, out-of-focus grass and fence line behind. Linen shirt, relaxed expression, 135mm compression, f/2.
+```
+
+`seed: 648134594`
+
+### Overcast environmental portrait
+
+<img src="images/portrait-004.webp" width="420" alt="Overcast environmental portrait">
+
+**Prompt**
+
+```text
+Environmental portrait of a woodworker standing in her shop doorway under flat overcast light, sawdust on a canvas apron, hands relaxed at her sides. The shop interior falls off into darkness behind her. 35mm, waist up, documentary framing with the doorframe as a natural border.
+```
+
+`seed: 1794897089`
+
+### Portra 400 candid, mixed indoor light
+
+<img src="images/portrait-005.webp" width="420" alt="Portra 400 candid, mixed indoor light">
+
+**Prompt**
+
+```text
+Candid indoor portrait on Kodak Portra 400, a man laughing mid-conversation at a kitchen table, tungsten lamp warm on one side and cool window light on the other. Visible film grain, soft halation on the highlights, slightly warm cast. 50mm, handheld, not looking at the camera.
+```
+
+`seed: 1126231015`
+
+### Painterly oil portrait, chiaroscuro
+
+<img src="images/portrait-007.webp" width="420" alt="Painterly oil portrait, chiaroscuro">
+
+**Prompt**
+
+```text
+An oil painting portrait in the chiaroscuro tradition, three-quarter view, single warm light source from upper left, background falling to near black. Visible brushwork in the flesh tones, glazed shadows, muted earth palette of ochre, umber and lead white. Not photorealistic — the paint should be visible.
+```
+
+`seed: 1461986812`
+
+### Black and white, harsh noon sun
+
+<img src="images/portrait-009.webp" width="420" alt="Black and white, harsh noon sun">
+
+**Prompt**
+
+```text
+Black and white portrait shot in harsh overhead noon sun, deep shadows in the eye sockets and under the nose, strong contrast, grain pushed. Subject squinting slightly, sweat on the forehead, plain concrete wall behind. Tri-X pushed to 1600, 35mm.
+```
+
+`seed: 1915439531`
+
+### Charcoal drawing on toned paper
+
+<img src="images/portrait-011.webp" width="420" alt="Charcoal drawing on toned paper">
+
+**Prompt**
+
+```text
+A charcoal portrait drawn on mid-grey toned paper, white chalk for the highlights, compressed charcoal for the darks, the paper tone doing the mid-values. Loose hatching around the edges, tight rendering only around the eyes. Smudged, worked, visibly hand-made.
+```
+
+`seed: 121909817`
+
+
+## infographic
+
+_Explainer layouts, quote cards, dashboards — text-heavy by design, which is where this model is weakest and most worth documenting_
+
+### Quote card with rule lines
+
+<img src="images/infographic-001.webp" width="420" alt="Quote card with rule lines">
+
+**Prompt**
+
+```text
+A minimal quote card layout: the words "MEASURE TWICE" set large in a condensed grotesque, a thin horizontal rule beneath, and "CUT ONCE" smaller and right-aligned below it. Cream background, near-black type, generous margins. Nothing else in the frame.
+```
+
+`seed: 662649445`
+
+### Bento grid, four modules
+
+<img src="images/infographic-002.webp" width="420" alt="Bento grid, four modules">
+
+**Prompt**
+
+```text
+A bento-box dashboard layout with four rounded rectangular modules of different sizes on a soft grey background. Each module holds a simple abstract chart — one bar, one donut, one sparkline, one large number. Soft shadows, generous padding, one teal accent colour, no legible body text.
+```
+
+`seed: 1870145278`
+
+### Cutaway diagram with leader lines
+
+<img src="images/infographic-003.webp" width="420" alt="Cutaway diagram with leader lines">
+
+**Prompt**
+
+```text
+A technical cutaway of a thermos flask, drawn as a clean line diagram with the interior layers visible, thin leader lines pointing out from four components to empty label positions at the edges. No text on the labels — just the lines and the dots. White background, single ink weight.
+```
+
+`seed: 2045906439`
+
+### Vintage patent drawing
+
+<img src="images/infographic-005.webp" width="420" alt="Vintage patent drawing">
+
+**Prompt**
+
+```text
+A vintage patent illustration of a folding bicycle, black ink line work on aged off-white paper, hatched shading, numbered reference marks beside the components, a ruled border around the sheet. Figure numbers only, no descriptive text. The aesthetic of a 1920s patent office filing.
+```
+
+`seed: 1151604106`
+
+### Weather card, single glyph
+
+<img src="images/infographic-006.webp" width="420" alt="Weather card, single glyph">
+
+**Prompt**
+
+```text
+A weather card: a large simple cloud-and-rain glyph centred, the numerals "14°" beneath it in a geometric sans, and nothing else. Deep blue gradient background, white elements, soft outer glow on the glyph. Square, app-icon proportions.
+```
+
+`seed: 487662832`
+
+### Timeline ribbon, five markers
+
+<img src="images/infographic-008.webp" width="420" alt="Timeline ribbon, five markers">
+
+**Prompt**
+
+```text
+A horizontal timeline drawn as a flat ribbon curving gently across the frame, five circular markers spaced along it, alternating above and below, each marker containing a single simple icon. One accent colour against off-white, plenty of empty space. No text.
+```
+
+`seed: 1089997705`
+
+### Comparison table, two columns
+
+<img src="images/infographic-009.webp" width="420" alt="Comparison table, two columns">
+
+**Prompt**
+
+```text
+A clean two-column comparison layout, left column headed "BEFORE" and right headed "AFTER", each column a stack of four rounded rows with a check or cross glyph and a short blank bar where text would sit. Light background, green ticks, red crosses, hairline dividers.
+```
+
+`seed: 536645071`
+
+### Isometric process, three stages
+
+<img src="images/infographic-010.webp" width="420" alt="Isometric process, three stages">
+
+**Prompt**
+
+```text
+Three isometric blocks arranged diagonally across the frame representing stages of a process, connected by thick arrows, each block a simplified object — a box, a gear, a package. Flat colour with a single light source, long soft shadows, pastel palette, white background.
+```
+
+`seed: 2043998615`
+
+
+## collectible
+
+_Figurines, pins, keycaps, trading cards — physical-object mockups_
+
+### Vinyl figure in blister pack
+
+<img src="images/collectible-001.webp" width="420" alt="Vinyl figure in blister pack">
+
+**Prompt**
+
+```text
+A stylised vinyl collectible figure of a small astronaut sealed in a blister pack against a printed cardboard backer, shot straight on under even studio light. The plastic bubble catches a soft reflection. Matte figure finish, chunky proportions, oversized helmet. The backer is a flat two-colour print.
+```
+
+`seed: 641600971`
+
+### Enamel pin on denim
+
+<img src="images/collectible-002.webp" width="420" alt="Enamel pin on denim">
+
+**Prompt**
+
+```text
+A hard enamel pin shaped like a crescent moon with a small star, gold plating between the colour fields, pinned to indigo denim. Macro, shallow depth of field, raking light picking out the polished metal ridges and the slight dome of the enamel.
+```
+
+`seed: 317255029`
+
+### Knitted plush on shelf
+
+<img src="images/collectible-005.webp" width="420" alt="Knitted plush on shelf">
+
+**Prompt**
+
+```text
+A hand-knitted plush fox sitting on a pale wooden shelf, chunky visible stitches in rust and cream yarn, slightly uneven ears, embroidered eyes. Soft window light from the left, plain white wall behind, shallow depth of field.
+```
+
+`seed: 1717706071`
+
+### Die-cast model on turntable
+
+<img src="images/collectible-006.webp" width="420" alt="Die-cast model on turntable">
+
+**Prompt**
+
+```text
+A 1:64 die-cast model of a boxy 1980s estate car on a black acrylic turntable, three-quarter front view, studio strip lights reflected in the paint as two long soft highlights. Rubber tyres, printed number plate, tiny visible casting seam along the roof.
+```
+
+`seed: 161380541`
+
+### Resin diorama in a jar
+
+<img src="images/collectible-007.webp" width="420" alt="Resin diorama in a jar">
+
+**Prompt**
+
+```text
+A miniature diorama sealed inside a clear glass jar: a tiny pine forest on a mossy hill with a single lit cabin window, cast in clear resin that reads as still water at the base. Backlit so the resin glows, everything else in shadow. Macro, dark background.
+```
+
+`seed: 506403015`
+
+
+## stationery
+
+_Cards, letterheads, packaging inserts_
+
+### Letterpress card, deep impression
+
+<img src="images/stationery-001.webp" width="420" alt="Letterpress card, deep impression">
+
+**Prompt**
+
+```text
+A letterpress business card photographed at a raking angle so the deep impression of the type casts visible shadow in the cotton stock. The card reads "NORTHFIELD & CO" in a small caps serif with a thin rule beneath. Ecru paper, single black ink, deckled edge on one side.
+```
+
+`seed: 1926545409`
+
+### Wax seal on kraft envelope
+
+<img src="images/stationery-002.webp" width="420" alt="Wax seal on kraft envelope">
+
+**Prompt**
+
+```text
+A deep red wax seal pressed with a simple monogram, closing the flap of a kraft paper envelope on a dark wood surface. Warm side light, the wax showing the ridge and slight overflow of a real pour. Shallow depth of field, envelope corner in frame.
+```
+
+`seed: 444300041`
+
+### Notebook flat lay, ruled paper
+
+<img src="images/stationery-003.webp" width="420" alt="Notebook flat lay, ruled paper">
+
+**Prompt**
+
+```text
+An open notebook flat lay on a linen surface, ruled cream pages, a fountain pen resting in the gutter, a small brass paperclip at the corner. Soft even overhead light, no harsh shadows, muted palette. The pages are blank — no writing.
+```
+
+`seed: 1719173423`
+
+### Shipping label on parcel
+
+<img src="images/stationery-004.webp" width="420" alt="Shipping label on parcel">
+
+**Prompt**
+
+```text
+A brown paper parcel tied with cotton twine, a plain white shipping label affixed at a slight angle reading "FRAGILE" in bold condensed capitals with a thick black border. Overhead studio light, visible paper fibre and the shadow line under the twine.
+```
+
+`seed: 1043227084`
+
+### Ticket stub, torn edge
+
+<img src="images/stationery-005.webp" width="420" alt="Ticket stub, torn edge">
+
+**Prompt**
+
+```text
+A torn ticket stub on a dark surface, letterpress-printed in two colours with "ADMIT ONE" across the middle and a perforated edge where the other half was removed. Aged card stock, slight foxing, one corner soft with wear. Macro, single light from the left.
+```
+
+`seed: 1333487198`
+
+### Rubber stamp impression
+
+<img src="images/stationery-006.webp" width="420" alt="Rubber stamp impression">
+
+**Prompt**
+
+```text
+A rubber stamp impression of the word "PAID" struck in red ink at a slight angle on an off-white document, deliberately uneven — heavier on one side, a gap where the rubber lifted. The wooden stamp itself resting beside it, out of focus. Overhead, flat light.
+```
+
+`seed: 2044996526`
 
 
 ## Contributing

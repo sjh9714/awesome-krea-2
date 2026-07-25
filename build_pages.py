@@ -109,7 +109,8 @@ def main() -> int:
     L.append('<p class=sub>Every prompt below was run once, every image is the raw model output, '
              'and every entry carries the seed that produced it. The generations that did not work '
              'are kept too, at the bottom, because the limits are the part nobody publishes.</p>')
-    L.append(f'<p class=meta>114 generations · <b>{len(kept)} kept</b> · 29 cut · $0.96 total'
+    L.append(f'<p class=meta>{d.get("generations", 150)} generations · <b>{len(kept)} kept</b> · '
+             f'{d.get("generations", 150) - len(kept)} cut · ${d.get("spend", 1.26):.2f} total'
              f' · <a href="https://github.com/{html.escape(repo)}">github.com/{html.escape(repo)}</a></p>')
     L.append("</header>")
 

@@ -36,7 +36,15 @@
     "still-life": "Arranged objects, classical and modern",
     "macro-nature": "Insects, botanicals and small structures at high magnification",
     "street": "Unposed public scenes",
-    "night": "After dark — available light, long exposure, astro"
+    "night": "After dark — available light, long exposure, astro",
+    "respecify": "The original text failures re-run with every string written out. A controlled retest, not new scenes",
+    "hangul": "Korean strings at increasing length, all specified. The catalog had one data point and needed more",
+    "sport": "Motion, effort and the decisive moment",
+    "scifi": "Speculative hardware, interiors and vehicles",
+    "underwater": "Below the surface — light, suspension, scale",
+    "aerial": "Looking straight down",
+    "period": "Photography that reads as a specific decade",
+    "jewellery": "Small metal and stone at product scale"
   },
   "entries": [
     {
@@ -2990,18 +2998,546 @@
         "seed": 1239744985
       },
       "batch": 5
+    },
+    {
+      "id": "respecify-menu",
+      "category": "respecify",
+      "title": "The chalkboard menu, every row written out",
+      "image": "images/respecify-menu.webp",
+      "prompt": "A cafe chalkboard, straight on, hand-lettered in white and pale yellow chalk. The board reads exactly these rows and nothing else: FILTER 4.50 / CORTADO 4.00 / FLAT WHITE 4.20 / MOCHA 4.80 / OAT +0.60 / SOURDOUGH 3.50 / JAM 1.20 / SOUP 6.00 / CAKE 4.50 / TEA 3.00. Slight chalk dust haze, uneven letter weight, a wiped smudge in one corner.",
+      "params": {
+        "seed": 1080831930
+      },
+      "batch": 6
+    },
+    {
+      "id": "respecify-spines",
+      "category": "respecify",
+      "title": "Twelve book spines, every title written out",
+      "image": "images/respecify-spines.webp",
+      "prompt": "A tight row of twelve hardback book spines on a shelf, shot straight on so all titles are legible, varying cloth colours and foil-stamped serif titles. The twelve spines read exactly: SALT / THE LONG FIELD / IRON / NIGHT WORK / A COLD SPRING / MARGINS / THE QUARRY / DUST / HARBOUR / SLOW WATER / THE FERRY / GRASS. Even soft light, no glare.",
+      "params": {
+        "seed": 1275058449
+      },
+      "batch": 6
+    },
+    {
+      "id": "hangul-001",
+      "category": "hangul",
+      "title": "Korean: 2 syllables",
+      "image": "images/hangul-001.webp",
+      "prompt": "A hand-painted shopfront sign in Seoul reading exactly \"국수\" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light.",
+      "params": {
+        "seed": 1004816744
+      },
+      "batch": 6
+    },
+    {
+      "id": "hangul-002",
+      "category": "hangul",
+      "title": "Korean: 3 syllables",
+      "image": "images/hangul-002.webp",
+      "prompt": "A hand-painted shopfront sign in Seoul reading exactly \"도서관\" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light.",
+      "params": {
+        "seed": 618455507
+      },
+      "batch": 6
+    },
+    {
+      "id": "hangul-004",
+      "category": "hangul",
+      "title": "Korean: with a numeral",
+      "image": "images/hangul-004.webp",
+      "prompt": "An enamel station sign on a tiled subway wall reading exactly \"3번 출구\" in a clean Korean gothic typeface, white on deep blue, a thin white border, two visible bolts. Straight on, even fluorescent light, tiles slightly grubby.",
+      "params": {
+        "seed": 604514947
+      },
+      "batch": 6
+    },
+    {
+      "id": "hangul-006",
+      "category": "hangul",
+      "title": "Korean: 6 syllables",
+      "image": "images/hangul-006.webp",
+      "prompt": "A chalkboard outside a cafe, hand-lettered in white chalk, reading exactly \"오늘의 추천 메뉴\" and nothing else. Slight chalk dust, uneven letter weight, a wiped smudge at one corner. Straight on, soft daylight.",
+      "params": {
+        "seed": 467750813
+      },
+      "batch": 6
+    },
+    {
+      "id": "sport-001",
+      "category": "sport",
+      "title": "Swimmer at the turn",
+      "image": "images/sport-001.webp",
+      "prompt": "A swimmer pushing off the wall mid-tumble-turn, seen from underwater side-on, a wall of bubbles trailing from the feet, the lane rope in the foreground out of focus. Cool pool blue, hard overhead light refracting on the tiles. 1/1000s.",
+      "params": {
+        "seed": 1964486936
+      },
+      "batch": 6
+    },
+    {
+      "id": "sport-002",
+      "category": "sport",
+      "title": "Cyclist in the wet",
+      "image": "images/sport-002.webp",
+      "prompt": "A road cyclist out of the saddle on a wet climb, spray coming off the rear wheel, rain on the frame, jaw set. Shot low from the side at 1/500s so the wheels blur slightly and the rider stays sharp. Grey flat light, no crowd.",
+      "params": {
+        "seed": 1605016902
+      },
+      "batch": 6
+    },
+    {
+      "id": "sport-004",
+      "category": "sport",
+      "title": "Climber on an overhang",
+      "image": "images/sport-004.webp",
+      "prompt": "A climber hanging from an overhang on rough limestone, chalk on the fingertips, one heel hooked, the ground far below rendered as blurred green. Shot from above and to the side, hard afternoon sun, deep shadow under the roof.",
+      "params": {
+        "seed": 239979374
+      },
+      "batch": 6
+    },
+    {
+      "id": "sport-005",
+      "category": "sport",
+      "title": "Football boots in mud",
+      "image": "images/sport-005.webp",
+      "prompt": "A pair of studded football boots caked in mud, left at the edge of a pitch on wet grass, laces trailing, studs packed with turf. Flat overcast light, low camera, the pitch markings blurred behind. Nobody in frame.",
+      "params": {
+        "seed": 1806339463
+      },
+      "batch": 6
+    },
+    {
+      "id": "sport-007",
+      "category": "sport",
+      "title": "Skateboard, mid-trick",
+      "image": "images/sport-007.webp",
+      "prompt": "A skateboarder mid-kickflip over a set of concrete steps, board rotating under the feet, shot from low with a wide lens so the architecture leans. Hard low sun, long shadow, urban concrete. 1/2000s, frozen.",
+      "params": {
+        "seed": 887473494
+      },
+      "batch": 6
+    },
+    {
+      "id": "sport-008",
+      "category": "sport",
+      "title": "Marathon feet, late",
+      "image": "images/sport-008.webp",
+      "prompt": "Ground-level shot of marathon runners' legs late in a race, road spray and discarded cups, one runner's stride at full extension. Everything above the knee out of frame. Overcast, wet tarmac, 1/640s with slight motion in the background.",
+      "params": {
+        "seed": 1396024938
+      },
+      "batch": 6
+    },
+    {
+      "id": "scifi-001",
+      "category": "scifi",
+      "title": "Airlock corridor",
+      "image": "images/scifi-001.webp",
+      "prompt": "A utilitarian airlock corridor: ribbed structural frames receding, cable runs bundled along the ceiling, a heavy circular hatch at the far end with a single amber light above it. Worn painted metal, scuffs at foot height. No people, cold key light.",
+      "params": {
+        "seed": 1381525040
+      },
+      "batch": 6
+    },
+    {
+      "id": "scifi-002",
+      "category": "scifi",
+      "title": "Handheld scanner, product shot",
+      "image": "images/scifi-002.webp",
+      "prompt": "A handheld scientific scanner on a black surface: milled aluminium body, rubber grips, a small monochrome display and three physical buttons. Studio product lighting, three-quarter view, no branding, no legible text. Believably manufactured, not glowing.",
+      "params": {
+        "seed": 1194557595
+      },
+      "batch": 6
+    },
+    {
+      "id": "scifi-003",
+      "category": "scifi",
+      "title": "Orbital view from a window",
+      "image": "images/scifi-003.webp",
+      "prompt": "Looking out of a thick multi-pane window at a planet's terminator line, city lights on the dark side, the window frame and its bolts sharp in the foreground and the view soft. Interior unlit except for the glow off the planet.",
+      "params": {
+        "seed": 1833577193
+      },
+      "batch": 6
+    },
+    {
+      "id": "scifi-004",
+      "category": "scifi",
+      "title": "Rover on regolith",
+      "image": "images/scifi-004.webp",
+      "prompt": "A six-wheeled rover parked on grey regolith, dust on the solar panels, tracks curving away behind it to the horizon. Hard unfiltered sunlight, black sky, no atmosphere haze. Long shadows, functional engineering rather than styling.",
+      "params": {
+        "seed": 2066153346
+      },
+      "batch": 6
+    },
+    {
+      "id": "scifi-005",
+      "category": "scifi",
+      "title": "Server hall, deep underground",
+      "image": "images/scifi-005.webp",
+      "prompt": "An enormous server hall in a rock-cut cavern, racks receding in ranks with only their indicator lights on, raw stone walls visible above the ceiling line, a single gantry crossing overhead. Cold blue-green, long exposure, nobody present.",
+      "params": {
+        "seed": 1674639635
+      },
+      "batch": 6
+    },
+    {
+      "id": "scifi-006",
+      "category": "scifi",
+      "title": "Pressure suit, laid out",
+      "image": "images/scifi-006.webp",
+      "prompt": "A used pressure suit laid flat on a workshop bench and shot from directly above, helmet beside it, scuffed knees, seals and connector rings visible, a tool roll at the frame edge. Even workshop light, documentary rather than heroic.",
+      "params": {
+        "seed": 872276632
+      },
+      "batch": 6
+    },
+    {
+      "id": "scifi-007",
+      "category": "scifi",
+      "title": "Landing pad in rain",
+      "image": "images/scifi-007.webp",
+      "prompt": "A concrete landing pad at night in heavy rain, perimeter lights making cones in the downpour, a squat utilitarian craft cooling on the deck with steam rising off it. Wide, low, everything wet and reflective. No people.",
+      "params": {
+        "seed": 418854865
+      },
+      "batch": 6
+    },
+    {
+      "id": "scifi-008",
+      "category": "scifi",
+      "title": "Hydroponics deck",
+      "image": "images/scifi-008.webp",
+      "prompt": "A hydroponics deck: stacked growing trays under magenta-white grow lights, condensation on the plastic, roots visible through clear channels, a service walkway down the middle. Humid haze, nobody in frame, functional not futuristic.",
+      "params": {
+        "seed": 1793419740
+      },
+      "batch": 6
+    },
+    {
+      "id": "underwater-001",
+      "category": "underwater",
+      "title": "Kelp forest, sun shafts",
+      "image": "images/underwater-001.webp",
+      "prompt": "A kelp forest from below, fronds rising toward the surface, hard shafts of sunlight cutting through the canopy and scattering in the water column. Particulate suspended in the beams. Deep green-blue, no diver, no fish.",
+      "params": {
+        "seed": 753815060
+      },
+      "batch": 6
+    },
+    {
+      "id": "underwater-002",
+      "category": "underwater",
+      "title": "Split shot at the surface",
+      "image": "images/underwater-002.webp",
+      "prompt": "A split-level shot: half above the waterline showing a flat horizon and pale sky, half below showing clear shallow water over rippled sand. The waterline curving across the frame with droplets on the dome port. Bright midday.",
+      "params": {
+        "seed": 1616686338
+      },
+      "batch": 6
+    },
+    {
+      "id": "underwater-003",
+      "category": "underwater",
+      "title": "Shipwreck bow in gloom",
+      "image": "images/underwater-003.webp",
+      "prompt": "The bow of a sunken ship emerging from blue gloom, encrusted with growth, railings intact, visibility falling off to nothing behind it. Cold ambient light from above only, no torch beam, no diver. Scale ambiguous.",
+      "params": {
+        "seed": 937601718
+      },
+      "batch": 6
+    },
+    {
+      "id": "underwater-004",
+      "category": "underwater",
+      "title": "Jellyfish, black water",
+      "image": "images/underwater-004.webp",
+      "prompt": "A single translucent jellyfish suspended in black water, bell lit from the side so the internal structure reads, tentacles trailing and slightly out of focus. Nothing else in frame. High contrast, macro-ish, black background.",
+      "params": {
+        "seed": 1602945702
+      },
+      "batch": 6
+    },
+    {
+      "id": "underwater-005",
+      "category": "underwater",
+      "title": "Ice diving, from below",
+      "image": "images/underwater-005.webp",
+      "prompt": "Looking up at the underside of sea ice, the surface a fractured white ceiling with a bright entry hole, blue-green water beneath, a line dropping through the hole. Extremely cold colour, no diver visible, silent.",
+      "params": {
+        "seed": 1635932321
+      },
+      "batch": 6
+    },
+    {
+      "id": "underwater-006",
+      "category": "underwater",
+      "title": "Turtle over reef",
+      "image": "images/underwater-006.webp",
+      "prompt": "A sea turtle gliding low over a reef, shot slightly from below against the bright surface, coral texture readable beneath it, a few small fish scattering. Clear tropical water, natural light, no strobe look.",
+      "params": {
+        "seed": 241030675
+      },
+      "batch": 6
+    },
+    {
+      "id": "underwater-007",
+      "category": "underwater",
+      "title": "Swimming pool from the floor",
+      "image": "images/underwater-007.webp",
+      "prompt": "Looking up from the floor of an empty swimming pool at the caustic net of light on the surface, tiled walls receding, a ladder breaking the waterline. Nobody swimming. Cool blue, the caustics sharp and moving.",
+      "params": {
+        "seed": 1488320811
+      },
+      "batch": 6
+    },
+    {
+      "id": "underwater-008",
+      "category": "underwater",
+      "title": "Freshwater spring, clear",
+      "image": "images/underwater-008.webp",
+      "prompt": "An underwater view of a freshwater spring: water so clear the boundary is invisible except where it distorts the fallen branches, pale limestone floor, green weed, cold light from directly above. Almost no colour cast.",
+      "params": {
+        "seed": 2084984439
+      },
+      "batch": 6
+    },
+    {
+      "id": "aerial-002",
+      "category": "aerial",
+      "title": "River delta braid",
+      "image": "images/aerial-002.webp",
+      "prompt": "Straight down on a braided glacial river, pale sediment channels splitting and rejoining across dark gravel flats, meltwater grey-blue. No horizon, no scale reference. Flat overcast light so the pattern reads cleanly.",
+      "params": {
+        "seed": 1689942205
+      },
+      "batch": 6
+    },
+    {
+      "id": "aerial-004",
+      "category": "aerial",
+      "title": "Salt evaporation ponds",
+      "image": "images/aerial-004.webp",
+      "prompt": "Straight down on salt evaporation ponds, each cell a different saturated colour from ochre through rust to deep pink, separated by thin pale causeways. No horizon, no vehicles. Flat light, high saturation, reads as a colour field.",
+      "params": {
+        "seed": 1452264526
+      },
+      "batch": 6
+    },
+    {
+      "id": "aerial-006",
+      "category": "aerial",
+      "title": "Reef edge into deep water",
+      "image": "images/aerial-006.webp",
+      "prompt": "Straight down on the edge of a coral reef where pale shallow sand drops abruptly into deep blue, the boundary sharp and irregular, wave texture on the shallow side. High sun, no boat, no horizon.",
+      "params": {
+        "seed": 1761378779
+      },
+      "batch": 6
+    },
+    {
+      "id": "aerial-007",
+      "category": "aerial",
+      "title": "Terraced hillside, dawn mist",
+      "image": "images/aerial-007.webp",
+      "prompt": "Straight down on a terraced hillside at dawn with mist caught in the folds, terrace edges reading as contour lines, a single narrow track climbing through them. Soft light, muted greens, no buildings in frame.",
+      "params": {
+        "seed": 1421294354
+      },
+      "batch": 6
+    },
+    {
+      "id": "period-001",
+      "category": "period",
+      "title": "1970s Kodachrome family scene",
+      "image": "images/period-001.webp",
+      "prompt": "A 1970s family snapshot on Kodachrome: a garden barbecue, warm reds and slightly cyan shadows, on-camera flash flattening the foreground, a wood-panelled fence behind. Slight underexposure, square format, faces turned away from camera.",
+      "params": {
+        "seed": 752828486
+      },
+      "batch": 6
+    },
+    {
+      "id": "period-002",
+      "category": "period",
+      "title": "1930s press photograph",
+      "image": "images/period-002.webp",
+      "prompt": "A 1930s press photograph on large-format sheet film: a factory floor with belts and lathes, deep depth of field, harsh magnesium flash from the left, silver-rich blacks. Slight retouching marks and a scratch across one corner.",
+      "params": {
+        "seed": 603114934
+      },
+      "batch": 6
+    },
+    {
+      "id": "period-003",
+      "category": "period",
+      "title": "1990s point-and-shoot night",
+      "image": "images/period-003.webp",
+      "prompt": "A 1990s compact camera night shot: direct flash, red-eye era colour, a wet car park and a shopfront out of range falling to black, date stamp burnt orange in the lower right corner. Grainy 400 speed film, slightly soft.",
+      "params": {
+        "seed": 449125501
+      },
+      "batch": 6
+    },
+    {
+      "id": "period-004",
+      "category": "period",
+      "title": "1950s Ektachrome interior",
+      "image": "images/period-004.webp",
+      "prompt": "A 1950s Ektachrome interior: a formica kitchen with pastel cabinetry, one window as the only light, colours slightly shifted cool and the highlights blown. Medium format, everything styled and static, nobody present.",
+      "params": {
+        "seed": 2025294181
+      },
+      "batch": 6
+    },
+    {
+      "id": "period-005",
+      "category": "period",
+      "title": "Wet plate collodion portrait",
+      "image": "images/period-005.webp",
+      "prompt": "A wet plate collodion portrait: a seated figure, long exposure so the hands blur slightly, dark corners from the lens, chemical streaks and a thumbprint at the plate edge. Silver tones, shallow field, cloth backdrop.",
+      "params": {
+        "seed": 1453420644
+      },
+      "batch": 6
+    },
+    {
+      "id": "period-006",
+      "category": "period",
+      "title": "1980s VHS still",
+      "image": "images/period-006.webp",
+      "prompt": "A still that reads as a VHS frame: scanlines, chroma bleeding on the reds, tracking noise along the bottom edge, a domestic living room lit by a single lamp. Soft, low resolution, slightly desaturated except where the red smears.",
+      "params": {
+        "seed": 1665562957
+      },
+      "batch": 6
+    },
+    {
+      "id": "period-007",
+      "category": "period",
+      "title": "1960s street, Tri-X",
+      "image": "images/period-007.webp",
+      "prompt": "A 1960s street photograph on Tri-X: high contrast black and white, coarse grain, a pavement scene with a bus and pedestrians, shot from the hip at 28mm so the framing is loose and slightly tilted. Full frame with the rebate edge visible.",
+      "params": {
+        "seed": 1263747052
+      },
+      "batch": 6
+    },
+    {
+      "id": "period-008",
+      "category": "period",
+      "title": "Early colour autochrome",
+      "image": "images/period-008.webp",
+      "prompt": "An autochrome-style image: a garden with flowers, the colour built from a fine mosaic of dyed starch grains so it reads pointillist up close, muted and slightly dim overall, long exposure so the leaves have moved.",
+      "params": {
+        "seed": 1413778418
+      },
+      "batch": 6
+    },
+    {
+      "id": "jewellery-001",
+      "category": "jewellery",
+      "title": "Signet ring, macro",
+      "image": "images/jewellery-001.webp",
+      "prompt": "Macro of a gold signet ring on dark slate, the flat face blank and highly polished so it reflects a single soft window, tool marks visible on the shank. Extremely shallow depth of field, one light, no props, no engraving.",
+      "params": {
+        "seed": 1644150464
+      },
+      "batch": 6
+    },
+    {
+      "id": "jewellery-002",
+      "category": "jewellery",
+      "title": "Watch movement, top-down",
+      "image": "images/jewellery-002.webp",
+      "prompt": "A mechanical watch movement shot directly down with the caseback off: bridges with Geneva striping, blued screws, ruby jewels, the balance wheel mid-frame. Even diffuse light, no text on the bridges, macro sharpness edge to edge.",
+      "params": {
+        "seed": 1885237149
+      },
+      "batch": 6
+    },
+    {
+      "id": "jewellery-003",
+      "category": "jewellery",
+      "title": "Pearl strand on silk",
+      "image": "images/jewellery-003.webp",
+      "prompt": "A strand of pearls coiled on grey silk, each pearl showing its own orient and a soft specular from a large diffuse source, the knots between them visible. Shallow focus running along the strand, muted and cool.",
+      "params": {
+        "seed": 1355278449
+      },
+      "batch": 6
+    },
+    {
+      "id": "jewellery-004",
+      "category": "jewellery",
+      "title": "Uncut stones on paper",
+      "image": "images/jewellery-004.webp",
+      "prompt": "Rough uncut gemstones scattered on a folded white parcel paper, backlit slightly so the translucent ones glow at the edges while the opaque ones stay dark. Loupe at the frame edge out of focus. Overhead, macro.",
+      "params": {
+        "seed": 319879010
+      },
+      "batch": 6
+    },
+    {
+      "id": "jewellery-005",
+      "category": "jewellery",
+      "title": "Silver chain, hard light",
+      "image": "images/jewellery-005.webp",
+      "prompt": "A heavy silver curb chain on black acrylic under a single hard light, each link throwing a crisp shadow and catching one bright specular, the reflection in the acrylic visible beneath. Product-grade, high contrast, no props.",
+      "params": {
+        "seed": 725798732
+      },
+      "batch": 6
+    },
+    {
+      "id": "jewellery-006",
+      "category": "jewellery",
+      "title": "Enamel and gold brooch",
+      "image": "images/jewellery-006.webp",
+      "prompt": "A cloisonné brooch photographed at a slight angle: gold wire cells filled with deep blue and green enamel, one cell showing a tiny bubble in the glass, the pin catch visible behind. Soft directional light, macro, dark ground.",
+      "params": {
+        "seed": 845491635
+      },
+      "batch": 6
+    },
+    {
+      "id": "jewellery-007",
+      "category": "jewellery",
+      "title": "Ring in a bench vice",
+      "image": "images/jewellery-007.webp",
+      "prompt": "A part-finished ring held in a jeweller's bench pin with a file and a saw frame beside it, metal filings on the wooden surface, the ring still showing solder seams. Workshop light, documentary rather than product. Macro, shallow focus.",
+      "params": {
+        "seed": 889861111
+      },
+      "batch": 6
+    },
+    {
+      "id": "jewellery-008",
+      "category": "jewellery",
+      "title": "Diamond in tweezers",
+      "image": "images/jewellery-008.webp",
+      "prompt": "A brilliant-cut diamond held in fine tweezers against a dark neutral background, lit so the facets throw sharp coloured fire without blowing out, the tweezer tips sharp and the rest falling off. Macro, single hard source.",
+      "params": {
+        "seed": 912016671
+      },
+      "batch": 6
     }
   ],
   "findings": {
-    "_intro": "Everything below was measured while building this catalog, not quoted from the model card. 322 generations across five batches, 267 are here, 55 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.\n\nThree of these findings replace earlier ones that were wrong, and all three were overturned by controlled experiments built to confirm them. The pattern is the same every time: a rule inferred from one or two failures, and a ladder that holds everything constant except the one variable, which then shows the rule was about something else.",
+    "_intro": "Everything below was measured while building this catalog, not quoted from the model card. 379 generations across six batches, 315 are here, 64 were cut. Each claim names the entries that demonstrate it; every entry carries its seed and its batch number, so you can check any of this against the images in this repo.\n\nFour of these findings replace earlier ones that were wrong, and every one of the four was overturned by a controlled experiment built to confirm it. The shape repeats: a rule inferred from one or two failures, then a ladder that holds everything constant except the one variable, and the rule turns out to have been about something else. The corrections are the most useful thing here.",
     "items": [
       {
         "title": "It renders text you write. It cannot invent text.",
-        "body": "**This replaces the finding that stood here for three batches, and the replacement came from an experiment designed to confirm it.**\n\nThe old claim was that text fails by *count*: one sign holds, a list collapses, and somewhere between four strings and six there is a ceiling. To find the ceiling I built a ladder — the same brass nameplate, the same style, the same short word-like strings, varying only in how many share the frame. `stringcount-1` through `stringcount-8`.\n\n**All eight are correct.** VULCAN. 1938. MODEL 7. SHEFFIELD. SERIAL 4412. 440 VOLTS. 50 CYCLES. MADE IN ENGLAND. Every string legible, on a plate, at eight independent strings. The single error in the whole ladder is a spurious `7` after SHEFFIELD in `stringcount-5`.\n\nSo count was never the variable. Going back through every text failure in this repo, the split is exact and it is about **who wrote the string**:\n\n- The chalkboard menu specified `FILTER 4.50`, `CORTADO 4.00` and `OAT +0.60` and asked the model to fill the rest of the board. **Those three rendered correctly.** The unspecified rows came back `CAPEME`, `CABIELO`, `PANSRUR`.\n- The twelve book spines said \"invent plausible titles\". Twelve failures.\n- The transit map asked for \"legible station names\" without naming any. Thirty failures.\n- The timeline fixed the range at 1970–2030 and left the labels free. **The years rendered. The labels did not.**\n- The terminal specified `$ make install` and asked for \"three lines of plausible build output\". **The command rendered. The output did not.**\n- Of ten UI mockups, the one that worked is `ui-004`, where every string was written out: `Sign in`, `Email`, `Password`, `Continue`. In the cuts, `ui-007` got `Add to cart` exactly right beside an invented product title of pure noise, and `ui-010`, given no column names at all, headed all three columns with the word `Kanban` — reaching for the nearest word in the prompt.\n\nThere is one genuine exception, and it is about script rather than authorship: Korean fails even when written out. See below.\n\n**Practical rule: write out every string you want to see, in the prompt, exactly. Never ask this model to make up a word.** Eight strings is not a limit — it is just where I stopped testing.\n\n**Batch five tested this on purpose.** If the rule is right, a category built entirely on written-out strings should work. Ten poster and packaging layouts, every string specified: `KLANG` / `14 MARCH` / `HALLE 7`; `ALPINA` / `BY RAIL`; `LOWLIGHT` / `SIDE A`; `WORKS ON PAPER` / `GALLERY NINE`; `STATIC` / `FRIDAY`; `EYE PROTECTION` / `AREA 4`; `CLOS MARIN` / `2019` / `MIS EN BOUTEILLE`; `MEND IT` / `DON'T END IT`. **All correct.** `poster-008` carries five strings across a book cover and its spine, including the title repeated vertically, and every one of them is right.\n\nOne of the ten failed, and not by count: `poster-004` renders `NORTHERN LIGHT` with **both R's mirrored**. The string is right and the glyph is drawn backwards. So specifying the text buys you the text, not a guarantee about every letterform in it — read the output."
+        "body": "**This replaces the finding that stood here for three batches, and the replacement came from an experiment designed to confirm it.**\n\nThe old claim was that text fails by *count*: one sign holds, a list collapses, and somewhere between four strings and six there is a ceiling. To find the ceiling I built a ladder — the same brass nameplate, the same style, the same short word-like strings, varying only in how many share the frame. `stringcount-1` through `stringcount-8`.\n\n**All eight are correct.** VULCAN. 1938. MODEL 7. SHEFFIELD. SERIAL 4412. 440 VOLTS. 50 CYCLES. MADE IN ENGLAND. Every string legible, on a plate, at eight independent strings. The single error in the whole ladder is a spurious `7` after SHEFFIELD in `stringcount-5`.\n\nSo count was never the variable. Going back through every text failure in this repo, the split is exact and it is about **who wrote the string**:\n\n- The chalkboard menu specified `FILTER 4.50`, `CORTADO 4.00` and `OAT +0.60` and asked the model to fill the rest of the board. **Those three rendered correctly.** The unspecified rows came back `CAPEME`, `CABIELO`, `PANSRUR`.\n- The twelve book spines said \"invent plausible titles\". Twelve failures.\n- The transit map asked for \"legible station names\" without naming any. Thirty failures.\n- The timeline fixed the range at 1970–2030 and left the labels free. **The years rendered. The labels did not.**\n- The terminal specified `$ make install` and asked for \"three lines of plausible build output\". **The command rendered. The output did not.**\n- Of ten UI mockups, the one that worked is `ui-004`, where every string was written out: `Sign in`, `Email`, `Password`, `Continue`. In the cuts, `ui-007` got `Add to cart` exactly right beside an invented product title of pure noise, and `ui-010`, given no column names at all, headed all three columns with the word `Kanban` — reaching for the nearest word in the prompt.\n\nNon-Latin script is a partial exception and it is about the script rather than about authorship — four of six specified Korean strings render exactly and two fail repeatably. See the next finding.\n\n**Practical rule: write out every string you want to see, in the prompt, exactly. Never ask this model to make up a word.** Eight strings is not a limit — it is just where I stopped testing.\n\n**Batch five tested this on purpose.** If the rule is right, a category built entirely on written-out strings should work. Ten poster and packaging layouts, every string specified: `KLANG` / `14 MARCH` / `HALLE 7`; `ALPINA` / `BY RAIL`; `LOWLIGHT` / `SIDE A`; `WORKS ON PAPER` / `GALLERY NINE`; `STATIC` / `FRIDAY`; `EYE PROTECTION` / `AREA 4`; `CLOS MARIN` / `2019` / `MIS EN BOUTEILLE`; `MEND IT` / `DON'T END IT`. **All correct.** `poster-008` carries five strings across a book cover and its spine, including the title repeated vertically, and every one of them is right.\n\nOne of the ten failed, and not by count: `poster-004` renders `NORTHERN LIGHT` with **both R's mirrored**. The string is right and the glyph is drawn backwards. So specifying the text buys you the text, not a guarantee about every letterform in it — read the output.\n\n**Batch six went back to the original failures and changed one thing.** The chalkboard menu, the twelve book spines and the transit map are the three scenes this catalog's first text finding was built on. All three were re-run with every string written out and nothing else altered:\n\n- `respecify-menu` — **all ten rows are real, correctly spelled words**, against `CAPEME`, `CABIELO`, `PANSRUR` the first time. The item-to-price pairing drifted (MOCHA and OAT share a line) but there is no invented text anywhere on the board.\n- `respecify-spines` — **ten of twelve titles correct**, against twelve unreadable spines the first time. The one clear error merges `THE QUARRY` and `DUST` onto one spine and drops an R.\n- `respecify-map` — only **four of nine** stations correct. `MILL LANE` came back `MILLLANYNE`, `CENTRAL` came back `EECTFRAL`.\n\nSo specifying the strings is necessary and it is not always sufficient, and what separates the three is not how many strings there are. The menu is large horizontal type on a flat board. The spines are large but rotated ninety degrees. The map is small type set at several angles at once. **The second constraint is how small and how rotated the type is**, and it is independent of the first."
       },
       {
-        "title": "Korean fails even when you write it out",
-        "body": "The rule above has one exception in this catalog and it matters if you work in Korean. I asked for a shopfront sign reading exactly `정직한 국수` — specified, four syllables, a real phrase. It came back `정적한 국수`: one vowel wrong in the second syllable.\n\nEverything else about the image is perfect. The brush lettering, the weathered blue panel, the rust bleeding from the screw heads. If you do not read Korean it looks finished; if you do, the error is the first thing you see.\n\nSo authorship is not sufficient for non-Latin script. If Hangul is going in the frame, a person who reads it has to check the output."
+        "title": "Korean mostly works, and the words that fail, fail the same way every time",
+        "body": "**This replaces a finding built on a single Korean image.** It said Korean fails even when written out. Six Korean strings later, that is too strong.\n\n**Four of six came back exactly right**: `국수`, `도서관`, `3번 출구` — Hangul mixed with a numeral — and `오늘의 추천 메뉴`, six syllables across three words. Length is not the variable, which is the first thing to go: the two-syllable and the six-syllable both worked and a four-syllable failed.\n\nTwo failed:\n\n- `정직한 국수` came back `정적한 국수` — one vowel wrong in the second syllable. This is the original failure, and it **reproduced at a different seed** (1167746582 against the first attempt's 1910572019). Same string, same error, twice. That is a property of the string, not a bad roll.\n- `한밭식당` came back `한뾃식당`, where `밭` has become a syllable that does not exist in Korean.\n\nWhat the two failures share is a less common 받침 — the final consonant. `직` and `밭` both carry one; so do `국` and `늘` and `천`, which all rendered. Two failures is not enough to name the mechanism, and that is where it is left.\n\nPractical rule, and it is better news than the old one: **Korean is usable, and you must read the output.** If a string comes back wrong it will come back wrong again, so change the wording rather than re-rolling the seed."
       },
       {
         "title": "Character identity does not survive across generations",
@@ -3034,6 +3570,10 @@
       {
         "title": "\"Seamless\" produces a pattern that does not tile",
         "body": "All eight `pattern-*` prompts asked for a seamless repeat. I tiled the outputs and measured the seam by comparing each image's left edge column against its right, and its top row against its bottom, against the baseline difference between two arbitrary interior columns of the same image.\n\n**One of the eight tiles.** That one is `pattern-007`, vertical hand-drawn stripes, where the edges match because vertical stripes match trivially — structural luck, not the instruction being followed. `pattern-005` tiles horizontally and not vertically. The remaining six have edge differences at or above their own interior baseline, meaning the two edges are as unrelated as two random slices.\n\nThe images are good. Several are genuinely beautiful surface designs. They are just not repeat tiles, and if you drop one into a wallpaper or textile pipeline expecting it to run, it will seam.\n\nPractical rule: treat these as one-off surfaces. Making them actually tile is a post-process, not a prompt."
+      },
+      {
+        "title": "\"Straight down\" is a request, not an instruction",
+        "body": "Eight aerial prompts, every one of them opening with *straight down on…*. **Four came back oblique.** `aerial-003` shows the container cranes standing up in frame; `aerial-008` is at bridge height; `aerial-005`, asked for a suburb from directly above, came back **from the pavement** — not an aerial at all.\n\nThe four that held are the ones where a nadir view is the only way the subject makes sense: a braided river, salt evaporation ponds, the edge of a reef, a terraced hillside. All four are flat subjects whose whole content is pattern. Where the scene contains anything with obvious verticality — cranes, houses, bales — the camera tilts back down to a view that shows those verticals.\n\nPractical rule: ask for nadir only on subjects that have no useful vertical, and check the angle before you accept the frame. Naming the altitude or the lens does not help; the pull is in the subject."
       }
     ]
   },
@@ -3417,6 +3957,105 @@
           "seed": 1089231047
         },
         "batch": 5
+      },
+      {
+        "id": "respecify-map",
+        "claim": "Text: specifying the names fixed four of nine; the small rotated labels still fail — MILL LANE became MILLLANYNE, CENTRAL became EECTFRAL",
+        "expected": "Nine legible station names",
+        "prompt": "A stylised transit map with three coloured lines, interchange stations as white circles with black outlines, station names in a condensed sans, 45-degree angles only. The stations read exactly: NORTHGATE / MILL LANE / ABBEY / CENTRAL / QUARRY HILL / DOCKS / EASTFIELD / ST ANNE'S / RIVERSIDE. Nine stations, nothing else written.",
+        "image": "images/failures/respecify-map.webp",
+        "params": {
+          "seed": 1334788167
+        },
+        "batch": 6
+      },
+      {
+        "id": "hangul-003",
+        "claim": "Korean: 정직한 came back 정적한 again, at a different seed from the first attempt",
+        "expected": "정직한 국수",
+        "prompt": "A hand-painted shopfront sign in Seoul reading exactly \"정직한 국수\" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light.",
+        "image": "images/failures/hangul-003.webp",
+        "params": {
+          "seed": 1167746582
+        },
+        "batch": 6
+      },
+      {
+        "id": "hangul-005",
+        "claim": "Korean: 밭 came back 뾃, a syllable that does not exist",
+        "expected": "한밭식당",
+        "prompt": "A letterpress business card photographed at a raking angle so the deep impression casts visible shadow in the cotton stock. The card reads exactly \"한밭식당\" in a Korean serif typeface with a thin rule beneath. Ecru paper, single black ink.",
+        "image": "images/failures/hangul-005.webp",
+        "params": {
+          "seed": 1086365627
+        },
+        "batch": 6
+      },
+      {
+        "id": "sport-003",
+        "claim": "Framing: asked for no face in frame, the face is in frame behind the hands",
+        "expected": "Hands on the ropes, no face",
+        "prompt": "Close on a boxer's wrapped hands resting on the ropes between rounds, tape frayed, sweat and a smear of blood on the knuckles, everything behind fallen to dark. One hard light from above. Nobody's face in frame.",
+        "image": "images/failures/sport-003.webp",
+        "params": {
+          "seed": 769044869
+        },
+        "batch": 6
+      },
+      {
+        "id": "sport-006",
+        "claim": "Count inside a noun: a rowing EIGHT came back as a single sculler",
+        "expected": "An eight-person crew",
+        "prompt": "A rowing eight seen from behind and low on flat water at dawn, blades entering together, mist on the river, the crew in silhouette against a pale sky. Long lens compression, no faces, wake spreading behind.",
+        "image": "images/failures/sport-006.webp",
+        "params": {
+          "seed": 603162714
+        },
+        "batch": 6
+      },
+      {
+        "id": "aerial-001",
+        "claim": "Angle: asked for straight down, returned a high oblique",
+        "expected": "Nadir framing",
+        "prompt": "Straight down on harvested fields: baled straw casting long shadows, tractor tracks curving between stubble blocks of slightly different tone, one dark ploughed strip. Low sun, no horizon, no buildings. Reads as abstract until you find the bales.",
+        "image": "images/failures/aerial-001.webp",
+        "params": {
+          "seed": 786641017
+        },
+        "batch": 6
+      },
+      {
+        "id": "aerial-003",
+        "claim": "Angle: asked for straight down, returned an oblique with the cranes standing up in frame",
+        "expected": "Nadir framing",
+        "prompt": "Straight down on a container terminal: stacked containers in blocks of colour, gantry cranes casting long shadows across the apron, one ship alongside. Early morning light, no legible text on the containers. Graphic and orderly.",
+        "image": "images/failures/aerial-003.webp",
+        "params": {
+          "seed": 372479606
+        },
+        "batch": 6
+      },
+      {
+        "id": "aerial-005",
+        "claim": "Angle: asked for straight down on a suburb, returned a view from the pavement",
+        "expected": "Nadir framing",
+        "prompt": "Straight down on a suburban street in low winter sun, house shadows falling across the road in a regular rhythm, cars parked, bare trees, frost still on north-facing roofs. Ordered, quiet, nobody visible.",
+        "image": "images/failures/aerial-005.webp",
+        "params": {
+          "seed": 1337059737
+        },
+        "batch": 6
+      },
+      {
+        "id": "aerial-008",
+        "claim": "Angle: asked for straight down on an interchange, returned a view from bridge height",
+        "expected": "Nadir framing",
+        "prompt": "Straight down on a multi-level motorway interchange at night, light trails from a long exposure looping through the ramps, the structure itself dark. Wet road surface catching the lights. No text, no signage legible.",
+        "image": "images/failures/aerial-008.webp",
+        "params": {
+          "seed": 202936705
+        },
+        "batch": 6
       }
     ]
   },
@@ -3488,6 +4127,6 @@
       "jamez-bondos has not been pushed since 2025-05-26."
     ]
   },
-  "generations": 322,
-  "spend": 2.7
+  "generations": 379,
+  "spend": 3.18
 }

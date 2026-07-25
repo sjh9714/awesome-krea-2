@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">Krea 2 Turbo 的 267 条可复现提示词，覆盖 32 个类别。每条提示词可直接复制，每张图片都是实际输出。</p>
+<p align="center">Krea 2 Turbo 的 315 条可复现提示词，覆盖 40 个类别。每条提示词可直接复制，每张图片都是实际输出。</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="Three findings: text holds on one sign and collapses on a list; character identity does not survive a second generation; image-to-image changes medium but not scene contents">
@@ -15,7 +15,7 @@
 
 ## 类别
 
-**267 条提示词，每条都有 seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7
+**315 条提示词，每条都有 seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 4 · [period](#period) 8 · [jewellery](#jewellery) 8
 
 
 ## photography
@@ -3400,6 +3400,622 @@ An aurora arc over a snow-covered plain, green with a magenta lower fringe, its 
 ```
 
 `seed: 1239744985`
+
+
+## respecify
+
+_The original text failures re-run with every string written out. A controlled retest, not new scenes_
+
+### The chalkboard menu, every row written out
+
+<img src="images/respecify-menu.webp" width="420" alt="The chalkboard menu, every row written out">
+
+**提示词**
+
+```text
+A cafe chalkboard, straight on, hand-lettered in white and pale yellow chalk. The board reads exactly these rows and nothing else: FILTER 4.50 / CORTADO 4.00 / FLAT WHITE 4.20 / MOCHA 4.80 / OAT +0.60 / SOURDOUGH 3.50 / JAM 1.20 / SOUP 6.00 / CAKE 4.50 / TEA 3.00. Slight chalk dust haze, uneven letter weight, a wiped smudge in one corner.
+```
+
+`seed: 1080831930`
+
+### Twelve book spines, every title written out
+
+<img src="images/respecify-spines.webp" width="420" alt="Twelve book spines, every title written out">
+
+**提示词**
+
+```text
+A tight row of twelve hardback book spines on a shelf, shot straight on so all titles are legible, varying cloth colours and foil-stamped serif titles. The twelve spines read exactly: SALT / THE LONG FIELD / IRON / NIGHT WORK / A COLD SPRING / MARGINS / THE QUARRY / DUST / HARBOUR / SLOW WATER / THE FERRY / GRASS. Even soft light, no glare.
+```
+
+`seed: 1275058449`
+
+
+## hangul
+
+_Korean strings at increasing length, all specified. The catalog had one data point and needed more_
+
+### Korean: 2 syllables
+
+<img src="images/hangul-001.webp" width="420" alt="Korean: 2 syllables">
+
+**提示词**
+
+```text
+A hand-painted shopfront sign in Seoul reading exactly "국수" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light.
+```
+
+`seed: 1004816744`
+
+### Korean: 3 syllables
+
+<img src="images/hangul-002.webp" width="420" alt="Korean: 3 syllables">
+
+**提示词**
+
+```text
+A hand-painted shopfront sign in Seoul reading exactly "도서관" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light.
+```
+
+`seed: 618455507`
+
+### Korean: with a numeral
+
+<img src="images/hangul-004.webp" width="420" alt="Korean: with a numeral">
+
+**提示词**
+
+```text
+An enamel station sign on a tiled subway wall reading exactly "3번 출구" in a clean Korean gothic typeface, white on deep blue, a thin white border, two visible bolts. Straight on, even fluorescent light, tiles slightly grubby.
+```
+
+`seed: 604514947`
+
+### Korean: 6 syllables
+
+<img src="images/hangul-006.webp" width="420" alt="Korean: 6 syllables">
+
+**提示词**
+
+```text
+A chalkboard outside a cafe, hand-lettered in white chalk, reading exactly "오늘의 추천 메뉴" and nothing else. Slight chalk dust, uneven letter weight, a wiped smudge at one corner. Straight on, soft daylight.
+```
+
+`seed: 467750813`
+
+
+## sport
+
+_Motion, effort and the decisive moment_
+
+### Swimmer at the turn
+
+<img src="images/sport-001.webp" width="420" alt="Swimmer at the turn">
+
+**提示词**
+
+```text
+A swimmer pushing off the wall mid-tumble-turn, seen from underwater side-on, a wall of bubbles trailing from the feet, the lane rope in the foreground out of focus. Cool pool blue, hard overhead light refracting on the tiles. 1/1000s.
+```
+
+`seed: 1964486936`
+
+### Cyclist in the wet
+
+<img src="images/sport-002.webp" width="420" alt="Cyclist in the wet">
+
+**提示词**
+
+```text
+A road cyclist out of the saddle on a wet climb, spray coming off the rear wheel, rain on the frame, jaw set. Shot low from the side at 1/500s so the wheels blur slightly and the rider stays sharp. Grey flat light, no crowd.
+```
+
+`seed: 1605016902`
+
+### Climber on an overhang
+
+<img src="images/sport-004.webp" width="420" alt="Climber on an overhang">
+
+**提示词**
+
+```text
+A climber hanging from an overhang on rough limestone, chalk on the fingertips, one heel hooked, the ground far below rendered as blurred green. Shot from above and to the side, hard afternoon sun, deep shadow under the roof.
+```
+
+`seed: 239979374`
+
+### Football boots in mud
+
+<img src="images/sport-005.webp" width="420" alt="Football boots in mud">
+
+**提示词**
+
+```text
+A pair of studded football boots caked in mud, left at the edge of a pitch on wet grass, laces trailing, studs packed with turf. Flat overcast light, low camera, the pitch markings blurred behind. Nobody in frame.
+```
+
+`seed: 1806339463`
+
+### Skateboard, mid-trick
+
+<img src="images/sport-007.webp" width="420" alt="Skateboard, mid-trick">
+
+**提示词**
+
+```text
+A skateboarder mid-kickflip over a set of concrete steps, board rotating under the feet, shot from low with a wide lens so the architecture leans. Hard low sun, long shadow, urban concrete. 1/2000s, frozen.
+```
+
+`seed: 887473494`
+
+### Marathon feet, late
+
+<img src="images/sport-008.webp" width="420" alt="Marathon feet, late">
+
+**提示词**
+
+```text
+Ground-level shot of marathon runners' legs late in a race, road spray and discarded cups, one runner's stride at full extension. Everything above the knee out of frame. Overcast, wet tarmac, 1/640s with slight motion in the background.
+```
+
+`seed: 1396024938`
+
+
+## scifi
+
+_Speculative hardware, interiors and vehicles_
+
+### Airlock corridor
+
+<img src="images/scifi-001.webp" width="420" alt="Airlock corridor">
+
+**提示词**
+
+```text
+A utilitarian airlock corridor: ribbed structural frames receding, cable runs bundled along the ceiling, a heavy circular hatch at the far end with a single amber light above it. Worn painted metal, scuffs at foot height. No people, cold key light.
+```
+
+`seed: 1381525040`
+
+### Handheld scanner, product shot
+
+<img src="images/scifi-002.webp" width="420" alt="Handheld scanner, product shot">
+
+**提示词**
+
+```text
+A handheld scientific scanner on a black surface: milled aluminium body, rubber grips, a small monochrome display and three physical buttons. Studio product lighting, three-quarter view, no branding, no legible text. Believably manufactured, not glowing.
+```
+
+`seed: 1194557595`
+
+### Orbital view from a window
+
+<img src="images/scifi-003.webp" width="420" alt="Orbital view from a window">
+
+**提示词**
+
+```text
+Looking out of a thick multi-pane window at a planet's terminator line, city lights on the dark side, the window frame and its bolts sharp in the foreground and the view soft. Interior unlit except for the glow off the planet.
+```
+
+`seed: 1833577193`
+
+### Rover on regolith
+
+<img src="images/scifi-004.webp" width="420" alt="Rover on regolith">
+
+**提示词**
+
+```text
+A six-wheeled rover parked on grey regolith, dust on the solar panels, tracks curving away behind it to the horizon. Hard unfiltered sunlight, black sky, no atmosphere haze. Long shadows, functional engineering rather than styling.
+```
+
+`seed: 2066153346`
+
+### Server hall, deep underground
+
+<img src="images/scifi-005.webp" width="420" alt="Server hall, deep underground">
+
+**提示词**
+
+```text
+An enormous server hall in a rock-cut cavern, racks receding in ranks with only their indicator lights on, raw stone walls visible above the ceiling line, a single gantry crossing overhead. Cold blue-green, long exposure, nobody present.
+```
+
+`seed: 1674639635`
+
+### Pressure suit, laid out
+
+<img src="images/scifi-006.webp" width="420" alt="Pressure suit, laid out">
+
+**提示词**
+
+```text
+A used pressure suit laid flat on a workshop bench and shot from directly above, helmet beside it, scuffed knees, seals and connector rings visible, a tool roll at the frame edge. Even workshop light, documentary rather than heroic.
+```
+
+`seed: 872276632`
+
+### Landing pad in rain
+
+<img src="images/scifi-007.webp" width="420" alt="Landing pad in rain">
+
+**提示词**
+
+```text
+A concrete landing pad at night in heavy rain, perimeter lights making cones in the downpour, a squat utilitarian craft cooling on the deck with steam rising off it. Wide, low, everything wet and reflective. No people.
+```
+
+`seed: 418854865`
+
+### Hydroponics deck
+
+<img src="images/scifi-008.webp" width="420" alt="Hydroponics deck">
+
+**提示词**
+
+```text
+A hydroponics deck: stacked growing trays under magenta-white grow lights, condensation on the plastic, roots visible through clear channels, a service walkway down the middle. Humid haze, nobody in frame, functional not futuristic.
+```
+
+`seed: 1793419740`
+
+
+## underwater
+
+_Below the surface — light, suspension, scale_
+
+### Kelp forest, sun shafts
+
+<img src="images/underwater-001.webp" width="420" alt="Kelp forest, sun shafts">
+
+**提示词**
+
+```text
+A kelp forest from below, fronds rising toward the surface, hard shafts of sunlight cutting through the canopy and scattering in the water column. Particulate suspended in the beams. Deep green-blue, no diver, no fish.
+```
+
+`seed: 753815060`
+
+### Split shot at the surface
+
+<img src="images/underwater-002.webp" width="420" alt="Split shot at the surface">
+
+**提示词**
+
+```text
+A split-level shot: half above the waterline showing a flat horizon and pale sky, half below showing clear shallow water over rippled sand. The waterline curving across the frame with droplets on the dome port. Bright midday.
+```
+
+`seed: 1616686338`
+
+### Shipwreck bow in gloom
+
+<img src="images/underwater-003.webp" width="420" alt="Shipwreck bow in gloom">
+
+**提示词**
+
+```text
+The bow of a sunken ship emerging from blue gloom, encrusted with growth, railings intact, visibility falling off to nothing behind it. Cold ambient light from above only, no torch beam, no diver. Scale ambiguous.
+```
+
+`seed: 937601718`
+
+### Jellyfish, black water
+
+<img src="images/underwater-004.webp" width="420" alt="Jellyfish, black water">
+
+**提示词**
+
+```text
+A single translucent jellyfish suspended in black water, bell lit from the side so the internal structure reads, tentacles trailing and slightly out of focus. Nothing else in frame. High contrast, macro-ish, black background.
+```
+
+`seed: 1602945702`
+
+### Ice diving, from below
+
+<img src="images/underwater-005.webp" width="420" alt="Ice diving, from below">
+
+**提示词**
+
+```text
+Looking up at the underside of sea ice, the surface a fractured white ceiling with a bright entry hole, blue-green water beneath, a line dropping through the hole. Extremely cold colour, no diver visible, silent.
+```
+
+`seed: 1635932321`
+
+### Turtle over reef
+
+<img src="images/underwater-006.webp" width="420" alt="Turtle over reef">
+
+**提示词**
+
+```text
+A sea turtle gliding low over a reef, shot slightly from below against the bright surface, coral texture readable beneath it, a few small fish scattering. Clear tropical water, natural light, no strobe look.
+```
+
+`seed: 241030675`
+
+### Swimming pool from the floor
+
+<img src="images/underwater-007.webp" width="420" alt="Swimming pool from the floor">
+
+**提示词**
+
+```text
+Looking up from the floor of an empty swimming pool at the caustic net of light on the surface, tiled walls receding, a ladder breaking the waterline. Nobody swimming. Cool blue, the caustics sharp and moving.
+```
+
+`seed: 1488320811`
+
+### Freshwater spring, clear
+
+<img src="images/underwater-008.webp" width="420" alt="Freshwater spring, clear">
+
+**提示词**
+
+```text
+An underwater view of a freshwater spring: water so clear the boundary is invisible except where it distorts the fallen branches, pale limestone floor, green weed, cold light from directly above. Almost no colour cast.
+```
+
+`seed: 2084984439`
+
+
+## aerial
+
+_Looking straight down_
+
+### River delta braid
+
+<img src="images/aerial-002.webp" width="420" alt="River delta braid">
+
+**提示词**
+
+```text
+Straight down on a braided glacial river, pale sediment channels splitting and rejoining across dark gravel flats, meltwater grey-blue. No horizon, no scale reference. Flat overcast light so the pattern reads cleanly.
+```
+
+`seed: 1689942205`
+
+### Salt evaporation ponds
+
+<img src="images/aerial-004.webp" width="420" alt="Salt evaporation ponds">
+
+**提示词**
+
+```text
+Straight down on salt evaporation ponds, each cell a different saturated colour from ochre through rust to deep pink, separated by thin pale causeways. No horizon, no vehicles. Flat light, high saturation, reads as a colour field.
+```
+
+`seed: 1452264526`
+
+### Reef edge into deep water
+
+<img src="images/aerial-006.webp" width="420" alt="Reef edge into deep water">
+
+**提示词**
+
+```text
+Straight down on the edge of a coral reef where pale shallow sand drops abruptly into deep blue, the boundary sharp and irregular, wave texture on the shallow side. High sun, no boat, no horizon.
+```
+
+`seed: 1761378779`
+
+### Terraced hillside, dawn mist
+
+<img src="images/aerial-007.webp" width="420" alt="Terraced hillside, dawn mist">
+
+**提示词**
+
+```text
+Straight down on a terraced hillside at dawn with mist caught in the folds, terrace edges reading as contour lines, a single narrow track climbing through them. Soft light, muted greens, no buildings in frame.
+```
+
+`seed: 1421294354`
+
+
+## period
+
+_Photography that reads as a specific decade_
+
+### 1970s Kodachrome family scene
+
+<img src="images/period-001.webp" width="420" alt="1970s Kodachrome family scene">
+
+**提示词**
+
+```text
+A 1970s family snapshot on Kodachrome: a garden barbecue, warm reds and slightly cyan shadows, on-camera flash flattening the foreground, a wood-panelled fence behind. Slight underexposure, square format, faces turned away from camera.
+```
+
+`seed: 752828486`
+
+### 1930s press photograph
+
+<img src="images/period-002.webp" width="420" alt="1930s press photograph">
+
+**提示词**
+
+```text
+A 1930s press photograph on large-format sheet film: a factory floor with belts and lathes, deep depth of field, harsh magnesium flash from the left, silver-rich blacks. Slight retouching marks and a scratch across one corner.
+```
+
+`seed: 603114934`
+
+### 1990s point-and-shoot night
+
+<img src="images/period-003.webp" width="420" alt="1990s point-and-shoot night">
+
+**提示词**
+
+```text
+A 1990s compact camera night shot: direct flash, red-eye era colour, a wet car park and a shopfront out of range falling to black, date stamp burnt orange in the lower right corner. Grainy 400 speed film, slightly soft.
+```
+
+`seed: 449125501`
+
+### 1950s Ektachrome interior
+
+<img src="images/period-004.webp" width="420" alt="1950s Ektachrome interior">
+
+**提示词**
+
+```text
+A 1950s Ektachrome interior: a formica kitchen with pastel cabinetry, one window as the only light, colours slightly shifted cool and the highlights blown. Medium format, everything styled and static, nobody present.
+```
+
+`seed: 2025294181`
+
+### Wet plate collodion portrait
+
+<img src="images/period-005.webp" width="420" alt="Wet plate collodion portrait">
+
+**提示词**
+
+```text
+A wet plate collodion portrait: a seated figure, long exposure so the hands blur slightly, dark corners from the lens, chemical streaks and a thumbprint at the plate edge. Silver tones, shallow field, cloth backdrop.
+```
+
+`seed: 1453420644`
+
+### 1980s VHS still
+
+<img src="images/period-006.webp" width="420" alt="1980s VHS still">
+
+**提示词**
+
+```text
+A still that reads as a VHS frame: scanlines, chroma bleeding on the reds, tracking noise along the bottom edge, a domestic living room lit by a single lamp. Soft, low resolution, slightly desaturated except where the red smears.
+```
+
+`seed: 1665562957`
+
+### 1960s street, Tri-X
+
+<img src="images/period-007.webp" width="420" alt="1960s street, Tri-X">
+
+**提示词**
+
+```text
+A 1960s street photograph on Tri-X: high contrast black and white, coarse grain, a pavement scene with a bus and pedestrians, shot from the hip at 28mm so the framing is loose and slightly tilted. Full frame with the rebate edge visible.
+```
+
+`seed: 1263747052`
+
+### Early colour autochrome
+
+<img src="images/period-008.webp" width="420" alt="Early colour autochrome">
+
+**提示词**
+
+```text
+An autochrome-style image: a garden with flowers, the colour built from a fine mosaic of dyed starch grains so it reads pointillist up close, muted and slightly dim overall, long exposure so the leaves have moved.
+```
+
+`seed: 1413778418`
+
+
+## jewellery
+
+_Small metal and stone at product scale_
+
+### Signet ring, macro
+
+<img src="images/jewellery-001.webp" width="420" alt="Signet ring, macro">
+
+**提示词**
+
+```text
+Macro of a gold signet ring on dark slate, the flat face blank and highly polished so it reflects a single soft window, tool marks visible on the shank. Extremely shallow depth of field, one light, no props, no engraving.
+```
+
+`seed: 1644150464`
+
+### Watch movement, top-down
+
+<img src="images/jewellery-002.webp" width="420" alt="Watch movement, top-down">
+
+**提示词**
+
+```text
+A mechanical watch movement shot directly down with the caseback off: bridges with Geneva striping, blued screws, ruby jewels, the balance wheel mid-frame. Even diffuse light, no text on the bridges, macro sharpness edge to edge.
+```
+
+`seed: 1885237149`
+
+### Pearl strand on silk
+
+<img src="images/jewellery-003.webp" width="420" alt="Pearl strand on silk">
+
+**提示词**
+
+```text
+A strand of pearls coiled on grey silk, each pearl showing its own orient and a soft specular from a large diffuse source, the knots between them visible. Shallow focus running along the strand, muted and cool.
+```
+
+`seed: 1355278449`
+
+### Uncut stones on paper
+
+<img src="images/jewellery-004.webp" width="420" alt="Uncut stones on paper">
+
+**提示词**
+
+```text
+Rough uncut gemstones scattered on a folded white parcel paper, backlit slightly so the translucent ones glow at the edges while the opaque ones stay dark. Loupe at the frame edge out of focus. Overhead, macro.
+```
+
+`seed: 319879010`
+
+### Silver chain, hard light
+
+<img src="images/jewellery-005.webp" width="420" alt="Silver chain, hard light">
+
+**提示词**
+
+```text
+A heavy silver curb chain on black acrylic under a single hard light, each link throwing a crisp shadow and catching one bright specular, the reflection in the acrylic visible beneath. Product-grade, high contrast, no props.
+```
+
+`seed: 725798732`
+
+### Enamel and gold brooch
+
+<img src="images/jewellery-006.webp" width="420" alt="Enamel and gold brooch">
+
+**提示词**
+
+```text
+A cloisonné brooch photographed at a slight angle: gold wire cells filled with deep blue and green enamel, one cell showing a tiny bubble in the glass, the pin catch visible behind. Soft directional light, macro, dark ground.
+```
+
+`seed: 845491635`
+
+### Ring in a bench vice
+
+<img src="images/jewellery-007.webp" width="420" alt="Ring in a bench vice">
+
+**提示词**
+
+```text
+A part-finished ring held in a jeweller's bench pin with a file and a saw frame beside it, metal filings on the wooden surface, the ring still showing solder seams. Workshop light, documentary rather than product. Macro, shallow focus.
+```
+
+`seed: 889861111`
+
+### Diamond in tweezers
+
+<img src="images/jewellery-008.webp" width="420" alt="Diamond in tweezers">
+
+**提示词**
+
+```text
+A brilliant-cut diamond held in fine tweezers against a dark neutral background, lit so the facets throw sharp coloured fire without blowing out, the tweezer tips sharp and the rest falling off. Macro, single hard source.
+```
+
+`seed: 912016671`
 
 
 ## 参与贡献

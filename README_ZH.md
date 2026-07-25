@@ -248,7 +248,7 @@ A motorway interchange shot from an overpass with a 400mm lens at dusk, headligh
 
 ## typography
 
-_Short-string text rendering. Krea 2 is accurate to roughly four words and produces gibberish beyond that; every prompt here stays inside that limit._
+_Short-string text rendering. Krea 2 holds a single sign or label at any length, including an eight-word plaque, but degrades once several independent strings or a paragraph share the frame._
 
 ### Enamel pin packaging
 

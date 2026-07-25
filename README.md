@@ -16,17 +16,19 @@
 
 ## What this model actually does
 
-Everything below was measured while building this catalog, not quoted from the model card. Each claim names the entries that demonstrate it, so you can check it against the images in this repo.
+Everything below was measured while building this catalog, not quoted from the model card. 114 generations went in, 85 are here, 29 were cut. Each claim names the entries that demonstrate it, and every entry carries the seed that produced it, so you can check any of this against the images in this repo.
 
-### Text is accurate to about four words, then collapses
+### Text survives one sign and dies on a list
 
-Short strings come out exactly as written, including punctuation and currency symbols: `PLATFORM 4`, `FRAGILE / THIS WAY UP`, `SOURDOUGH` + `£4.20`, `SEOUL` + `GATE 12`, `HOLLOW & SON / MILLWRIGHTS / EST 1908`, `EST 1884`, `FRESH EGGS`. All 15 entries in **typography** hold their string.
+I went in expecting a word-count ceiling and my own results kill that theory. `HOLLOW & SON — MILLWRIGHTS — EST 1908` came back letter-perfect at eight words (**typography-008**). So did `PLATFORM 4`, `FRAGILE` + `THIS WAY UP`, `SOURDOUGH` + `£4.20`, `SEOUL` + `GATE 12`, `EST 1884`, `FRESH EGGS`. All 15 typography entries kept the string I asked for, and several of them carry two separate strings.
 
-Past roughly four words it degrades into letterforms that look like text but are not. A chalkboard menu produced `FILTER 4.50` and `CORTADO 4.00` correctly and then `CAPEME`, `CABIELO`, `PANSRUR`. A shelf of book spines, a transit map and a timeline were entirely unreadable. A paragraph of safety small print under a correctly rendered `DANGER` heading was nonsense. Those attempts are not in this repo; they were cut.
+What breaks is not length, it is **how many independent text elements share the frame, and whether any of them is prose**. A chalkboard menu got `FILTER 4.50` and `CORTADO 4.00` right, then produced `CAPEME`, `CABIELO`, `PANSRUR` for the remaining rows. A shelf of twelve book spines, a transit map of thirty station names and an eight-point timeline were unreadable end to end. A safety sign rendered `DANGER` and `ARC FLASH AND SHOCK HAZARD` correctly and filled the paragraph beneath them with letter-shaped noise.
 
-Non-Latin scripts fail earlier. A Korean shop sign asked for 정직한 국수 and produced 정적한 — one character wrong, which a native reader spots immediately.
+Korean fails earlier and more quietly. I asked for 정직한 국수 and got 정적한 — one character wrong in a four-syllable string. If you do not read Korean it looks clean; if you do, it is the first thing you see.
 
-Practical rule: put text in the image only when it is a sign, a label, a mark or a price. Never ask for a sentence.
+Practical rule: one sign, one label, one price tag, at any length. Not a menu, not a bibliography, not a sentence.
+
+Those failures are not in this repo — they are part of the 29 that were cut.
 
 ### Character identity does not survive across generations
 
@@ -279,7 +281,7 @@ A motorway interchange shot from an overpass with a 400mm lens at dusk, headligh
 
 ## typography
 
-_Short-string text rendering. Krea 2 is accurate to roughly four words and produces gibberish beyond that; every prompt here stays inside that limit._
+_Short-string text rendering. Krea 2 holds a single sign or label at any length, including an eight-word plaque, but degrades once several independent strings or a paragraph share the frame._
 
 ### Enamel pin packaging
 

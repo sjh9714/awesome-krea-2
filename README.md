@@ -25,7 +25,11 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 
 The old claim was that text fails by *count*: one sign holds, a list collapses, and somewhere between four strings and six there is a ceiling. To find the ceiling I built a ladder — the same brass nameplate, the same style, the same short word-like strings, varying only in how many share the frame. `stringcount-1` through `stringcount-8`.
 
-**All eight are correct.** VULCAN. 1938. MODEL 7. SHEFFIELD. SERIAL 4412. 440 VOLTS. 50 CYCLES. MADE IN ENGLAND. Every string legible, on a plate, at eight independent strings. The single error in the whole ladder is a spurious `7` after SHEFFIELD in `stringcount-5`.
+**Every string I asked for rendered, at every rung.** VULCAN. 1938. MODEL 7. SHEFFIELD. SERIAL 4412. 440 VOLTS. 50 CYCLES. MADE IN ENGLAND. Legible, spelled correctly, on a plate, at eight independent strings.
+
+**Two rungs also engraved something I did not ask for**, and this paragraph used to open with "all eight are correct", which is not the same claim and should never have been written. `stringcount-5` puts a spurious `7` beside SHEFFIELD — a sixth element on a five-string plate. And `stringcount-2` engraves the `/` I was using as a separator, so the plate literally reads `VULCAN / 1938`. A reader on r/StableDiffusion, **u/FotografoVirtual**, caught the first one by reading the plate against the prompt; the second turned up when I went back and checked all eight because of it.
+
+So the ladder answers the question it was built to answer — count is not the limit — and it does not license the sentence "the plates are flawless". What is added is not a failure of the strings, it is a failure to suppress everything else.
 
 So count was never the variable. Going back through every text failure in this repo, the split is exact and it is about **who wrote the string**:
 

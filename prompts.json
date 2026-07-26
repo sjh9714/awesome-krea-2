@@ -3363,17 +3363,6 @@
       "batch": 6
     },
     {
-      "id": "aerial-007",
-      "category": "aerial",
-      "title": "Terraced hillside, dawn mist",
-      "image": "images/aerial-007.webp",
-      "prompt": "Straight down on a terraced hillside at dawn with mist caught in the folds, terrace edges reading as contour lines, a single narrow track climbing through them. Soft light, muted greens, no buildings in frame.",
-      "params": {
-        "seed": 1421294354
-      },
-      "batch": 6
-    },
-    {
       "id": "period-001",
       "category": "period",
       "title": "1970s Kodachrome family scene",
@@ -5370,7 +5359,7 @@
       },
       {
         "title": "\"Straight down\" is a request, not an instruction",
-        "body": "Eight aerial prompts, every one of them opening with *straight down on…*. **Four came back oblique.** `aerial-003` shows the container cranes standing up in frame; `aerial-008` is at bridge height; `aerial-005`, asked for a suburb from directly above, came back **from the pavement** — not an aerial at all.\n\nThe four that held are the ones where a nadir view is the only way the subject makes sense: a braided river, salt evaporation ponds, the edge of a reef, a terraced hillside. All four are flat subjects whose whole content is pattern. Where the scene contains anything with obvious verticality — cranes, houses, bales — the camera tilts back down to a view that shows those verticals.\n\nPractical rule: ask for nadir only on subjects that have no useful vertical, and check the angle before you accept the frame. Naming the altitude or the lens does not help; the pull is in the subject."
+        "body": "Eight aerial prompts, every one of them opening with *straight down on…*. **Five came back oblique.** `aerial-003` shows the container cranes standing up in frame; `aerial-008` is at bridge height; `aerial-005`, asked for a suburb from directly above, came back **from the pavement** — not an aerial at all.\n\n**The fifth was mine, and it sat inside the explanation for four batches.** This finding used to say four held, and described them as \"a braided river, salt evaporation ponds, the edge of a reef, a terraced hillside — all four flat subjects whose whole content is pattern\". A terraced hillside is not a flat subject. Re-checked against this repository's own test for the failures — are verticals visible in frame — `aerial-007` fails it: the terrace risers are visible, the hillside recedes toward the upper left, and there is aerial haze along that axis. It is a high oblique of the same kind as `aerial-001`, and it has moved to the failures.\n\n**Three held**, and all three are genuinely flat: a braided river, salt evaporation ponds, the edge of a reef. Nothing in any of them stands up. Where the scene contains anything with obvious verticality — cranes, houses, bales, terrace risers — the camera tilts back down to a view that shows those verticals.\n\nPractical rule: ask for nadir only on subjects that have no useful vertical, and check the angle before you accept the frame. Naming the altitude or the lens does not help; the pull is in the subject.\n\nA note on how this was caught, because it matters more than the entry. Two findings here were overturned by readers who looked harder than I did — the hands claim and a nameplate. This one I found by going back through every finding that rests on looking at a picture and applying the test the finding itself had written down. The picture had not changed. The sentence \"all four are flat subjects\" was the counterexample, in the same paragraph, the whole time."
       },
       {
         "title": "A size comparison can replace your subject with the thing you compared it to",
@@ -5386,70 +5375,137 @@
     "_what": "Deliberately reproduced failures. Every claim in the README's findings section points at one of these, with the seed that produced it, so the limits are checkable rather than asserted. These are NOT part of the 85-entry catalog.",
     "entries": [
       {
-        "id": "fail-menu",
-        "claim": "Text: a list of many strings collapses after the first few",
-        "prompt": "A cafe chalkboard, straight on, filled edge to edge with hand-lettered menu items in white and pale yellow chalk. Legible items include \"FILTER 4.50\", \"CORTADO 4.00\", \"OAT +0.60\". Slight chalk dust haze, uneven letter weights, a small drawn coffee cherry in the corner.",
-        "expected": "Ten legible menu rows",
-        "image": "images/failures/fail-menu.webp",
+        "id": "abstract-004",
+        "claim": "Colour: 'coloured light trails' came back as four pale near-white lines",
+        "expected": "Crossing, looping, coloured trails",
+        "prompt": "Coloured light trails from a camera moved during a long exposure, the paths crossing and looping against pure black with no recognisable source visible. Sharp thin lines, varying brightness, some doubled where the movement paused.",
+        "image": "images/failures/abstract-004.webp",
         "params": {
-          "seed": 1729505870
+          "seed": 478699619
         },
-        "batch": 1
+        "batch": 4
       },
       {
-        "id": "fail-spines",
-        "claim": "Text: twelve independent strings in one frame, all unreadable",
-        "prompt": "A tight row of twelve hardback book spines on a shelf, shot straight on so all titles are legible. Varying cloth colours and foil-stamped serif titles. Invent plausible titles in English. Even soft light, no glare on the foil, shallow depth so the spine faces are sharp and the shelf edge falls off.",
-        "expected": "Twelve readable invented titles",
-        "image": "images/failures/fail-spines.webp",
+        "id": "aerial-001",
+        "claim": "Angle: asked for straight down, returned a high oblique",
+        "expected": "Nadir framing",
+        "prompt": "Straight down on harvested fields: baled straw casting long shadows, tractor tracks curving between stubble blocks of slightly different tone, one dark ploughed strip. Low sun, no horizon, no buildings. Reads as abstract until you find the bales.",
+        "image": "images/failures/aerial-001.webp",
         "params": {
-          "seed": 1095803014
+          "seed": 786641017
         },
-        "batch": 1
+        "batch": 6
       },
       {
-        "id": "fail-map",
-        "claim": "Text: thirty station names, none of them words",
-        "prompt": "A stylised city transit map with four coloured lines, interchange stations shown as white circles with black outlines, and legible station names in a condensed sans-serif. 45-degree angles only, even line spacing, a small legend in the lower left.",
-        "expected": "Legible station names",
-        "image": "images/failures/fail-map.webp",
+        "id": "aerial-003",
+        "claim": "Angle: asked for straight down, returned an oblique with the cranes standing up in frame",
+        "expected": "Nadir framing",
+        "prompt": "Straight down on a container terminal: stacked containers in blocks of colour, gantry cranes casting long shadows across the apron, one ship alongside. Early morning light, no legible text on the containers. Graphic and orderly.",
+        "image": "images/failures/aerial-003.webp",
         "params": {
-          "seed": 57616412
+          "seed": 372479606
         },
-        "batch": 1
+        "batch": 6
       },
       {
-        "id": "fail-timeline",
-        "claim": "Text: years render, labels do not",
-        "prompt": "A horizontal timeline spanning 1970 to 2030 with eight milestone markers above and below the axis alternately, each with a year and a short two-word label. Even tick spacing, one accent colour, plenty of white space, everything legible at a glance.",
-        "expected": "Eight year+label pairs",
-        "image": "images/failures/fail-timeline.webp",
+        "id": "aerial-005",
+        "claim": "Angle: asked for straight down on a suburb, returned a view from the pavement",
+        "expected": "Nadir framing",
+        "prompt": "Straight down on a suburban street in low winter sun, house shadows falling across the road in a regular rhythm, cars parked, bare trees, frost still on north-facing roofs. Ordered, quiet, nobody visible.",
+        "image": "images/failures/aerial-005.webp",
         "params": {
-          "seed": 797625079
+          "seed": 1337059737
         },
-        "batch": 1
+        "batch": 6
       },
       {
-        "id": "fail-korean",
-        "claim": "Text: Korean fails one character in, and looks clean if you cannot read it",
-        "prompt": "A hand-painted shopfront sign in Seoul reading exactly \"정직한 국수\" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light, no other signage in frame.",
-        "expected": "정직한 국수",
-        "image": "images/failures/fail-korean.webp",
+        "id": "aerial-007",
+        "claim": "Angle: asked for straight down, returned a high oblique - the terrace risers are visible and the hillside recedes into haze",
+        "expected": "Nadir framing",
+        "prompt": "Straight down on a terraced hillside at dawn with mist caught in the folds, terrace edges reading as contour lines, a single narrow track climbing through them. Soft light, muted greens, no buildings in frame.",
+        "image": "images/failures/aerial-007.webp",
         "params": {
-          "seed": 1910572019
+          "seed": 1421294354
         },
-        "batch": 1
+        "batch": 6,
+        "found_by": "re-checked 2026-07-26 against this repository's own test for the other four - whether verticals are visible in frame"
       },
       {
-        "id": "fail-terminal",
-        "claim": "Text: the command line renders, the output beneath it does not",
-        "prompt": "A photograph of a CRT monitor displaying a green-phosphor terminal, scanlines and slight bloom visible. The visible text reads \"$ make install\" followed by three lines of plausible build output. Shot at a slight angle so the glass curvature is apparent, dark room, the monitor is the only light source.",
-        "expected": "$ make install plus three lines of build output",
-        "image": "images/failures/fail-terminal.webp",
+        "id": "aerial-008",
+        "claim": "Angle: asked for straight down on an interchange, returned a view from bridge height",
+        "expected": "Nadir framing",
+        "prompt": "Straight down on a multi-level motorway interchange at night, light trails from a long exposure looping through the ramps, the structure itself dark. Wet road surface catching the lights. No text, no signage legible.",
+        "image": "images/failures/aerial-008.webp",
         "params": {
-          "seed": 1530960951
+          "seed": 202936705
         },
-        "batch": 1
+        "batch": 6
+      },
+      {
+        "id": "automotive-002",
+        "claim": "Text: the tyre sidewall lettering is legible enough to read as wrong",
+        "expected": "Out-of-focus sidewall lettering",
+        "prompt": "Macro of an alloy wheel with the brake caliper and drilled disc visible behind the spokes, brake dust settled on the face, tyre sidewall lettering out of focus at the frame edge. Hard raking light, dark garage floor.",
+        "image": "images/failures/automotive-002.webp",
+        "params": {
+          "seed": 318918336
+        },
+        "batch": 4
+      },
+      {
+        "id": "brand-mark-002",
+        "claim": "Letters: asked for the monogram 'KJ', got three letterforms that are not those two",
+        "expected": "The letters K and J interlocked",
+        "prompt": "A monogram mark: the letters \"KJ\" interlocked and enclosed in a thin circular rule, drawn in a single ink weight, deep navy on cream. Geometric construction, no serifs, perfectly symmetrical. Centred, flat, nothing else.",
+        "image": "images/failures/brand-mark-002.webp",
+        "params": {
+          "seed": 1276536027
+        },
+        "batch": 3
+      },
+      {
+        "id": "collectible-003",
+        "claim": "Text: four keycap legends came back as letter-shaped noise",
+        "expected": "Four legible dye-sublimated legends",
+        "prompt": "Four artisan keycaps arranged in a row on a dark desk mat, each cast in translucent resin with a different suspended pigment swirl, dye-sublimated legends on the flat top. Macro at f/5.6, soft top light, visible resin depth and a tiny air bubble in one cap.",
+        "image": "images/failures/collectible-003.webp",
+        "params": {
+          "seed": 1958353167
+        },
+        "batch": 2
+      },
+      {
+        "id": "collectible-004",
+        "claim": "Layout: the creature artwork went to the top and the centre panel stayed empty",
+        "expected": "Illustrated creature artwork in the central panel",
+        "prompt": "A collectible trading card lying at a slight angle on black felt, holographic foil border catching a rainbow sheen, illustrated creature artwork in the central panel, rounded corners, a thin dark frame. The foil should scatter light unevenly across the border only.",
+        "image": "images/failures/collectible-004.webp",
+        "params": {
+          "seed": 167021886
+        },
+        "batch": 2
+      },
+      {
+        "id": "collectible-008",
+        "claim": "Equipment: naming the softbox put the softbox in the frame",
+        "expected": "A single softbox lighting the duck, out of shot",
+        "prompt": "A matte black rubber duck on a white acrylic surface with a soft reflection beneath it, single large softbox above and behind, a thin rim of light along the top edge of the head and back. Minimal, high-end product photography of a deliberately silly object.",
+        "image": "images/failures/collectible-008.webp",
+        "params": {
+          "seed": 1935262212
+        },
+        "batch": 2
+      },
+      {
+        "id": "comic-003",
+        "claim": "Composition: a flat cyan field with the figure pushed to the edge, and no rosette worth the name",
+        "expected": "A newsprint panel with visible CMYK rosette",
+        "prompt": "A comic panel printed on cheap newsprint: visible CMYK rosette dots, slight misregistration on the reds, yellowed paper, a figure mid-leap against a flat cyan sky. One empty caption box in the upper left.",
+        "image": "images/failures/comic-003.webp",
+        "params": {
+          "seed": 312992160
+        },
+        "batch": 7
       },
       {
         "id": "fail-identity",
@@ -5465,6 +5521,39 @@
         "batch": 1
       },
       {
+        "id": "fail-korean",
+        "claim": "Text: Korean fails one character in, and looks clean if you cannot read it",
+        "prompt": "A hand-painted shopfront sign in Seoul reading exactly \"정직한 국수\" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light, no other signage in frame.",
+        "expected": "정직한 국수",
+        "image": "images/failures/fail-korean.webp",
+        "params": {
+          "seed": 1910572019
+        },
+        "batch": 1
+      },
+      {
+        "id": "fail-map",
+        "claim": "Text: thirty station names, none of them words",
+        "prompt": "A stylised city transit map with four coloured lines, interchange stations shown as white circles with black outlines, and legible station names in a condensed sans-serif. 45-degree angles only, even line spacing, a small legend in the lower left.",
+        "expected": "Legible station names",
+        "image": "images/failures/fail-map.webp",
+        "params": {
+          "seed": 57616412
+        },
+        "batch": 1
+      },
+      {
+        "id": "fail-menu",
+        "claim": "Text: a list of many strings collapses after the first few",
+        "prompt": "A cafe chalkboard, straight on, filled edge to edge with hand-lettered menu items in white and pale yellow chalk. Legible items include \"FILTER 4.50\", \"CORTADO 4.00\", \"OAT +0.60\". Slight chalk dust haze, uneven letter weights, a small drawn coffee cherry in the corner.",
+        "expected": "Ten legible menu rows",
+        "image": "images/failures/fail-menu.webp",
+        "params": {
+          "seed": 1729505870
+        },
+        "batch": 1
+      },
+      {
         "id": "fail-removal",
         "claim": "Editing: asked to remove the steam, returns the steam",
         "prompt": "Same mug, same table, same backlight. Remove the steam entirely and let the coffee surface go still and mirror-flat, reflecting the window.",
@@ -5476,6 +5565,316 @@
           "seed": 1499506316
         },
         "batch": 1
+      },
+      {
+        "id": "fail-spines",
+        "claim": "Text: twelve independent strings in one frame, all unreadable",
+        "prompt": "A tight row of twelve hardback book spines on a shelf, shot straight on so all titles are legible. Varying cloth colours and foil-stamped serif titles. Invent plausible titles in English. Even soft light, no glare on the foil, shallow depth so the spine faces are sharp and the shelf edge falls off.",
+        "expected": "Twelve readable invented titles",
+        "image": "images/failures/fail-spines.webp",
+        "params": {
+          "seed": 1095803014
+        },
+        "batch": 1
+      },
+      {
+        "id": "fail-terminal",
+        "claim": "Text: the command line renders, the output beneath it does not",
+        "prompt": "A photograph of a CRT monitor displaying a green-phosphor terminal, scanlines and slight bloom visible. The visible text reads \"$ make install\" followed by three lines of plausible build output. Shot at a slight angle so the glass curvature is apparent, dark room, the monitor is the only light source.",
+        "expected": "$ make install plus three lines of build output",
+        "image": "images/failures/fail-terminal.webp",
+        "params": {
+          "seed": 1530960951
+        },
+        "batch": 1
+      },
+      {
+        "id": "fail-timeline",
+        "claim": "Text: years render, labels do not",
+        "prompt": "A horizontal timeline spanning 1970 to 2030 with eight milestone markers above and below the axis alternately, each with a year and a short two-word label. Even tick spacing, one accent colour, plenty of white space, everything legible at a glance.",
+        "expected": "Eight year+label pairs",
+        "image": "images/failures/fail-timeline.webp",
+        "params": {
+          "seed": 797625079
+        },
+        "batch": 1
+      },
+      {
+        "id": "fantasy-009",
+        "claim": "Simile: 'a beetle the size of a pony' returned a pony — the comparison replaced the subject",
+        "expected": "A pony-sized beetle in a harness",
+        "prompt": "A beetle the size of a pony standing in long grass with a worn leather harness fitted to its thorax, chitin scratched and repaired, the harness clearly used. Overcast light, documentary framing, no rider present.",
+        "image": "images/failures/fantasy-009.webp",
+        "params": {
+          "seed": 1007230101
+        },
+        "batch": 7
+      },
+      {
+        "id": "fashion-007",
+        "claim": "Composition: asked for the rail end-on as receding silhouettes, got it side-on with the hangers showing",
+        "expected": "An end-on rail reading as layered silhouettes",
+        "prompt": "A rail of hanging garments seen end-on, backlit so the layered fabrics read as receding silhouettes with light finding the gaps between them. Muted palette, no labels, no faces, no hangers visible above the shoulder line.",
+        "image": "images/failures/fashion-007.webp",
+        "params": {
+          "seed": 1999599151
+        },
+        "batch": 4
+      },
+      {
+        "id": "food-003",
+        "claim": "Mechanism: the espresso renders as an amber disc where the basket should be, and one stream instead of two",
+        "expected": "Two thin streams from a portafilter",
+        "prompt": "A double espresso extracting into a clear glass, backlit so the crema glows amber and the two streams are visible as thin ropes of dark liquid. Steam, a chrome portafilter above, everything else falling to near black. Macro, 1/500s, frozen.",
+        "image": "images/failures/food-003.webp",
+        "params": {
+          "seed": 117001054
+        },
+        "batch": 3
+      },
+      {
+        "id": "hands-1",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "A single adult hand resting palm-down on a plain oak table, fingers relaxed and slightly apart, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-1.webp",
+        "params": {
+          "seed": 1481878687
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-2",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "A single adult hand wrapped around a plain ceramic mug on a plain oak table, thumb over the handle, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-2.webp",
+        "params": {
+          "seed": 115868128
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-3",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "Two adult hands resting palm-down on a plain oak table, well apart from each other, fingers relaxed, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-3.webp",
+        "params": {
+          "seed": 1328002727
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-4",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "Two adult hands loosely clasped together on a plain oak table, one wrapped around the other, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-4.webp",
+        "params": {
+          "seed": 1095933455
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-5",
+        "claim": "Gesture: asked for fingers fully interlaced, returned a clasp with the fingers lying over the other hand",
+        "expected": "Fingers woven between fingers",
+        "prompt": "Two adult hands with the fingers fully interlaced, resting on a plain oak table, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
+        "image": "images/failures/hands-5.webp",
+        "params": {
+          "seed": 1164604099
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-6",
+        "claim": "Digits: the near hand has six fingers wrapped around the grip; the pose reads correct and the count does not",
+        "expected": "A two-person handshake with five digits per hand",
+        "prompt": "Two people shaking hands over a plain oak table, hands and forearms only in frame, a firm grip with the thumbs crossed. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. No faces.",
+        "image": "images/failures/hands-6.webp",
+        "params": {
+          "seed": 1319396385
+        },
+        "batch": 7,
+        "found_by": "u/sickmartian on r/StableDiffusion, who counted them"
+      },
+      {
+        "id": "hands-7",
+        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
+        "expected": "Five digits per hand",
+        "prompt": "Two adult hands playing a piano, seen from above and slightly behind, fingers spread across the white and black keys with some depressed. Soft directional daylight from the left, plain background beyond the keyboard. No face, no body.",
+        "image": "images/failures/hands-7.webp",
+        "params": {
+          "seed": 387883077
+        },
+        "batch": 7
+      },
+      {
+        "id": "hands-8",
+        "claim": "Digits: asked for exactly 3 fingers raised, and the hand carries six digits in total",
+        "expected": "Three raised, thumb and little finger folded, five digits",
+        "prompt": "A single adult hand held up facing the camera showing exactly 3 fingers raised — index, middle and ring — with the thumb and little finger folded down. Plain oak table below, soft directional daylight from the left, plain background. Nothing else in frame.",
+        "image": "images/failures/hands-8.webp",
+        "params": {
+          "seed": 1353379060
+        },
+        "batch": 7,
+        "found_by": "u/sickmartian on r/StableDiffusion, who counted them"
+      },
+      {
+        "id": "hangul-003",
+        "claim": "Korean: 정직한 came back 정적한 again, at a different seed from the first attempt",
+        "expected": "정직한 국수",
+        "prompt": "A hand-painted shopfront sign in Seoul reading exactly \"정직한 국수\" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light.",
+        "image": "images/failures/hangul-003.webp",
+        "params": {
+          "seed": 1167746582
+        },
+        "batch": 6
+      },
+      {
+        "id": "hangul-005",
+        "claim": "Korean: 밭 came back 뾃, a syllable that does not exist",
+        "expected": "한밭식당",
+        "prompt": "A letterpress business card photographed at a raking angle so the deep impression casts visible shadow in the cotton stock. The card reads exactly \"한밭식당\" in a Korean serif typeface with a thin rule beneath. Ecru paper, single black ink.",
+        "image": "images/failures/hangul-005.webp",
+        "params": {
+          "seed": 1086365627
+        },
+        "batch": 6
+      },
+      {
+        "id": "infographic-004",
+        "claim": "Text: the chalk heading rendered, the three bullet lines under it did not",
+        "expected": "A heading plus three short bullet lines",
+        "prompt": "A slate chalkboard with a hand-lettered heading reading \"TODAY\" and three short bullet lines beneath it, drawn in white chalk with a yellow chalk underline on the heading. Chalk dust haze, uneven pressure, a partly erased smudge in one corner. Shot straight on.",
+        "image": "images/failures/infographic-004.webp",
+        "params": {
+          "seed": 1043088059
+        },
+        "batch": 2
+      },
+      {
+        "id": "infographic-007",
+        "claim": "Count: 'five regions' returned eight, and the ink coastline never appeared",
+        "expected": "Five regions with a thin brown ink coastline",
+        "prompt": "A watercolour map of an invented island divided into five regions, each washed in a different muted colour with visible pigment granulation and soft bleeding at the borders. Thin brown ink coastline drawn over the wash, a small compass rose in the corner. No place names.",
+        "image": "images/failures/infographic-007.webp",
+        "params": {
+          "seed": 125241101
+        },
+        "batch": 2
+      },
+      {
+        "id": "knolling-001",
+        "claim": "Text: the lens caps carry invented branding, legible and wrong, in an otherwise perfect knoll",
+        "expected": "No text on the equipment",
+        "prompt": "A camera and its parts arranged flat and square to the frame on a neutral grey surface: body, two lenses, caps, a strap coiled, batteries and a card, everything aligned to an invisible grid with even gaps. Shot straight down, even light.",
+        "image": "images/failures/knolling-001.webp",
+        "params": {
+          "seed": 914939340
+        },
+        "batch": 8
+      },
+      {
+        "id": "knolling-002",
+        "claim": "Arrangement: asked for the pocket contents laid flat on a grid, returned them heaped in the pocket",
+        "expected": "Objects square to the frame with even gaps",
+        "prompt": "The contents of a coat pocket arranged flat and square on a pale wooden surface: keys, a folded receipt, coins, a pen, a chestnut and a used ticket. Even gaps, everything parallel or perpendicular. Straight down, soft light.",
+        "image": "images/failures/knolling-002.webp",
+        "params": {
+          "seed": 2139908382
+        },
+        "batch": 8
+      },
+      {
+        "id": "knolling-004",
+        "claim": "Contents: bicycle-specific tools were asked for and generic ones arrived, with invented sticker text",
+        "expected": "Tyre levers, patches, a pump",
+        "prompt": "A bicycle repair kit knolled on a dark workbench: tyre levers, a multitool, patches, a pump, a chain link and a rag, everything parallel and evenly spaced. Straight down, even workshop light, no packaging.",
+        "image": "images/failures/knolling-004.webp",
+        "params": {
+          "seed": 545841073
+        },
+        "batch": 8
+      },
+      {
+        "id": "material-003",
+        "claim": "Surface: boiled wool felt came back as uniform grey noise with no nap and no fibre",
+        "expected": "Matted directional wool fibres",
+        "prompt": "A flat swatch of boiled wool felt filling the frame in charcoal grey, fibres matted and slightly directional, a few paler fibres visible. Raking light so the surface nap reads. No edges, no stitching.",
+        "image": "images/failures/material-003.webp",
+        "params": {
+          "seed": 419888631
+        },
+        "batch": 7
+      },
+      {
+        "id": "material-004",
+        "claim": "Surface: asked for a fine crazed network in aged leather, returned smooth leather with soft creases",
+        "expected": "Crazed, worn leather grain",
+        "prompt": "A flat swatch of aged tan leather filling the frame, the grain broken into a fine crazed network with the finish worn thinner on the high points. Raking light, warm tone, no stitching, no edges.",
+        "image": "images/failures/material-004.webp",
+        "params": {
+          "seed": 67212683
+        },
+        "batch": 7
+      },
+      {
+        "id": "material-007",
+        "claim": "Material: sand-cast bronze came back as pitted pale stone with no metal in it",
+        "expected": "Cast bronze, dark in the recesses and polished on the high points",
+        "prompt": "A flat swatch of sand-cast bronze filling the frame, the surface pitted with the grain of the mould, darker in the recesses and polished on the high points. Raking light, warm metal, no edges.",
+        "image": "images/failures/material-007.webp",
+        "params": {
+          "seed": 324747702
+        },
+        "batch": 7
+      },
+      {
+        "id": "mirror-004",
+        "claim": "Instruction: asked for nobody in the reflection, returned two hands pressed against the glass",
+        "expected": "An empty fogged mirror with a wiped arc",
+        "prompt": "A bathroom mirror fogged with condensation except where a hand has wiped an arc clear, the clear part reflecting tiles and a light. Nobody in the reflection. Warm bulb light, droplets running down the fogged area.",
+        "image": "images/failures/mirror-004.webp",
+        "params": {
+          "seed": 404637919
+        },
+        "batch": 8
+      },
+      {
+        "id": "monogram-001",
+        "claim": "Letters: asked to interlock R and W, the R reads as a P where the two forms overlap",
+        "expected": "R and W, both legible",
+        "prompt": "A monogram mark: the two letters R and W interlocked inside a thin circular rule, drawn in a single ink weight, deep navy on cream. Geometric, no serifs, symmetrical. The mark reads exactly: RW",
+        "image": "images/failures/monogram-001.webp",
+        "params": {
+          "seed": 1193159535
+        },
+        "batch": 5
+      },
+      {
+        "id": "night-002",
+        "claim": "Scene: the reflection never resolves into water; the lower half reads as a second sky",
+        "expected": "The Milky Way reflected in still water",
+        "prompt": "The Milky Way core rising over still water, its dust lanes clearly structured, the reflection breaking slightly in the surface. A dark shoreline at the bottom of frame. Astro exposure, high ISO grain visible, no artificial light.",
+        "image": "images/failures/night-002.webp",
+        "params": {
+          "seed": 1089231047
+        },
+        "batch": 5
+      },
+      {
+        "id": "pixel-art-002",
+        "claim": "Animation: a four-frame walk cycle came back as six identical frames in the same pose",
+        "expected": "Four distinct frames of a walk",
+        "prompt": "A pixel-art sprite sheet showing a single character in a four-frame walk cycle, side view, hard-edged pixels, transparent-looking flat background, limited palette. Each frame the same size and aligned. No text.",
+        "image": "images/failures/pixel-art-002.webp",
+        "params": {
+          "seed": 1526433893
+        },
+        "batch": 8
       },
       {
         "id": "portrait-006",
@@ -5522,81 +5921,70 @@
         "batch": 2
       },
       {
-        "id": "infographic-004",
-        "claim": "Text: the chalk heading rendered, the three bullet lines under it did not",
-        "expected": "A heading plus three short bullet lines",
-        "prompt": "A slate chalkboard with a hand-lettered heading reading \"TODAY\" and three short bullet lines beneath it, drawn in white chalk with a yellow chalk underline on the heading. Chalk dust haze, uneven pressure, a partly erased smudge in one corner. Shot straight on.",
-        "image": "images/failures/infographic-004.webp",
+        "id": "poster-004",
+        "claim": "Glyph: the string is right and both R's are drawn mirrored — NOЯTHEЯN LIGHT",
+        "expected": "NORTHERN LIGHT",
+        "prompt": "A film festival poster: a high-contrast black and white photograph of a hand holding film stock filling the frame, with \"NORTHERN LIGHT\" reversed out in white across the middle and \"FILM WEEK\" small at the bottom. Nothing else printed.",
+        "image": "images/failures/poster-004.webp",
         "params": {
-          "seed": 1043088059
+          "seed": 1064082710
         },
-        "batch": 2
+        "batch": 5
       },
       {
-        "id": "infographic-007",
-        "claim": "Count: 'five regions' returned eight, and the ink coastline never appeared",
-        "expected": "Five regions with a thin brown ink coastline",
-        "prompt": "A watercolour map of an invented island divided into five regions, each washed in a different muted colour with visible pigment granulation and soft bleeding at the borders. Thin brown ink coastline drawn over the wash, a small compass rose in the corner. No place names.",
-        "image": "images/failures/infographic-007.webp",
+        "id": "respecify-map",
+        "claim": "Text: specifying the names fixed four of nine; the small rotated labels still fail — MILL LANE became MILLLANYNE, CENTRAL became EECTFRAL",
+        "expected": "Nine legible station names",
+        "prompt": "A stylised transit map with three coloured lines, interchange stations as white circles with black outlines, station names in a condensed sans, 45-degree angles only. The stations read exactly: NORTHGATE / MILL LANE / ABBEY / CENTRAL / QUARRY HILL / DOCKS / EASTFIELD / ST ANNE'S / RIVERSIDE. Nine stations, nothing else written.",
+        "image": "images/failures/respecify-map.webp",
         "params": {
-          "seed": 125241101
+          "seed": 1334788167
         },
-        "batch": 2
+        "batch": 6
       },
       {
-        "id": "collectible-003",
-        "claim": "Text: four keycap legends came back as letter-shaped noise",
-        "expected": "Four legible dye-sublimated legends",
-        "prompt": "Four artisan keycaps arranged in a row on a dark desk mat, each cast in translucent resin with a different suspended pigment swirl, dye-sublimated legends on the flat top. Macro at f/5.6, soft top light, visible resin depth and a tiny air bubble in one cap.",
-        "image": "images/failures/collectible-003.webp",
+        "id": "silhouette-004",
+        "claim": "Exposure: asked for hands as solid black against the window, returned them backlit and translucent",
+        "expected": "Hands as flat black shapes",
+        "prompt": "A pair of hands held up flat against a bright window, exposed for the window so the hands read as solid black shapes with light coming faintly through the gaps between the fingers. Nothing else in frame.",
+        "image": "images/failures/silhouette-004.webp",
         "params": {
-          "seed": 1958353167
+          "seed": 1616657488
         },
-        "batch": 2
+        "batch": 8
       },
       {
-        "id": "collectible-004",
-        "claim": "Layout: the creature artwork went to the top and the centre panel stayed empty",
-        "expected": "Illustrated creature artwork in the central panel",
-        "prompt": "A collectible trading card lying at a slight angle on black felt, holographic foil border catching a rainbow sheen, illustrated creature artwork in the central panel, rounded corners, a thin dark frame. The foil should scatter light unevenly across the border only.",
-        "image": "images/failures/collectible-004.webp",
+        "id": "sport-003",
+        "claim": "Framing: asked for no face in frame, the face is in frame behind the hands",
+        "expected": "Hands on the ropes, no face",
+        "prompt": "Close on a boxer's wrapped hands resting on the ropes between rounds, tape frayed, sweat and a smear of blood on the knuckles, everything behind fallen to dark. One hard light from above. Nobody's face in frame.",
+        "image": "images/failures/sport-003.webp",
         "params": {
-          "seed": 167021886
+          "seed": 769044869
         },
-        "batch": 2
+        "batch": 6
       },
       {
-        "id": "collectible-008",
-        "claim": "Equipment: naming the softbox put the softbox in the frame",
-        "expected": "A single softbox lighting the duck, out of shot",
-        "prompt": "A matte black rubber duck on a white acrylic surface with a soft reflection beneath it, single large softbox above and behind, a thin rim of light along the top edge of the head and back. Minimal, high-end product photography of a deliberately silly object.",
-        "image": "images/failures/collectible-008.webp",
+        "id": "sport-006",
+        "claim": "Count inside a noun: a rowing EIGHT came back as a single sculler",
+        "expected": "An eight-person crew",
+        "prompt": "A rowing eight seen from behind and low on flat water at dawn, blades entering together, mist on the river, the crew in silhouette against a pale sky. Long lens compression, no faces, wake spreading behind.",
+        "image": "images/failures/sport-006.webp",
         "params": {
-          "seed": 1935262212
+          "seed": 603162714
         },
-        "batch": 2
+        "batch": 6
       },
       {
-        "id": "food-003",
-        "claim": "Mechanism: the espresso renders as an amber disc where the basket should be, and one stream instead of two",
-        "expected": "Two thin streams from a portafilter",
-        "prompt": "A double espresso extracting into a clear glass, backlit so the crema glows amber and the two streams are visible as thin ropes of dark liquid. Steam, a chrome portafilter above, everything else falling to near black. Macro, 1/500s, frozen.",
-        "image": "images/failures/food-003.webp",
+        "id": "tattoo-008",
+        "claim": "Framing: asked for a healed and a fresh tattoo on one arm, returned two arms with matching stars",
+        "expected": "Two tattoos side by side on one arm",
+        "prompt": "A close photograph of an arm carrying two tattoos side by side: one healed and settled into the skin with softened edges, one fresh and sharply defined with reddened skin around it. Natural light, macro, no faces.",
+        "image": "images/failures/tattoo-008.webp",
         "params": {
-          "seed": 117001054
+          "seed": 378283143
         },
-        "batch": 3
-      },
-      {
-        "id": "brand-mark-002",
-        "claim": "Letters: asked for the monogram 'KJ', got three letterforms that are not those two",
-        "expected": "The letters K and J interlocked",
-        "prompt": "A monogram mark: the letters \"KJ\" interlocked and enclosed in a thin circular rule, drawn in a single ink weight, deep navy on cream. Geometric construction, no serifs, perfectly symmetrical. Centred, flat, nothing else.",
-        "image": "images/failures/brand-mark-002.webp",
-        "params": {
-          "seed": 1276536027
-        },
-        "batch": 3
+        "batch": 8
       },
       {
         "id": "ui-001",
@@ -5698,237 +6086,6 @@
         "batch": 3
       },
       {
-        "id": "fashion-007",
-        "claim": "Composition: asked for the rail end-on as receding silhouettes, got it side-on with the hangers showing",
-        "expected": "An end-on rail reading as layered silhouettes",
-        "prompt": "A rail of hanging garments seen end-on, backlit so the layered fabrics read as receding silhouettes with light finding the gaps between them. Muted palette, no labels, no faces, no hangers visible above the shoulder line.",
-        "image": "images/failures/fashion-007.webp",
-        "params": {
-          "seed": 1999599151
-        },
-        "batch": 4
-      },
-      {
-        "id": "automotive-002",
-        "claim": "Text: the tyre sidewall lettering is legible enough to read as wrong",
-        "expected": "Out-of-focus sidewall lettering",
-        "prompt": "Macro of an alloy wheel with the brake caliper and drilled disc visible behind the spokes, brake dust settled on the face, tyre sidewall lettering out of focus at the frame edge. Hard raking light, dark garage floor.",
-        "image": "images/failures/automotive-002.webp",
-        "params": {
-          "seed": 318918336
-        },
-        "batch": 4
-      },
-      {
-        "id": "abstract-004",
-        "claim": "Colour: 'coloured light trails' came back as four pale near-white lines",
-        "expected": "Crossing, looping, coloured trails",
-        "prompt": "Coloured light trails from a camera moved during a long exposure, the paths crossing and looping against pure black with no recognisable source visible. Sharp thin lines, varying brightness, some doubled where the movement paused.",
-        "image": "images/failures/abstract-004.webp",
-        "params": {
-          "seed": 478699619
-        },
-        "batch": 4
-      },
-      {
-        "id": "monogram-001",
-        "claim": "Letters: asked to interlock R and W, the R reads as a P where the two forms overlap",
-        "expected": "R and W, both legible",
-        "prompt": "A monogram mark: the two letters R and W interlocked inside a thin circular rule, drawn in a single ink weight, deep navy on cream. Geometric, no serifs, symmetrical. The mark reads exactly: RW",
-        "image": "images/failures/monogram-001.webp",
-        "params": {
-          "seed": 1193159535
-        },
-        "batch": 5
-      },
-      {
-        "id": "poster-004",
-        "claim": "Glyph: the string is right and both R's are drawn mirrored — NOЯTHEЯN LIGHT",
-        "expected": "NORTHERN LIGHT",
-        "prompt": "A film festival poster: a high-contrast black and white photograph of a hand holding film stock filling the frame, with \"NORTHERN LIGHT\" reversed out in white across the middle and \"FILM WEEK\" small at the bottom. Nothing else printed.",
-        "image": "images/failures/poster-004.webp",
-        "params": {
-          "seed": 1064082710
-        },
-        "batch": 5
-      },
-      {
-        "id": "night-002",
-        "claim": "Scene: the reflection never resolves into water; the lower half reads as a second sky",
-        "expected": "The Milky Way reflected in still water",
-        "prompt": "The Milky Way core rising over still water, its dust lanes clearly structured, the reflection breaking slightly in the surface. A dark shoreline at the bottom of frame. Astro exposure, high ISO grain visible, no artificial light.",
-        "image": "images/failures/night-002.webp",
-        "params": {
-          "seed": 1089231047
-        },
-        "batch": 5
-      },
-      {
-        "id": "respecify-map",
-        "claim": "Text: specifying the names fixed four of nine; the small rotated labels still fail — MILL LANE became MILLLANYNE, CENTRAL became EECTFRAL",
-        "expected": "Nine legible station names",
-        "prompt": "A stylised transit map with three coloured lines, interchange stations as white circles with black outlines, station names in a condensed sans, 45-degree angles only. The stations read exactly: NORTHGATE / MILL LANE / ABBEY / CENTRAL / QUARRY HILL / DOCKS / EASTFIELD / ST ANNE'S / RIVERSIDE. Nine stations, nothing else written.",
-        "image": "images/failures/respecify-map.webp",
-        "params": {
-          "seed": 1334788167
-        },
-        "batch": 6
-      },
-      {
-        "id": "hangul-003",
-        "claim": "Korean: 정직한 came back 정적한 again, at a different seed from the first attempt",
-        "expected": "정직한 국수",
-        "prompt": "A hand-painted shopfront sign in Seoul reading exactly \"정직한 국수\" in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light.",
-        "image": "images/failures/hangul-003.webp",
-        "params": {
-          "seed": 1167746582
-        },
-        "batch": 6
-      },
-      {
-        "id": "hangul-005",
-        "claim": "Korean: 밭 came back 뾃, a syllable that does not exist",
-        "expected": "한밭식당",
-        "prompt": "A letterpress business card photographed at a raking angle so the deep impression casts visible shadow in the cotton stock. The card reads exactly \"한밭식당\" in a Korean serif typeface with a thin rule beneath. Ecru paper, single black ink.",
-        "image": "images/failures/hangul-005.webp",
-        "params": {
-          "seed": 1086365627
-        },
-        "batch": 6
-      },
-      {
-        "id": "sport-003",
-        "claim": "Framing: asked for no face in frame, the face is in frame behind the hands",
-        "expected": "Hands on the ropes, no face",
-        "prompt": "Close on a boxer's wrapped hands resting on the ropes between rounds, tape frayed, sweat and a smear of blood on the knuckles, everything behind fallen to dark. One hard light from above. Nobody's face in frame.",
-        "image": "images/failures/sport-003.webp",
-        "params": {
-          "seed": 769044869
-        },
-        "batch": 6
-      },
-      {
-        "id": "sport-006",
-        "claim": "Count inside a noun: a rowing EIGHT came back as a single sculler",
-        "expected": "An eight-person crew",
-        "prompt": "A rowing eight seen from behind and low on flat water at dawn, blades entering together, mist on the river, the crew in silhouette against a pale sky. Long lens compression, no faces, wake spreading behind.",
-        "image": "images/failures/sport-006.webp",
-        "params": {
-          "seed": 603162714
-        },
-        "batch": 6
-      },
-      {
-        "id": "aerial-001",
-        "claim": "Angle: asked for straight down, returned a high oblique",
-        "expected": "Nadir framing",
-        "prompt": "Straight down on harvested fields: baled straw casting long shadows, tractor tracks curving between stubble blocks of slightly different tone, one dark ploughed strip. Low sun, no horizon, no buildings. Reads as abstract until you find the bales.",
-        "image": "images/failures/aerial-001.webp",
-        "params": {
-          "seed": 786641017
-        },
-        "batch": 6
-      },
-      {
-        "id": "aerial-003",
-        "claim": "Angle: asked for straight down, returned an oblique with the cranes standing up in frame",
-        "expected": "Nadir framing",
-        "prompt": "Straight down on a container terminal: stacked containers in blocks of colour, gantry cranes casting long shadows across the apron, one ship alongside. Early morning light, no legible text on the containers. Graphic and orderly.",
-        "image": "images/failures/aerial-003.webp",
-        "params": {
-          "seed": 372479606
-        },
-        "batch": 6
-      },
-      {
-        "id": "aerial-005",
-        "claim": "Angle: asked for straight down on a suburb, returned a view from the pavement",
-        "expected": "Nadir framing",
-        "prompt": "Straight down on a suburban street in low winter sun, house shadows falling across the road in a regular rhythm, cars parked, bare trees, frost still on north-facing roofs. Ordered, quiet, nobody visible.",
-        "image": "images/failures/aerial-005.webp",
-        "params": {
-          "seed": 1337059737
-        },
-        "batch": 6
-      },
-      {
-        "id": "aerial-008",
-        "claim": "Angle: asked for straight down on an interchange, returned a view from bridge height",
-        "expected": "Nadir framing",
-        "prompt": "Straight down on a multi-level motorway interchange at night, light trails from a long exposure looping through the ramps, the structure itself dark. Wet road surface catching the lights. No text, no signage legible.",
-        "image": "images/failures/aerial-008.webp",
-        "params": {
-          "seed": 202936705
-        },
-        "batch": 6
-      },
-      {
-        "id": "hands-5",
-        "claim": "Gesture: asked for fingers fully interlaced, returned a clasp with the fingers lying over the other hand",
-        "expected": "Fingers woven between fingers",
-        "prompt": "Two adult hands with the fingers fully interlaced, resting on a plain oak table, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
-        "image": "images/failures/hands-5.webp",
-        "params": {
-          "seed": 1164604099
-        },
-        "batch": 7
-      },
-      {
-        "id": "fantasy-009",
-        "claim": "Simile: 'a beetle the size of a pony' returned a pony — the comparison replaced the subject",
-        "expected": "A pony-sized beetle in a harness",
-        "prompt": "A beetle the size of a pony standing in long grass with a worn leather harness fitted to its thorax, chitin scratched and repaired, the harness clearly used. Overcast light, documentary framing, no rider present.",
-        "image": "images/failures/fantasy-009.webp",
-        "params": {
-          "seed": 1007230101
-        },
-        "batch": 7
-      },
-      {
-        "id": "comic-003",
-        "claim": "Composition: a flat cyan field with the figure pushed to the edge, and no rosette worth the name",
-        "expected": "A newsprint panel with visible CMYK rosette",
-        "prompt": "A comic panel printed on cheap newsprint: visible CMYK rosette dots, slight misregistration on the reds, yellowed paper, a figure mid-leap against a flat cyan sky. One empty caption box in the upper left.",
-        "image": "images/failures/comic-003.webp",
-        "params": {
-          "seed": 312992160
-        },
-        "batch": 7
-      },
-      {
-        "id": "material-003",
-        "claim": "Surface: boiled wool felt came back as uniform grey noise with no nap and no fibre",
-        "expected": "Matted directional wool fibres",
-        "prompt": "A flat swatch of boiled wool felt filling the frame in charcoal grey, fibres matted and slightly directional, a few paler fibres visible. Raking light so the surface nap reads. No edges, no stitching.",
-        "image": "images/failures/material-003.webp",
-        "params": {
-          "seed": 419888631
-        },
-        "batch": 7
-      },
-      {
-        "id": "material-004",
-        "claim": "Surface: asked for a fine crazed network in aged leather, returned smooth leather with soft creases",
-        "expected": "Crazed, worn leather grain",
-        "prompt": "A flat swatch of aged tan leather filling the frame, the grain broken into a fine crazed network with the finish worn thinner on the high points. Raking light, warm tone, no stitching, no edges.",
-        "image": "images/failures/material-004.webp",
-        "params": {
-          "seed": 67212683
-        },
-        "batch": 7
-      },
-      {
-        "id": "material-007",
-        "claim": "Material: sand-cast bronze came back as pitted pale stone with no metal in it",
-        "expected": "Cast bronze, dark in the recesses and polished on the high points",
-        "prompt": "A flat swatch of sand-cast bronze filling the frame, the surface pitted with the grain of the mould, darker in the recesses and polished on the high points. Raking light, warm metal, no edges.",
-        "image": "images/failures/material-007.webp",
-        "params": {
-          "seed": 324747702
-        },
-        "batch": 7
-      },
-      {
         "id": "weave-4",
         "claim": "Knot: asked for a figure-eight knot, returned a figure-eight shape — two loops with a single crossing, never tied",
         "expected": "A tied figure-eight knot",
@@ -5938,162 +6095,6 @@
           "seed": 518928111
         },
         "batch": 8
-      },
-      {
-        "id": "tattoo-008",
-        "claim": "Framing: asked for a healed and a fresh tattoo on one arm, returned two arms with matching stars",
-        "expected": "Two tattoos side by side on one arm",
-        "prompt": "A close photograph of an arm carrying two tattoos side by side: one healed and settled into the skin with softened edges, one fresh and sharply defined with reddened skin around it. Natural light, macro, no faces.",
-        "image": "images/failures/tattoo-008.webp",
-        "params": {
-          "seed": 378283143
-        },
-        "batch": 8
-      },
-      {
-        "id": "pixel-art-002",
-        "claim": "Animation: a four-frame walk cycle came back as six identical frames in the same pose",
-        "expected": "Four distinct frames of a walk",
-        "prompt": "A pixel-art sprite sheet showing a single character in a four-frame walk cycle, side view, hard-edged pixels, transparent-looking flat background, limited palette. Each frame the same size and aligned. No text.",
-        "image": "images/failures/pixel-art-002.webp",
-        "params": {
-          "seed": 1526433893
-        },
-        "batch": 8
-      },
-      {
-        "id": "knolling-001",
-        "claim": "Text: the lens caps carry invented branding, legible and wrong, in an otherwise perfect knoll",
-        "expected": "No text on the equipment",
-        "prompt": "A camera and its parts arranged flat and square to the frame on a neutral grey surface: body, two lenses, caps, a strap coiled, batteries and a card, everything aligned to an invisible grid with even gaps. Shot straight down, even light.",
-        "image": "images/failures/knolling-001.webp",
-        "params": {
-          "seed": 914939340
-        },
-        "batch": 8
-      },
-      {
-        "id": "knolling-002",
-        "claim": "Arrangement: asked for the pocket contents laid flat on a grid, returned them heaped in the pocket",
-        "expected": "Objects square to the frame with even gaps",
-        "prompt": "The contents of a coat pocket arranged flat and square on a pale wooden surface: keys, a folded receipt, coins, a pen, a chestnut and a used ticket. Even gaps, everything parallel or perpendicular. Straight down, soft light.",
-        "image": "images/failures/knolling-002.webp",
-        "params": {
-          "seed": 2139908382
-        },
-        "batch": 8
-      },
-      {
-        "id": "knolling-004",
-        "claim": "Contents: bicycle-specific tools were asked for and generic ones arrived, with invented sticker text",
-        "expected": "Tyre levers, patches, a pump",
-        "prompt": "A bicycle repair kit knolled on a dark workbench: tyre levers, a multitool, patches, a pump, a chain link and a rag, everything parallel and evenly spaced. Straight down, even workshop light, no packaging.",
-        "image": "images/failures/knolling-004.webp",
-        "params": {
-          "seed": 545841073
-        },
-        "batch": 8
-      },
-      {
-        "id": "silhouette-004",
-        "claim": "Exposure: asked for hands as solid black against the window, returned them backlit and translucent",
-        "expected": "Hands as flat black shapes",
-        "prompt": "A pair of hands held up flat against a bright window, exposed for the window so the hands read as solid black shapes with light coming faintly through the gaps between the fingers. Nothing else in frame.",
-        "image": "images/failures/silhouette-004.webp",
-        "params": {
-          "seed": 1616657488
-        },
-        "batch": 8
-      },
-      {
-        "id": "mirror-004",
-        "claim": "Instruction: asked for nobody in the reflection, returned two hands pressed against the glass",
-        "expected": "An empty fogged mirror with a wiped arc",
-        "prompt": "A bathroom mirror fogged with condensation except where a hand has wiped an arc clear, the clear part reflecting tiles and a light. Nobody in the reflection. Warm bulb light, droplets running down the fogged area.",
-        "image": "images/failures/mirror-004.webp",
-        "params": {
-          "seed": 404637919
-        },
-        "batch": 8
-      },
-      {
-        "id": "hands-6",
-        "claim": "Digits: the near hand has six fingers wrapped around the grip; the pose reads correct and the count does not",
-        "expected": "A two-person handshake with five digits per hand",
-        "prompt": "Two people shaking hands over a plain oak table, hands and forearms only in frame, a firm grip with the thumbs crossed. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. No faces.",
-        "image": "images/failures/hands-6.webp",
-        "params": {
-          "seed": 1319396385
-        },
-        "batch": 7,
-        "found_by": "u/sickmartian on r/StableDiffusion, who counted them"
-      },
-      {
-        "id": "hands-8",
-        "claim": "Digits: asked for exactly 3 fingers raised, and the hand carries six digits in total",
-        "expected": "Three raised, thumb and little finger folded, five digits",
-        "prompt": "A single adult hand held up facing the camera showing exactly 3 fingers raised — index, middle and ring — with the thumb and little finger folded down. Plain oak table below, soft directional daylight from the left, plain background. Nothing else in frame.",
-        "image": "images/failures/hands-8.webp",
-        "params": {
-          "seed": 1353379060
-        },
-        "batch": 7,
-        "found_by": "u/sickmartian on r/StableDiffusion, who counted them"
-      },
-      {
-        "id": "hands-1",
-        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
-        "expected": "Five digits per hand",
-        "prompt": "A single adult hand resting palm-down on a plain oak table, fingers relaxed and slightly apart, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
-        "image": "images/failures/hands-1.webp",
-        "params": {
-          "seed": 1481878687
-        },
-        "batch": 7
-      },
-      {
-        "id": "hands-2",
-        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
-        "expected": "Five digits per hand",
-        "prompt": "A single adult hand wrapped around a plain ceramic mug on a plain oak table, thumb over the handle, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
-        "image": "images/failures/hands-2.webp",
-        "params": {
-          "seed": 115868128
-        },
-        "batch": 7
-      },
-      {
-        "id": "hands-3",
-        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
-        "expected": "Five digits per hand",
-        "prompt": "Two adult hands resting palm-down on a plain oak table, well apart from each other, fingers relaxed, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
-        "image": "images/failures/hands-3.webp",
-        "params": {
-          "seed": 1328002727
-        },
-        "batch": 7
-      },
-      {
-        "id": "hands-4",
-        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
-        "expected": "Five digits per hand",
-        "prompt": "Two adult hands loosely clasped together on a plain oak table, one wrapped around the other, shot from above at a slight angle. Soft directional daylight from the left, plain background, skin texture and knuckle creases visible. Nothing else in frame.",
-        "image": "images/failures/hands-4.webp",
-        "params": {
-          "seed": 1095933455
-        },
-        "batch": 7
-      },
-      {
-        "id": "hands-7",
-        "claim": "Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight",
-        "expected": "Five digits per hand",
-        "prompt": "Two adult hands playing a piano, seen from above and slightly behind, fingers spread across the white and black keys with some depressed. Soft directional daylight from the left, plain background beyond the keyboard. No face, no body.",
-        "image": "images/failures/hands-7.webp",
-        "params": {
-          "seed": 387883077
-        },
-        "batch": 7
       }
     ]
   },

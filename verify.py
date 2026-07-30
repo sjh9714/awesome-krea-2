@@ -115,6 +115,28 @@ def main() -> int:
     for stale in ("483 are here", "78 were cut"):
         c(stale not in readme, f"README no longer says {stale!r}")
 
+    # README_ZH and README_KO shipped for a week as a translated intro followed
+    # by the raw English catalog — every findings section was missing, so anyone
+    # arriving from a Chinese or Korean link found a prompt list and none of the
+    # reasoning that makes it worth reading. The badge row advertises both.
+    for name in ("README_ZH.md", "README_KO.md"):
+        path = HERE / name
+        if not path.exists():
+            c(False, f"{name} exists")
+            continue
+        text = path.read_text(encoding="utf-8")
+        anchor = next((a for a in ("## 类别", "## 카테고리") if a in text), None)
+        c(anchor is not None, f"{name} has a catalog heading")
+        if anchor:
+            intro = text[:text.index(anchor)]
+            # The English intro runs ~49,000 characters. A translation that has
+            # only the header block is under ~1,500; a condensed findings
+            # section lands around 4,000.
+            c(len(intro) > 2500,
+              f"{name} carries the findings, not just a header",
+              f"only {len(intro):,} characters before {anchor!r} — "
+              f"the findings sections are missing")
+
     # The comparison table describes this repo to a reader who is deciding
     # between it and a 13,000-star competitor, and it is written by hand. It sat
     # at "85 prompts / 93 images / 8 failures / $1.26 / 150 gens" — the first

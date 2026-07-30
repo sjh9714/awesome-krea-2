@@ -13,6 +13,95 @@
 
 <p align="center">[EN](README.md) · [ZH](README_ZH.md) · [**갤러리 보기 →**](https://sjh9714.github.io/awesome-krea-2/)</p>
 
+## 이 모델이 실제로 하는 일
+
+아래 결론은 전부 이 저장소의 이미지로 직접 측정한 것이고 모델 카드에서 옮긴 것이
+아닙니다. 561번 생성해서 475개를 남기고, 버린 것 중 65개는 **왜 실패했는지와 함께**
+그대로 뒀습니다. 남긴 것도 버린 것도 시드가 붙어 있어 재현됩니다.
+
+이 중 다섯은 앞선 결론을 대체한 것입니다. 넷은 그것을 **확인하려고 만든 실험**이
+뒤집었고, 마지막 하나는 공개 두 시간 뒤 독자가 뒤집었습니다.
+
+### 한글은 됩니다. 대신 틀리는 단어는 매번 똑같이 틀립니다
+
+처음엔 한 장만 보고 "한글은 적어줘도 틀린다"고 썼는데, 여섯 개를 돌려보니 과한
+주장이었습니다. **넷은 정확히 나왔습니다.** 국수, 도서관, "3번 출구"(숫자+한글),
+"오늘의 추천 메뉴"(6음절 세 단어).
+
+길이는 변수가 아닙니다. 2음절도 6음절도 되는데 4음절이 틀렸습니다.
+
+틀린 둘이 중요합니다. "정직한 국수"가 **"정적한 국수"**로 나왔는데, **시드를 바꿔도
+똑같이 나왔습니다**(1167746582, 1910572019). 같은 문자열, 같은 오타, 두 번.
+시드 운이 아니라 그 단어의 성질입니다. "한밭식당"은 "한뾃식당"이 됐고, 존재하지 않는
+음절입니다.
+
+둘 다 받침에서 무너졌지만 국·늘·천도 받침이 있고 멀쩡히 나왔으니, 두 건으로 원인을
+단정하진 않습니다.
+
+**그러니 틀리면 시드를 다시 굴리지 말고 문구를 바꾸세요.** 다시 굴려도 같은 데서
+틀립니다. 한글은 쓸 수 있고, 결과물은 사람이 읽어야 합니다.
+
+### 써준 글자는 그립니다. 지어내야 하는 글자는 못 그립니다
+
+세 배치 동안 "문자열 **개수**가 한계"라고 잘못 알고 있었습니다. 한계를 찾으려고 같은
+명판·같은 스타일에 문자열 개수만 1→8로 올렸더니 **여덟 개 전부 정확**했습니다.
+VULCAN, 1938, MODEL 7, SHEFFIELD, SERIAL 4412, 440 VOLTS, 50 CYCLES, MADE IN ENGLAND.
+
+개수가 변수가 아니었습니다. 갈리는 지점은 **그 문자열을 누가 썼는가**입니다.
+
+- 카페 메뉴판: 프롬프트에 적은 세 항목은 정확, 모델에게 맡긴 나머지는 `CAPEME`, `CABIELO`
+- 타임라인: 연도 범위만 정했더니 **연도는 나오고 라벨은 실패**
+- 터미널: `$ make install`만 적었더니 **그 줄만** 나옴
+- 칸반: 컬럼명을 안 줬더니 세 컬럼 전부 `Kanban` — 프롬프트에 있던 유일한 단어
+
+**화면에 나올 글자는 프롬프트에 전부 그대로 적으세요.** 여덟 개는 한계가 아니라 제가
+그만 시험한 지점입니다.
+
+다만 적어주는 게 항상 충분하진 않습니다. 원래 실패했던 셋을 문자열만 적어 다시 돌리니
+메뉴판은 열 줄 전부, 책등은 12개 중 10개가 맞았는데 노선도는 9개 중 4개였습니다
+(`MILL LANE`→`MILLLANYNE`). **글자가 작고 여러 각도로 회전돼 있으면 두 번째 제약이
+걸립니다.** 첫 번째와 독립입니다.
+
+### "손은 대체로 된다"고 썼다가 세 시간 만에 철회했습니다
+
+책상·조명·구도를 고정하고 손 난이도만 8단계로 올려서, 1.5~2배로 확대해 보고 "8개 중
+7개가 해부학적으로 멀쩡하다"고 썼습니다. 통념과 반대라 제일 잘 퍼질 문장이었습니다.
+
+r/StableDiffusion에 올린 지 두 시간 만에 댓글이 달렸습니다. "세 손가락 짜리는 손가락이
+여섯 개다." 4배로 키우니 맞았습니다. 20분 뒤 다른 분이 포갠 손을 지적했습니다.
+"그것도 틀렸다, 넷뿐이다."
+
+8장 중 3장을, 제가 안 한 일 하나를 한 두 사람이 찾았습니다. **세어본 겁니다.**
+
+그래서 카테고리를 통째로 내렸습니다. 한 장씩 다시 채점하지 않았습니다 — 실패한 도구가
+제 눈인데 같은 눈으로 남은 다섯 장을 판정하면 같은 실수를 세 번째로 하는 거니까요.
+`hands-1`~`hands-8` 전부 시드와 함께 실패 항목으로 옮겼습니다.
+
+### 나머지 측정 결과
+
+- **물체는 세지만 속성은 못 셉니다.** "정확히 N개" 달걀은 2~8 전부 맞았는데 "정확히
+  두 가지 색"은 네 가지, 지도 "다섯 개 지역"은 여덟 개가 나왔습니다. 하나씩 가리킬 수
+  있으면 개수를 요구해도 되고, 색·구역·광원을 세고 있다면 결과를 직접 세어보세요
+- **조명을 이름으로 부르면 조명기구가 화면에 들어옵니다.** "소프트박스"라고 쓴 프롬프트
+  둘 다 소프트박스가 피사체로 나왔습니다. 빛이 하는 일을 쓰세요
+- **"seamless"라고 써도 타일링 안 됩니다.** 패턴 8개 중 1개만 이어지고, 그마저 세로
+  줄무늬라 가장자리가 자동으로 맞은 경우입니다
+- **"straight down"은 요청이지 지시가 아닙니다.** 항공 8개 중 다섯이 사선으로 왔습니다.
+  그리고 이 항목에서 제가 스스로 하나 더 틀린 걸 찾았습니다 — 원래 성공 사례로 적었던
+  **계단식 밭은 평면이 아닙니다.** 이 저장소가 실패 판정에 쓰는 자기 기준(수직 요소가
+  프레임에 보이는가)으로 다시 보니 계단 수직면이 보였습니다. 실패로 옮겼습니다.
+  **반례가 규칙을 설명하는 문장 안에 있었습니다**
+- **크기 비유는 주체를 바꿔치기합니다.** "조랑말만 한 딱정벌레"를 시켰더니 마구를 찬
+  조랑말이 나왔습니다. 딱정벌레는 없습니다
+- **같은 인물을 다른 사진에 넣는 건 안 됩니다.** strength 0.45면 얼굴은 남는데 구도가
+  통째로 따라오고, 0.72면 다른 사람이 됩니다. 사이에 되는 값이 없습니다
+- **image-to-image는 물체를 더하거나 빼지 못합니다.** 반면 매체 변환(사진→과슈 등)은
+  안정적입니다. strength 0.50~0.60 구간
+
+전체 비용은 $4.54였습니다(fal.ai, 메가픽셀당 $0.008).
+
+---
+
 ## 카테고리
 
 **475 개 프롬프트, 전부 시드 기록** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 3 · [period](#period) 8 · [jewellery](#jewellery) 8 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8

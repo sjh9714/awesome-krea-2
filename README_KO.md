@@ -11,7 +11,7 @@
 <a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>
 </p>
 
-<p align="center">[EN](README.md) · [ZH](README_ZH.md) · [**갤러리 보기 →**](https://sjh9714.github.io/awesome-krea-2/)</p>
+<p align="center"><a href="README.md">EN</a> · <a href="README_ZH.md">ZH</a> · <a href="https://sjh9714.github.io/awesome-krea-2/"><b>갤러리 보기 →</b></a></p>
 
 ## 이 모델이 실제로 하는 일
 

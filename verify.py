@@ -115,6 +115,26 @@ def main() -> int:
     for stale in ("483 are here", "78 were cut"):
         c(stale not in readme, f"README no longer says {stale!r}")
 
+    # GitHub does not process Markdown inside an HTML block, so a link written as
+    # [ZH](README_ZH.md) inside <p align="center"> renders as literal brackets.
+    # All three language switchers shipped that way and nobody could reach the
+    # translations at all — which made the work of putting findings into them
+    # pointless. Nothing else here would have caught it; it only shows on render.
+    for name in ("README.md", "README_ZH.md", "README_KO.md"):
+        path = HERE / name
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        raw = re.findall(r'<(p|div|h\d)[^>]*>[^<]*\[[^\]]+\]\([^)]+\)', text)
+        c(not raw, f"{name}: no Markdown links inside HTML blocks",
+          f"{len(raw)} would render as literal brackets, e.g. {raw[:1]}")
+        # And the switcher has to actually point at the other two.
+        others = {"README.md": ("README_ZH.md", "README_KO.md"),
+                  "README_ZH.md": ("README.md", "README_KO.md"),
+                  "README_KO.md": ("README.md", "README_ZH.md")}[name]
+        for target in others:
+            c(f'href="{target}"' in text, f"{name} links to {target}")
+
     # The hero has gone stale twice by carrying findings that later moved: it led
     # with "one sign holds, a list collapses" after the stringcount ladder
     # disproved it, and then with hands and interlocking after the hands category

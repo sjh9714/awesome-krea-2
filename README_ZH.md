@@ -11,7 +11,7 @@
 <a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>
 </p>
 
-<p align="center">[EN](README.md) · [KO](README_KO.md) · [**浏览画廊 →**](https://sjh9714.github.io/awesome-krea-2/)</p>
+<p align="center"><a href="README.md">EN</a> · <a href="README_KO.md">KO</a> · <a href="https://sjh9714.github.io/awesome-krea-2/"><b>浏览画廊 →</b></a></p>
 
 ## 这个模型实际能做什么
 

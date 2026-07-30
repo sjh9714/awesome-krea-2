@@ -13,6 +13,111 @@
 
 <p align="center">[EN](README.md) · [KO](README_KO.md) · [**浏览画廊 →**](https://sjh9714.github.io/awesome-krea-2/)</p>
 
+## 这个模型实际能做什么
+
+下面每条结论都是在本仓库的图上实测出来的，不是抄模型卡。561 次生成，留下 475 条，
+另外 65 次失败连同**失败原因**一起保留。留下的和丢掉的都记了 seed，可以逐条复现。
+
+其中五条结论替换了更早的说法：四条是被"本来打算用来确认它"的实验推翻的，最后一条是
+仓库公开两小时后被一位读者推翻的。
+
+### 你写出来的字它能画，要它自己编的字它画不出来
+
+这条曾经被我写错了三个批次。原来的说法是"文字按**数量**失败"——一块牌子行，一份清单
+就崩。为了找到那个上限，我做了一把梯子：同一块铜牌、同一种风格、只改变画面里字符串的
+条数，`stringcount-1` 到 `stringcount-8`。
+
+**八条全部正确。** VULCAN、1938、MODEL 7、SHEFFIELD、SERIAL 4412、440 VOLTS、
+50 CYCLES、MADE IN ENGLAND。
+
+数量从来不是变量。回头看仓库里每一次文字失败，分界线非常清楚，**取决于这串字是谁写的**：
+
+- 咖啡馆黑板：提示词里写死了三项，**那三项完全正确**，剩下让模型自己填的行变成了
+  `CAPEME`、`CABIELO`、`PANSRUR`
+- 时间轴：只定了年份范围，**年份出来了，标签失败**
+- 终端窗口：只写了 `$ make install`，**就只有那一行是对的**
+- 看板：三个栏目名一个都没给，三栏标题全部变成 `Kanban` ——提示词里唯一存在的那个词
+
+**实用规则：画面上要出现的字，全部原样写进提示词。** 八条不是上限，只是我停下来的地方。
+
+不过写出来也不总是够。把最初失败的三个场景只改"写死字符串"这一个变量重跑：黑板十行
+**全部是真实单词**，书脊 **12 条对了 10 条**，但线路图 9 个站名只对了 4 个
+（`MILL LANE` → `MILLLANYNE`，`CENTRAL` → `EECTFRAL`）。
+
+三者的差别不是字符串条数，而是**字有多小、转了多少度**。黑板是平放的大字，书脊是大字
+但旋转 90 度，线路图是多个角度混排的小字。**这是第二个约束，和第一个独立。**
+
+### 我写过"手基本没问题"，三小时后全部撤回
+
+固定桌面、灯光和构图，只把手的难度分成八级往上加，放大到 1.5~2 倍看完之后，我写下
+"八张里七张解剖结构是正常的"。这句话和通行认知相反，是整个仓库里最容易传播的一句。
+
+发到 r/StableDiffusion 两小时后有人回帖："那张比三根手指的，手上有六根指头。"放大到
+4 倍——他是对的。二十分钟后另一位指出叠放的那张："那张也错了，只有四根。"
+
+八张里的三张，被两个人找出来了。他们做了我没做的一件事：**数了一遍。**
+
+所以我把整个类别撤掉了。没有逐张重新打分——失败的工具就是我的眼睛，用同一双眼睛去判
+剩下五张，就是把同一个错误犯第三遍。`hands-1` 到 `hands-8` 连同 seed 全部移进了失败项。
+
+留下的只有关于**行为**而非解剖的部分：要求十指交扣时，它没有把手画烂，而是**换成了更
+容易的姿势**；"竖三根手指"这条指令**生效了**，只不过是在一只手指太多的手上。
+
+### 数得清物体，数不清属性
+
+这条也是被用来确认它的实验推翻的。一块搁板、一颗白瓷蛋，只把"正好 N 个"从 2 改到 8——
+**七组全部正确**。同一批次里五件玻璃器皿、六件陶器、三艘船也都对了。
+
+那原来失败的是什么？"正好两种平涂颜色"（出来四种）、水彩地图"五个区域"（出来八个）、
+"一个光源"（出来两盏灯）。**这三个都不是能逐个指着数的物体**——颜色是渲染的属性，
+地图上的区域是颜料停下来的地方自然形成的边界，光源不是画面里的一件东西。
+
+**实用规则：能一个一个指出来的，就可以要求数量。在数颜色、区域、材质、光源的时候，
+自己数一遍结果。**
+
+### 说出灯的名字，灯本身就会进画面
+
+两条写了"柔光箱"的提示词里，柔光箱都变成了画面主体。而写"从画面右侧进来的低角度强烈
+午后阳光"这种**描述光在做什么**的提示词，全部干净。
+
+### 写了 seamless 也不会无缝拼接
+
+八张图案全部要求 seamless，把每张图左右、上下边缘和它自身内部的基准线做了比对：
+**八张里只有一张能接上**，而且那张是竖条纹，边缘天然对齐。放进壁纸或纺织流程会看到接缝。
+
+### "straight down" 是请求，不是指令
+
+八条航拍提示词全部以 straight down 开头，**其中五条是斜的**；要求俯拍住宅区的那条，
+镜头落到了**人行道视线高度**。
+
+这一条我后来又自己找出一个错。原本写的是"四条成功，四条都是平面主体（河道、盐田、
+珊瑚礁、**梯田**）"——但**梯田不是平面**。用这个仓库自己判定失败的标准（画面里有没有
+垂直元素）重看，梯田的立面是可见的，山坡也在向后退。已经移进失败项。
+**反例就藏在用来解释规则的那句话里面。**
+
+### 尺寸类比会把主体换掉
+
+要求"一只小马那么大的甲虫，套着皮质挽具"，结果是**一匹套着挽具的小马**。甲虫没有出现。
+类比本来是想说大小，模型把它读成了身份。**给尺寸就给尺寸或不动的参照物，不要给另一种动物。**
+
+### 其余
+
+- **同一个人换到另一张照片里做不到。** strength 0.45 时脸保住了但原构图整个跟过来，
+  0.72 时场景是新的但人换了。中间没有可用的值。需要训练 LoRA
+- **image-to-image 不能增加或删除物体。** 要求去掉马克杯上的蒸汽，蒸汽原样回来了；
+  要求给海岸线加雪，回来的是同一条海岸线，只是冷了一点
+- **但媒介转换很稳。** 照片 → 水粉、木版画 → 换配色，这类"保留画的是什么、只改怎么画"
+  的请求在 strength 0.50~0.60 区间可靠
+- **UI 稿：布局对，文字全错。** 设置页三组九个开关数量准确，但第一个分区标题
+  `Settings` 对了，后两个变成 `Sectings`。唯一成功的登录页只有四个简短的真实单词
+- **韩文大体可用，而且错的词每次错在同一处。** 六条里四条准确；"정직한 국수" 在两个
+  不同 seed 下都错成了 "정적한 국수"——同一个字符串、同一个错误、两次。
+  这是那个词的性质，不是 seed 运气。**中文渲染本仓库没有测过，不做任何声称。**
+
+全部花费 $4.54（fal.ai，每百万像素 $0.008）。
+
+---
+
 ## 类别
 
 **475 条提示词，每条都有 seed** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 3 · [period](#period) 8 · [jewellery](#jewellery) 8 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8

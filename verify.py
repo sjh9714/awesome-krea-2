@@ -115,6 +115,43 @@ def main() -> int:
     for stale in ("483 are here", "78 were cut"):
         c(stale not in readme, f"README no longer says {stale!r}")
 
+    # The comparison table describes this repo to a reader who is deciding
+    # between it and a 13,000-star competitor, and it is written by hand. It sat
+    # at "85 prompts / 93 images / 8 failures / $1.26 / 150 gens" — the first
+    # batch — for five batches, understating the catalog roughly five-fold in the
+    # one place built to argue it is worth using. Nothing above catches that,
+    # because every other check reads the generated prose.
+    row = re.search(r"^\|\s*\*\*this repo\*\*\s*\|(.+)$", readme, re.M)
+    if row is None:
+        c(False, "comparison table has a 'this repo' row")
+    else:
+        cells = [x.strip() for x in row.group(1).split("|") if x.strip()]
+        images_on_disk = len(list((HERE / "images").rglob("*.webp")))
+        # Checked per cell, not against the row as a whole: the first version of
+        # this check searched the whole row, so replacing the prompt count with a
+        # stale 85 still passed because "all 475" two cells over kept 475 present.
+        # A tamper test caught it. Column order matches the header above.
+        want = [
+            ("Prompts", len(entries)),
+            ("Images in repo", images_on_disk),
+            ("Seeds / params", len(entries)),
+            ("Failures shown", len(failures)),
+            ("Measured cost", gens),
+        ]
+        bad = []
+        for i, (col, expect) in enumerate(want):
+            got = [int(n.replace(",", "")) for n in re.findall(r"\d[\d,]*", cells[i])] \
+                if i < len(cells) else []
+            if expect not in got:
+                bad.append(f"{col}: expected {expect}, cell reads {cells[i]!r}"
+                           if i < len(cells) else f"{col}: cell missing")
+        c(not bad, "comparison table row matches the manifest, cell by cell",
+          "; ".join(bad))
+        spend = d.get("spend")
+        c(spend is None or f"{spend}" in cells[-1],
+          f"comparison table quotes the real spend (${spend})",
+          f"cost cell reads {cells[-1]!r}" if cells else "")
+
     print()
     if c.failures:
         print(f"{len(c.failures)} failed, {c.passed} passed")

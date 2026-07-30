@@ -311,7 +311,7 @@ Verified on 2026-07-25 by reading each repository's tree, README and data files,
 
 | | Prompts | Images in repo | Seeds / params | Failures shown | Measured cost |
 |---|---|---|---|---|---|
-| **this repo** | 85 | ✅ 93 | ✅ **all 85** | ✅ **8, with seeds** | ✅ **$1.26 / 150 gens** |
+| **this repo** | 475 | ✅ 540 | ✅ **all 475** | ✅ **65, with seeds** | ✅ **$4.54 / 561 gens** |
 | [YouMind/awesome-nano-banana-pro-prompts](https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts) · 12,956★ | 14,916 claimed, 129 in README | ❌ external CMS | ❌ | ❌ | ❌ |
 | [ZeroLu/awesome-nanobanana-pro](https://github.com/ZeroLu/awesome-nanobanana-pro) · 10,190★ | 70 | ❌ external, 3 already dead | ❌ | ❌ | ❌ |
 | [YouMind/awesome-gpt-image-2](https://github.com/YouMind-OpenLab/awesome-gpt-image-2) · 8,772★ | 13,663 claimed, 126 in README | ❌ external CMS | ❌ | ❌ | ❌ |

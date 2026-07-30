@@ -2,7 +2,7 @@
 <p align="center">475 条 Krea 2 Turbo 提示词，每条都附带产出它的 seed，外加 65 次失败的生成及其原因。这里的每条结论都是在这些图上实测出来的，不是抄模型卡。</p>
 
 <p align="center">
-  <img src="hero.webp" width="912" alt="A six-panel grid, a working case above a failure in each of three columns. Text: a brass nameplate carrying eight specified strings, all correct, above a chalkboard menu whose unspecified rows came back as nonsense words. Hands: a hand raising exactly the three fingers asked for, on a hand with six digits, above clasped hands where interlaced fingers were asked for. Interlocking: a chain with every link through its neighbour, above a rope lying in a figure-eight shape that was never tied.">
+  <img src="hero.webp" width="912" alt="A four by three grid of Krea 2 Turbo output with the seed printed on each frame: a loft under renovation, a desert dune ridge at first light, a backlit seed head, an aurora over snow, ice diving seen from below, a shelf cloud, a barn owl in flight, a prism spectrum on a wall, an icebreaker bow, a quartz point, cut stems in water, and moss with sporophytes. Heading: 475 Krea 2 Turbo prompts, each with the seed that produced it.">
 </p>
 
 <p align="center">

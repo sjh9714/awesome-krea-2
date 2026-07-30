@@ -1,44 +1,49 @@
 #!/usr/bin/env python3
 """
-build_hero.py — compose the README hero from the findings that are current.
+build_hero.py — compose the README hero from real output, with the seeds on it.
 
-This exists because the first hero outlived its own claims. It was built in
-batch one and led with "Text: one sign holds, a list collapses", which batch
-four disproved with the stringcount ladder. For three batches the first image
-a visitor saw contradicted the repository's own headline finding — and that
-finding is the reason anyone shares this.
+The previous hero was three columns of findings, a working case above a failure
+in each, and it outlived its own claims twice. Version one led with "Text: one
+sign holds, a list collapses", which the stringcount ladder disproved. Version
+two led with hands and with interlocking — and by 2026-07-31 the hands category
+had been withdrawn entirely and the interlocking rule had been tested in a third
+domain and thrown away. Two of its three columns argued positions this repository
+no longer holds, to a visitor who had never seen the original claim.
 
-So the hero is generated, not drawn once: three columns, working case on top,
-failure underneath, captions from what the catalog currently says. Regenerate
-it whenever a finding changes.
+That file's own docstring said to regenerate it whenever a finding changed. It
+was not, twice. So the hero no longer carries findings at all: the README has a
+fourteen-row summary table directly underneath, and FINDINGS.md has the evidence.
 
-Captions are deliberately ASCII only. The previous hero rendered arrows and
-typographic dashes as tofu boxes because the fallback font had no glyph.
+What it carries instead is the one thing no comparable catalog ships — the seed
+that produced each frame. Checked 2026-07-25 against five competing repos: none
+records a seed, and two serve their images from an external CMS.
 
     python3 build_hero.py            # writes hero.webp
+
+Captions stay ASCII. An earlier hero rendered typographic dashes as tofu because
+the fallback font had no glyph, and it went out that way.
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import pathlib
 
 from PIL import Image, ImageDraw, ImageFont
 
 HERE = pathlib.Path(__file__).resolve().parent
 
-# (column caption, top image, top note, bottom image, bottom note)
-COLUMNS = [
-    ("Text: write it out and it renders. Ask it to invent and it does not.",
-     "images/stringcount-8.webp", "8 separate strings, every one correct",
-     "images/failures/fail-menu.webp", "same board, rows left to the model: CATEPe, MILTERS"),
-    ("Hands: it raises the number you asked for, on six digits.",
-     "images/failures/hands-8.webp", "asked for exactly 3 raised: correct, on a six-digit hand",
-     "images/failures/hands-5.webp", "asked for interlaced fingers, got a clasp"),
-    ("Interlocking forms render. A figure-eight knot returns the shape.",
-     "images/weave-6.webp", "chain: predicted to fail, came back correct",
-     "images/failures/weave-4.webp", "figure-eight: the shape, never the knot"),
+# Twelve frames chosen for how they read at 228px, across as many subjects as the
+# grid allows. No text-rendering entries — those belong to the findings, and the
+# summary table owns them now.
+PICKS = [
+    "interior-010", "landscape-007", "macro-nature-008", "night-008",
+    "underwater-005", "weather-001", "animal-002", "glass-008",
+    "vehicle-010", "mineral-004", "plant-006", "macro-nature-003",
 ]
+
+COLS, CELL, HEAD = 4, 228, 84
 
 
 def font(size: int, bold: bool = False):
@@ -54,47 +59,56 @@ def font(size: int, bold: bool = False):
     return ImageFont.load_default()
 
 
-def wrap(draw, text, f, width):
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        t = (cur + " " + w).strip()
-        if draw.textlength(t, font=f) <= width:
-            cur = t
-        else:
-            lines.append(cur)
-            cur = w
-    if cur:
-        lines.append(cur)
-    return lines
-
-
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--out", default="hero.webp")
-    ap.add_argument("--cell", type=int, default=304)
+    ap.add_argument("--out", default=str(HERE / "hero.webp"))
     args = ap.parse_args()
 
-    C = args.cell
-    head, note = 44, 26
-    W, H = C * 3, head + C + note + C + note
-    im = Image.new("RGB", (W, H), (255, 255, 255))
+    data = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))
+    by_id = {e["id"]: e for e in data["entries"]}
+
+    missing = [p for p in PICKS if p not in by_id]
+    if missing:
+        print(f"not in entries: {missing}")
+        return 1
+    # The seed strip is the whole argument of this image. A frame without one
+    # would print a blank label and make the opposite of the intended claim.
+    seedless = [p for p in PICKS if by_id[p].get("params", {}).get("seed") is None]
+    if seedless:
+        print(f"no seed recorded for: {seedless}")
+        return 1
+
+    rows = (len(PICKS) + COLS - 1) // COLS
+    im = Image.new("RGB", (CELL * COLS, HEAD + CELL * rows), (255, 255, 255))
     d = ImageDraw.Draw(im)
-    fh, fn = font(13, bold=True), font(12)
 
-    for i, (cap, top, tnote, bot, bnote) in enumerate(COLUMNS):
-        x = i * C
-        for j, line in enumerate(wrap(d, cap, fh, C - 20)[:2]):
-            d.text((x + 10, 8 + j * 16), line, fill=(20, 20, 20), font=fh)
-        for k, (path, txt) in enumerate(((top, tnote), (bot, bnote))):
-            y = head + k * (C + note)
-            im.paste(Image.open(HERE / path).convert("RGB").resize((C, C)), (x, y))
-            d.text((x + 10, y + C + 7), wrap(d, txt, fn, C - 20)[0],
-                   fill=(90, 90, 90), font=fn)
+    kept, cut = len(data["entries"]), len(data["failures"]["entries"])
+    d.text((20, 18), f"{kept} Krea 2 Turbo prompts, each with the seed that produced it",
+           fill=(17, 17, 17), font=font(25, bold=True))
+    d.text((20, 51), f"Plus the {cut} generations that were cut, and why each one went. "
+                     f"Every image is committed here, not linked.",
+           fill=(105, 105, 105), font=font(16))
 
-    out = HERE / args.out
-    im.save(out, "WEBP", quality=88, method=6)
-    print(f"wrote {out.name}  {im.size}  {out.stat().st_size // 1024} KB")
+    fseed = font(14, bold=True)
+    for i, pid in enumerate(PICKS):
+        entry = by_id[pid]
+        src = Image.open(HERE / entry["image"]).convert("RGB")
+        s = min(src.size)
+        src = src.crop(((src.width - s) // 2, (src.height - s) // 2,
+                        (src.width + s) // 2, (src.height + s) // 2))
+        x, y = (i % COLS) * CELL, HEAD + (i // COLS) * CELL
+        im.paste(src.resize((CELL, CELL), Image.LANCZOS), (x, y))
+
+        label = f"seed {entry['params']['seed']}"
+        tw = d.textlength(label, font=fseed)
+        d.rectangle([x, y + CELL - 24, x + tw + 16, y + CELL], fill=(0, 0, 0))
+        d.text((x + 8, y + CELL - 20), label, fill=(255, 255, 255), font=fseed)
+
+    im.save(args.out, "WEBP", quality=88, method=6)
+    out = pathlib.Path(args.out)
+    print(f"{out.name}  {im.size[0]}x{im.size[1]}  {out.stat().st_size // 1024} KB  "
+          f"{len(PICKS)} frames, all seeded")
     return 0
 
 

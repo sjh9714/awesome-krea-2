@@ -115,6 +115,29 @@ def main() -> int:
     for stale in ("483 are here", "78 were cut"):
         c(stale not in readme, f"README no longer says {stale!r}")
 
+    # The hero has gone stale twice by carrying findings that later moved: it led
+    # with "one sign holds, a list collapses" after the stringcount ladder
+    # disproved it, and then with hands and interlocking after the hands category
+    # was withdrawn and the interlocking rule was thrown away. Its own docstring
+    # said to regenerate it whenever a finding changed, and nobody did. It now
+    # shows output with seeds instead, and every frame it names must still be a
+    # kept entry with a seed — so it cannot quietly start citing a withdrawn one.
+    hero_src = (HERE / "build_hero.py")
+    if hero_src.exists():
+        # Scope to the PICKS literal. Matching ids across the whole file also
+        # caught the string "utf-8", which looks exactly like an entry id.
+        block = re.search(r'^PICKS = \[(.*?)^\]', hero_src.read_text(encoding="utf-8"),
+                          re.S | re.M)
+        picks = re.findall(r'"([a-z0-9-]+-\d+)"', block.group(1)) if block else []
+        c(bool(picks), "build_hero.py declares a PICKS list")
+        by_id = {e["id"]: e for e in entries}
+        gone = [p for p in picks if p not in by_id]
+        c(not gone, "every hero frame is still a kept entry",
+          f"withdrawn or missing: {gone}")
+        unseeded = [p for p in picks if p in by_id
+                    and by_id[p].get("params", {}).get("seed") is None]
+        c(not unseeded, "every hero frame has a seed to print", f"{unseeded}")
+
     # A reader who lands here wants to see output. The findings prose used to sit
     # between the hero image and the catalog as 48,527 unbroken characters — about
     # 24 screens with no image in them, against 6,172-11,318 for the three repos

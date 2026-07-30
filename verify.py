@@ -115,6 +115,29 @@ def main() -> int:
     for stale in ("483 are here", "78 were cut"):
         c(stale not in readme, f"README no longer says {stale!r}")
 
+    # A reader who lands here wants to see output. The findings prose used to sit
+    # between the hero image and the catalog as 48,527 unbroken characters — about
+    # 24 screens with no image in them, against 6,172-11,318 for the three repos
+    # in the comparison table below. It now lives in FINDINGS.md behind a summary
+    # table. If it creeps back, this fails.
+    findings = HERE / "FINDINGS.md"
+    c(findings.exists(), "FINDINGS.md exists", "the long-form evidence has to live somewhere")
+    for name, anchor in (("README.md", "## Categories"),
+                         ("README_ZH.md", "## 类别"),
+                         ("README_KO.md", "## 카테고리")):
+        path = HERE / name
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        if anchor not in text or "hero.webp" not in text:
+            c(False, f"{name} has a hero image and a catalog heading")
+            continue
+        gap = text.index(anchor) - text.index("</p>", text.index("hero.webp"))
+        c(gap < 8000, f"{name}: hero to catalog is scannable",
+          f"{gap:,} characters of prose before the first catalog entry — "
+          f"move the long form into FINDINGS.md")
+        c("FINDINGS.md" in text, f"{name} links to FINDINGS.md")
+
     # README_ZH and README_KO shipped for a week as a translated intro followed
     # by the raw English catalog — every findings section was missing, so anyone
     # arriving from a Chinese or Korean link found a prompt list and none of the

@@ -102,6 +102,9 @@ r/StableDiffusion에 올린 지 두 시간 만에 댓글이 달렸습니다. "�
 
 ---
 
+
+**[각 발견의 증거·이미지·시드 → FINDINGS.md](FINDINGS.md)** (영문)
+
 ## 카테고리
 
 **475 개 프롬프트, 전부 시드 기록** · [photography](#photography) 18 · [typography](#typography) 15 · [product](#product) 18 · [illustration](#illustration) 18 · [reference-sheet](#reference-sheet) 1 · [isometric-3d](#isometric-3d) 10 · [editing](#editing) 5 · [portrait](#portrait) 8 · [infographic](#infographic) 8 · [collectible](#collectible) 5 · [stationery](#stationery) 6 · [food](#food) 9 · [interior](#interior) 10 · [pattern](#pattern) 8 · [brand-mark](#brand-mark) 7 · [miniature](#miniature) 8 · [coloring-page](#coloring-page) 6 · [ui](#ui) 1 · [stringcount](#stringcount) 8 · [animal](#animal) 10 · [landscape](#landscape) 10 · [fashion](#fashion) 7 · [automotive](#automotive) 7 · [exterior](#exterior) 8 · [abstract](#abstract) 7 · [objectcount](#objectcount) 7 · [monogram](#monogram) 2 · [poster](#poster) 9 · [still-life](#still-life) 8 · [macro-nature](#macro-nature) 8 · [street](#street) 8 · [night](#night) 7 · [respecify](#respecify) 2 · [hangul](#hangul) 4 · [sport](#sport) 6 · [scifi](#scifi) 8 · [underwater](#underwater) 8 · [aerial](#aerial) 3 · [period](#period) 8 · [jewellery](#jewellery) 8 · [fantasy](#fantasy) 9 · [comic](#comic) 7 · [childrens-book](#childrens-book) 8 · [technical-drawing](#technical-drawing) 8 · [vehicle](#vehicle) 10 · [weather](#weather) 8 · [glass](#glass) 8 · [material](#material) 5 · [crowd](#crowd) 8 · [weave](#weave) 7 · [tattoo](#tattoo) 7 · [pixel-art](#pixel-art) 7 · [anatomy](#anatomy) 8 · [sculpture](#sculpture) 8 · [plant](#plant) 10 · [tool](#tool) 8 · [knolling](#knolling) 5 · [silhouette](#silhouette) 7 · [mirror](#mirror) 7 · [mineral](#mineral) 8 · [seasonal](#seasonal) 8

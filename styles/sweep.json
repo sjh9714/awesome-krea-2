@@ -1,0 +1,139 @@
+{
+  "note": "One subject, one seed, the style clause the only variable. Twenty clauses were run on this subject; five could not be reproduced and are recorded separately. Every clause here is the exact text that was sent, printed from the same file the generator reads, because these clauses previously lived only in shell history and had to be recovered from a transcript.",
+  "model": "fal-ai/krea-2/turbo",
+  "seed": 77220,
+  "subject": "Two strikingly beautiful young women standing knee-deep in a dark river covered with hundreds of floating paper lanterns at a night festival. Delicate features, flawless luminous skin, elegant posture. One in a red silk dancer's wrap with gold cord across her bare midriff and shoulders, gold ornaments pinned in her hair. The other in a sheer white layered robe open over a pale slip, one shoulder bare, gold anklets. They stand close, one lowering a lit lantern to the water, both turned toward the camera. Warm reflected lantern light on wet skin, dark temple roofs and drifting sparks behind them. Wide shot, full figure.",
+  "kept": {
+    "oil": {
+      "clause": "Oil painting, thick visible impasto, a palette knife in the fabric and the sky, canvas weave showing through.",
+      "image": "images/oil.webp"
+    },
+    "celanime": {
+      "clause": "Cel-shaded anime illustration, flat colour areas with hard shadow edges, clean linework, painted sky.",
+      "image": "images/celanime.webp"
+    },
+    "ukiyoe": {
+      "clause": "Ukiyo-e woodblock print, flat colour blocks, strong black keyline, visible wood grain, mist bands.",
+      "image": "images/ukiyoe.webp"
+    },
+    "watercolour": {
+      "clause": "Loose watercolour on cold-press paper, wet-in-wet bleeds, paper texture, pigment pooling at the edges.",
+      "image": "images/watercolour.webp"
+    },
+    "cyberpunk": {
+      "clause": "Cyberpunk neon, magenta and cyan rim light, wet reflective surfaces, holographic signage, heavy atmosphere.",
+      "image": "images/cyberpunk.webp"
+    },
+    "ghibli": {
+      "clause": "Hand-painted animation background, soft gouache skies, warm naturalistic light, gentle detail.",
+      "image": "images/ghibli.webp"
+    },
+    "pixelart": {
+      "clause": "Pixel art, limited palette, visible square pixels, dithering in the gradients, sprite-like.",
+      "image": "images/pixelart.webp"
+    },
+    "retroanime": {
+      "clause": "1990s cel animation, hand-painted cels, muted film palette, visible film grain and slight registration wobble.",
+      "image": "images/retroanime.webp"
+    },
+    "conceptart": {
+      "clause": "Digital concept art, painterly brushwork, cinematic value structure, atmospheric depth, matte-painting scale.",
+      "image": "images/conceptart.webp"
+    },
+    "kodachrome": {
+      "clause": "Vintage Kodachrome photograph, warm saturated colour, slight halation, fine film grain, 1970s stock.",
+      "image": "images/kodachrome.webp"
+    },
+    "lithograph": {
+      "clause": "Stone lithograph, grainy crayon texture, limited ink colours, plate registration edge, printmaking paper.",
+      "image": "images/lithograph.webp"
+    },
+    "pastel": {
+      "clause": "Soft pastel on textured paper, chalky broken colour, blended smudges, visible tooth of the paper.",
+      "image": "images/pastel.webp"
+    },
+    "comicink": {
+      "clause": "American comic book ink and colour, bold black spotting, benday dot shading, heavy contour lines.",
+      "image": "images/comicink.webp"
+    },
+    "gouache": {
+      "clause": "Matte gouache painting, flat opaque colour, soft edges, muted chalky palette, hand-mixed tones.",
+      "image": "images/gouache.webp"
+    },
+    "cg3d": {
+      "clause": "Stylised 3D animated feature film still, soft global illumination, subsurface skin, exaggerated proportions.",
+      "image": "images/cg3d.webp"
+    }
+  },
+  "failed": {
+    "charcoal": {
+      "clause": "Charcoal drawing on toned paper, smudged shading, white chalk highlights, visible hatching.",
+      "image": "images/charcoal.webp",
+      "why": "came back a saturated colour drawing, not charcoal on toned paper"
+    },
+    "noir": {
+      "clause": "Black and white film noir photograph, hard single-source light, deep blacks, heavy grain, dramatic shadow.",
+      "image": "images/noir.webp",
+      "why": "came back a full-colour photograph; black and white was ignored"
+    },
+    "sumi": {
+      "clause": "Sumi-e brush and ink, wet black strokes on rice paper, large areas of untouched paper, one red seal.",
+      "image": "images/sumi.webp",
+      "why": "came back a dense colour painting with no ink and no untouched paper"
+    },
+    "claymation": {
+      "clause": "Stop-motion clay animation still, sculpted plasticine, visible thumbprints and tool marks, shallow set depth.",
+      "image": "images/claymation.webp",
+      "why": "came back a smooth render with no plasticine, thumbprints or tool marks"
+    },
+    "lowpoly": {
+      "clause": "Low-poly 3D render, faceted flat-shaded triangles, hard geometric forms, simple banded gradient sky.",
+      "image": "images/lowpoly.webp",
+      "why": "faceted the lanterns and left both figures smooth and photographic"
+    }
+  },
+  "failed_earlier_subject": {
+    "stainedglass": {
+      "clause": "Stained glass window, heavy black leading between flat coloured panes, light glowing through.",
+      "why": "the window became a prop in the background; the figure stayed photographic",
+      "kind": "print-medium",
+      "label": "stained glass"
+    },
+    "artnouveau": {
+      "clause": "Art nouveau poster, flowing whiplash linework, flat decorative colour, ornamental border.",
+      "why": "returned a decorative frame around an otherwise photographic figure",
+      "kind": "print-medium",
+      "label": "art nouveau poster"
+    },
+    "risograph": {
+      "clause": "Two-colour risograph print, misregistered layers, coarse halftone dots, flat fluorescent pink and blue.",
+      "why": "a photograph with halftone dots laid over it, not a two-colour print",
+      "kind": "print-medium",
+      "label": "two-colour risograph"
+    },
+    "collage": {
+      "clause": "Cut paper collage, torn edges, layered flat coloured shapes, visible paper fibre and glue shadow.",
+      "why": "torn-paper border only, nothing inside it was cut paper",
+      "kind": "print-medium",
+      "label": "cut paper collage"
+    },
+    "linocut": {
+      "clause": "Linocut print, bold gouged white lines through solid black ink, hand-burnished, uneven inking.",
+      "why": "background stayed photographic bokeh instead of gouged ink",
+      "kind": "print-medium",
+      "label": "linocut"
+    },
+    "tiltshift": {
+      "clause": "Tilt-shift photograph, extremely shallow plane of focus, miniature-model look, saturated colour.",
+      "why": "no miniature effect at all; indistinguishable from a plain portrait",
+      "kind": "lens",
+      "label": "tilt-shift"
+    },
+    "engraving": {
+      "clause": "Copperplate engraving, fine parallel cross-hatching, no halftone, ink on plate paper, sepia single ink.",
+      "why": "returned a photograph with no hatching whatsoever - the seventh print-medium request to come back photographic",
+      "kind": "print-medium",
+      "label": "copperplate engraving"
+    }
+  }
+}

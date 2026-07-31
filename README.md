@@ -36,10 +36,16 @@ had only glanced at.
 | **Patterns** | `seamless` does not tile. One of eight had a joinable edge. | Wallpaper and textile pipelines will show the seam. |
 | **Aerial** | `straight down` is a request, not an instruction. | Five of eight came back oblique. |
 | **Similes** | A size comparison can replace your subject. | "A beetle the size of a pony" returned a pony. |
+| **Styles** | It adds a way of rendering. It will not take one away. | `noir` came back in colour, `sumi-e` with no untouched paper, `linocut` as a photo. |
 
 **[Read the evidence for each one → FINDINGS.md](FINDINGS.md)** — every claim with its
 images, seeds, the experiments that overturned the earlier version, and the one rule
 this catalog built, tested and had to throw away.
+
+**[One subject, one seed, twenty style clauses → styles/](styles/README.md)** — the rest
+of this catalog holds the style and varies the subject; that section does the reverse, so
+you can see which style requests this model actually honours. The clauses are also a
+[one-per-line wildcards file](wildcards/styles.txt) for a ComfyUI dynamic-prompt node.
 
 
 ## How this compares

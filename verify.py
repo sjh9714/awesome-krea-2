@@ -240,6 +240,61 @@ def main() -> int:
           f"comparison table quotes the real spend (${spend})",
           f"cost cell reads {cells[-1]!r}" if cells else "")
 
+    # The styles sweep is generated from styles/sweep.json, and its whole claim
+    # is that one seed and one subject were held while only the clause moved. A
+    # page that prints prompt text has to print the text that was sent: the oil
+    # clause shipped here once still saying "a palette knife in the coat" from
+    # an earlier subject that had a coat in it, next to an image with no coat.
+    print("\nstyles sweep")
+    sweep = HERE / "styles/sweep.json"
+    if not sweep.exists():
+        c(False, "styles/sweep.json exists")
+    else:
+        sw = json.loads(sweep.read_text(encoding="utf-8"))
+        page = HERE / "styles/README.md"
+        c(page.exists(), "styles/README.md is built")
+        text = page.read_text(encoding="utf-8") if page.exists() else ""
+
+        all_rows = {**sw["kept"], **sw["failed"]}
+        gone = sorted(k for k, v in all_rows.items()
+                      if not (HERE / "styles" / v["image"]).exists())
+        c(not gone, f"all {len(all_rows)} sweep images exist", f"{gone[:4]}")
+
+        c(isinstance(sw.get("seed"), int) and len(sw.get("subject", "")) > 100,
+          "the sweep records the pinned seed and the subject prompt")
+
+        # Leftovers from a previous subject read as carelessness and are the one
+        # thing a reader can check without running anything.
+        import re as _re
+        stale = sorted({w for v in all_rows.values() for w in
+                        ("coat", "scarf", "skyline", "rooftop")
+                        if _re.search(rf"\b{w}\b", v["clause"], _re.I)})
+        c(not stale, "no clause still names something from an earlier subject",
+          f"{stale} appears in a clause but not in this subject")
+
+        missing = [k for k in sw["kept"] if sw["kept"][k]["clause"] not in text]
+        c(not missing, f"styles/README.md prints all {len(sw['kept'])} clauses verbatim",
+          f"{missing[:4]}")
+
+        wc = HERE / "wildcards/styles.txt"
+        if not wc.exists():
+            c(False, "wildcards/styles.txt exists")
+        else:
+            lines = [l for l in wc.read_text(encoding="utf-8").splitlines() if l.strip()]
+            c(len(lines) == len(sw["kept"]),
+              f"wildcards/styles.txt has one line per kept clause ({len(sw['kept'])})",
+              f"file has {len(lines)}")
+            c(all(sw["kept"][k]["clause"] in lines for k in sw["kept"]),
+              "every wildcard line is a clause that was actually run")
+
+        # Publishing the refusals is the point of the section; losing them turns
+        # it back into a pretty gallery.
+        c(len(sw["failed"]) + len(sw["failed_earlier_subject"]) >= 5,
+          "the sweep still publishes its refusals")
+        c("README.md" in text or "../README.md" in text, "styles/README.md links back")
+        c("styles/README.md" in readme, "README.md links to the styles sweep")
+        c("wildcards/styles.txt" in readme, "README.md links to the wildcards file")
+
     print()
     if c.failures:
         print(f"{len(c.failures)} failed, {c.passed} passed")

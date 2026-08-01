@@ -251,6 +251,31 @@ def main() -> int:
     # about to go into the table as settled, and counting showed the effect is
     # nearly nothing. If the catalog grows and the numbers drift, the row is
     # wrong and this should fail before anyone reads it.
+    # The gallery is 475 images on one page. Without an id per category and a
+    # list to jump from, the only way to reach anything is to scroll, and a link
+    # to one category cannot be handed to anyone who asks about it. Someone did
+    # ask, in the thread, and the answer was a README anchor into a 6,000-line
+    # page that lands mid-image while the lazy figures above it resolve.
+    print("\ngallery anchors")
+    page = HERE / "index.html"
+    if not page.exists():
+        c(False, "index.html exists")
+    else:
+        h = page.read_text(encoding="utf-8")
+        cats = sorted({e["category"] for e in entries})
+        missing = [x for x in cats if f'id="{x}"' not in h]
+        c(not missing, f"every one of the {len(cats)} categories has an anchor",
+          f"{missing[:5]}")
+        untargeted = [x for x in cats if f'href="#{x}"' not in h]
+        c(not untargeted, "every category is reachable from the jump list",
+          f"{untargeted[:5]}")
+        c('id="top"' in h and 'href="#top"' in h,
+          "the page has a top anchor and links back to it")
+        c('id="failures"' in h, "the failures section has an anchor")
+        c("scroll-margin-top" in h,
+          "headings carry a scroll margin",
+          "without it an anchor lands under the viewport edge")
+
     print("\nnegatives row")
     NEG = re.compile(r"\b(no|nothing|nobody|without|never)\b\s+\w", re.I)
     IGN = re.compile(r"asked for (no|nobody|nothing)|no face in frame|"

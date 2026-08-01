@@ -13,7 +13,15 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 10px;letter-spacing:-.02em}
 .sub{color:var(--mut);max-width:60ch;margin:0}
 .meta{margin-top:18px;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
 .meta b{color:var(--fg)}
-h2{font-size:1.35rem;margin:56px 0 6px;letter-spacing:-.01em}
+h2{font-size:1.35rem;margin:56px 0 6px;letter-spacing:-.01em;scroll-margin-top:12px}
+/* Anchors on a page this tall are useless if the browser lands mid-image,
+   and lazy-loaded figures above the target shift it as they resolve. The
+   scroll margin keeps the heading clear of the viewport edge. */
+.toc{margin:28px 0 0;padding:14px 16px;border:1px solid var(--bd);border-radius:8px;font-size:.86rem;line-height:2}
+.toc b{display:block;margin-bottom:6px;font-size:.8rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.toc a{color:inherit}
+h2 .top{float:right;font:11px ui-monospace,monospace;color:var(--mut);font-weight:400;text-decoration:none}
+h2 .top:hover{text-decoration:underline}
 h2:first-of-type{margin-top:0}
 h2 .n{font:12px ui-monospace,monospace;color:var(--mut);margin-left:8px}
 .cat-desc{color:var(--mut);margin:0 0 20px;max-width:70ch;font-size:.94rem}
@@ -35,7 +43,7 @@ pre{margin:0;background:transparent;color:var(--mut);font:11.5px/1.5 ui-monospac
 a{color:var(--acc)}
 footer{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:.9rem;max-width:74ch}
 </style></head><body><div class=wrap>
-<header>
+<header id="top">
 <h1>Krea 2 Turbo: 475 prompts, the seeds, and the failures</h1>
 <p class=sub>Every prompt below was run once, every image is the raw model output, and every entry carries the seed that produced it. The generations that did not work are kept too, at the bottom, because the limits are the part nobody publishes.</p>
 <p class=meta>561 generations · <b>475 kept</b> · 86 cut · $4.54 total · <a href="https://github.com/sjh9714/awesome-krea-2">github.com/sjh9714/awesome-krea-2</a></p>
@@ -68,7 +76,10 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <div class=finding><h3>&quot;Straight down&quot; is a request, not an instruction</h3><p>Eight aerial prompts, every one of them opening with *straight down on…*. <strong>Five came back oblique.</strong> <code>aerial-003</code> shows the container cranes standing up in frame; <code>aerial-008</code> is at bridge height; <code>aerial-005</code>, asked for a suburb from directly above, came back <strong>from the pavement</strong> — not an aerial at all.</p><p><strong>The fifth was mine, and it sat inside the explanation for four batches.</strong> This finding used to say four held, and described them as &quot;a braided river, salt evaporation ponds, the edge of a reef, a terraced hillside — all four flat subjects whose whole content is pattern&quot;. A terraced hillside is not a flat subject. Re-checked against this repository&#x27;s own test for the failures — are verticals visible in frame — <code>aerial-007</code> fails it: the terrace risers are visible, the hillside recedes toward the upper left, and there is aerial haze along that axis. It is a high oblique of the same kind as <code>aerial-001</code>, and it has moved to the failures.</p><p><strong>Three held</strong>, and all three are genuinely flat: a braided river, salt evaporation ponds, the edge of a reef. Nothing in any of them stands up. Where the scene contains anything with obvious verticality — cranes, houses, bales, terrace risers — the camera tilts back down to a view that shows those verticals.</p><p>Practical rule: ask for nadir only on subjects that have no useful vertical, and check the angle before you accept the frame. Naming the altitude or the lens does not help; the pull is in the subject.</p><p>A note on how this was caught, because it matters more than the entry. Two findings here were overturned by readers who looked harder than I did — the hands claim and a nameplate. This one I found by going back through every finding that rests on looking at a picture and applying the test the finding itself had written down. The picture had not changed. The sentence &quot;all four are flat subjects&quot; was the counterexample, in the same paragraph, the whole time.</p></div>
 <div class=finding><h3>A size comparison can replace your subject with the thing you compared it to</h3><p><code>fantasy-009</code> asked for <strong>a beetle the size of a pony</strong> wearing a worn leather harness. It returned a pony wearing a worn leather harness. No beetle, no chitin, nothing insect about it — every other detail of the prompt was honoured on the wrong animal.</p><p>The comparison was doing scale work and the model read it as identity. Every other creature prompt in the same batch landed: a hare with moth wings, an invented bioluminescent fish, a feathered theropod in snow. None of those contains a simile.</p><p>Practical rule: give scale with a measurement or with something inert in the frame — &quot;a beetle a metre long&quot;, &quot;a beetle beside a fence post&quot;. Do not give scale by naming another animal, because the other animal can win.</p></div>
 <div class=finding><h3>A rule this catalog built, tested and had to throw away</h3><p>Two findings above once shared an explanation: letters asked to interlock failed, fingers asked to interlace failed, so the model must be unable to render forms that <strong>pass through each other</strong>. Two domains agreeing is persuasive, and it was wrong.</p><p>Batch eight tested it in a third domain — rope and chain — with the per-entry prediction written down <strong>before the images were generated</strong>. Four entries were predicted to fail. All four succeeded: <code>weave-5</code> two interlocked chain links, <code>weave-6</code> a whole chain with every link through its neighbours, <code>weave-7</code> a willow basket wall with the weavers passing correctly in front of and behind each stake, and <code>weave-8</code> a Celtic knotwork panel interlacing continuously without a break. Chain and basketry interpenetrate far more than fingers do.</p><p>The rule is dead. What it leaves behind is an observation, and it is only that: in every failure across all these batches, <strong>what came back was the more common neighbour of what was asked for</strong>. Interlaced fingers returned a clasp. An interlocked <code>KJ</code> returned a generic monogram. A figure-eight *knot* (<code>weave-4</code>) returned a figure-eight *shape*. A beetle the size of a pony returned a pony. Chains and baskets are among the most photographed objects there are, and they came out right.</p><p>That reading is not promoted to a finding here. Promoting a two-domain coincidence is precisely the mistake that just cost this catalog a rule, and the replacement being a better story is not a reason to trust it. It needs its own experiment with its own prediction written first.</p><p>The prediction and the result are in the toolkit repo at <code>playbooks/weave-prediction.md</code>, timestamped by the commits either side of the generation run.</p></div>
-<h2>photography<span class=n>18</span></h2>
+<nav class=toc><b>Jump to</b> 
+<a href="#photography">photography</a> <span class=n>18</span> · <a href="#typography">typography</a> <span class=n>15</span> · <a href="#product">product</a> <span class=n>18</span> · <a href="#illustration">illustration</a> <span class=n>18</span> · <a href="#reference-sheet">reference-sheet</a> <span class=n>1</span> · <a href="#isometric-3d">isometric-3d</a> <span class=n>10</span> · <a href="#editing">editing</a> <span class=n>5</span> · <a href="#portrait">portrait</a> <span class=n>8</span> · <a href="#infographic">infographic</a> <span class=n>8</span> · <a href="#collectible">collectible</a> <span class=n>5</span> · <a href="#stationery">stationery</a> <span class=n>6</span> · <a href="#food">food</a> <span class=n>9</span> · <a href="#interior">interior</a> <span class=n>10</span> · <a href="#pattern">pattern</a> <span class=n>8</span> · <a href="#brand-mark">brand-mark</a> <span class=n>7</span> · <a href="#miniature">miniature</a> <span class=n>8</span> · <a href="#coloring-page">coloring-page</a> <span class=n>6</span> · <a href="#ui">ui</a> <span class=n>1</span> · <a href="#stringcount">stringcount</a> <span class=n>8</span> · <a href="#animal">animal</a> <span class=n>10</span> · <a href="#landscape">landscape</a> <span class=n>10</span> · <a href="#fashion">fashion</a> <span class=n>7</span> · <a href="#automotive">automotive</a> <span class=n>7</span> · <a href="#exterior">exterior</a> <span class=n>8</span> · <a href="#abstract">abstract</a> <span class=n>7</span> · <a href="#objectcount">objectcount</a> <span class=n>7</span> · <a href="#monogram">monogram</a> <span class=n>2</span> · <a href="#poster">poster</a> <span class=n>9</span> · <a href="#still-life">still-life</a> <span class=n>8</span> · <a href="#macro-nature">macro-nature</a> <span class=n>8</span> · <a href="#street">street</a> <span class=n>8</span> · <a href="#night">night</a> <span class=n>7</span> · <a href="#respecify">respecify</a> <span class=n>2</span> · <a href="#hangul">hangul</a> <span class=n>4</span> · <a href="#sport">sport</a> <span class=n>6</span> · <a href="#scifi">scifi</a> <span class=n>8</span> · <a href="#underwater">underwater</a> <span class=n>8</span> · <a href="#aerial">aerial</a> <span class=n>3</span> · <a href="#period">period</a> <span class=n>8</span> · <a href="#jewellery">jewellery</a> <span class=n>8</span> · <a href="#fantasy">fantasy</a> <span class=n>9</span> · <a href="#comic">comic</a> <span class=n>7</span> · <a href="#childrens-book">childrens-book</a> <span class=n>8</span> · <a href="#technical-drawing">technical-drawing</a> <span class=n>8</span> · <a href="#vehicle">vehicle</a> <span class=n>10</span> · <a href="#weather">weather</a> <span class=n>8</span> · <a href="#glass">glass</a> <span class=n>8</span> · <a href="#material">material</a> <span class=n>5</span> · <a href="#crowd">crowd</a> <span class=n>8</span> · <a href="#weave">weave</a> <span class=n>7</span> · <a href="#tattoo">tattoo</a> <span class=n>7</span> · <a href="#pixel-art">pixel-art</a> <span class=n>7</span> · <a href="#anatomy">anatomy</a> <span class=n>8</span> · <a href="#sculpture">sculpture</a> <span class=n>8</span> · <a href="#plant">plant</a> <span class=n>10</span> · <a href="#tool">tool</a> <span class=n>8</span> · <a href="#knolling">knolling</a> <span class=n>5</span> · <a href="#silhouette">silhouette</a> <span class=n>7</span> · <a href="#mirror">mirror</a> <span class=n>7</span> · <a href="#mineral">mineral</a> <span class=n>8</span> · <a href="#seasonal">seasonal</a> <span class=n>8</span>
+ · <a href="#failures">the failures</a></nav>
+<h2 id="photography">photography<span class=n>18</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Photoreal scenes — lighting, lens behaviour, film stock</p>
 <div class=grid>
 <figure><img loading=lazy src="images/photography-001.webp" alt="Ceramicist at golden hour, 85mm"><figcaption><div class=t>Ceramicist at golden hour, 85mm</div><pre>A ceramicist in her studio at golden hour, hands wet with slip, throwing a bowl on a kick wheel. Shot on 85mm at f/1.8, shallow depth of field, warm rim light from a west-facing window, dust motes in the beam. Muted earth palette, visible clay dust on her forearms.</pre><div class=seed>seed 1913817765</div></figcaption></figure>
@@ -90,7 +101,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/photography-017.webp" alt="Workshop hands, no face"><figcaption><div class=t>Workshop hands, no face</div><pre>Close crop of a woodworker&#x27;s hands setting a hand plane on a bench, wrist and forearm only, no face in frame. Shavings curling from the mouth of the plane. Soft north light, 60mm macro, shallow focus on the blade edge.</pre><div class=seed>seed 1007639879</div></figcaption></figure>
 <figure><img loading=lazy src="images/photography-018.webp" alt="Motorway at dusk, long lens"><figcaption><div class=t>Motorway at dusk, long lens</div><pre>A motorway interchange shot from an overpass with a 400mm lens at dusk, headlight and taillight streams compressed into stacked ribbons of white and red. Traffic and infrastructure become pure horizontal bands. 8-second exposure, no sky visible.</pre><div class=seed>seed 1873728665</div></figcaption></figure>
 </div>
-<h2>typography<span class=n>15</span></h2>
+<h2 id="typography">typography<span class=n>15</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Short-string text rendering. Krea 2 holds a single sign or label at any length, including an eight-word plaque, but degrades once several independent strings or a paragraph share the frame.</p>
 <div class=grid>
 <figure><img loading=lazy src="images/typography-003.webp" alt="Enamel pin packaging"><figcaption><div class=t>Enamel pin packaging</div><pre>Retail backing card for an enamel pin, photographed flat. The card reads &quot;NIGHT SHIFT&quot; in a condensed grotesque at the top and &quot;limited to 200&quot; in small caps at the bottom. Riso-style two-colour print, fluorescent orange and navy, visible paper tooth and slight misregistration.</pre><div class=seed>seed 333206637</div></figcaption></figure>
@@ -109,7 +120,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/typography-022.webp" alt="Engraved brass plaque"><figcaption><div class=t>Engraved brass plaque</div><pre>A small brass plaque screwed to a stone wall, engraved and blacked with exactly &quot;EST 1884&quot;. Patina in the letter recesses, raking afternoon light, shallow depth of field.</pre><div class=seed>seed 425919870</div></figcaption></figure>
 <figure><img loading=lazy src="images/typography-023.webp" alt="Tin sign, two words"><figcaption><div class=t>Tin sign, two words</div><pre>A weathered enamel tin sign nailed to a barn wall reading exactly &quot;FRESH EGGS&quot; in hand-painted red capitals on cream. Rust bleeding from two nail heads, overcast light, straight-on documentary framing.</pre><div class=seed>seed 722835994</div></figcaption></figure>
 </div>
-<h2>product<span class=n>18</span></h2>
+<h2 id="product">product<span class=n>18</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Product and packaging shots, studio and in-context</p>
 <div class=grid>
 <figure><img loading=lazy src="images/product-001.webp" alt="Perfume bottle, hard light"><figcaption><div class=t>Perfume bottle, hard light</div><pre>A faceted glass perfume bottle on a polished black surface, single hard key light from upper left creating one crisp specular edge down the bottle&#x27;s spine and a sharp reflection beneath. Deep shadow elsewhere. No label. Product photography, 100mm macro, f/11.</pre><div class=seed>seed 524883984</div></figcaption></figure>
@@ -131,7 +142,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/product-017.webp" alt="Wool swatch stack"><figcaption><div class=t>Wool swatch stack</div><pre>A stack of eight folded wool fabric swatches in muted heather tones, shot from a low three-quarter angle so the stack reads as bands of colour and texture. Soft even light, no shadow drama, catalogue clarity.</pre><div class=seed>seed 1858895601</div></figcaption></figure>
 <figure><img loading=lazy src="images/product-018.webp" alt="Bike drivetrain, dirty"><figcaption><div class=t>Bike drivetrain, dirty</div><pre>A road bike&#x27;s rear cassette and derailleur photographed side-on, chain grimy with real road dirt, one cog catching a highlight. Garage light, unglamorous, mechanical honesty. 100mm macro, f/6.3.</pre><div class=seed>seed 1450341996</div></figcaption></figure>
 </div>
-<h2>illustration<span class=n>18</span></h2>
+<h2 id="illustration">illustration<span class=n>18</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Stylised, painterly, editorial</p>
 <div class=grid>
 <figure><img loading=lazy src="images/illustration-001.webp" alt="Editorial: burnout"><figcaption><div class=t>Editorial: burnout</div><pre>An editorial illustration for an article on developer burnout. A figure at a desk rendered as a slowly unravelling ball of yarn, the loose thread running off the desk and out of frame. Limited palette: ink black, bone white, one dusty coral. Textured screenprint grain, generous negative space.</pre><div class=seed>seed 1809538529</div></figcaption></figure>
@@ -153,12 +164,12 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/illustration-017.webp" alt="Mid-century travel poster"><figcaption><div class=t>Mid-century travel poster</div><pre>A mid-century travel poster for a fictional coastal town: flat colour blocks, simplified geometry, a lighthouse and cliff reduced to three shapes, screenprint texture and one warm accent against cool tones. No text.</pre><div class=seed>seed 1377917160</div></figcaption></figure>
 <figure><img loading=lazy src="images/illustration-018.webp" alt="Anatomical study, red chalk"><figcaption><div class=t>Anatomical study, red chalk</div><pre>An anatomical study of a human hand in red chalk on toned paper, in the manner of a Renaissance sketchbook — construction lines left visible, several overlapping attempts at the thumb on the same sheet.</pre><div class=seed>seed 221852696</div></figcaption></figure>
 </div>
-<h2>reference-sheet<span class=n>1</span></h2>
+<h2 id="reference-sheet">reference-sheet<span class=n>1</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Character reference sheets and turnarounds</p>
 <div class=grid>
 <figure><img loading=lazy src="images/reference-sheet-001.webp" alt="Reference sheet — establishing"><figcaption><div class=t>Reference sheet — establishing</div><pre>Character reference sheet for a woman in her sixties: silver hair cut short, a small crescent scar above the right eyebrow, wire-frame glasses, a heavy navy fisherman&#x27;s sweater. Three views on one sheet — front, three-quarter, profile — consistent proportions, neutral grey background, even light.</pre><div class=seed>seed 1453254312</div></figcaption></figure>
 </div>
-<h2>isometric-3d<span class=n>10</span></h2>
+<h2 id="isometric-3d">isometric-3d<span class=n>10</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Isometric scenes, dioramas, game-ready assets</p>
 <div class=grid>
 <figure><img loading=lazy src="images/isometric-3d-001.webp" alt="Isometric repair shop"><figcaption><div class=t>Isometric repair shop</div><pre>A small isometric diorama of a bicycle repair shop with the front wall removed: workbench, wheel truing stand, parts bins, a bike upside down on a stand. True isometric projection with no perspective convergence, soft clay-render materials, single warm key light from upper left, floating on a plain background.</pre><div class=seed>seed 1886079203</div></figcaption></figure>
@@ -172,7 +183,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/isometric-3d-009.webp" alt="Exploded isometric — bicycle hub"><figcaption><div class=t>Exploded isometric — bicycle hub</div><pre>An exploded isometric view of a bicycle rear hub, components separated along the axle: axle, bearings, freehub body, cassette spacer, end caps. Even spacing, thin grey guide lines, matte technical rendering, no text.</pre><div class=seed>seed 226111579</div></figcaption></figure>
 <figure><img loading=lazy src="images/isometric-3d-010.webp" alt="Isometric rooftop garden"><figcaption><div class=t>Isometric rooftop garden</div><pre>Isometric rooftop garden: raised beds, a small greenhouse, water butt, folding chairs and a ventilation stack. Plants stylised as simple massed forms. Soft top light, gentle shadows, floating on a plain background.</pre><div class=seed>seed 1496030377</div></figcaption></figure>
 </div>
-<h2>editing<span class=n>5</span></h2>
+<h2 id="editing">editing<span class=n>5</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Image-to-image edits whose source is another entry in this catalog</p>
 <div class=grid>
 <figure><img loading=lazy src="images/editing-001.webp" alt="Relight this coastline"><figcaption><div class=t>Relight this coastline</div><pre>Relight this coastline: replace the flat overcast with hard low-angle late afternoon sun from frame right, casting long shadows across the basalt. Keep the rock placement, horizon line and framing identical.</pre><div class=seed>seed 364022812 · from <code>photography-006</code> at strength 0.55</div></figcaption></figure>
@@ -181,7 +192,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/editing-005.webp" alt="Recolour this woodblock wave to a dusk palette — deep violet"><figcaption><div class=t>Recolour this woodblock wave to a dusk palette — deep violet</div><pre>Recolour this woodblock wave to a dusk palette — deep violet water, salmon sky, warm cream foam. Keep every keyblock outline and flat colour field boundary exactly where it is.</pre><div class=seed>seed 2083277726 · from <code>illustration-004</code> at strength 0.55</div></figcaption></figure>
 <figure><img loading=lazy src="images/editing-008.webp" alt="Blueprint version of the exploded camera"><figcaption><div class=t>Blueprint version of the exploded camera</div><pre>Re-render this exploded camera diagram as a cyanotype blueprint: white line work on Prussian blue, every component in exactly the same position and spacing.</pre><div class=seed>seed 1652457598 · from <code>isometric-3d-005</code> at strength 0.6</div></figcaption></figure>
 </div>
-<h2>portrait<span class=n>8</span></h2>
+<h2 id="portrait">portrait<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Profile pictures and avatars — the single most requested category in every prompt catalog measured</p>
 <div class=grid>
 <figure><img loading=lazy src="images/portrait-001.webp" alt="Window-light portrait, 85mm"><figcaption><div class=t>Window-light portrait, 85mm</div><pre>A portrait of a woman in her thirties beside a north-facing window, 85mm at f/1.8, soft directional daylight falling across one side of the face and the other dropping into gentle shadow. Natural skin texture with visible pores, no retouching, catchlight in both eyes. Charcoal wool sweater, plain warm grey wall behind, shallow depth of field.</pre><div class=seed>seed 1613165866</div></figcaption></figure>
@@ -193,7 +204,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/portrait-009.webp" alt="Black and white, harsh noon sun"><figcaption><div class=t>Black and white, harsh noon sun</div><pre>Black and white portrait shot in harsh overhead noon sun, deep shadows in the eye sockets and under the nose, strong contrast, grain pushed. Subject squinting slightly, sweat on the forehead, plain concrete wall behind. Tri-X pushed to 1600, 35mm.</pre><div class=seed>seed 1915439531</div></figcaption></figure>
 <figure><img loading=lazy src="images/portrait-011.webp" alt="Charcoal drawing on toned paper"><figcaption><div class=t>Charcoal drawing on toned paper</div><pre>A charcoal portrait drawn on mid-grey toned paper, white chalk for the highlights, compressed charcoal for the darks, the paper tone doing the mid-values. Loose hatching around the edges, tight rendering only around the eyes. Smudged, worked, visibly hand-made.</pre><div class=seed>seed 121909817</div></figcaption></figure>
 </div>
-<h2>infographic<span class=n>8</span></h2>
+<h2 id="infographic">infographic<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Explainer layouts, quote cards, dashboards — text-heavy by design, which is where this model is weakest and most worth documenting</p>
 <div class=grid>
 <figure><img loading=lazy src="images/infographic-001.webp" alt="Quote card with rule lines"><figcaption><div class=t>Quote card with rule lines</div><pre>A minimal quote card layout: the words &quot;MEASURE TWICE&quot; set large in a condensed grotesque, a thin horizontal rule beneath, and &quot;CUT ONCE&quot; smaller and right-aligned below it. Cream background, near-black type, generous margins. Nothing else in the frame.</pre><div class=seed>seed 662649445</div></figcaption></figure>
@@ -205,7 +216,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/infographic-009.webp" alt="Comparison table, two columns"><figcaption><div class=t>Comparison table, two columns</div><pre>A clean two-column comparison layout, left column headed &quot;BEFORE&quot; and right headed &quot;AFTER&quot;, each column a stack of four rounded rows with a check or cross glyph and a short blank bar where text would sit. Light background, green ticks, red crosses, hairline dividers.</pre><div class=seed>seed 536645071</div></figcaption></figure>
 <figure><img loading=lazy src="images/infographic-010.webp" alt="Isometric process, three stages"><figcaption><div class=t>Isometric process, three stages</div><pre>Three isometric blocks arranged diagonally across the frame representing stages of a process, connected by thick arrows, each block a simplified object — a box, a gear, a package. Flat colour with a single light source, long soft shadows, pastel palette, white background.</pre><div class=seed>seed 2043998615</div></figcaption></figure>
 </div>
-<h2>collectible<span class=n>5</span></h2>
+<h2 id="collectible">collectible<span class=n>5</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Figurines, pins, keycaps, trading cards — physical-object mockups</p>
 <div class=grid>
 <figure><img loading=lazy src="images/collectible-001.webp" alt="Vinyl figure in blister pack"><figcaption><div class=t>Vinyl figure in blister pack</div><pre>A stylised vinyl collectible figure of a small astronaut sealed in a blister pack against a printed cardboard backer, shot straight on under even studio light. The plastic bubble catches a soft reflection. Matte figure finish, chunky proportions, oversized helmet. The backer is a flat two-colour print.</pre><div class=seed>seed 641600971</div></figcaption></figure>
@@ -214,7 +225,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/collectible-006.webp" alt="Die-cast model on turntable"><figcaption><div class=t>Die-cast model on turntable</div><pre>A 1:64 die-cast model of a boxy 1980s estate car on a black acrylic turntable, three-quarter front view, studio strip lights reflected in the paint as two long soft highlights. Rubber tyres, printed number plate, tiny visible casting seam along the roof.</pre><div class=seed>seed 161380541</div></figcaption></figure>
 <figure><img loading=lazy src="images/collectible-007.webp" alt="Resin diorama in a jar"><figcaption><div class=t>Resin diorama in a jar</div><pre>A miniature diorama sealed inside a clear glass jar: a tiny pine forest on a mossy hill with a single lit cabin window, cast in clear resin that reads as still water at the base. Backlit so the resin glows, everything else in shadow. Macro, dark background.</pre><div class=seed>seed 506403015</div></figcaption></figure>
 </div>
-<h2>stationery<span class=n>6</span></h2>
+<h2 id="stationery">stationery<span class=n>6</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Cards, letterheads, packaging inserts</p>
 <div class=grid>
 <figure><img loading=lazy src="images/stationery-001.webp" alt="Letterpress card, deep impression"><figcaption><div class=t>Letterpress card, deep impression</div><pre>A letterpress business card photographed at a raking angle so the deep impression of the type casts visible shadow in the cotton stock. The card reads &quot;NORTHFIELD &amp; CO&quot; in a small caps serif with a thin rule beneath. Ecru paper, single black ink, deckled edge on one side.</pre><div class=seed>seed 1926545409</div></figcaption></figure>
@@ -224,7 +235,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/stationery-005.webp" alt="Ticket stub, torn edge"><figcaption><div class=t>Ticket stub, torn edge</div><pre>A torn ticket stub on a dark surface, letterpress-printed in two colours with &quot;ADMIT ONE&quot; across the middle and a perforated edge where the other half was removed. Aged card stock, slight foxing, one corner soft with wear. Macro, single light from the left.</pre><div class=seed>seed 1333487198</div></figcaption></figure>
 <figure><img loading=lazy src="images/stationery-006.webp" alt="Rubber stamp impression"><figcaption><div class=t>Rubber stamp impression</div><pre>A rubber stamp impression of the word &quot;PAID&quot; struck in red ink at a slight angle on an off-white document, deliberately uneven — heavier on one side, a gap where the rubber lifted. The wooden stamp itself resting beside it, out of focus. Overhead, flat light.</pre><div class=seed>seed 2044996526</div></figcaption></figure>
 </div>
-<h2>food<span class=n>9</span></h2>
+<h2 id="food">food<span class=n>9</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Food and drink, studio and in-context</p>
 <div class=grid>
 <figure><img loading=lazy src="images/food-001.webp" alt="Cut sourdough loaf, side light"><figcaption><div class=t>Cut sourdough loaf, side light</div><pre>A sourdough loaf cut in half on a floured board, hard side light from the left raking across the open crumb so every hole casts its own shadow. Blistered dark crust, flour dusting the surface, a serrated knife just out of the frame edge. Shot at f/8, tight.</pre><div class=seed>seed 207887450</div></figcaption></figure>
@@ -237,7 +248,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/food-009.webp" alt="Whisky glass, single hard source"><figcaption><div class=t>Whisky glass, single hard source</div><pre>A cut crystal glass of whisky on dark slate, a single hard light behind and to the right throwing the cut facets into bright caustics on the stone. Large clear ice sphere, amber liquid, everything else black. Product-grade, no props.</pre><div class=seed>seed 1133820066</div></figcaption></figure>
 <figure><img loading=lazy src="images/food-010.webp" alt="Dumplings in a bamboo steamer"><figcaption><div class=t>Dumplings in a bamboo steamer</div><pre>Open bamboo steamer of pleated dumplings, translucent wrappers showing the filling through, steam still rising. Warm overhead light, a second closed steamer stacked beneath, dark table. Slight top-down angle, shallow focus falling off at the back.</pre><div class=seed>seed 1310175144</div></figcaption></figure>
 </div>
-<h2>interior<span class=n>10</span></h2>
+<h2 id="interior">interior<span class=n>10</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Rooms, architecture, spatial light</p>
 <div class=grid>
 <figure><img loading=lazy src="images/interior-001.webp" alt="Sunlit reading corner"><figcaption><div class=t>Sunlit reading corner</div><pre>A reading corner in late afternoon: a worn leather armchair, a floor lamp switched off, low sun coming through a tall window and throwing a hard trapezoid of light across the floorboards and up the wall. Dust in the beam. Wide, 24mm, no people.</pre><div class=seed>seed 633029565</div></figcaption></figure>
@@ -251,7 +262,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/interior-009.webp" alt="Basement server room"><figcaption><div class=t>Basement server room</div><pre>A basement server room lit only by rack indicator LEDs and one open cabinet door spilling white light, cable bundles running overhead in trays, polished raised floor reflecting the glow. Cold, blue-green, long exposure, nobody present.</pre><div class=seed>seed 769155750</div></figcaption></figure>
 <figure><img loading=lazy src="images/interior-010.webp" alt="Loft under renovation"><figcaption><div class=t>Loft under renovation</div><pre>A loft mid-renovation: plaster dust, a stepladder, plastic sheeting over a window softening the light, bare brick where the plaster has come off, exposed joists. Work lights on stands casting hard overlapping shadows. Documentary, wide.</pre><div class=seed>seed 736283544</div></figcaption></figure>
 </div>
-<h2>pattern<span class=n>8</span></h2>
+<h2 id="pattern">pattern<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Repeating surface design — textile, wallpaper, wrapping</p>
 <div class=grid>
 <figure><img loading=lazy src="images/pattern-001.webp" alt="Botanical block print repeat"><figcaption><div class=t>Botanical block print repeat</div><pre>A seamless botanical repeat in the style of a hand-carved block print: fern fronds and seed heads in dark indigo on unbleached linen, slight registration wobble and visible ink texture where the block pressed unevenly. Flat, straight on, edge to edge.</pre><div class=seed>seed 1576109877</div></figcaption></figure>
@@ -263,7 +274,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/pattern-007.webp" alt="Hand-drawn stripe, wobbly"><figcaption><div class=t>Hand-drawn stripe, wobbly</div><pre>A seamless stripe pattern drawn by hand with a brush: uneven vertical stripes in ink blue on off-white, each one varying in width and opacity where the brush ran dry. Visible bristle marks. Flat, edge to edge, no border.</pre><div class=seed>seed 967510819</div></figcaption></figure>
 <figure><img loading=lazy src="images/pattern-008.webp" alt="Cyanotype fern repeat"><figcaption><div class=t>Cyanotype fern repeat</div><pre>A seamless repeat of fern silhouettes as a cyanotype photogram — white plant shapes against deep Prussian blue, soft edges where the leaves lifted off the paper, uneven wash in the blue. Fills the frame, no border.</pre><div class=seed>seed 958813884</div></figcaption></figure>
 </div>
-<h2>brand-mark<span class=n>7</span></h2>
+<h2 id="brand-mark">brand-mark<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Logos and marks. Single short strings, which the typography findings predict is the model&#x27;s strongest text case</p>
 <div class=grid>
 <figure><img loading=lazy src="images/brand-mark-001.webp" alt="Wordmark: HALLOW"><figcaption><div class=t>Wordmark: HALLOW</div><pre>A wordmark reading exactly &quot;HALLOW&quot; in a high-contrast serif with generous letterspacing, set in near-black on a warm off-white field, centred with a lot of air around it. Nothing else in the frame. Flat, no texture, no effects.</pre><div class=seed>seed 1564712968</div></figcaption></figure>
@@ -274,7 +285,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/brand-mark-007.webp" alt="Painted ghost sign"><figcaption><div class=t>Painted ghost sign</div><pre>A faded painted ghost sign on an old brick wall reading &quot;COOPERAGE&quot; in tall condensed capitals, the paint worn back to brick in patches, sun-bleached from red to dusty pink. Straight on, flat afternoon light, no other text.</pre><div class=seed>seed 757705299</div></figcaption></figure>
 <figure><img loading=lazy src="images/brand-mark-008.webp" alt="Sandblasted glass door"><figcaption><div class=t>Sandblasted glass door</div><pre>A frosted sandblasted panel on a glass door reading &quot;STUDIO 4&quot;, the letters clear against the frosted ground, a blurred interior visible through them. Even daylight, brass handle at the frame edge, straight on.</pre><div class=seed>seed 2068017137</div></figcaption></figure>
 </div>
-<h2>miniature<span class=n>8</span></h2>
+<h2 id="miniature">miniature<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Tilt-shift, dioramas, scale models of places</p>
 <div class=grid>
 <figure><img loading=lazy src="images/miniature-001.webp" alt="Tilt-shift harbour"><figcaption><div class=t>Tilt-shift harbour</div><pre>A harbour seen from high above with a strong tilt-shift effect: a narrow band of sharp focus across the quay and everything above and below thrown into heavy blur, colours pushed to high saturation so the boats and containers read as plastic toys.</pre><div class=seed>seed 707503180</div></figcaption></figure>
@@ -286,7 +297,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/miniature-007.webp" alt="Sand table battlefield"><figcaption><div class=t>Sand table battlefield</div><pre>A wargaming sand table from a low angle: sculpted terrain, lichen scrub, painted infantry figures in loose formation behind a ridge, a ruined building of foam board. Overcast studio light, shallow focus on the front rank.</pre><div class=seed>seed 568280305</div></figcaption></figure>
 <figure><img loading=lazy src="images/miniature-008.webp" alt="Miniature food, macro"><figcaption><div class=t>Miniature food, macro</div><pre>A miniature clay breakfast — fried egg, toast, tomato — on a plate the size of a coin, held between finger and thumb for scale at the edge of frame. Extreme macro, the polymer clay texture and tool marks visible up close.</pre><div class=seed>seed 1295431062</div></figcaption></figure>
 </div>
-<h2>coloring-page<span class=n>6</span></h2>
+<h2 id="coloring-page">coloring-page<span class=n>6</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Uncoloured line art for printing</p>
 <div class=grid>
 <figure><img loading=lazy src="images/coloring-page-001.webp" alt="Coloring page: garden scene"><figcaption><div class=t>Coloring page: garden scene</div><pre>A children&#x27;s coloring page: a garden scene with a watering can, sunflowers, a snail and a butterfly, drawn as clean uniform black outlines on pure white with no shading, no grey, no fill. Thick friendly lines, generous white areas to colour in.</pre><div class=seed>seed 230163006</div></figcaption></figure>
@@ -296,12 +307,12 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/coloring-page-005.webp" alt="Coloring page: cityscape"><figcaption><div class=t>Coloring page: cityscape</div><pre>A coloring page of a stylised city skyline with varied building shapes, windows drawn as simple rectangles, a bridge and a few clouds, all as clean uniform black outlines on white. No shading, no solid black areas, no fill.</pre><div class=seed>seed 797917670</div></figcaption></figure>
 <figure><img loading=lazy src="images/coloring-page-006.webp" alt="Coloring page: teacup still life"><figcaption><div class=t>Coloring page: teacup still life</div><pre>A coloring page still life: a teacup on a saucer, a teapot, a slice of cake on a plate and a folded napkin, drawn in even black outline on white with decorative patterns on the china left as empty outlines to colour. No shading.</pre><div class=seed>seed 1880531119</div></figcaption></figure>
 </div>
-<h2>ui<span class=n>1</span></h2>
+<h2 id="ui">ui<span class=n>1</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>App and web interface mockups. Included as a deliberate test of the multi-string text limit, not because it is expected to work</p>
 <div class=grid>
 <figure><img loading=lazy src="images/ui-004.webp" alt="Login screen"><figcaption><div class=t>Login screen</div><pre>A minimal login screen: a small logo mark, the heading &quot;Sign in&quot;, an email field, a password field, a primary button reading &quot;Continue&quot;, and a small link beneath. Centred card on a soft gradient background. Nothing else.</pre><div class=seed>seed 1367300139</div></figcaption></figure>
 </div>
-<h2>stringcount<span class=n>8</span></h2>
+<h2 id="stringcount">stringcount<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>A controlled experiment: one nameplate design, one to eight independent strings, everything else held constant</p>
 <div class=grid>
 <figure><img loading=lazy src="images/stringcount-1.webp" alt="Nameplate: 1 string"><figcaption><div class=t>Nameplate: 1 string</div><pre>A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN</pre><div class=seed>seed 656981461</div></figcaption></figure>
@@ -313,7 +324,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/stringcount-7.webp" alt="Nameplate: 7 strings"><figcaption><div class=t>Nameplate: 7 strings</div><pre>A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN / 1938 / MODEL 7 / SHEFFIELD / SERIAL 4412 / 440 VOLTS / 50 CYCLES</pre><div class=seed>seed 742958406</div></figcaption></figure>
 <figure><img loading=lazy src="images/stringcount-8.webp" alt="Nameplate: 8 strings"><figcaption><div class=t>Nameplate: 8 strings</div><pre>A stamped brass equipment nameplate riveted to a painted steel machine housing, engraved capitals filled with black, raking light from the left. The plate reads exactly: VULCAN / 1938 / MODEL 7 / SHEFFIELD / SERIAL 4412 / 440 VOLTS / 50 CYCLES / MADE IN ENGLAND</pre><div class=seed>seed 762332150</div></figcaption></figure>
 </div>
-<h2>animal<span class=n>10</span></h2>
+<h2 id="animal">animal<span class=n>10</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Animals and birds, wild and domestic</p>
 <div class=grid>
 <figure><img loading=lazy src="images/animal-001.webp" alt="Red fox in frost"><figcaption><div class=t>Red fox in frost</div><pre>A red fox standing alert in frosted grass at first light, breath visible, low sun catching the guard hairs along its back as a bright rim. 400mm, shallow depth of field, background collapsed to soft ochre. Eye sharp, ears forward.</pre><div class=seed>seed 1133238396</div></figcaption></figure>
@@ -327,7 +338,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/animal-009.webp" alt="Sheep flock in fog"><figcaption><div class=t>Sheep flock in fog</div><pre>A flock of sheep on a hillside in thick fog, the nearest three sharp and the rest dissolving into grey at increasing distance. Wet wool, no horizon, no sky. Muted, almost monochrome, 135mm compression.</pre><div class=seed>seed 2100916653</div></figcaption></figure>
 <figure><img loading=lazy src="images/animal-010.webp" alt="Horse in dust, backlit"><figcaption><div class=t>Horse in dust, backlit</div><pre>A horse turning in a dusty paddock with low sun directly behind, the raised dust glowing gold and the animal reading almost as a silhouette with a bright rim along the neck and mane. Hard contrast, 200mm, dark foreground.</pre><div class=seed>seed 2049057806</div></figcaption></figure>
 </div>
-<h2>landscape<span class=n>10</span></h2>
+<h2 id="landscape">landscape<span class=n>10</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Land, weather and light at scale</p>
 <div class=grid>
 <figure><img loading=lazy src="images/landscape-001.webp" alt="Storm light over ridgeline"><figcaption><div class=t>Storm light over ridgeline</div><pre>A mountain ridgeline under breaking storm light: dark cloud filling the upper frame, a single shaft of sun striking one slope and leaving the rest in shadow. Wet rock, no people, no path. 70mm, high contrast, cold shadows and warm highlight.</pre><div class=seed>seed 1853365286</div></figcaption></figure>
@@ -341,7 +352,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/landscape-009.webp" alt="Frozen lake, cracked ice"><figcaption><div class=t>Frozen lake, cracked ice</div><pre>A frozen lake surface shot low and close, cracks radiating and trapped bubbles suspended in the ice, a distant far shore reduced to a thin dark line. Cold blue light, thin snow drifted into the cracks. Ultra-wide, foreground dominant.</pre><div class=seed>seed 267516027</div></figcaption></figure>
 <figure><img loading=lazy src="images/landscape-010.webp" alt="Coastal cliff in gale"><figcaption><div class=t>Coastal cliff in gale</div><pre>A coastal cliff in a gale, spray thrown high up the rock face, grass on the clifftop flattened, the sea below white and confused. Grey flat light, no sun. Shot from the clifftop looking along the coast, 35mm, everything wet.</pre><div class=seed>seed 1122641191</div></figcaption></figure>
 </div>
-<h2>fashion<span class=n>7</span></h2>
+<h2 id="fashion">fashion<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Garments, textile detail, lookbook and flat lay</p>
 <div class=grid>
 <figure><img loading=lazy src="images/fashion-001.webp" alt="Wool coat flat lay"><figcaption><div class=t>Wool coat flat lay</div><pre>A charcoal wool overcoat laid flat and shot directly overhead on a pale linen surface, sleeves arranged symmetrically, collar open, horn buttons visible. Soft even light, the wool texture and the twill weave both readable. No model, no props.</pre><div class=seed>seed 1025323172</div></figcaption></figure>
@@ -352,7 +363,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/fashion-006.webp" alt="Sunglasses on stone, hard light"><figcaption><div class=t>Sunglasses on stone, hard light</div><pre>A pair of tortoiseshell sunglasses resting on warm limestone in hard midday sun, the frame casting a crisp double shadow, the lenses reflecting a slice of blue sky. Product-grade but shot outdoors. Macro, top-down, high contrast.</pre><div class=seed>seed 1961244750</div></figcaption></figure>
 <figure><img loading=lazy src="images/fashion-008.webp" alt="Pleated skirt, wind"><figcaption><div class=t>Pleated skirt, wind</div><pre>A pleated midi skirt caught by wind against a plain concrete wall, the pleats opening into a fan and each fold catching a different value of the same colour. Waist down only, hard afternoon side light, sharp shadow on the wall.</pre><div class=seed>seed 1497786953</div></figcaption></figure>
 </div>
-<h2>automotive<span class=n>7</span></h2>
+<h2 id="automotive">automotive<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Cars and motorcycles, studio and location</p>
 <div class=grid>
 <figure><img loading=lazy src="images/automotive-001.webp" alt="Classic coupe, studio strip lights"><figcaption><div class=t>Classic coupe, studio strip lights</div><pre>A 1960s coupe in a dark studio with two long overhead strip lights reflected as continuous highlights running the length of the body, three-quarter front view, everything else falling to black. Chrome bumper picking up a hard specular.</pre><div class=seed>seed 784853870</div></figcaption></figure>
@@ -363,7 +374,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/automotive-007.webp" alt="Rusting truck in a field"><figcaption><div class=t>Rusting truck in a field</div><pre>An abandoned pickup truck sinking into long grass, paint gone to rust and primer, one door open, glass missing. Flat overcast light, no drama, documentary framing at 35mm. Weeds growing through the wheel arches.</pre><div class=seed>seed 1346029088</div></figcaption></figure>
 <figure><img loading=lazy src="images/automotive-008.webp" alt="Headlight macro, water beads"><figcaption><div class=t>Headlight macro, water beads</div><pre>Macro of a modern headlight cluster with water beaded across the lens, the LED elements visible as bright points refracted through each droplet. Dark paint around it out of focus. Hard light from above, very shallow focus.</pre><div class=seed>seed 2093173173</div></figcaption></figure>
 </div>
-<h2>exterior<span class=n>8</span></h2>
+<h2 id="exterior">exterior<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Buildings from outside — facades, materials, weather</p>
 <div class=grid>
 <figure><img loading=lazy src="images/exterior-001.webp" alt="Brutalist facade, hard sun"><figcaption><div class=t>Brutalist facade, hard sun</div><pre>A brutalist concrete facade in hard afternoon sun, deep window reveals throwing black rectangles of shadow, board-marked concrete texture readable across the whole surface. Straight on, no sky, no people. Slight lens correction.</pre><div class=seed>seed 2005377678</div></figcaption></figure>
@@ -375,7 +386,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/exterior-007.webp" alt="Fire escape shadows"><figcaption><div class=t>Fire escape shadows</div><pre>A cast-iron fire escape on a brick wall in hard low sun, its shadow drawn precisely across the brickwork beside it as a second graphic structure. Straight on, flat, no sky. The shadow more legible than the object.</pre><div class=seed>seed 335239700</div></figcaption></figure>
 <figure><img loading=lazy src="images/exterior-008.webp" alt="Coastal lighthouse, gale"><figcaption><div class=t>Coastal lighthouse, gale</div><pre>A white lighthouse on a rocky headland in a gale, spray reaching halfway up the tower, grey sea and grey sky nearly the same value. Lamp lit and just visible. Shot from land, 200mm, everything wet and flat-lit.</pre><div class=seed>seed 1925132923</div></figcaption></figure>
 </div>
-<h2>abstract<span class=n>7</span></h2>
+<h2 id="abstract">abstract<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Non-representational: fluid, macro, gradient, texture</p>
 <div class=grid>
 <figure><img loading=lazy src="images/abstract-001.webp" alt="Ink in water"><figcaption><div class=t>Ink in water</div><pre>Black ink dispersing in clear water, frozen mid-bloom, tendrils branching into fine filaments against a white backlit ground. High-speed, extremely sharp, no container edges visible. Fills the frame.</pre><div class=seed>seed 1099275261</div></figcaption></figure>
@@ -386,7 +397,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/abstract-007.webp" alt="Frost on glass"><figcaption><div class=t>Frost on glass</div><pre>Ice crystals growing across a window pane, fern-like branching structures backlit by a cold pale sky, sharp where the crystals are thick and dissolving where they thin. No frame, no view through, fills the entire frame.</pre><div class=seed>seed 370355428</div></figcaption></figure>
 <figure><img loading=lazy src="images/abstract-008.webp" alt="Molten metal pour"><figcaption><div class=t>Molten metal pour</div><pre>A stream of molten metal pouring in a dark foundry, sparks arcing away from the stream, the glow lighting nothing but itself. Deep orange to white in the core, everything around it black. Fast shutter freezing the sparks.</pre><div class=seed>seed 838584990</div></figcaption></figure>
 </div>
-<h2>objectcount<span class=n>7</span></h2>
+<h2 id="objectcount">objectcount<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>A controlled experiment: one shelf, one object, two to eight of them, everything else held constant</p>
 <div class=grid>
 <figure><img loading=lazy src="images/objectcount-2.webp" alt="Count: 2 eggs"><figcaption><div class=t>Count: 2 eggs</div><pre>Exactly 2 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.</pre><div class=seed>seed 1121773227</div></figcaption></figure>
@@ -397,13 +408,13 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/objectcount-7.webp" alt="Count: 7 eggs"><figcaption><div class=t>Count: 7 eggs</div><pre>Exactly 7 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.</pre><div class=seed>seed 1044080084</div></figcaption></figure>
 <figure><img loading=lazy src="images/objectcount-8.webp" alt="Count: 8 eggs"><figcaption><div class=t>Count: 8 eggs</div><pre>Exactly 8 identical white ceramic eggs standing in a row on a dark slate shelf, evenly spaced, shot straight on under soft even light. Plain charcoal wall behind. Nothing else in the frame.</pre><div class=seed>seed 205379899</div></figcaption></figure>
 </div>
-<h2>monogram<span class=n>2</span></h2>
+<h2 id="monogram">monogram<span class=n>2</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>A second look at arbitrary letter pairs, which failed once in batch four</p>
 <div class=grid>
 <figure><img loading=lazy src="images/monogram-002.webp" alt="Monogram: AE ligature"><figcaption><div class=t>Monogram: AE ligature</div><pre>An engraved ligature of the two letters A and E joined into a single form, cut into polished brass with the grooves darkened, macro, raking light. The ligature reads exactly: AE</pre><div class=seed>seed 1348613049</div></figcaption></figure>
 <figure><img loading=lazy src="images/monogram-003.webp" alt="Monogram: HB embossed"><figcaption><div class=t>Monogram: HB embossed</div><pre>The two letters H and B side by side, blind-embossed into cream cotton paper, raking light so they read entirely through shadow. Wide letterspacing, high-contrast serif. The impression reads exactly: HB</pre><div class=seed>seed 1941203383</div></figcaption></figure>
 </div>
-<h2>poster<span class=n>9</span></h2>
+<h2 id="poster">poster<span class=n>9</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Poster and cover layouts. Every string is written out in the prompt — a direct test of the batch-four finding</p>
 <div class=grid>
 <figure><img loading=lazy src="images/poster-001.webp" alt="Swiss grid concert poster"><figcaption><div class=t>Swiss grid concert poster</div><pre>A Swiss-style concert poster on a strict grid: the word &quot;KLANG&quot; set very large in a bold grotesque across the upper half, &quot;14 MARCH&quot; beneath it in small caps, and &quot;HALLE 7&quot; bottom right. Red on off-white, one diagonal rule, generous white space. No other text.</pre><div class=seed>seed 779075243</div></figcaption></figure>
@@ -416,7 +427,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/poster-009.webp" alt="Wine label on bottle"><figcaption><div class=t>Wine label on bottle</div><pre>A wine bottle shot straight on against a dark ground, the label reading &quot;CLOS MARIN&quot; in an engraved serif with &quot;2019&quot; beneath it and &quot;MIS EN BOUTEILLE&quot; in tiny capitals at the foot. Cream paper label, deep green glass, single soft light from the left.</pre><div class=seed>seed 278755335</div></figcaption></figure>
 <figure><img loading=lazy src="images/poster-010.webp" alt="Protest placard, hand-lettered"><figcaption><div class=t>Protest placard, hand-lettered</div><pre>A hand-lettered cardboard placard held up outdoors, the words &quot;MEND IT&quot; painted in thick uneven black brush capitals with &quot;DON&#x27;T END IT&quot; smaller beneath. Corrugated board texture, drips, overcast daylight, blurred crowd behind. No other text.</pre><div class=seed>seed 889409508</div></figcaption></figure>
 </div>
-<h2>still-life<span class=n>8</span></h2>
+<h2 id="still-life">still-life<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Arranged objects, classical and modern</p>
 <div class=grid>
 <figure><img loading=lazy src="images/still-life-001.webp" alt="Dutch vanitas"><figcaption><div class=t>Dutch vanitas</div><pre>A Dutch vanitas still life: a pewter jug, a half-peeled lemon with the rind spiralling over the table edge, a snuffed candle and a folded cloth, lit from a single high window on the left and falling to deep brown shadow. Oil on panel, visible glazing.</pre><div class=seed>seed 474373990</div></figcaption></figure>
@@ -428,7 +439,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/still-life-007.webp" alt="Fruit under hard light"><figcaption><div class=t>Fruit under hard light</div><pre>Three pears on a matte black surface under a single hard light from above and behind, casting long crisp shadows toward camera. Skin texture and bloom visible, one pear bruised. Deep shadow everywhere else. Product-grade but severe.</pre><div class=seed>seed 1126053453</div></figcaption></figure>
 <figure><img loading=lazy src="images/still-life-008.webp" alt="Desk objects, cool light"><figcaption><div class=t>Desk objects, cool light</div><pre>An arrangement of desk objects on a concrete surface in cool north light: a fountain pen, a brass ruler, a folded pair of spectacles and a stone. Restrained palette, soft shadows, everything placed with deliberate spacing. Overhead, straight down.</pre><div class=seed>seed 503659668</div></figcaption></figure>
 </div>
-<h2>macro-nature<span class=n>8</span></h2>
+<h2 id="macro-nature">macro-nature<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Insects, botanicals and small structures at high magnification</p>
 <div class=grid>
 <figure><img loading=lazy src="images/macro-nature-001.webp" alt="Dragonfly wing, macro"><figcaption><div class=t>Dragonfly wing, macro</div><pre>Extreme macro of a dragonfly wing against a dark ground, the venation reading as an irregular lattice, faint iridescence where the light catches the membrane. Focus-stacked sharpness edge to edge, no other part of the insect visible.</pre><div class=seed>seed 1381046048</div></figcaption></figure>
@@ -440,7 +451,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/macro-nature-007.webp" alt="Fern crozier unfurling"><figcaption><div class=t>Fern crozier unfurling</div><pre>A fern crozier beginning to unfurl, the tight spiral covered in fine pale hairs backlit into a halo, the rest of the plant dark. Shallow focus running down the spiral. Damp woodland light, cool and green.</pre><div class=seed>seed 728116494</div></figcaption></figure>
 <figure><img loading=lazy src="images/macro-nature-008.webp" alt="Seed head, backlit"><figcaption><div class=t>Seed head, backlit</div><pre>A dandelion seed head backlit against black, each pappus rendered as a fine bright filament, two seeds already detached and drifting at the frame edge. Focus on the near seeds, falling off across the sphere.</pre><div class=seed>seed 316013847</div></figcaption></figure>
 </div>
-<h2>street<span class=n>8</span></h2>
+<h2 id="street">street<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Unposed public scenes</p>
 <div class=grid>
 <figure><img loading=lazy src="images/street-001.webp" alt="Crossing in rain"><figcaption><div class=t>Crossing in rain</div><pre>A pedestrian crossing in heavy rain shot from across the road, umbrellas overlapping into a single dark mass, one figure stepping off the kerb. Wet asphalt reflecting shop light. 35mm, grainy, unposed, faces not identifiable.</pre><div class=seed>seed 1097435078</div></figcaption></figure>
@@ -452,7 +463,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/street-007.webp" alt="Fish market, early"><figcaption><div class=t>Fish market, early</div><pre>An early-morning fish market: crushed ice, crates, hoses running water across a concrete floor, workers in rubber aprons at the edge of frame with their backs to camera. Cold overhead light, wet everywhere, unposed.</pre><div class=seed>seed 698283678</div></figcaption></figure>
 <figure><img loading=lazy src="images/street-008.webp" alt="Steps in low sun"><figcaption><div class=t>Steps in low sun</div><pre>A flight of city steps in low evening sun, the treads throwing a hard sawtooth of shadow, one figure climbing halfway up rendered almost as a silhouette. Long lens compression, warm light, no faces.</pre><div class=seed>seed 1750591874</div></figcaption></figure>
 </div>
-<h2>night<span class=n>7</span></h2>
+<h2 id="night">night<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>After dark — available light, long exposure, astro</p>
 <div class=grid>
 <figure><img loading=lazy src="images/night-001.webp" alt="Star trails over a ridge"><figcaption><div class=t>Star trails over a ridge</div><pre>Star trails circling the pole above a dark ridgeline, concentric arcs of white and faint colour on a deep blue-black sky, the land below rendered only as a black silhouette. Very long exposure, no light pollution, no foreground light.</pre><div class=seed>seed 123461485</div></figcaption></figure>
@@ -463,13 +474,13 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/night-007.webp" alt="Campfire, faces out of frame"><figcaption><div class=t>Campfire, faces out of frame</div><pre>A campfire at night shot low and close, the flames the only light source, sparks rising, a ring of stones and two pairs of boots at the edge of the light. Nobody&#x27;s face in frame. Warm falloff to complete black.</pre><div class=seed>seed 1933212622</div></figcaption></figure>
 <figure><img loading=lazy src="images/night-008.webp" alt="Aurora over snow"><figcaption><div class=t>Aurora over snow</div><pre>An aurora arc over a snow-covered plain, green with a magenta lower fringe, its structure showing vertical rays. The snow picking up the green cast faintly. A dark treeline at the horizon. No moon, no artificial light.</pre><div class=seed>seed 1239744985</div></figcaption></figure>
 </div>
-<h2>respecify<span class=n>2</span></h2>
+<h2 id="respecify">respecify<span class=n>2</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>The original text failures re-run with every string written out. A controlled retest, not new scenes</p>
 <div class=grid>
 <figure><img loading=lazy src="images/respecify-menu.webp" alt="The chalkboard menu, every row written out"><figcaption><div class=t>The chalkboard menu, every row written out</div><pre>A cafe chalkboard, straight on, hand-lettered in white and pale yellow chalk. The board reads exactly these rows and nothing else: FILTER 4.50 / CORTADO 4.00 / FLAT WHITE 4.20 / MOCHA 4.80 / OAT +0.60 / SOURDOUGH 3.50 / JAM 1.20 / SOUP 6.00 / CAKE 4.50 / TEA 3.00. Slight chalk dust haze, uneven letter weight, a wiped smudge in one corner.</pre><div class=seed>seed 1080831930</div></figcaption></figure>
 <figure><img loading=lazy src="images/respecify-spines.webp" alt="Twelve book spines, every title written out"><figcaption><div class=t>Twelve book spines, every title written out</div><pre>A tight row of twelve hardback book spines on a shelf, shot straight on so all titles are legible, varying cloth colours and foil-stamped serif titles. The twelve spines read exactly: SALT / THE LONG FIELD / IRON / NIGHT WORK / A COLD SPRING / MARGINS / THE QUARRY / DUST / HARBOUR / SLOW WATER / THE FERRY / GRASS. Even soft light, no glare.</pre><div class=seed>seed 1275058449</div></figcaption></figure>
 </div>
-<h2>hangul<span class=n>4</span></h2>
+<h2 id="hangul">hangul<span class=n>4</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Korean strings at increasing length, all specified. The catalog had one data point and needed more</p>
 <div class=grid>
 <figure><img loading=lazy src="images/hangul-001.webp" alt="Korean: 2 syllables"><figcaption><div class=t>Korean: 2 syllables</div><pre>A hand-painted shopfront sign in Seoul reading exactly &quot;국수&quot; in a bold brush-drawn Korean typeface, white paint on a faded blue metal panel, weathered with rust bleeding from the screw heads. Straight-on documentary framing, overcast light.</pre><div class=seed>seed 1004816744</div></figcaption></figure>
@@ -477,7 +488,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/hangul-004.webp" alt="Korean: with a numeral"><figcaption><div class=t>Korean: with a numeral</div><pre>An enamel station sign on a tiled subway wall reading exactly &quot;3번 출구&quot; in a clean Korean gothic typeface, white on deep blue, a thin white border, two visible bolts. Straight on, even fluorescent light, tiles slightly grubby.</pre><div class=seed>seed 604514947</div></figcaption></figure>
 <figure><img loading=lazy src="images/hangul-006.webp" alt="Korean: 6 syllables"><figcaption><div class=t>Korean: 6 syllables</div><pre>A chalkboard outside a cafe, hand-lettered in white chalk, reading exactly &quot;오늘의 추천 메뉴&quot; and nothing else. Slight chalk dust, uneven letter weight, a wiped smudge at one corner. Straight on, soft daylight.</pre><div class=seed>seed 467750813</div></figcaption></figure>
 </div>
-<h2>sport<span class=n>6</span></h2>
+<h2 id="sport">sport<span class=n>6</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Motion, effort and the decisive moment</p>
 <div class=grid>
 <figure><img loading=lazy src="images/sport-001.webp" alt="Swimmer at the turn"><figcaption><div class=t>Swimmer at the turn</div><pre>A swimmer pushing off the wall mid-tumble-turn, seen from underwater side-on, a wall of bubbles trailing from the feet, the lane rope in the foreground out of focus. Cool pool blue, hard overhead light refracting on the tiles. 1/1000s.</pre><div class=seed>seed 1964486936</div></figcaption></figure>
@@ -487,7 +498,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/sport-007.webp" alt="Skateboard, mid-trick"><figcaption><div class=t>Skateboard, mid-trick</div><pre>A skateboarder mid-kickflip over a set of concrete steps, board rotating under the feet, shot from low with a wide lens so the architecture leans. Hard low sun, long shadow, urban concrete. 1/2000s, frozen.</pre><div class=seed>seed 887473494</div></figcaption></figure>
 <figure><img loading=lazy src="images/sport-008.webp" alt="Marathon feet, late"><figcaption><div class=t>Marathon feet, late</div><pre>Ground-level shot of marathon runners&#x27; legs late in a race, road spray and discarded cups, one runner&#x27;s stride at full extension. Everything above the knee out of frame. Overcast, wet tarmac, 1/640s with slight motion in the background.</pre><div class=seed>seed 1396024938</div></figcaption></figure>
 </div>
-<h2>scifi<span class=n>8</span></h2>
+<h2 id="scifi">scifi<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Speculative hardware, interiors and vehicles</p>
 <div class=grid>
 <figure><img loading=lazy src="images/scifi-001.webp" alt="Airlock corridor"><figcaption><div class=t>Airlock corridor</div><pre>A utilitarian airlock corridor: ribbed structural frames receding, cable runs bundled along the ceiling, a heavy circular hatch at the far end with a single amber light above it. Worn painted metal, scuffs at foot height. No people, cold key light.</pre><div class=seed>seed 1381525040</div></figcaption></figure>
@@ -499,7 +510,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/scifi-007.webp" alt="Landing pad in rain"><figcaption><div class=t>Landing pad in rain</div><pre>A concrete landing pad at night in heavy rain, perimeter lights making cones in the downpour, a squat utilitarian craft cooling on the deck with steam rising off it. Wide, low, everything wet and reflective. No people.</pre><div class=seed>seed 418854865</div></figcaption></figure>
 <figure><img loading=lazy src="images/scifi-008.webp" alt="Hydroponics deck"><figcaption><div class=t>Hydroponics deck</div><pre>A hydroponics deck: stacked growing trays under magenta-white grow lights, condensation on the plastic, roots visible through clear channels, a service walkway down the middle. Humid haze, nobody in frame, functional not futuristic.</pre><div class=seed>seed 1793419740</div></figcaption></figure>
 </div>
-<h2>underwater<span class=n>8</span></h2>
+<h2 id="underwater">underwater<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Below the surface — light, suspension, scale</p>
 <div class=grid>
 <figure><img loading=lazy src="images/underwater-001.webp" alt="Kelp forest, sun shafts"><figcaption><div class=t>Kelp forest, sun shafts</div><pre>A kelp forest from below, fronds rising toward the surface, hard shafts of sunlight cutting through the canopy and scattering in the water column. Particulate suspended in the beams. Deep green-blue, no diver, no fish.</pre><div class=seed>seed 753815060</div></figcaption></figure>
@@ -511,14 +522,14 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/underwater-007.webp" alt="Swimming pool from the floor"><figcaption><div class=t>Swimming pool from the floor</div><pre>Looking up from the floor of an empty swimming pool at the caustic net of light on the surface, tiled walls receding, a ladder breaking the waterline. Nobody swimming. Cool blue, the caustics sharp and moving.</pre><div class=seed>seed 1488320811</div></figcaption></figure>
 <figure><img loading=lazy src="images/underwater-008.webp" alt="Freshwater spring, clear"><figcaption><div class=t>Freshwater spring, clear</div><pre>An underwater view of a freshwater spring: water so clear the boundary is invisible except where it distorts the fallen branches, pale limestone floor, green weed, cold light from directly above. Almost no colour cast.</pre><div class=seed>seed 2084984439</div></figcaption></figure>
 </div>
-<h2>aerial<span class=n>3</span></h2>
+<h2 id="aerial">aerial<span class=n>3</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Looking straight down</p>
 <div class=grid>
 <figure><img loading=lazy src="images/aerial-002.webp" alt="River delta braid"><figcaption><div class=t>River delta braid</div><pre>Straight down on a braided glacial river, pale sediment channels splitting and rejoining across dark gravel flats, meltwater grey-blue. No horizon, no scale reference. Flat overcast light so the pattern reads cleanly.</pre><div class=seed>seed 1689942205</div></figcaption></figure>
 <figure><img loading=lazy src="images/aerial-004.webp" alt="Salt evaporation ponds"><figcaption><div class=t>Salt evaporation ponds</div><pre>Straight down on salt evaporation ponds, each cell a different saturated colour from ochre through rust to deep pink, separated by thin pale causeways. No horizon, no vehicles. Flat light, high saturation, reads as a colour field.</pre><div class=seed>seed 1452264526</div></figcaption></figure>
 <figure><img loading=lazy src="images/aerial-006.webp" alt="Reef edge into deep water"><figcaption><div class=t>Reef edge into deep water</div><pre>Straight down on the edge of a coral reef where pale shallow sand drops abruptly into deep blue, the boundary sharp and irregular, wave texture on the shallow side. High sun, no boat, no horizon.</pre><div class=seed>seed 1761378779</div></figcaption></figure>
 </div>
-<h2>period<span class=n>8</span></h2>
+<h2 id="period">period<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Photography that reads as a specific decade</p>
 <div class=grid>
 <figure><img loading=lazy src="images/period-001.webp" alt="1970s Kodachrome family scene"><figcaption><div class=t>1970s Kodachrome family scene</div><pre>A 1970s family snapshot on Kodachrome: a garden barbecue, warm reds and slightly cyan shadows, on-camera flash flattening the foreground, a wood-panelled fence behind. Slight underexposure, square format, faces turned away from camera.</pre><div class=seed>seed 752828486</div></figcaption></figure>
@@ -530,7 +541,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/period-007.webp" alt="1960s street, Tri-X"><figcaption><div class=t>1960s street, Tri-X</div><pre>A 1960s street photograph on Tri-X: high contrast black and white, coarse grain, a pavement scene with a bus and pedestrians, shot from the hip at 28mm so the framing is loose and slightly tilted. Full frame with the rebate edge visible.</pre><div class=seed>seed 1263747052</div></figcaption></figure>
 <figure><img loading=lazy src="images/period-008.webp" alt="Early colour autochrome"><figcaption><div class=t>Early colour autochrome</div><pre>An autochrome-style image: a garden with flowers, the colour built from a fine mosaic of dyed starch grains so it reads pointillist up close, muted and slightly dim overall, long exposure so the leaves have moved.</pre><div class=seed>seed 1413778418</div></figcaption></figure>
 </div>
-<h2>jewellery<span class=n>8</span></h2>
+<h2 id="jewellery">jewellery<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Small metal and stone at product scale</p>
 <div class=grid>
 <figure><img loading=lazy src="images/jewellery-001.webp" alt="Signet ring, macro"><figcaption><div class=t>Signet ring, macro</div><pre>Macro of a gold signet ring on dark slate, the flat face blank and highly polished so it reflects a single soft window, tool marks visible on the shank. Extremely shallow depth of field, one light, no props, no engraving.</pre><div class=seed>seed 1644150464</div></figcaption></figure>
@@ -542,7 +553,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/jewellery-007.webp" alt="Ring in a bench vice"><figcaption><div class=t>Ring in a bench vice</div><pre>A part-finished ring held in a jeweller&#x27;s bench pin with a file and a saw frame beside it, metal filings on the wooden surface, the ring still showing solder seams. Workshop light, documentary rather than product. Macro, shallow focus.</pre><div class=seed>seed 889861111</div></figcaption></figure>
 <figure><img loading=lazy src="images/jewellery-008.webp" alt="Diamond in tweezers"><figcaption><div class=t>Diamond in tweezers</div><pre>A brilliant-cut diamond held in fine tweezers against a dark neutral background, lit so the facets throw sharp coloured fire without blowing out, the tweezer tips sharp and the rest falling off. Macro, single hard source.</pre><div class=seed>seed 912016671</div></figcaption></figure>
 </div>
-<h2>fantasy<span class=n>9</span></h2>
+<h2 id="fantasy">fantasy<span class=n>9</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Creature and world design</p>
 <div class=grid>
 <figure><img loading=lazy src="images/fantasy-001.webp" alt="Moth-winged creature at rest"><figcaption><div class=t>Moth-winged creature at rest</div><pre>A small creature with the body of a hare and the furred wings of a moth, at rest on a mossy log in dim woodland light, wings folded and patterned like lichen. Painted naturalistically as if for a field guide, not stylised. Muted greens and browns.</pre><div class=seed>seed 966994627</div></figcaption></figure>
@@ -555,7 +566,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/fantasy-008.webp" alt="Cliff library, cut into rock"><figcaption><div class=t>Cliff library, cut into rock</div><pre>A library cut into a sea cliff, shelves receding into the rock, narrow windows punched through to the sea so salt light falls across the reading tables. Damp stone, worn steps, oil lamps unlit. Nobody present.</pre><div class=seed>seed 2135237404</div></figcaption></figure>
 <figure><img loading=lazy src="images/fantasy-010.webp" alt="Frozen airship, half-buried"><figcaption><div class=t>Frozen airship, half-buried</div><pre>The envelope of a crashed airship half-buried in snow on a glacier, fabric torn and flapping, the gondola crushed beneath it, guy lines frozen into the ice. Flat polar light, no sun, no people.</pre><div class=seed>seed 1429390861</div></figcaption></figure>
 </div>
-<h2>comic<span class=n>7</span></h2>
+<h2 id="comic">comic<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Panel art and sequential-page styles</p>
 <div class=grid>
 <figure><img loading=lazy src="images/comic-001.webp" alt="Ligne claire street panel"><figcaption><div class=t>Ligne claire street panel</div><pre>A ligne claire comic panel: uniform black outlines, flat unshaded colour, a figure crossing a European street with a tram behind. No hatching, no gradients, a thin black panel border. One empty speech balloon.</pre><div class=seed>seed 1026053947</div></figcaption></figure>
@@ -566,7 +577,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/comic-007.webp" alt="Watercolour bande dessinée"><figcaption><div class=t>Watercolour bande dessinée</div><pre>A European comic panel in loose watercolour over a light pencil line, a harbour scene with fishing boats, colour running slightly outside the drawing. Warm muted palette, thin panel border, no text.</pre><div class=seed>seed 396778750</div></figcaption></figure>
 <figure><img loading=lazy src="images/comic-008.webp" alt="Risograph zine spread"><figcaption><div class=t>Risograph zine spread</div><pre>A two-colour risograph zine spread in blue and orange with visible misregistration and paper grain, a loose hand-drawn scene of two figures at a bus stop. No text, staple shadow visible in the gutter.</pre><div class=seed>seed 1935167288</div></figcaption></figure>
 </div>
-<h2>childrens-book<span class=n>8</span></h2>
+<h2 id="childrens-book">childrens-book<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Illustration for picture books</p>
 <div class=grid>
 <figure><img loading=lazy src="images/childrens-book-001.webp" alt="Gouache bear and bicycle"><figcaption><div class=t>Gouache bear and bicycle</div><pre>A picture-book illustration in gouache: a bear riding a bicycle along a country lane, warm chalky colour, visible brush texture, simplified shapes with soft edges. Friendly rather than cute, no text, empty space at the top.</pre><div class=seed>seed 1856219085</div></figcaption></figure>
@@ -578,7 +589,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/childrens-book-007.webp" alt="Linocut farm animals"><figcaption><div class=t>Linocut farm animals</div><pre>A picture-book illustration printed as a two-colour linocut: farm animals in a field, bold carved shapes with visible gouge marks and uneven ink coverage, registration slightly off. Cream paper, no text.</pre><div class=seed>seed 1575885178</div></figcaption></figure>
 <figure><img loading=lazy src="images/childrens-book-008.webp" alt="Soft pastel winter street"><figcaption><div class=t>Soft pastel winter street</div><pre>A picture-book winter street in soft pastel on tinted paper, snow catching lamplight, figures in coats reduced to simple silhouettes, the paper tone doing the sky. Blended edges, visible pastel grain, no text.</pre><div class=seed>seed 581873004</div></figcaption></figure>
 </div>
-<h2>technical-drawing<span class=n>8</span></h2>
+<h2 id="technical-drawing">technical-drawing<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Plans, sections and exploded views as drawings rather than renders</p>
 <div class=grid>
 <figure><img loading=lazy src="images/technical-drawing-001.webp" alt="Building section, hand-drafted"><figcaption><div class=t>Building section, hand-drafted</div><pre>A hand-drafted architectural section of a two-storey house: cut walls filled solid black, floor build-ups shown in layers, thin line weights for everything beyond the cut, hatched ground. Ink on tracing paper, no dimensions, no text.</pre><div class=seed>seed 20898713</div></figcaption></figure>
@@ -590,7 +601,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/technical-drawing-007.webp" alt="Bridge elevation, drafted"><figcaption><div class=t>Bridge elevation, drafted</div><pre>A drafted elevation of a riveted steel truss bridge, every member drawn in single-weight ink, rivets shown as small circles, the water line hatched beneath. Black on white paper, no text.</pre><div class=seed>seed 1635258780</div></figcaption></figure>
 <figure><img loading=lazy src="images/technical-drawing-008.webp" alt="Knitting stitch diagram"><figcaption><div class=t>Knitting stitch diagram</div><pre>A hand-drawn diagram of a cable knitting stitch: the yarn path traced as a continuous line through the loops over four rows, arrows showing the crossing order, on graph paper. Fine pen, no text, no chart symbols.</pre><div class=seed>seed 1208675776</div></figcaption></figure>
 </div>
-<h2>vehicle<span class=n>10</span></h2>
+<h2 id="vehicle">vehicle<span class=n>10</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Trains, aircraft and boats</p>
 <div class=grid>
 <figure><img loading=lazy src="images/vehicle-001.webp" alt="Steam locomotive, cold shed"><figcaption><div class=t>Steam locomotive, cold shed</div><pre>A steam locomotive standing cold in an engine shed, boiler cladding scratched, connecting rods still, one shaft of daylight from a roof light falling across the smokebox. Oil on the floor, no people, no steam.</pre><div class=seed>seed 239476472</div></figcaption></figure>
@@ -604,7 +615,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/vehicle-009.webp" alt="Airliner cabin, empty"><figcaption><div class=t>Airliner cabin, empty</div><pre>An empty airliner cabin looking down the aisle, overhead bins closed, seatbelts laid across the seats, cabin lighting warm and low, window shades half down. Nobody aboard, no branding, no signage.</pre><div class=seed>seed 44600918</div></figcaption></figure>
 <figure><img loading=lazy src="images/vehicle-010.webp" alt="Icebreaker bow, deck view"><figcaption><div class=t>Icebreaker bow, deck view</div><pre>Looking forward along the deck of an icebreaker as it rides up onto pack ice, the bow pushing a broken white ridge aside, deck gear rimed with frost. Flat polar light, no crew visible.</pre><div class=seed>seed 1167191015</div></figcaption></figure>
 </div>
-<h2>weather<span class=n>8</span></h2>
+<h2 id="weather">weather<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Atmospheric events and their light</p>
 <div class=grid>
 <figure><img loading=lazy src="images/weather-001.webp" alt="Shelf cloud approaching"><figcaption><div class=t>Shelf cloud approaching</div><pre>A low shelf cloud advancing across flat farmland, its leading edge sharply defined and turbulent, the sky beneath it dark green-grey and the land still lit. Wide, horizon low, no buildings, no people.</pre><div class=seed>seed 1762177641</div></figcaption></figure>
@@ -616,7 +627,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/weather-007.webp" alt="Dust storm wall"><figcaption><div class=t>Dust storm wall</div><pre>A wall of dust advancing across dry ground, hundreds of feet high, the leading face lit ochre and the sky above it clear blue. Scattered scrub in the foreground for scale. No vehicles, no buildings.</pre><div class=seed>seed 462916735</div></figcaption></figure>
 <figure><img loading=lazy src="images/weather-008.webp" alt="Snow squall in headlights"><figcaption><div class=t>Snow squall in headlights</div><pre>Heavy snow blowing through car headlights on an unlit road at night, the flakes streaking toward the camera, the beam picking out only a few metres. Everything beyond black. Long exposure, no other light.</pre><div class=seed>seed 586384316</div></figcaption></figure>
 </div>
-<h2>glass<span class=n>8</span></h2>
+<h2 id="glass">glass<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Transparency, refraction and caustics</p>
 <div class=grid>
 <figure><img loading=lazy src="images/glass-001.webp" alt="Wine glasses, caustics"><figcaption><div class=t>Wine glasses, caustics</div><pre>Three empty wine glasses on white paper under one hard light, throwing sharp bright caustic patterns onto the paper beside them, the stems refracting the background into thin bands. High key, nothing else in frame.</pre><div class=seed>seed 1386490681</div></figcaption></figure>
@@ -628,7 +639,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/glass-007.webp" alt="Stacked tumblers, refraction"><figcaption><div class=t>Stacked tumblers, refraction</div><pre>A stack of pressed glass tumblers shot straight on against a plain grey ground, the overlapping walls building up into dense bands of refraction and shadow. Even soft light, the pressed pattern repeating through the stack.</pre><div class=seed>seed 1490874051</div></figcaption></figure>
 <figure><img loading=lazy src="images/glass-008.webp" alt="Prism spectrum on a wall"><figcaption><div class=t>Prism spectrum on a wall</div><pre>A glass prism on a windowsill throwing a sharp spectrum onto a plain white wall, the prism itself mostly dark and the spectrum crisp and saturated. Hard direct sunlight, everything else in the room falling away.</pre><div class=seed>seed 133428439</div></figcaption></figure>
 </div>
-<h2>material<span class=n>5</span></h2>
+<h2 id="material">material<span class=n>5</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Surface swatches shot flat</p>
 <div class=grid>
 <figure><img loading=lazy src="images/material-001.webp" alt="Raw concrete, board-marked"><figcaption><div class=t>Raw concrete, board-marked</div><pre>A flat swatch of board-marked concrete filling the frame: timber grain impressed into the surface, tie holes, a slight colour variation between pours, fine air bubbles. Even raking light so the texture reads. No edges.</pre><div class=seed>seed 1252759840</div></figcaption></figure>
@@ -637,7 +648,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/material-006.webp" alt="Verdigris copper"><figcaption><div class=t>Verdigris copper</div><pre>A flat swatch of aged copper sheet filling the frame, green verdigris blooming unevenly over brown patina with a few bright scratches. Even light, no edges, no fixings.</pre><div class=seed>seed 1777915710</div></figcaption></figure>
 <figure><img loading=lazy src="images/material-008.webp" alt="Riven slate"><figcaption><div class=t>Riven slate</div><pre>A flat swatch of riven slate filling the frame, the split face stepping in thin layers, dark blue-grey with faint rust staining along one bedding plane. Hard raking light so the steps cast shadow. No edges.</pre><div class=seed>seed 1930279593</div></figcaption></figure>
 </div>
-<h2>crowd<span class=n>8</span></h2>
+<h2 id="crowd">crowd<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Many people at once</p>
 <div class=grid>
 <figure><img loading=lazy src="images/crowd-001.webp" alt="Concert crowd from behind"><figcaption><div class=t>Concert crowd from behind</div><pre>A concert crowd photographed from behind and above, hundreds of heads and raised arms silhouetted against stage light, the front rows lost in glare. Nobody&#x27;s face visible, no signage. Long lens compression.</pre><div class=seed>seed 1724458665</div></figcaption></figure>
@@ -649,7 +660,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/crowd-007.webp" alt="Escalators, morning rush"><figcaption><div class=t>Escalators, morning rush</div><pre>Two long escalators running in opposite directions in a transit hall, both full of people standing, shot straight on so the two streams cross. Even artificial light, faces turned away or blurred by motion.</pre><div class=seed>seed 555522559</div></figcaption></figure>
 <figure><img loading=lazy src="images/crowd-008.webp" alt="Queue along a wall"><figcaption><div class=t>Queue along a wall</div><pre>A long queue of people waiting along a plain brick wall in flat overcast light, spaced unevenly, some sitting on the kerb. Shot from far along the line so it compresses. Nobody&#x27;s face sharp, no signage.</pre><div class=seed>seed 1179753599</div></figcaption></figure>
 </div>
-<h2>weave<span class=n>7</span></h2>
+<h2 id="weave">weave<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>A controlled experiment: rope and chain from separable to fully interpenetrating, one surface and one light throughout</p>
 <div class=grid>
 <figure><img loading=lazy src="images/weave-1.webp" alt="Weave: three separate ropes"><figcaption><div class=t>Weave: three separate ropes</div><pre>Three separate lengths of natural hemp rope lying parallel and not touching on a plain grey concrete surface, shot from directly above under soft even light. Fibre twist clearly visible on each. Nothing else in frame.</pre><div class=seed>seed 806878733</div></figcaption></figure>
@@ -660,7 +671,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/weave-7.webp" alt="Weave: basket wall"><figcaption><div class=t>Weave: basket wall</div><pre>A close view of the woven wall of a willow basket, the horizontal weavers passing alternately in front of and behind the vertical stakes. Soft even light, shot square on, the weave filling the frame. Nothing else visible.</pre><div class=seed>seed 1404524049</div></figcaption></figure>
 <figure><img loading=lazy src="images/weave-8.webp" alt="Weave: drawn knotwork"><figcaption><div class=t>Weave: drawn knotwork</div><pre>A drawn Celtic knotwork panel in black ink on cream paper: a single continuous interlaced band that passes alternately over and under itself throughout, no breaks, no colour, no border decoration. Flat, straight on, filling the frame.</pre><div class=seed>seed 1984874786</div></figcaption></figure>
 </div>
-<h2>tattoo<span class=n>7</span></h2>
+<h2 id="tattoo">tattoo<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Flash sheets and applied work</p>
 <div class=grid>
 <figure><img loading=lazy src="images/tattoo-001.webp" alt="American traditional flash sheet"><figcaption><div class=t>American traditional flash sheet</div><pre>An American traditional tattoo flash sheet on aged paper: a swallow, an anchor, a dagger and a rose arranged with space between them, bold black outlines, limited flat colour in red, green and yellow. No text, no border.</pre><div class=seed>seed 1798763568</div></figcaption></figure>
@@ -671,7 +682,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/tattoo-006.webp" alt="Woodcut-style raven"><figcaption><div class=t>Woodcut-style raven</div><pre>A woodcut-style tattoo of a raven on a shoulder blade, heavy parallel hatching for the shading and bold contour lines, no grey wash, no colour. Soft directional light, the shoulder turned away from camera.</pre><div class=seed>seed 708038755</div></figcaption></figure>
 <figure><img loading=lazy src="images/tattoo-007.webp" alt="Flash sheet, ocean set"><figcaption><div class=t>Flash sheet, ocean set</div><pre>A tattoo flash sheet of ocean motifs on off-white paper: a lighthouse, a whale tail, a compass rose and a knotted rope, evenly spaced, bold outlines with muted flat colour. No text anywhere on the sheet.</pre><div class=seed>seed 943002415</div></figcaption></figure>
 </div>
-<h2>pixel-art<span class=n>7</span></h2>
+<h2 id="pixel-art">pixel-art<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Low-resolution sprite and tile work</p>
 <div class=grid>
 <figure><img loading=lazy src="images/pixel-art-001.webp" alt="Pixel tileset, dungeon"><figcaption><div class=t>Pixel tileset, dungeon</div><pre>A pixel-art tileset for a dungeon: stone floor, wall, door and stair tiles laid out in a grid, hard-edged pixels with no anti-aliasing, a limited palette of about sixteen colours. Chunky and readable at small size. No text.</pre><div class=seed>seed 808571885</div></figcaption></figure>
@@ -682,7 +693,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/pixel-art-007.webp" alt="Pixel portrait, 32x32 feel"><figcaption><div class=t>Pixel portrait, 32x32 feel</div><pre>A pixel-art portrait bust at very low resolution, perhaps thirty-two pixels across, so each pixel is a large visible square. Limited palette, hard edges, readable features built from very few pixels. Plain background.</pre><div class=seed>seed 324325015</div></figcaption></figure>
 <figure><img loading=lazy src="images/pixel-art-008.webp" alt="Pixel shop interface"><figcaption><div class=t>Pixel shop interface</div><pre>A pixel-art game shop interface: a bordered panel with item slots in a grid, a coin icon and a scroll bar, drawn with hard pixel edges and a limited palette. The panel border built from repeated corner and edge tiles. No text.</pre><div class=seed>seed 1430458668</div></figcaption></figure>
 </div>
-<h2>anatomy<span class=n>8</span></h2>
+<h2 id="anatomy">anatomy<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Medical and natural-history illustration of bodies</p>
 <div class=grid>
 <figure><img loading=lazy src="images/anatomy-001.webp" alt="Engraved skeleton plate"><figcaption><div class=t>Engraved skeleton plate</div><pre>A 19th-century engraved anatomical plate of a human hand skeleton, fine line and stipple shading, bones separated slightly to show the joints, aged paper with a visible plate mark. No labels, no numbers.</pre><div class=seed>seed 872437719</div></figcaption></figure>
@@ -694,7 +705,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/anatomy-007.webp" alt="Heart, wax model photograph"><figcaption><div class=t>Heart, wax model photograph</div><pre>A photograph of an antique anatomical wax model of a human heart on a wooden stand, the wax yellowed and slightly crazed with age, vessels painted in faded red and blue. Museum lighting, dark background, no signage.</pre><div class=seed>seed 1466015518</div></figcaption></figure>
 <figure><img loading=lazy src="images/anatomy-008.webp" alt="Fish skeleton, prepared"><figcaption><div class=t>Fish skeleton, prepared</div><pre>A prepared fish skeleton mounted flat on a pale board, every rib and fin ray intact, photographed straight down under even light. The bones dry and slightly translucent. Museum specimen framing, no labels.</pre><div class=seed>seed 521991243</div></figcaption></figure>
 </div>
-<h2>sculpture<span class=n>8</span></h2>
+<h2 id="sculpture">sculpture<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Carved, cast and modelled form</p>
 <div class=grid>
 <figure><img loading=lazy src="images/sculpture-001.webp" alt="Marble drapery, close"><figcaption><div class=t>Marble drapery, close</div><pre>A close view of carved marble drapery falling over a knee, the folds undercut so they cast their own shadows, chisel marks visible in the deeper recesses. Raking light, plain dark background, no face in frame.</pre><div class=seed>seed 374186321</div></figcaption></figure>
@@ -706,7 +717,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/sculpture-007.webp" alt="Wood carving, gouge marks"><figcaption><div class=t>Wood carving, gouge marks</div><pre>A carved wooden form showing deliberate gouge facets across the whole surface, no sanding, the grain running diagonally through the cuts. Warm side light so every facet reads. Plain background, no subject that resolves.</pre><div class=seed>seed 7962539</div></figcaption></figure>
 <figure><img loading=lazy src="images/sculpture-008.webp" alt="Kinetic mobile, hanging"><figcaption><div class=t>Kinetic mobile, hanging</div><pre>A hanging kinetic mobile of painted metal shapes on fine wires, balanced at several levels, photographed against a plain white wall so the shapes and their shadows overlap. Soft light, slight motion blur on the lowest element.</pre><div class=seed>seed 1946227466</div></figcaption></figure>
 </div>
-<h2>plant<span class=n>10</span></h2>
+<h2 id="plant">plant<span class=n>10</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Houseplants and cultivated growth</p>
 <div class=grid>
 <figure><img loading=lazy src="images/plant-001.webp" alt="Monstera against a wall"><figcaption><div class=t>Monstera against a wall</div><pre>A mature monstera in a terracotta pot against a plain plaster wall, hard afternoon side light throwing the leaf fenestrations as sharp shadows on the plaster. A few brown leaf tips left in. Straight on, no styling.</pre><div class=seed>seed 1052177918</div></figcaption></figure>
@@ -720,7 +731,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/plant-009.webp" alt="Bulbs forced in glass"><figcaption><div class=t>Bulbs forced in glass</div><pre>Hyacinth bulbs forced in clear glass vases so the white roots fill the water below and the shoots rise above, three of them in a row on a windowsill. Backlit, the roots sharply defined, cool winter light.</pre><div class=seed>seed 1137985015</div></figcaption></figure>
 <figure><img loading=lazy src="images/plant-010.webp" alt="Fallen leaves, wet path"><figcaption><div class=t>Fallen leaves, wet path</div><pre>Fallen leaves plastered to a wet path, each one darkened and stuck flat, colours ranging from ochre to near black, a few still holding their shape above the rest. Straight down, flat overcast light, no horizon.</pre><div class=seed>seed 1166752125</div></figcaption></figure>
 </div>
-<h2>tool<span class=n>8</span></h2>
+<h2 id="tool">tool<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Hand tools and workshop equipment</p>
 <div class=grid>
 <figure><img loading=lazy src="images/tool-001.webp" alt="Plane on a bench"><figcaption><div class=t>Plane on a bench</div><pre>A wooden-bodied hand plane resting on its side on a workbench beside a curl of shaving, the sole polished bright by use and the body darkened by handling. Warm side light, sawdust in the bench grain.</pre><div class=seed>seed 2687447</div></figcaption></figure>
@@ -732,7 +743,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/tool-007.webp" alt="Wrench on a nut, greasy"><figcaption><div class=t>Wrench on a nut, greasy</div><pre>An open-ended wrench engaged on a rusted nut, grease on the jaws and the thread, the metal around it scarred from previous attempts. Macro, hard raking light, shallow focus. No hands in frame.</pre><div class=seed>seed 1661979018</div></figcaption></figure>
 <figure><img loading=lazy src="images/tool-008.webp" alt="Soldering station, close"><figcaption><div class=t>Soldering station, close</div><pre>A soldering iron in its stand beside a coil of solder and a small circuit board, flux residue on the board, the tip tinned and slightly oxidised. Warm bench light, macro, shallow focus. No hands in frame.</pre><div class=seed>seed 924155302</div></figcaption></figure>
 </div>
-<h2>knolling<span class=n>5</span></h2>
+<h2 id="knolling">knolling<span class=n>5</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Objects arranged flat and square to the frame</p>
 <div class=grid>
 <figure><img loading=lazy src="images/knolling-003.webp" alt="Baking equipment"><figcaption><div class=t>Baking equipment</div><pre>Baking equipment arranged flat and square on a marble surface: scales, a scraper, a whisk, two tins and a folded cloth, plus small bowls of flour and salt. Aligned to a grid with even spacing, shot straight down.</pre><div class=seed>seed 251379512</div></figcaption></figure>
@@ -741,7 +752,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/knolling-007.webp" alt="Desk drawer, emptied"><figcaption><div class=t>Desk drawer, emptied</div><pre>The contents of a desk drawer laid out flat and square on the desk itself: pencils in a row, a stapler, paperclips grouped, an eraser, a ruler and a roll of tape. Even gaps, shot straight down, cool north light.</pre><div class=seed>seed 1338922538</div></figcaption></figure>
 <figure><img loading=lazy src="images/knolling-008.webp" alt="Coffee kit"><figcaption><div class=t>Coffee kit</div><pre>Coffee-making equipment knolled on a concrete surface: a grinder, a dripper, filters fanned slightly, a scale, a kettle and a cup, arranged on a grid with even spacing. Straight down, soft even light, no beans spilled.</pre><div class=seed>seed 793490821</div></figcaption></figure>
 </div>
-<h2>silhouette<span class=n>7</span></h2>
+<h2 id="silhouette">silhouette<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Subjects reduced to shape against light</p>
 <div class=grid>
 <figure><img loading=lazy src="images/silhouette-001.webp" alt="Figure in a doorway"><figcaption><div class=t>Figure in a doorway</div><pre>A figure standing in a bright doorway seen from inside a dark room, exposed for the doorway so the figure and the frame read as clean black shapes against white. No detail in the shadow at all. Straight on, symmetrical.</pre><div class=seed>seed 809416368</div></figcaption></figure>
@@ -752,7 +763,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/silhouette-007.webp" alt="Birds on a wire"><figcaption><div class=t>Birds on a wire</div><pre>Birds spaced along a wire in silhouette against a flat overcast sky, each one a small solid shape, the wire a thin line sagging between two poles out of frame. Minimal, high key, no other detail.</pre><div class=seed>seed 1599517231</div></figcaption></figure>
 <figure><img loading=lazy src="images/silhouette-008.webp" alt="Ferns backlit to black"><figcaption><div class=t>Ferns backlit to black</div><pre>Fern fronds photographed against a bright sky and exposed so they render as black lacework, every pinna separate and readable as shape. No green, no sky detail, the pattern filling the frame.</pre><div class=seed>seed 239403001</div></figcaption></figure>
 </div>
-<h2>mirror<span class=n>7</span></h2>
+<h2 id="mirror">mirror<span class=n>7</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Reflections and what they get right</p>
 <div class=grid>
 <figure><img loading=lazy src="images/mirror-001.webp" alt="Still lake, whole reflection"><figcaption><div class=t>Still lake, whole reflection</div><pre>A mountain reflected in perfectly still water at dawn, the reflection nearly complete with only a faint break where a current passes. Shot so the waterline sits exactly across the middle of the frame. Muted cold light.</pre><div class=seed>seed 1857318294</div></figcaption></figure>
@@ -763,7 +774,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/mirror-007.webp" alt="Polished steel counter"><figcaption><div class=t>Polished steel counter</div><pre>A polished stainless steel counter reflecting an overhead ceiling and a row of hanging pans, the reflection softened and slightly distorted by the brushed grain. Shot at a low angle, kitchen light, nobody present.</pre><div class=seed>seed 371991096</div></figcaption></figure>
 <figure><img loading=lazy src="images/mirror-008.webp" alt="Puddle upside down"><figcaption><div class=t>Puddle upside down</div><pre>A single puddle on tarmac photographed so tightly that only the reflected sky and building fill the frame, with a rim of wet asphalt at the very edge. The image reads inverted until you find the edge. Overcast.</pre><div class=seed>seed 469746667</div></figcaption></figure>
 </div>
-<h2>mineral<span class=n>8</span></h2>
+<h2 id="mineral">mineral<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Crystals, ores and cut stone</p>
 <div class=grid>
 <figure><img loading=lazy src="images/mineral-001.webp" alt="Amethyst geode, split"><figcaption><div class=t>Amethyst geode, split</div><pre>A split amethyst geode photographed against black, the crystal-lined cavity catching a single light so the points glitter while the rough outer rind stays dark. Macro, deep purple grading to near clear at the tips.</pre><div class=seed>seed 1645708822</div></figcaption></figure>
@@ -775,7 +786,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/mineral-007.webp" alt="Salt crystals growing"><figcaption><div class=t>Salt crystals growing</div><pre>Halite crystals grown on a string in a jar, cubic and stepped, cloudy at the centre and clearer at the faces, still wet from the solution. Backlit, macro, the string just visible through them.</pre><div class=seed>seed 1046939819</div></figcaption></figure>
 <figure><img loading=lazy src="images/mineral-008.webp" alt="Slate with pyrite bloom"><figcaption><div class=t>Slate with pyrite bloom</div><pre>A split slab of dark slate with a bloom of small brassy pyrite crystals scattered across the bedding plane, the slate matte and the pyrite bright. Raking light, shot straight down, no edges of the slab.</pre><div class=seed>seed 1654852533</div></figcaption></figure>
 </div>
-<h2>seasonal<span class=n>8</span></h2>
+<h2 id="seasonal">seasonal<span class=n>8</span><a class=top href="#top" title="back to the category list">top</a></h2>
 <p class=cat-desc>Weather-marked moments in the year</p>
 <div class=grid>
 <figure><img loading=lazy src="images/seasonal-001.webp" alt="First frost on a gate"><figcaption><div class=t>First frost on a gate</div><pre>The first hard frost of the year on a wooden field gate, crystals picked out along the top rail and the hinge, the field beyond still green and unfrosted where the sun has reached. Low morning light, cold blue shadows.</pre><div class=seed>seed 4600144</div></figcaption></figure>
@@ -787,7 +798,7 @@ Five of these findings replace earlier ones. Four were overturned by experiments
 <figure><img loading=lazy src="images/seasonal-007.webp" alt="Harvest dust at evening"><figcaption><div class=t>Harvest dust at evening</div><pre>Dust hanging over a stubble field in the last hour of light after harvesting, the low sun turning it gold, bales scattered at intervals into the distance. Long lens compression, no machinery in frame.</pre><div class=seed>seed 1003507973</div></figcaption></figure>
 <figure><img loading=lazy src="images/seasonal-008.webp" alt="Ice on a puddle, broken"><figcaption><div class=t>Ice on a puddle, broken</div><pre>A thin sheet of ice over a puddle, broken through in the middle by a boot so the plates have tilted and refrozen at angles, trapped air white beneath them. Shot straight down, cold flat light, macro-ish.</pre><div class=seed>seed 353654491</div></figcaption></figure>
 </div>
-<h2>The failures<span class=n>65</span></h2>
+<h2 id="failures">The failures<span class=n>65</span><a class=top href="#top">top</a></h2>
 <p class=cat-desc>Deliberately reproduced failures. Every claim in the README&#x27;s findings section points at one of these, with the seed that produced it, so the limits are checkable rather than asserted. These are NOT part of the 85-entry catalog.</p>
 <div class=grid>
 <figure class=fail><img loading=lazy src="images/failures/abstract-004.webp" alt="Colour: &#x27;coloured light trails&#x27; came back as four pale near-white lines"><figcaption><div class=t>Colour: &#x27;coloured light trails&#x27; came back as four pale near-white lines</div><pre>asked for: Crossing, looping, coloured trails
@@ -826,7 +837,7 @@ A matte black rubber duck on a white acrylic surface with a soft reflection bene
 <figure class=fail><img loading=lazy src="images/failures/comic-003.webp" alt="Composition: a flat cyan field with the figure pushed to the edge, and no rosette worth the name"><figcaption><div class=t>Composition: a flat cyan field with the figure pushed to the edge, and no rosette worth the name</div><pre>asked for: A newsprint panel with visible CMYK rosette
 
 A comic panel printed on cheap newsprint: visible CMYK rosette dots, slight misregistration on the reds, yellowed paper, a figure mid-leap against a flat cyan sky. One empty caption box in the upper left.</pre><div class=seed>seed 312992160</div></figcaption></figure>
-<figure class=fail><img loading=lazy src="images/failures/fail-identity.webp" alt="Identity: at strength 0.72 the scene is new and the person is not the same"><figcaption><div class=t>Identity: at strength 0.72 the scene is new and the person is not the same</div><pre>asked for: The woman from reference-sheet-001
+<figure class=fail><img loading=lazy src="images/failures/fail-identity.webp" alt="Identity: at strength 0.72 the scene is new and the person is not the same. The middle figure also carries three arms - one holding the laptop and a second silver sleeve hanging beside it - which I did not see until a reader pointed at it on 2026-07-31."><figcaption><div class=t>Identity: at strength 0.72 the scene is new and the person is not the same. The middle figure also carries three arms - one holding the laptop and a second silver sleeve hanging beside it - which I did not see until a reader pointed at it on 2026-07-31.</div><pre>asked for: The woman from reference-sheet-001
 
 The same woman from the reference sheet, now lit only by the blue glow of a laptop screen in a dark room. Same silver crop, same scar above the right eyebrow, same wire frames, same navy sweater. Identity must be unmistakably the same person.</pre><div class=seed>seed 1317515569</div></figcaption></figure>
 <figure class=fail><img loading=lazy src="images/failures/fail-korean.webp" alt="Text: Korean fails one character in, and looks clean if you cannot read it"><figcaption><div class=t>Text: Korean fails one character in, and looks clean if you cannot read it</div><pre>asked for: 정직한 국수

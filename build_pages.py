@@ -41,7 +41,15 @@ h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 10px;letter-spacing:-.02em}
 .sub{color:var(--mut);max-width:60ch;margin:0}
 .meta{margin-top:18px;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut)}
 .meta b{color:var(--fg)}
-h2{font-size:1.35rem;margin:56px 0 6px;letter-spacing:-.01em}
+h2{font-size:1.35rem;margin:56px 0 6px;letter-spacing:-.01em;scroll-margin-top:12px}
+/* Anchors on a page this tall are useless if the browser lands mid-image,
+   and lazy-loaded figures above the target shift it as they resolve. The
+   scroll margin keeps the heading clear of the viewport edge. */
+.toc{margin:28px 0 0;padding:14px 16px;border:1px solid var(--bd);border-radius:8px;font-size:.86rem;line-height:2}
+.toc b{display:block;margin-bottom:6px;font-size:.8rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.toc a{color:inherit}
+h2 .top{float:right;font:11px ui-monospace,monospace;color:var(--mut);font-weight:400;text-decoration:none}
+h2 .top:hover{text-decoration:underline}
 h2:first-of-type{margin-top:0}
 h2 .n{font:12px ui-monospace,monospace;color:var(--mut);margin-left:8px}
 .cat-desc{color:var(--mut);margin:0 0 20px;max-width:70ch;font-size:.94rem}
@@ -107,7 +115,7 @@ def main() -> int:
          f'<meta name="description" content="{len(kept)} reproducible {html.escape(model)} prompts with recorded seeds, plus the generations that failed and why.">',
          f"<style>{CSS}</style></head><body><div class=wrap>"]
 
-    L.append("<header>")
+    L.append('<header id="top">')
     L.append(f"<h1>{html.escape(model)}: {len(kept)} prompts, the seeds, and the failures</h1>")
     L.append('<p class=sub>Every prompt below was run once, every image is the raw model output, '
              'and every entry carries the seed that produced it. The generations that did not work '
@@ -127,8 +135,20 @@ def main() -> int:
     by = {}
     for e in kept:
         by.setdefault(e["category"], []).append(e)
+    # A table of contents and an id per category. Without them the only way into
+    # a 475-image page is to scroll it, and a link to one category cannot be
+    # given to anyone. A reader who arrives from a comment asking about portrait
+    # work should land on portrait work.
+    L.append('<nav class=toc><b>Jump to</b> ')
+    L.append(" · ".join(
+        f'<a href="#{html.escape(c)}">{html.escape(c)}</a> <span class=n>{len(v)}</span>'
+        for c, v in by.items()))
+    L.append(' · <a href="#failures">the failures</a></nav>')
+
     for cat, items in by.items():
-        L.append(f'<h2>{html.escape(cat)}<span class=n>{len(items)}</span></h2>')
+        L.append(f'<h2 id="{html.escape(cat)}">{html.escape(cat)}'
+                 f'<span class=n>{len(items)}</span>'
+                 f'<a class=top href="#top" title="back to the category list">top</a></h2>')
         desc = (d.get("categories") or {}).get(cat)
         if desc:
             L.append(f"<p class=cat-desc>{html.escape(desc)}</p>")
@@ -144,7 +164,8 @@ def main() -> int:
 
     fails = [x for x in (d.get("failures") or {}).get("entries", []) if (root / x["image"]).exists()]
     if fails:
-        L.append(f'<h2>The failures<span class=n>{len(fails)}</span></h2>')
+        L.append(f'<h2 id="failures">The failures<span class=n>{len(fails)}</span>'
+                 f'<a class=top href="#top">top</a></h2>')
         L.append(f'<p class=cat-desc>{html.escape((d["failures"]).get("_what",""))}</p>')
         L.append("<div class=grid>")
         for x in fails:

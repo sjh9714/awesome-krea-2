@@ -102,9 +102,11 @@ def main() -> int:
         L.append(f'<img src="{img}" width="220" alt="mosaic attempt">')
     L += [
         "",
-        "Caveats, unchanged from the post: one seed, one subject, so one sample "
-        "per cell; everything judged at full size. The manga frame kept its "
-        "drink amber despite \"no colour anywhere\".",
+        "Caveats: one seed, one subject, so one sample per cell; everything "
+        "judged at full size. Correction from the thread: manga and pop art "
+        "only half-convert \u2014 the figure turns, the street stays a photo, and "
+        "three stronger phrasings at the same seed did not fix it, so it is 6 "
+        "of 8.",
         "",
         "## Appendix — the earlier sweep",
         "",

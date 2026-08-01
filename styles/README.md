@@ -75,7 +75,7 @@ Three styles arrived as *things* no matter how they were phrased. If the style n
 <img src="images/cafe/mosaic-long.webp" width="220" alt="mosaic attempt">
 <img src="images/cafe/mosaic-explicit.webp" width="220" alt="mosaic attempt">
 
-Caveats, unchanged from the post: one seed, one subject, so one sample per cell; everything judged at full size. The manga frame kept its drink amber despite "no colour anywhere".
+Caveats: one seed, one subject, so one sample per cell; everything judged at full size. Correction from the thread: manga and pop art only half-convert — the figure turns, the street stays a photo, and three stronger phrasings at the same seed did not fix it, so it is 6 of 8.
 
 ## Appendix — the earlier sweep
 

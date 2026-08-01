@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
 """
-build_styles.py — generate styles/README.md and wildcards/styles.txt from sweep.json.
+build_styles.py — generate styles/README.md and the wildcards files from data.
 
-The rest of this catalog varies the subject and holds the style. This section
-does the opposite: one subject, one seed, and the style clause is the only thing
-that moves. That isolates a question the catalog could not otherwise answer —
-which style requests this model will actually honour.
+Rewritten on 2026-08-01, the night the Reddit post went out, because the section
+it generated no longer matched what the post promised. A reader clicking through
+from "8 copy-paste clauses, same seed" landed on a different subject, a
+different clause list and a superseded conclusion. The page is now a mirror of
+the post: the rule, the eight whole-scene clauses with their images, the three
+styles that never converted, and the earlier lantern-subject sweep kept below as
+an appendix because its data (including the FLUX.1 dev cross-check) is still
+real.
 
-Twenty clauses were run. Fifteen came back as the style named. Five did not, and
-they did not fail at random: every one of them is a style defined by what it
-*removes* — colour, tone, detail, surface. Seven more, run earlier on a different
-subject, were printing processes, and those failed the same way. That is the
-finding, and it is the reason the failures are published next to the successes
-instead of being quietly dropped.
-
-Generated, not hand-written, because a page that prints prompt text has to print
-the text that was actually sent. These clauses lived only in shell history once
-and had to be recovered from a session transcript.
+Generated, not hand-written: a page that prints prompt text has to print the
+text that was actually sent. These clauses lived only in shell history once and
+had to be recovered from a session transcript.
 
     python3 build_styles.py
 """
@@ -27,121 +24,118 @@ import json
 import pathlib
 
 HERE = pathlib.Path(__file__).resolve().parent
+DATA = HERE / "styles/data.json"
 SWEEP = HERE / "styles/sweep.json"
 
-# Display order for the gallery table: alternate painterly / graphic /
-# photographic so the differences are next to each other, not grouped.
-ORDER = ["oil", "celanime", "ukiyoe", "watercolour", "cyberpunk", "ghibli",
-         "pixelart", "kodachrome", "cg3d", "comicink", "lithograph",
-         "conceptart", "retroanime", "gouache", "pastel"]
+GOODS_ORDER = ["manga", "storybook", "comicink", "chibi",
+               "poster", "retroanime", "popart", "sixties"]
 
 
 def main() -> int:
-    d = json.loads(SWEEP.read_text(encoding="utf-8"))
-    kept, failed = d["kept"], d["failed"]
-    earlier = d["failed_earlier_subject"]
+    d = json.loads(DATA.read_text(encoding="utf-8"))
+    sweep = json.loads(SWEEP.read_text(encoding="utf-8"))
 
-    missing = [k for k in kept if k not in ORDER] + [k for k in ORDER if k not in kept]
+    missing = [k for k in GOODS_ORDER if k not in d["goods"]] + \
+              [k for k in d["goods"] if k not in GOODS_ORDER]
     if missing:
-        print(f"ORDER and sweep.json disagree: {missing}")
+        print(f"GOODS_ORDER and data.json disagree: {missing}")
         return 1
 
     L = [
-        "# Styles — one subject, one seed, one variable",
+        "# Styles — how to ask this model for one",
         "",
         "[← back to the catalog](../README.md)",
         "",
-        "Everywhere else in this repo the style is held and the subject varies. "
-        "Here it is the other way round. The subject prompt and the seed are "
-        f"identical in every image below; the only text that changes is the "
-        "style clause.",
+        f"This page mirrors [the Reddit post]({d['post']}) so that what it "
+        "promised is one click away: the clauses, the failures, the seeds, the "
+        "wildcards file.",
         "",
-        f"**Model** `{d['model']}` · **Seed** `{d['seed']}` · "
-        f"**{len(kept)} of {len(kept) + len(failed)} clauses reproduced**",
+        "## The rule",
         "",
-        "## The subject prompt",
+        f"**{d['rule']}**",
+        "",
+        "Asked for *children's picture book drawing* as a style, the model drew "
+        "a children's picture book and put it on the table. Same length, phrased "
+        "as an instruction, and the whole frame converts:",
+        "",
+        f'<img src="{d["hook"]["named_image"]}" width="330" alt="named: a picture book appears on the table">',
+        f'<img src="{d["hook"]["rephrased_image"]}" width="330" alt="rephrased: the whole frame converts">',
+        "",
+        f"- named — `{d['hook']['named_clause']}`",
+        f"- rephrased — `{d['hook']['rephrased_clause']}`",
+        "",
+        "## Eight clauses that convert the whole frame",
+        "",
+        f"One subject, seed `{d['seed']}`, the clause is the only variable. "
+        "Each is ~100 characters; they are plain English and carry nothing "
+        "model-specific.",
+        "",
+    ]
+    for k in GOODS_ORDER:
+        g = d["goods"][k]
+        L += [f'<img src="{g["image"]}" width="330" alt="{g["label"]}">', "",
+              f"**{g['label']}** — `{g['clause']}`", ""]
+    L += [
+        "All eight, one per line, for a ComfyUI wildcard or dynamic-prompt node: "
+        "[`wildcards/styles.txt`](../wildcards/styles.txt)",
+        "",
+        "The subject prompt behind every image:",
         "",
         "```",
         d["subject"],
         "```",
         "",
-        "## What the model honoured",
+        "## The ones that never converted",
         "",
-        "Each clause below was appended to the subject prompt above, unchanged.",
+        "Three styles arrived as *things* no matter how they were phrased. If "
+        "the style name is also an object, expect the object.",
         "",
-    ]
-    for slug in ORDER:
-        v = kept[slug]
-        L += [f'<img src="{v["image"]}" width="320" alt="{slug}">', "",
-              f"**`{slug}`** — {v['clause']}", ""]
-
-    L += [
-        "## What it refused, and why that is the useful part",
+        f'<img src="{d["never"]["rubberhose"]["image"]}" width="330" alt="a rubber-hose character seated next to her">',
+        f'<img src="{d["never"]["doodle"]["image"]}" width="330" alt="a doodled second her beside the photo">',
         "",
-        "Five clauses came back with their defining constraint ignored. They are "
-        "not a random five.",
-        "",
-        "| clause | what came back |",
-        "|---|---|",
-    ]
-    for slug, v in sorted(failed.items()):
-        L.append(f"| `{slug}` | {v['why']} |")
-
-    L += [
+        f"- **rubber hose** — {d['never']['rubberhose']['why']}",
+        f"- **doodle** — {d['never']['doodle']['why']}",
+        f"- **mosaic** — {d['never']['mosaic']['why']}:",
         "",
     ]
-    for slug, v in sorted(failed.items()):
-        L += [f'<img src="{v["image"]}" width="240" alt="{slug}">']
+    for img in d["never"]["mosaic"]["images"]:
+        L.append(f'<img src="{img}" width="220" alt="mosaic attempt">')
     L += [
         "",
-        "Every one of those is defined by what it *takes away* — colour, tone, "
-        "detail, surface. On a subject this saturated and this busy, the model "
-        "would not take it away.",
+        "Caveats, unchanged from the post: one seed, one subject, so one sample "
+        "per cell; everything judged at full size. The manga frame kept its "
+        "drink amber despite \"no colour anywhere\".",
         "",
-        "Seven more clauses, run earlier against a different subject, name a "
-        "printing process rather than a way of painting. They failed the same "
-        "way — the process arrived as decoration around a photograph.",
+        "## Appendix — the earlier sweep",
         "",
-        "| clause | what came back |",
-        "|---|---|",
-    ]
-    for slug, v in sorted(earlier.items()):
-        L.append(f"| `{slug}` | {v['why']} |")
-
-    L += [
-        "",
-        "### The rule this gives you",
-        "",
-        "Name a **painting** or an **animation** and you get the whole frame. "
-        "Name a **process** — a press, a plate, a single ink, a monochrome stock "
-        "— and you get your subject wearing a costume. If you want the reductive "
-        "style, reduce the subject first: take the colour out of the prompt "
-        "before you ask for charcoal.",
-        "",
-        "## Using these",
-        "",
-        "All clauses, one per line, ready for a ComfyUI dynamic-prompt or "
-        "wildcard node:",
-        "",
-        "```",
-        "wildcards/styles.txt",
-        "```",
-        "",
-        "They are plain English and carry nothing model-specific, so they are "
-        "worth trying against whatever you already run locally. Whether the "
-        "refusals above reproduce on an open-weights model is not something this "
-        "repo has measured yet, and it is the obvious next experiment.",
+        "An earlier version of this page varied the style clause over a "
+        "different subject (two women in a lantern river). Its data is still "
+        f"real and lives in [`sweep.json`](sweep.json): {len(sweep['kept'])} "
+        f"clauses reproduced, {len(sweep['failed'])} failed on that subject, "
+        f"{len(sweep['failed_earlier_subject'])} printing-process styles failed "
+        "on a subject before that, and the same refusals reproduced on FLUX.1 "
+        "dev at the same seed — so none of this is one endpoint being odd. "
+        "Those older clauses are kept in "
+        "[`wildcards/styles-extra.txt`](../wildcards/styles-extra.txt). The "
+        "long-descriptor comparison started from "
+        f"[this wildcards thread]({d['their_thread']}), whose 660-character "
+        "clauses are worth having regardless.",
         "",
     ]
     (HERE / "styles/README.md").write_text("\n".join(L), encoding="utf-8")
 
-    (HERE / "wildcards").mkdir(exist_ok=True)
-    (HERE / "wildcards/styles.txt").write_text(
-        "\n".join(kept[s]["clause"] for s in ORDER) + "\n", encoding="utf-8")
+    wc = HERE / "wildcards"
+    wc.mkdir(exist_ok=True)
+    (wc / "styles.txt").write_text(
+        "\n".join(d["goods"][k]["clause"] for k in GOODS_ORDER) + "\n",
+        encoding="utf-8")
+    (wc / "styles-extra.txt").write_text(
+        "\n".join(v["clause"] for v in sweep["kept"].values()) + "\n",
+        encoding="utf-8")
 
-    print(f"styles/README.md      {len(chr(10).join(L)):,} chars, {len(kept)} kept, "
-          f"{len(failed) + len(earlier)} documented failures")
-    print(f"wildcards/styles.txt  {len(kept)} clauses, one per line")
+    print(f"styles/README.md      {len(chr(10).join(L)):,} chars")
+    print(f"wildcards/styles.txt  {len(GOODS_ORDER)} clauses (the post's eight)")
+    print(f"wildcards/styles-extra.txt  {len(sweep['kept'])} clauses (earlier sweep)")
     return 0
 
 

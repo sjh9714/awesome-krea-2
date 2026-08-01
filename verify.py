@@ -240,59 +240,75 @@ def main() -> int:
           f"comparison table quotes the real spend (${spend})",
           f"cost cell reads {cells[-1]!r}" if cells else "")
 
-    # The styles sweep is generated from styles/sweep.json, and its whole claim
-    # is that one seed and one subject were held while only the clause moved. A
-    # page that prints prompt text has to print the text that was sent: the oil
-    # clause shipped here once still saying "a palette knife in the coat" from
-    # an earlier subject that had a coat in it, next to an image with no coat.
-    print("\nstyles sweep")
-    sweep = HERE / "styles/sweep.json"
-    if not sweep.exists():
-        c(False, "styles/sweep.json exists")
+    # The styles page is generated from styles/data.json and mirrors the Reddit
+    # post of 2026-08-01. Its whole promise is that a reader arriving from the
+    # post finds the exact clauses the post printed. A previous version of this
+    # page drifted to a different subject and a superseded conclusion, which is
+    # why this block exists: the page and the wildcards file must both match the
+    # canonical data, and the older sweep must stay published as the appendix.
+    print("\nstyles page")
+    dpath = HERE / "styles/data.json"
+    if not dpath.exists():
+        c(False, "styles/data.json exists")
     else:
-        sw = json.loads(sweep.read_text(encoding="utf-8"))
+        sd = json.loads(dpath.read_text(encoding="utf-8"))
         page = HERE / "styles/README.md"
         c(page.exists(), "styles/README.md is built")
         text = page.read_text(encoding="utf-8") if page.exists() else ""
 
-        all_rows = {**sw["kept"], **sw["failed"]}
-        gone = sorted(k for k, v in all_rows.items()
-                      if not (HERE / "styles" / v["image"]).exists())
-        c(not gone, f"all {len(all_rows)} sweep images exist", f"{gone[:4]}")
+        imgs = [sd["hook"]["named_image"], sd["hook"]["rephrased_image"]]
+        imgs += [g["image"] for g in sd["goods"].values()]
+        imgs += [sd["never"]["rubberhose"]["image"], sd["never"]["doodle"]["image"]]
+        imgs += sd["never"]["mosaic"]["images"]
+        gone = sorted(i for i in imgs if not (HERE / "styles" / i).exists())
+        c(not gone, f"all {len(imgs)} post images exist", f"{gone[:4]}")
 
-        c(isinstance(sw.get("seed"), int) and len(sw.get("subject", "")) > 100,
-          "the sweep records the pinned seed and the subject prompt")
+        c(isinstance(sd.get("seed"), int) and len(sd.get("subject", "")) > 100,
+          "the page records the pinned seed and the subject prompt")
 
-        # Leftovers from a previous subject read as carelessness and are the one
-        # thing a reader can check without running anything.
-        import re as _re
-        stale = sorted({w for v in all_rows.values() for w in
-                        ("coat", "scarf", "skyline", "rooftop")
-                        if _re.search(rf"\b{w}\b", v["clause"], _re.I)})
-        c(not stale, "no clause still names something from an earlier subject",
-          f"{stale} appears in a clause but not in this subject")
-
-        missing = [k for k in sw["kept"] if sw["kept"][k]["clause"] not in text]
-        c(not missing, f"styles/README.md prints all {len(sw['kept'])} clauses verbatim",
+        missing = [k for k, g in sd["goods"].items() if g["clause"] not in text]
+        c(not missing, f"styles/README.md prints all {len(sd['goods'])} clauses verbatim",
           f"{missing[:4]}")
+        c(sd["hook"]["named_clause"] in text and sd["hook"]["rephrased_clause"] in text,
+          "the picture-book pair prints both phrasings verbatim")
 
         wc = HERE / "wildcards/styles.txt"
         if not wc.exists():
             c(False, "wildcards/styles.txt exists")
         else:
             lines = [l for l in wc.read_text(encoding="utf-8").splitlines() if l.strip()]
-            c(len(lines) == len(sw["kept"]),
-              f"wildcards/styles.txt has one line per kept clause ({len(sw['kept'])})",
+            want = [g["clause"] for g in sd["goods"].values()]
+            c(len(lines) == len(want),
+              f"wildcards/styles.txt is exactly the post's {len(want)} clauses",
               f"file has {len(lines)}")
-            c(all(sw["kept"][k]["clause"] in lines for k in sw["kept"]),
-              "every wildcard line is a clause that was actually run")
+            c(sorted(lines) == sorted(want),
+              "every wildcard line is a clause the post printed")
 
-        # Publishing the refusals is the point of the section; losing them turns
-        # it back into a pretty gallery.
-        c(len(sw["failed"]) + len(sw["failed_earlier_subject"]) >= 5,
-          "the sweep still publishes its refusals")
+        # The refusals are the finding; losing them turns this back into a
+        # pretty gallery. And a refusal must never migrate into the goods.
+        c(len(sd.get("refusals", [])) >= 3, "the page still publishes its refusals")
+        c(not set(sd.get("refusals", [])) & set(sd["goods"]),
+          "no refusal is listed among the goods")
+
+        # The appendix keeps the earlier sweep honest instead of deleting it.
+        sw = HERE / "styles/sweep.json"
+        c(sw.exists(), "the earlier sweep is still published (styles/sweep.json)")
+        c("sweep.json" in text and "styles-extra.txt" in text,
+          "styles/README.md links the appendix data and the extra wildcards")
+        extra = HERE / "wildcards/styles-extra.txt"
+        if sw.exists() and extra.exists():
+            old = json.loads(sw.read_text(encoding="utf-8"))
+            lines = [l for l in extra.read_text(encoding="utf-8").splitlines() if l.strip()]
+            kept = [v["clause"] for v in old["kept"].values()]
+            c(sorted(lines) == sorted(kept),
+              f"styles-extra.txt is exactly the earlier sweep's {len(kept)} clauses")
+        else:
+            c(extra.exists(), "wildcards/styles-extra.txt exists")
+
+        c(sd.get("post", "").startswith("https://www.reddit.com/"),
+          "the page records which post it mirrors")
         c("README.md" in text or "../README.md" in text, "styles/README.md links back")
-        c("styles/README.md" in readme, "README.md links to the styles sweep")
+        c("styles/README.md" in readme, "README.md links to the styles page")
         c("wildcards/styles.txt" in readme, "README.md links to the wildcards file")
 
     print()

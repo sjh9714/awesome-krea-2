@@ -1,123 +1,82 @@
-# Styles — one subject, one seed, one variable
+# Styles — how to ask this model for one
 
 [← back to the catalog](../README.md)
 
-Everywhere else in this repo the style is held and the subject varies. Here it is the other way round. The subject prompt and the seed are identical in every image below; the only text that changes is the style clause.
+This page mirrors [the Reddit post](https://www.reddit.com/r/StableDiffusion/comments/1vco6ra/) so that what it promised is one click away: the clauses, the failures, the seeds, the wildcards file.
 
-**Model** `fal-ai/krea-2/turbo` · **Seed** `77220` · **15 of 20 clauses reproduced**
+## The rule
 
-## The subject prompt
+**Name a style and the model may draw it as an object in the scene. Describe the whole scene as the medium and the entire frame converts.**
 
-```
-Two strikingly beautiful young women standing knee-deep in a dark river covered with hundreds of floating paper lanterns at a night festival. Delicate features, flawless luminous skin, elegant posture. One in a red silk dancer's wrap with gold cord across her bare midriff and shoulders, gold ornaments pinned in her hair. The other in a sheer white layered robe open over a pale slip, one shoulder bare, gold anklets. They stand close, one lowering a lit lantern to the water, both turned toward the camera. Warm reflected lantern light on wet skin, dark temple roofs and drifting sparks behind them. Wide shot, full figure.
-```
+Asked for *children's picture book drawing* as a style, the model drew a children's picture book and put it on the table. Same length, phrased as an instruction, and the whole frame converts:
 
-## What the model honoured
+<img src="images/cafe/book-named.webp" width="330" alt="named: a picture book appears on the table">
+<img src="images/cafe/book-rephrased.webp" width="330" alt="rephrased: the whole frame converts">
 
-Each clause below was appended to the subject prompt above, unchanged.
+- named — `Children's picture book drawing, soft crayon and gouache, simple rounded shapes, gentle flat colour.`
+- rephrased — `Drawn the way a children's picture book is drawn: soft crayon and gouache, simple rounded shapes, flat gentle colour.`
 
-<img src="images/oil.webp" width="320" alt="oil">
+## Eight clauses that convert the whole frame
 
-**`oil`** — Oil painting, thick visible impasto, a palette knife in the fabric and the sky, canvas weave showing through.
+One subject, seed `77220`, the clause is the only variable. Each is ~100 characters; they are plain English and carry nothing model-specific.
 
-<img src="images/celanime.webp" width="320" alt="celanime">
+<img src="images/cafe/manga.webp" width="330" alt="Manga">
 
-**`celanime`** — Cel-shaded anime illustration, flat colour areas with hard shadow edges, clean linework, painted sky.
+**Manga** — `The whole scene drawn as black-and-white manga: ink linework, screentone shading, no colour anywhere.`
 
-<img src="images/ukiyoe.webp" width="320" alt="ukiyoe">
+<img src="images/cafe/storybook.webp" width="330" alt="Watercolour storybook">
 
-**`ukiyoe`** — Ukiyo-e woodblock print, flat colour blocks, strong black keyline, visible wood grain, mist bands.
+**Watercolour storybook** — `The whole scene as a watercolour storybook illustration: soft washes, gentle linework, painted background.`
 
-<img src="images/watercolour.webp" width="320" alt="watercolour">
+<img src="images/cafe/comicink.webp" width="330" alt="Comic book">
 
-**`watercolour`** — Loose watercolour on cold-press paper, wet-in-wet bleeds, paper texture, pigment pooling at the edges.
+**Comic book** — `The whole scene as comic-book art: bold ink outlines, flat colour, halftone dots, drawn background.`
 
-<img src="images/cyberpunk.webp" width="320" alt="cyberpunk">
+<img src="images/cafe/chibi.webp" width="330" alt="Chibi">
 
-**`cyberpunk`** — Cyberpunk neon, magenta and cyan rim light, wet reflective surfaces, holographic signage, heavy atmosphere.
+**Chibi** — `The whole scene drawn chibi: super-deformed proportions, huge head, tiny body, flat cel colour throughout.`
 
-<img src="images/ghibli.webp" width="320" alt="ghibli">
+<img src="images/cafe/poster.webp" width="330" alt="Gouache travel poster">
 
-**`ghibli`** — Hand-painted animation background, soft gouache skies, warm naturalistic light, gentle detail.
+**Gouache travel poster** — `The whole scene as a vintage gouache travel poster: flat opaque paint, simplified shapes, limited warm palette.`
 
-<img src="images/pixelart.webp" width="320" alt="pixelart">
+<img src="images/cafe/retroanime.webp" width="330" alt="70s cel anime">
 
-**`pixelart`** — Pixel art, limited palette, visible square pixels, dithering in the gradients, sprite-like.
+**70s cel anime** — `The whole scene as a 1970s cel anime frame: hand-painted cels, muted palette, film grain, painted background.`
 
-<img src="images/kodachrome.webp" width="320" alt="kodachrome">
+<img src="images/cafe/popart.webp" width="330" alt="Pop art">
 
-**`kodachrome`** — Vintage Kodachrome photograph, warm saturated colour, slight halation, fine film grain, 1970s stock.
+**Pop art** — `Printed the way pop art is printed: bold black outlines, flat primary colour, visible halftone dots.`
 
-<img src="images/cg3d.webp" width="320" alt="cg3d">
+<img src="images/cafe/sixties.webp" width="330" alt="Mid-century cartoon">
 
-**`cg3d`** — Stylised 3D animated feature film still, soft global illumination, subsurface skin, exaggerated proportions.
+**Mid-century cartoon** — `The whole scene as a 1960s limited-animation cartoon: angular flat shapes, off-register colour, painted backdrop.`
 
-<img src="images/comicink.webp" width="320" alt="comicink">
+All eight, one per line, for a ComfyUI wildcard or dynamic-prompt node: [`wildcards/styles.txt`](../wildcards/styles.txt)
 
-**`comicink`** — American comic book ink and colour, bold black spotting, benday dot shading, heavy contour lines.
-
-<img src="images/lithograph.webp" width="320" alt="lithograph">
-
-**`lithograph`** — Stone lithograph, grainy crayon texture, limited ink colours, plate registration edge, printmaking paper.
-
-<img src="images/conceptart.webp" width="320" alt="conceptart">
-
-**`conceptart`** — Digital concept art, painterly brushwork, cinematic value structure, atmospheric depth, matte-painting scale.
-
-<img src="images/retroanime.webp" width="320" alt="retroanime">
-
-**`retroanime`** — 1990s cel animation, hand-painted cels, muted film palette, visible film grain and slight registration wobble.
-
-<img src="images/gouache.webp" width="320" alt="gouache">
-
-**`gouache`** — Matte gouache painting, flat opaque colour, soft edges, muted chalky palette, hand-mixed tones.
-
-<img src="images/pastel.webp" width="320" alt="pastel">
-
-**`pastel`** — Soft pastel on textured paper, chalky broken colour, blended smudges, visible tooth of the paper.
-
-## What it refused, and why that is the useful part
-
-Five clauses came back with their defining constraint ignored. They are not a random five.
-
-| clause | what came back |
-|---|---|
-| `charcoal` | came back a saturated colour drawing, not charcoal on toned paper |
-| `claymation` | came back a smooth render with no plasticine, thumbprints or tool marks |
-| `lowpoly` | faceted the lanterns and left both figures smooth and photographic |
-| `noir` | came back a full-colour photograph; black and white was ignored |
-| `sumi` | came back a dense colour painting with no ink and no untouched paper |
-
-<img src="images/charcoal.webp" width="240" alt="charcoal">
-<img src="images/claymation.webp" width="240" alt="claymation">
-<img src="images/lowpoly.webp" width="240" alt="lowpoly">
-<img src="images/noir.webp" width="240" alt="noir">
-<img src="images/sumi.webp" width="240" alt="sumi">
-
-Every one of those is defined by what it *takes away* — colour, tone, detail, surface. On a subject this saturated and this busy, the model would not take it away.
-
-Seven more clauses, run earlier against a different subject, name a printing process rather than a way of painting. They failed the same way — the process arrived as decoration around a photograph.
-
-| clause | what came back |
-|---|---|
-| `artnouveau` | returned a decorative frame around an otherwise photographic figure |
-| `collage` | torn-paper border only, nothing inside it was cut paper |
-| `engraving` | returned a photograph with no hatching whatsoever - the seventh print-medium request to come back photographic |
-| `linocut` | background stayed photographic bokeh instead of gouged ink |
-| `risograph` | a photograph with halftone dots laid over it, not a two-colour print |
-| `stainedglass` | the window became a prop in the background; the figure stayed photographic |
-| `tiltshift` | no miniature effect at all; indistinguishable from a plain portrait |
-
-### The rule this gives you
-
-Name a **painting** or an **animation** and you get the whole frame. Name a **process** — a press, a plate, a single ink, a monochrome stock — and you get your subject wearing a costume. If you want the reductive style, reduce the subject first: take the colour out of the prompt before you ask for charcoal.
-
-## Using these
-
-All clauses, one per line, ready for a ComfyUI dynamic-prompt or wildcard node:
+The subject prompt behind every image:
 
 ```
-wildcards/styles.txt
+A pretty young woman sitting at an outdoor cafe table in the late afternoon, holding an iced drink up near her face. Long dark hair, a thin white summer top, small gold earrings. Waist-up, facing the camera, warm side light, the street softly out of focus behind her.
 ```
 
-They are plain English and carry nothing model-specific, so they are worth trying against whatever you already run locally. Whether the refusals above reproduce on an open-weights model is not something this repo has measured yet, and it is the obvious next experiment.
+## The ones that never converted
+
+Three styles arrived as *things* no matter how they were phrased. If the style name is also an object, expect the object.
+
+<img src="images/cafe/rubberhose-guest.webp" width="330" alt="a rubber-hose character seated next to her">
+<img src="images/cafe/doodle-twin.webp" width="330" alt="a doodled second her beside the photo">
+
+- **rubber hose** — asked for rubber-hose style; it seated a rubber-hose character next to her
+- **doodle** — asked for a doodle of the scene; it doodled a second her beside the photograph
+- **mosaic** — three phrasings - named, a 685-character description, and 'no photographic surface anywhere' - all return a mosaic tabletop or grout drawn on the photo:
+
+<img src="images/cafe/mosaic-named.webp" width="220" alt="mosaic attempt">
+<img src="images/cafe/mosaic-long.webp" width="220" alt="mosaic attempt">
+<img src="images/cafe/mosaic-explicit.webp" width="220" alt="mosaic attempt">
+
+Caveats, unchanged from the post: one seed, one subject, so one sample per cell; everything judged at full size. The manga frame kept its drink amber despite "no colour anywhere".
+
+## Appendix — the earlier sweep
+
+An earlier version of this page varied the style clause over a different subject (two women in a lantern river). Its data is still real and lives in [`sweep.json`](sweep.json): 15 clauses reproduced, 5 failed on that subject, 7 printing-process styles failed on a subject before that, and the same refusals reproduced on FLUX.1 dev at the same seed — so none of this is one endpoint being odd. Those older clauses are kept in [`wildcards/styles-extra.txt`](../wildcards/styles-extra.txt). The long-descriptor comparison started from [this wildcards thread](https://www.reddit.com/r/StableDiffusion/comments/1uzdj7o/krea_2_styles_wildcards_txt/), whose 660-character clauses are worth having regardless.

@@ -5509,7 +5509,7 @@
       },
       {
         "id": "fail-identity",
-        "claim": "Identity: at strength 0.72 the scene is new and the person is not the same",
+        "claim": "Identity: at strength 0.72 the scene is new and the person is not the same. The middle figure also carries three arms - one holding the laptop and a second silver sleeve hanging beside it - which I did not see until a reader pointed at it on 2026-07-31.",
         "prompt": "The same woman from the reference sheet, now lit only by the blue glow of a laptop screen in a dark room. Same silver crop, same scar above the right eyebrow, same wire frames, same navy sweater. Identity must be unmistakably the same person.",
         "expected": "The woman from reference-sheet-001",
         "source": "reference-sheet-001",

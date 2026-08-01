@@ -1,0 +1,79 @@
+{
+  "note": "Generated data for styles/README.md. This section mirrors the Reddit post (r/StableDiffusion, 2026-08-01) so a reader arriving from it finds exactly what the post promised: the clauses, the failures, the seeds, the wildcards file.",
+  "seed": 77220,
+  "subject": "A pretty young woman sitting at an outdoor cafe table in the late afternoon, holding an iced drink up near her face. Long dark hair, a thin white summer top, small gold earrings. Waist-up, facing the camera, warm side light, the street softly out of focus behind her.",
+  "their_thread": "https://www.reddit.com/r/StableDiffusion/comments/1uzdj7o/krea_2_styles_wildcards_txt/",
+  "post": "https://www.reddit.com/r/StableDiffusion/comments/1vco6ra/",
+  "rule": "Name a style and the model may draw it as an object in the scene. Describe the whole scene as the medium and the entire frame converts.",
+  "hook": {
+    "named_clause": "Children's picture book drawing, soft crayon and gouache, simple rounded shapes, gentle flat colour.",
+    "rephrased_clause": "Drawn the way a children's picture book is drawn: soft crayon and gouache, simple rounded shapes, flat gentle colour.",
+    "named_image": "images/cafe/book-named.webp",
+    "rephrased_image": "images/cafe/book-rephrased.webp"
+  },
+  "goods": {
+    "manga": {
+      "label": "Manga",
+      "clause": "The whole scene drawn as black-and-white manga: ink linework, screentone shading, no colour anywhere.",
+      "image": "images/cafe/manga.webp"
+    },
+    "retroanime": {
+      "label": "70s cel anime",
+      "clause": "The whole scene as a 1970s cel anime frame: hand-painted cels, muted palette, film grain, painted background.",
+      "image": "images/cafe/retroanime.webp"
+    },
+    "chibi": {
+      "label": "Chibi",
+      "clause": "The whole scene drawn chibi: super-deformed proportions, huge head, tiny body, flat cel colour throughout.",
+      "image": "images/cafe/chibi.webp"
+    },
+    "storybook": {
+      "label": "Watercolour storybook",
+      "clause": "The whole scene as a watercolour storybook illustration: soft washes, gentle linework, painted background.",
+      "image": "images/cafe/storybook.webp"
+    },
+    "sixties": {
+      "label": "Mid-century cartoon",
+      "clause": "The whole scene as a 1960s limited-animation cartoon: angular flat shapes, off-register colour, painted backdrop.",
+      "image": "images/cafe/sixties.webp"
+    },
+    "comicink": {
+      "label": "Comic book",
+      "clause": "The whole scene as comic-book art: bold ink outlines, flat colour, halftone dots, drawn background.",
+      "image": "images/cafe/comicink.webp"
+    },
+    "poster": {
+      "label": "Gouache travel poster",
+      "clause": "The whole scene as a vintage gouache travel poster: flat opaque paint, simplified shapes, limited warm palette.",
+      "image": "images/cafe/poster.webp"
+    },
+    "popart": {
+      "label": "Pop art",
+      "clause": "Printed the way pop art is printed: bold black outlines, flat primary colour, visible halftone dots.",
+      "image": "images/cafe/popart.webp"
+    }
+  },
+  "never": {
+    "rubberhose": {
+      "image": "images/cafe/rubberhose-guest.webp",
+      "why": "asked for rubber-hose style; it seated a rubber-hose character next to her"
+    },
+    "doodle": {
+      "image": "images/cafe/doodle-twin.webp",
+      "why": "asked for a doodle of the scene; it doodled a second her beside the photograph"
+    },
+    "mosaic": {
+      "images": [
+        "images/cafe/mosaic-named.webp",
+        "images/cafe/mosaic-long.webp",
+        "images/cafe/mosaic-explicit.webp"
+      ],
+      "why": "three phrasings - named, a 685-character description, and 'no photographic surface anywhere' - all return a mosaic tabletop or grout drawn on the photo"
+    }
+  },
+  "refusals": [
+    "rubberhose",
+    "doodle",
+    "mosaic"
+  ]
+}

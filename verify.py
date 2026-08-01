@@ -246,6 +246,35 @@ def main() -> int:
     # page drifted to a different subject and a superseded conclusion, which is
     # why this block exists: the page and the wildcards file must both match the
     # canonical data, and the older sweep must stay published as the appendix.
+    # The negatives row quotes three numbers straight out of the manifest. The
+    # row exists because the folklore ("models ignore negative prompts") was
+    # about to go into the table as settled, and counting showed the effect is
+    # nearly nothing. If the catalog grows and the numbers drift, the row is
+    # wrong and this should fail before anyone reads it.
+    print("\nnegatives row")
+    NEG = re.compile(r"\b(no|nothing|nobody|without|never)\b\s+\w", re.I)
+    IGN = re.compile(r"asked for (no|nobody|nothing)|no face in frame|"
+                     r"nobody in the reflection|hangers showing", re.I)
+    with_neg = [r for r in both if NEG.search(r["prompt"])]
+    fail_neg = [r for r in failures if NEG.search(r["prompt"])]
+    rate_with = len(fail_neg) / len(with_neg) * 100
+    rate_without = ((len(failures) - len(fail_neg))
+                    / (len(both) - len(with_neg)) * 100)
+    outright = [r for r in failures if IGN.search(r.get("claim", ""))]
+
+    row = re.search(r"^\|\s*\*\*Negatives\*\*\s*\|(.+)$", readme, re.M)  # both cells
+    c(row is not None, "README has a Negatives row")
+    if row:
+        cell = row.group(1)
+        for want, label in ((f"{rate_with:.1f}%", "the with-negative failure rate"),
+                            (f"{rate_without:.1f}%", "the without-negative rate"),
+                            (f"{len(outright)} of {len(failures)}",
+                             "the count of outright ignored negatives")):
+            c(want in cell, f"Negatives row quotes {label} ({want})",
+              f"row reads {cell.strip()[:120]}")
+    c((HERE / "scripts/measure_negatives.py").exists(),
+      "the script that produces those numbers is published")
+
     print("\nstyles page")
     dpath = HERE / "styles/data.json"
     if not dpath.exists():

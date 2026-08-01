@@ -37,6 +37,7 @@ had only glanced at.
 | **Aerial** | `straight down` is a request, not an instruction. | Five of eight came back oblique. |
 | **Similes** | A size comparison can replace your subject. | "A beetle the size of a pony" returned a pony. |
 | **Styles** | Name a style and it may draw the style as an *object*. Describe the whole scene as the medium and the frame converts. | Asked for children's-book style, it put a picture book on the table. "The whole scene drawn as ..." fixed it. |
+| **Negatives** | **Measured, and weaker than the folklore.** Half of these prompts contain a "no X" clause; their failure rate is 12.4% against 11.6% for prompts without one. | 3 of 65 failures are a negative being ignored outright. Do not blame a negative before checking the rest of your prompt. |
 
 **[Read the evidence for each one → FINDINGS.md](FINDINGS.md)** — every claim with its
 images, seeds, the experiments that overturned the earlier version, and the one rule

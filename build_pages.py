@@ -65,7 +65,11 @@ figcaption{padding:12px 14px}
 mark{background:#e8f0ec;color:inherit;padding:0 1px;border-radius:2px}
 @media(prefers-color-scheme:dark){mark{background:#24413a}}
 .t{font-weight:640;font-size:.93rem;margin-bottom:7px}
-pre{margin:0;background:transparent;color:var(--mut);font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;max-height:8.4em;overflow:auto}
+pre{margin:0;background:transparent;color:var(--mut);font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+figure.open pre{display:block;-webkit-line-clamp:none}
+.more{margin:6px 8px 0 0;padding:0;font:inherit;font-size:.78rem;cursor:pointer;border:0;background:none;color:var(--acc);text-decoration:underline}
+.nojs .more{display:none}
+.nojs pre{display:block;-webkit-line-clamp:none}
 .seed{margin-top:8px;font:11px ui-monospace,monospace;color:var(--mut)}
 .finding{border-left:3px solid var(--acc);padding:2px 0 2px 18px;margin:0 0 30px;max-width:74ch}
 .finding h3{margin:0 0 8px;font-size:1.05rem}
@@ -142,18 +146,18 @@ def main() -> int:
 
     L = ['<!doctype html><html lang="en"><head><meta charset="utf-8">',
          '<meta name="viewport" content="width=device-width,initial-scale=1">',
-         f"<title>{html.escape(model)}, {len(kept)} prompts, with the seeds and the failures</title>",
-         f'<meta name="description" content="{len(kept)} reproducible {html.escape(model)} prompts with recorded seeds, plus the generations that failed and why.">',
+         f"<title>{len(kept)} {html.escape(model)} prompts</title>",
+         f'<meta name="description" content="{len(kept)} {html.escape(model)} prompts you can copy, each with the image it produced.">',
          f"<style>{CSS}</style></head><body><div class=wrap>"]
 
     L.append('<header id="top">')
-    L.append(f"<h1>{html.escape(model)}: {len(kept)} prompts, the seeds, and the failures</h1>")
-    L.append('<p class=sub>Every prompt below was run once, every image is the raw model output, '
-             'and every entry carries the seed that produced it. The generations that did not work '
-             'are kept too, at the bottom, because the limits are the part nobody publishes.</p>')
-    L.append(f'<p class=meta>{d.get("generations", 150)} generations · <b>{len(kept)} kept</b> · '
-             f'{d.get("generations", 150) - len(kept)} cut · ${d.get("spend", 1.26):.2f} total'
-             f' · <a href="https://github.com/{html.escape(repo)}">github.com/{html.escape(repo)}</a></p>')
+    # The header sold the seeds and the failures in three lines before anyone saw
+    # a picture. Same framing the README was rewritten out of. One line now.
+    L.append(f"<h1>{len(kept)} {html.escape(model)} prompts</h1>")
+    L.append('<p class=sub>Find one you like, press copy. Raw model output, nothing '
+             'retouched.</p>')
+    L.append(f'<p class=meta><a href="https://github.com/{html.escape(repo)}">'
+             f'github.com/{html.escape(repo)}</a></p>')
     L.append("</header>")
 
     by = {}
@@ -198,6 +202,7 @@ def main() -> int:
                      f'<button class=cp data-p="{html.escape(e["prompt"], quote=True)}" '
                      f'aria-label="Copy the prompt for {html.escape(e["title"], quote=True)}">'
                      f'copy</button>'
+                     f'<button class=more aria-expanded=false>show all</button>'
                      f'<div class=seed>seed {seed}{extra}{credit(e)}</div></figcaption></figure>')
         L.append("</div>")
 
@@ -215,6 +220,7 @@ def main() -> int:
                      f'<button class=cp data-p="{html.escape(x["prompt"], quote=True)}" '
                      f'aria-label="Copy the prompt for {html.escape(x["claim"], quote=True)}">'
                      f'copy</button>'
+                     f'<button class=more aria-expanded=false>show all</button>'
                      f'<div class=seed>seed {seed}</div></figcaption></figure>')
         L.append("</div>")
 
@@ -311,6 +317,20 @@ if (!navigator.clipboard && !document.queryCommandSupported) {
     if (!done && fallbackCopy(text)) flash(b);
   });
 }
+document.addEventListener('click', function (ev) {
+  var m = ev.target.closest('.more');
+  if (!m) return;
+  var fig = m.closest('figure');
+  var open = fig.classList.toggle('open');
+  m.textContent = open ? 'show less' : 'show all';
+  m.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+// A three-line clamp on a prompt that fits in three lines leaves a button that
+// does nothing, so drop it where there is nothing to expand.
+document.querySelectorAll('figure .more').forEach(function (m) {
+  var pre = m.closest('figcaption').querySelector('pre');
+  if (pre.scrollHeight <= pre.clientHeight + 2) m.remove();
+});
 var q = document.getElementById('q'), qn = document.getElementById('qn');
 if (q) {
   var figs = Array.prototype.map.call(document.querySelectorAll('figure'), function (f) {

@@ -101,7 +101,7 @@ Macro of a modern headlight cluster with water beaded across the lens, the LED e
 
 ## exterior
 
-_Buildings from outside — facades, materials, weather_
+_Buildings from outside, facades, materials, weather_
 
 ### 1. Brutalist facade, hard sun
 
@@ -445,7 +445,7 @@ The two letters H and B side by side, blind-embossed into cream cotton paper, ra
 
 ## poster
 
-_Poster and cover layouts. Every string is written out in the prompt — a direct test of the batch-four finding_
+_Poster and cover layouts. Every string is written out in the prompt, a direct test of the batch-four finding_
 
 ### 1. Swiss grid concert poster
 
@@ -913,7 +913,7 @@ A flight of city steps in low evening sun, the treads throwing a hard sawtooth o
 
 ## night
 
-_After dark — available light, long exposure, astro_
+_After dark, available light, long exposure, astro_
 
 ### 1. Star trails over a ridge
 
@@ -1291,7 +1291,7 @@ A hydroponics deck: stacked growing trays under magenta-white grow lights, conde
 
 ## underwater
 
-_Below the surface — light, suspension, scale_
+_Below the surface, light, suspension, scale_
 
 ### 1. Kelp forest, sun shafts
 

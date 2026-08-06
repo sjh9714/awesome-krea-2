@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-verify.py — check the catalog against itself.
+verify.py, check the catalog against itself.
 
 This exists because of one bug. The hands category was withdrawn, the subtitle
 and the findings were corrected to 476 kept and 64 cut, and the paragraph that
@@ -43,8 +43,8 @@ class Check:
             self.passed += 1
             print(f"  ok    {label}")
         else:
-            self.failures.append(f"{label}{' — ' + detail if detail else ''}")
-            print(f"  FAIL  {label}{' — ' + detail if detail else ''}")
+            self.failures.append(f"{label}{', ' + detail if detail else ''}")
+            print(f"  FAIL  {label}{', ' + detail if detail else ''}")
 
 
 def main() -> int:
@@ -107,7 +107,7 @@ def main() -> int:
     used = {e["category"] for e in entries}
     c(not (used - declared), "every category in use is declared",
       f"undeclared: {sorted(used - declared)}")
-    # A declared category with no entries is allowed, but only if it says why —
+    # A declared category with no entries is allowed, but only if it says why , 
     # that is how the withdrawn hands category is represented.
     silent = [k for k in declared - used if len(str((d["categories"] or {}).get(k, ""))) < 20]
     c(not silent, "declared-but-empty categories explain themselves", f"{silent}")
@@ -120,7 +120,7 @@ def main() -> int:
     # GitHub does not process Markdown inside an HTML block, so a link written as
     # [ZH](README_ZH.md) inside <p align="center"> renders as literal brackets.
     # All three language switchers shipped that way and nobody could reach the
-    # translations at all — which made the work of putting findings into them
+    # translations at all. Which made the work of putting findings into them
     # pointless. Nothing else here would have caught it; it only shows on render.
     # Derived from the generator rather than listed here, so adding a language
     # cannot quietly ship a README nobody checks. Five did exactly that once.
@@ -150,7 +150,7 @@ def main() -> int:
     # was withdrawn and the interlocking rule was thrown away. Its own docstring
     # said to regenerate it whenever a finding changed, and nobody did. It now
     # shows output with seeds instead, and every frame it names must still be a
-    # kept entry with a seed — so it cannot quietly start citing a withdrawn one.
+    # kept entry with a seed. So it cannot quietly start citing a withdrawn one.
     hero_src = (HERE / "build_hero.py")
     if hero_src.exists():
         # Scope to the PICKS literal. Matching ids across the whole file also
@@ -168,7 +168,7 @@ def main() -> int:
         c(not unseeded, "every hero frame has a seed to print", f"{unseeded}")
 
     # A reader who lands here wants to see output. The findings prose used to sit
-    # between the hero image and the catalog as 48,527 unbroken characters — about
+    # between the hero image and the catalog as 48,527 unbroken characters: about
     # 24 screens with no image in them, against 6,172-11,318 for the three repos
     # in the comparison table below. It now lives in FINDINGS.md behind a summary
     # table. If it creeps back, this fails.
@@ -194,12 +194,12 @@ def main() -> int:
             continue
         gap = text.index(anchor) - text.index("</p>", text.index("hero.webp"))
         c(gap < 8000, f"{name}: hero to catalog is scannable",
-          f"{gap:,} characters of prose before the first catalog entry — "
+          f"{gap:,} characters of prose before the first catalog entry: "
           f"move the long form into FINDINGS.md")
         c("FINDINGS.md" in text, f"{name} links to FINDINGS.md")
 
     # README_ZH and README_KO shipped for a week as a translated intro followed
-    # by the raw English catalog — every findings section was missing, so anyone
+    # by the raw English catalog. Every findings section was missing, so anyone
     # arriving from a Chinese or Korean link found a prompt list and none of the
     # reasoning that makes it worth reading. The badge row advertises both.
     # Every translation, not just the two that existed when this was written, and
@@ -224,13 +224,13 @@ def main() -> int:
             # section lands around 4,000.
             c(len(intro) > 2500,
               f"{name} carries the findings, not just a header",
-              f"only {len(intro):,} characters before {anchor!r} — "
+              f"only {len(intro):,} characters before {anchor!r}: "
               f"the findings sections are missing")
 
     # The comparison table describes this repo to a reader who is deciding
     # between it and a 13,000-star competitor, and it is written by hand. It sat
-    # at "85 prompts / 93 images / 8 failures / $1.26 / 150 gens" — the first
-    # batch — for five batches, understating the catalog roughly five-fold in the
+    # at "85 prompts / 93 images / 8 failures / $1.26 / 150 gens", the first
+    # batch, for five batches, understating the catalog roughly five-fold in the
     # one place built to argue it is worth using. Nothing above catches that,
     # because every other check reads the generated prose.
     row = re.search(r"^\|\s*\*\*this repo\*\*\s*\|(.+)$", readme, re.M)
@@ -387,7 +387,8 @@ def main() -> int:
           "the page records which post it mirrors")
         c("README.md" in text or "../README.md" in text, "styles/README.md links back")
         c("styles/README.md" in readme, "README.md links to the styles page")
-        c("wildcards/styles.txt" in readme, "README.md links to the wildcards file")
+        c("](wildcards/)" in readme or "wildcards/styles.txt" in readme,
+          "README.md reaches the wildcards files")
 
     # The catalog has to be readable without leaving GitHub. All five prompt
     # catalogs above 8,000 stars in this niche keep their prompts in the repo;
@@ -470,11 +471,17 @@ def main() -> int:
     # the format it advertises is the one that outscored everything else there. A
     # dead link or a wrong file size in it costs more than a wrong sentence lower
     # down, so the sizes are checked against the files rather than trusted.
-    RAW = "https://raw.githubusercontent.com/sjh9714/awesome-krea-2/main/wildcards/"
+    slug = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))["repo"]
+    RAW = f"https://raw.githubusercontent.com/{slug}/main/wildcards/"
     zip_path = HERE / "wildcards/krea2-wildcards.zip"
     c(zip_path.exists(), "wildcards/krea2-wildcards.zip is built")
+    # The first screen advertises one file, not three. A visitor who wants the
+    # category split or the zip follows the wildcards/ link; a first screen that
+    # lists every artefact is an inventory again, which is what this repo was
+    # rewritten to stop doing.
+    c(RAW + "all.txt" in readme, "README.md links the raw all.txt")
+    c("](wildcards/)" in readme, "README.md links the wildcards folder")
     for f in ("all.txt", "krea2-wildcards.zip", "styles.txt"):
-        c(RAW + f in readme, f"README.md links the raw {f}")
         c((HERE / "wildcards" / f).exists(), f"wildcards/{f} exists to be linked")
     for f, claimed in re.findall(
             r"\[([a-z0-9._-]+)\]\(" + re.escape(RAW) + r"[a-z0-9._-]+\)[^|]*\|[^|]*?(\d+) KB",
@@ -522,6 +529,75 @@ def main() -> int:
           f"all {len(edits)} editing entries carry source and strength")
         c(all("seed" in e.get("params", {}) for e in d["entries"]),
           "every entry carries a seed")
+
+    # The first screen sells what you take away. It used to sell how rigorous we
+    # were: a 109-character tagline listing 475 prompts, 65 failures and 61
+    # categories, then a three-row download table and two paragraphs of caveats
+    # about seeds that do not transfer. None of that is a reason to click.
+    # These two guards exist because that framing is the comfortable one to write
+    # and it will creep back the moment nobody is looking.
+    FIRST = 1500
+    BANNED = ("seed", "failed", "measured")
+    for lang in _bc0.LANGS:
+        name = "README.md" if lang == "en" else f"README_{lang.upper()}.md"
+        path = HERE / name
+        if not path.exists():
+            continue
+        head = path.read_text(encoding="utf-8")[:FIRST]
+        # Strip HTML attributes first. Alt text has to describe the image
+        # truthfully, including the seeds printed on it, and no sighted visitor
+        # reads it. The rule is about visible prose.
+        visible = re.sub(r'<[^>]*>', ' ', head).lower()
+        found = [w for w in BANNED if w in visible]
+        c(not found, f"{name}: the first screen sells the takeaway, not the rigour"
+                     + (f", found {found}" if found else ""))
+
+    tag = re.search(r'<p align="center">([^<]{10,200})</p>',
+                    (HERE / "README.md").read_text(encoding="utf-8"))
+    if tag:
+        n_tag = len(tag.group(1).strip())
+        c(n_tag <= 80, f"the tagline is {n_tag} characters, at or under 80")
+
+    # An em dash in a reply to the subreddit this repo launched in got the account
+    # labelled "worthless LLM slop" inside four minutes, and the label stuck harder
+    # than any of the corrections. The prose here carries none. The 29 inside
+    # prompt strings stay, because a prompt is the exact text that produced its
+    # image and editing it would break the one thing this catalog sells.
+    DASH = ("—", "–")
+    dd2 = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))
+    in_prompts = sum(p.count(x) for e in dd2["entries"]
+                     + dd2.get("failures", {}).get("entries", [])
+                     for p in [e["prompt"]] for x in DASH)
+    prose = ["README.md", "FINDINGS.md", "VOCABULARY.md", "TEMPLATES.md",
+             "REPRODUCING.md", "CONTRIBUTING.md", "styles/README.md",
+             "wildcards/README.md"] + [f"README_{x.upper()}.md"
+                                       for x in _bc0.LANGS if x != "en"]
+    dirty = []
+    for name in prose:
+        p2 = HERE / name
+        if p2.exists() and any(x in p2.read_text(encoding="utf-8") for x in DASH):
+            dirty.append(name)
+    c(not dirty, f"no em or en dash in any of the {len(prose)} prose documents"
+                 + (f", but {dirty} carry one" if dirty else ""))
+    for name in ("index.html", "docs/gallery-part-1.md", "docs/gallery-part-2.md",
+                 "docs/gallery-part-3.md"):
+        p2 = HERE / name
+        if not p2.exists():
+            continue
+        found = sum(p2.read_text(encoding="utf-8").count(x) for x in DASH)
+        if name == "index.html":
+            c(found == in_prompts,
+              f"index.html's {found} dashes are all inside prompt text "
+              f"({in_prompts} in the manifest)")
+    # And nothing in the source may reintroduce one, including as an escape.
+    src_dirty = []
+    for p2 in list(HERE.glob("build_*.py")) + list(HERE.glob("scripts/*.py")) \
+            + [HERE / "vocabulary.json", HERE / "styles/data.json"]:
+        s2 = p2.read_text(encoding="utf-8")
+        if any(x in s2 for x in DASH) or "u2014" in s2 or "u2013" in s2:
+            src_dirty.append(p2.name)
+    c(not src_dirty, "no builder emits a dash"
+                     + (f", but {src_dirty} do" if src_dirty else ""))
 
     # Templates are the one place this repo hands out a shape instead of a
     # measurement, so each one has to keep naming the measurement it came from.

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-build_pages.py — emit a single-file gallery for GitHub Pages from the manifest.
+build_pages.py, emit a single-file gallery for GitHub Pages from the manifest.
 
 Why this exists: 67% of Show HN posts above 300 points point at a hosted page on
 the author's own domain rather than at a repository. A README is not a demo. This
-is the smallest thing that satisfies that without becoming a web app — one HTML
+is the smallest thing that satisfies that without becoming a web app. One HTML
 file, no JavaScript, no build step, served from the ROOT of the default branch
 so that images/ is reachable without duplicating it.
 
@@ -27,7 +27,7 @@ from pathlib import Path
 
 # Shared with the README builder rather than copied. The gallery and the README
 # print the same intro paragraph, so two copies of the substitution would be two
-# places for the counts to drift apart — which is the bug this fixes.
+# places for the counts to drift apart. Which is the bug this fixes.
 from build_catalog import counts
 
 HERE = Path(__file__).resolve().parent
@@ -117,12 +117,12 @@ def main() -> int:
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     # Pages serves /docs AS THE SITE ROOT, so "../images/..." escapes the served
-    # tree and every image 404s. Copy them in instead — 10 MB duplicated is the
+    # tree and every image 404s. Copy them in instead, 10 MB duplicated is the
     # price of a self-contained page that the Pages CDN can serve under load,
     # and it avoids leaning on raw.githubusercontent.com, which is rate-limited.
     # Served from the branch ROOT, not /docs. Pages treats the configured
     # directory as the site root, so a page in /docs cannot reach ../images and
-    # every image 404s — the earlier fix was to copy the whole image set into
+    # every image 404s, the earlier fix was to copy the whole image set into
     # docs/, which duplicated 23 MB and would have been ~100 MB at the size this
     # catalog is heading for. Serving from the root makes images/ reachable as
     # it sits and deletes the duplicate entirely.
@@ -134,7 +134,7 @@ def main() -> int:
 
     L = ['<!doctype html><html lang="en"><head><meta charset="utf-8">',
          '<meta name="viewport" content="width=device-width,initial-scale=1">',
-         f"<title>{html.escape(model)} — {len(kept)} prompts, with the seeds and the failures</title>",
+         f"<title>{html.escape(model)}, {len(kept)} prompts, with the seeds and the failures</title>",
          f'<meta name="description" content="{len(kept)} reproducible {html.escape(model)} prompts with recorded seeds, plus the generations that failed and why.">',
          f"<style>{CSS}</style></head><body><div class=wrap>"]
 
@@ -201,7 +201,7 @@ def main() -> int:
 
     # The reproducibility sentence has to be exact, because the whole claim here
     # is that you can check it yourself. Measured 2026-07-25: the endpoint is
-    # deterministic — same seed, strength, prompt and input bytes returned a
+    # deterministic, same seed, strength, prompt and input bytes returned a
     # pixel-identical image across two runs (0 of 1,048,576 pixels differed). But
     # the images in this repo are lossy WebP re-encodes, so re-running an
     # image-to-image entry against the copy here does not hand the model the
@@ -216,7 +216,7 @@ def main() -> int:
              'clonable. The endpoint is deterministic, so a recorded seed regenerates a '
              'text-to-image entry exactly. The five image-to-image entries are re-runnable from '
              'the WebP source in this repo rather than the original PNG, so they reproduce the '
-             'edit — composition, palette, medium — but not the exact pixels.</footer>')
+             'edit, composition, palette, medium. But not the exact pixels.</footer>')
     L.append("</div></body></html>")
 
     out.write_text("\n".join(L), encoding="utf-8")

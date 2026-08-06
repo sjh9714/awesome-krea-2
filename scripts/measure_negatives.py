@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-measure_negatives.py — do "no X" clauses actually cost you anything here?
+measure_negatives.py, do "no X" clauses actually cost you anything here?
 
 Written on 2026-08-02 after a commenter on r/StableDiffusion pointed out that a
 prompt in a post of mine said "no colour anywhere", and that models do not read

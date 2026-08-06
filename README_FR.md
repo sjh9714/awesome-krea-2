@@ -1,36 +1,30 @@
-<h1 align="center">awesome-krea-2</h1>
-<p align="center">475 prompts Krea 2 Turbo, chacun avec la graine qui l'a produit, plus les 65 générations qui ont échoué et pourquoi. Tout ce qui est affirmé ici a été mesuré sur ces images, pas recopié de la fiche du modèle.</p>
+<h1 align="center">krea2-wildcards</h1>
+<p align="center">475 prompts Krea 2 Turbo déjà testés. Un fichier, à déposer dans ComfyUI.</p>
 
 <p align="center">
-  <img src="hero.webp" width="912" alt="A six-panel grid, a working case above a failure in each of three columns. Text: a brass nameplate carrying eight specified strings, all correct, above a chalkboard menu whose unspecified rows came back as nonsense words. Hands: a hand raising exactly the three fingers asked for, on a hand with six digits, above clasped hands where interlaced fingers were asked for. Interlocking: a chain with every link through its neighbour, above a rope lying in a figure-eight shape that was never tied.">
+  <img src="hero.webp" width="912" alt="Twelve Krea 2 Turbo outputs in a four by three grid, under the heading 475 tested Krea 2 Turbo prompts: a loft under renovation, a desert dune ridge at first light, a backlit seed head, an aurora over snow, ice diving seen from below, a shelf cloud, a barn owl in flight, a prism spectrum on a wall, an icebreaker bow, a quartz point, cut stems in water, and moss with sporophytes.">
 </p>
 
 <p align="center">
-<a href="https://github.com/sjh9714/awesome-krea-2/stargazers"><img src="https://img.shields.io/github/stars/sjh9714/awesome-krea-2?style=flat&color=1f5d4c" alt="stars"></a>
-<a href="https://sjh9714.github.io/awesome-krea-2/"><img src="https://img.shields.io/badge/gallery-browse%20all-1f5d4c" alt="gallery"></a>
+<a href="https://github.com/sjh9714/krea2-wildcards/stargazers"><img src="https://img.shields.io/github/stars/sjh9714/krea2-wildcards?style=flat&color=1f5d4c" alt="stars"></a>
+<a href="https://sjh9714.github.io/krea2-wildcards/"><img src="https://img.shields.io/badge/gallery-browse%20all-1f5d4c" alt="gallery"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>
 </p>
 
-<p align="center"><a href="README.md">EN</a> · <a href="README_ZH.md">ZH</a> · <a href="README_KO.md">KO</a> · <a href="README_JA.md">JA</a> · <a href="README_ES.md">ES</a> · <a href="README_DE.md">DE</a> · <a href="README_PT.md">PT</a> · <a href="https://sjh9714.github.io/awesome-krea-2/"><b>Voir la galerie →</b></a></p>
+<p align="center"><a href="README.md">EN</a> · <a href="README_ZH.md">ZH</a> · <a href="README_KO.md">KO</a> · <a href="README_JA.md">JA</a> · <a href="README_ES.md">ES</a> · <a href="README_DE.md">DE</a> · <a href="README_PT.md">PT</a> · <a href="https://sjh9714.github.io/krea2-wildcards/"><b>Voir la galerie →</b></a></p>
 
 ## 📥 Prenez les prompts
 
-If you came here to feed a wildcard node, everything below is optional.
+**[Download all.txt](https://raw.githubusercontent.com/sjh9714/krea2-wildcards/main/wildcards/all.txt)** (104 KB): 475 prompts, one per line.
 
-| | |
-|---|---|
-| **[all.txt](https://raw.githubusercontent.com/sjh9714/awesome-krea-2/main/wildcards/all.txt)** | all 475 prompts, one per line, 104 KB. Right click, save. |
-| **[krea2-wildcards.zip](https://raw.githubusercontent.com/sjh9714/awesome-krea-2/main/wildcards/krea2-wildcards.zip)** | the same thing split into one file per category plus the style clauses, 96 KB |
-| **[styles.txt](https://raw.githubusercontent.com/sjh9714/awesome-krea-2/main/wildcards/styles.txt)** | just the "the whole scene drawn as ..." clauses |
+Put it in `ComfyUI/wildcards/` and call `__all__` from a dynamic prompt node. No clone, no install, no account.
 
-Drop the folder into `ComfyUI/wildcards/` and reference `__all__` or `__photography__` from a dynamic prompt node. No clone, no install, no account.
-
-Two things worth knowing before you run them. **The failures are excluded**, so nothing in these files is a prompt already known to break. And **the seeds are not in here and would not help you anyway**: they were recorded against a hosted endpoint that publishes no sampler or step count, so they do not transfer to your graph. [REPRODUCING.md](REPRODUCING.md) explains exactly why.
+[Per-category files and a zip](wildcards/) · [Browse them all as pictures](https://sjh9714.github.io/krea2-wildcards/)
 
 ## 🔬 Ce que ce modèle fait vraiment
 
 Fourteen findings, each measured against the images in this repo rather than quoted
-from the model card. Five of them replace earlier findings I had to withdraw — four
+from the model card. Five of them replace earlier findings I had to withdraw. Four
 overturned by experiments built to confirm them, one by a reader who counted fingers I
 had only glanced at.
 
@@ -41,7 +35,7 @@ had only glanced at.
 | **Korean** | Mostly works, and the words that fail repeat the same misspelling at a different seed. | Rerolling the seed is the wrong fix. Change the wording. |
 | **Hands** | **Withdrawn.** I claimed 7 of 8 sound. Two readers counted; three had six or four digits. | The whole category is in the failures now, with seeds. |
 | **Identity** | A face does not survive into a new scene. 0.45 keeps the face and the old composition; 0.72 keeps neither. | There is no working value in between. Train a LoRA. |
-| **Editing** | Medium conversion is reliable at strength 0.50–0.60. Adding or removing objects is not. | Asked to remove steam, the steam came back. |
+| **Editing** | Medium conversion is reliable at strength 0.50, 0.60. Adding or removing objects is not. | Asked to remove steam, the steam came back. |
 | **Counting** | Objects count correctly from 2 to 8. Attributes do not. | "Exactly two flat colours" returned four. |
 | **Lighting** | Name the fixture and the fixture walks into frame. | Say what the light *does*, not what it is. |
 | **Stationery** | Six for six, and not because the strings were short. | The one category that never failed. |

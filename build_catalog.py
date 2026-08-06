@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-build_catalog.py — assemble a T+0 prompt/asset catalog README from a manifest.
+build_catalog.py, assemble a T+0 prompt/asset catalog README from a manifest.
 
 The window for this play is 72 hours from a frontier model shipping. Measured
 outcomes for the same slot, five payouts in nine months:
@@ -16,13 +16,13 @@ Two structural facts most people get wrong about this slot:
   1. It is NON-RIVAL. nano-banana produced 12,949 AND 10,186. gpt-image-2 produced
      8,761 AND 8,678 nine days apart. Second place is paid.
   2. Late is fatal in a way second-place is not. ZeroLu/awesome-gpt-image, launched
-     two weeks after the same author's own hit, sits at 1,928 — 22% of it.
+     two weeks after the same author's own hit, sits at 1,928: 22% of it.
 
 So: ship inside 72 hours, do not agonize about someone beating you by a day, and
 do not ship at all if you are two weeks late.
 
 This script does the assembly so that on launch day you are only doing the part
-that cannot be automated: curation. Generation is a separate step you own —
+that cannot be automated: curation. Generation is a separate step you own , 
 `--gen-cmd` shells out to whatever CLI your provider gives you.
 
 Usage
@@ -180,7 +180,7 @@ def cmd_generate(force: bool) -> int:
 def gh_anchor(text: str) -> str:
     """GitHub's heading-anchor rule: lowercase, drop anything that is not
     alphanumeric/space/hyphen, then spaces to hyphens. Source links must be built
-    from the target entry's TITLE, because that is what becomes the heading — an
+    from the target entry's TITLE, because that is what becomes the heading: an
     earlier version linked to the entry id and produced five dead anchors."""
     import re as _re
     return _re.sub(r"[^a-z0-9 -]", "", text.lower()).strip().replace(" ", "-")
@@ -191,7 +191,7 @@ def counts(data: dict, s: str) -> str:
 
     These numbers drifted once and it was the worst possible kind of drift. The
     hands category was withdrawn, the subtitle and the findings were updated to
-    476 kept / 64 cut, and this paragraph went on saying 483 and 78 — so a
+    476 kept / 64 cut, and this paragraph went on saying 483 and 78. So a
     document whose entire argument is that the counts were checked contradicted
     itself two paragraphs apart, on the page a public post was pointing at.
 
@@ -223,13 +223,13 @@ def render_readme(data: dict, lang: str = "en") -> str:
             "findings_h": "What this model actually does",
             "grab_h": "Take the prompts and go",
             "toc_entries": "prompts, every one with its seed",
-            "tagline": f"{n} {model} prompts with the seed that produced each one, plus the {nfail} generations that failed and why. Every claim here was measured against those images, not quoted from the model card.",
+            "tagline": f"{n} tested {model} prompts. One file, drop it in ComfyUI.",
             "toc": "Categories",
             "prompt": "Prompt",
             "contrib": "Contributing",
             "contrib_body": "Open a PR adding an entry to `prompts.json` plus your output image. Two rules: the prompt must reproduce, and the image must be the unedited output.",
             "license": "License",
-            "license_body": ("Prompts are MIT — take them.\n\n"
+            "license_body": ("Prompts are MIT, take them.\n\n"
                 "**The images are AI-generated.** They were produced with Krea 2 Turbo and are "
                 "presented as model output, not as photographs or human artwork. Under the Krea 2 "
                 "Community License you own outputs you generate yourself; commercial use is "
@@ -244,7 +244,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
             "findings_h": "这个模型实际能做什么",
             "grab_h": "直接把提示词拿走",
             "toc_entries": "条提示词，每条都有 seed",
-            "tagline": f"{n} 条 {model} 提示词，每条都附带产出它的 seed，外加 {nfail} 次失败的生成及其原因。这里的每条结论都是在这些图上实测出来的，不是抄模型卡。",
+            "tagline": f"{n} 条经过验证的 {model} 提示词。一个文件，丢进 ComfyUI 就能用。",
             "toc": "类别",
             "prompt": "提示词",
             "contrib": "参与贡献",
@@ -257,20 +257,20 @@ def render_readme(data: dict, lang: str = "en") -> str:
             "findings_h": "이 모델이 실제로 하는 것",
             "grab_h": "프롬프트만 가져가기",
             "toc_entries": "개 프롬프트, 전부 시드 기록",
-            "tagline": f"{model} 프롬프트 {n}개, 각각을 만든 시드까지. 그리고 실패한 생성 {nfail}개와 그 이유. 여기 있는 결론은 전부 이 이미지들로 직접 측정한 것이고, 모델 카드에서 옮겨온 것이 아닙니다.",
+            "tagline": f"검증된 {model} 프롬프트 {n}개. 파일 하나, ComfyUI에 넣으면 끝.",
             "toc": "카테고리",
             "prompt": "프롬프트",
             "contrib": "기여하기",
             "contrib_body": "`prompts.json`에 항목을 추가하고 출력 이미지를 첨부해 PR을 보내주세요. 규칙 두 개: 프롬프트는 재현 가능해야 하고, 이미지는 편집하지 않은 원본이어야 합니다.",
             "license": "라이선스",
-            "license_body": "프롬프트는 MIT입니다. 생성된 이미지는 모델 제공자의 약관을 따릅니다 — 상업적 사용 전 확인하세요.",
+            "license_body": "프롬프트는 MIT입니다. 생성된 이미지는 모델 제공자의 약관을 따릅니다, 상업적 사용 전 확인하세요.",
         },
         "ja": {
             "gallery_link": "ギャラリーを見る →",
             "findings_h": "このモデルが実際にできること",
             "grab_h": "プロンプトだけ持っていく",
             "toc_entries": "件のプロンプト、すべてシード付き",
-            "tagline": f"{model} のプロンプト {n} 件、それぞれを生成したシード付き。さらに失敗した生成 {nfail} 件とその理由。ここに書かれている結論はすべてこれらの画像で実測したものであり、モデルカードからの引用ではありません。",
+            "tagline": f"検証済みの {model} プロンプト {n} 件。ファイル 1 つ、ComfyUI に入れるだけ。",
             "toc": "カテゴリ",
             "prompt": "プロンプト",
             "contrib": "コントリビュート",
@@ -283,7 +283,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
             "findings_h": "Lo que este modelo hace de verdad",
             "grab_h": "Llévate los prompts",
             "toc_entries": "prompts, cada uno con su semilla",
-            "tagline": f"{n} prompts de {model}, cada uno con la semilla que lo produjo, más las {nfail} generaciones que fallaron y por qué. Todo lo que se afirma aquí se midió contra esas imágenes, no se copió de la ficha del modelo.",
+            "tagline": f"{n} prompts de {model} ya probados. Un archivo, y a ComfyUI.",
             "toc": "Categorías",
             "prompt": "Prompt",
             "contrib": "Contribuir",
@@ -296,7 +296,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
             "findings_h": "Ce que ce modèle fait vraiment",
             "grab_h": "Prenez les prompts",
             "toc_entries": "prompts, chacun avec sa graine",
-            "tagline": f"{n} prompts {model}, chacun avec la graine qui l'a produit, plus les {nfail} générations qui ont échoué et pourquoi. Tout ce qui est affirmé ici a été mesuré sur ces images, pas recopié de la fiche du modèle.",
+            "tagline": f"{n} prompts {model} déjà testés. Un fichier, à déposer dans ComfyUI.",
             "toc": "Catégories",
             "prompt": "Prompt",
             "contrib": "Contribuer",
@@ -309,7 +309,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
             "findings_h": "Was dieses Modell wirklich tut",
             "grab_h": "Nimm die Prompts mit",
             "toc_entries": "Prompts, jeder mit seinem Seed",
-            "tagline": f"{n} {model}-Prompts, jeder mit dem Seed, der ihn erzeugt hat, dazu die {nfail} fehlgeschlagenen Generierungen und warum. Alles hier wurde an diesen Bildern gemessen, nicht aus der Modellkarte zitiert.",
+            "tagline": f"{n} erprobte {model}-Prompts. Eine Datei, ab in ComfyUI.",
             "toc": "Kategorien",
             "prompt": "Prompt",
             "contrib": "Mitmachen",
@@ -322,7 +322,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
             "findings_h": "O que este modelo realmente faz",
             "grab_h": "Leve os prompts",
             "toc_entries": "prompts, cada um com a sua seed",
-            "tagline": f"{n} prompts do {model}, cada um com a seed que o produziu, mais as {nfail} gerações que falharam e porquê. Tudo o que se afirma aqui foi medido nessas imagens, não copiado do model card.",
+            "tagline": f"{n} prompts do {model} já testados. Um ficheiro, e já está no ComfyUI.",
             "toc": "Categorias",
             "prompt": "Prompt",
             "contrib": "Contribuir",
@@ -340,20 +340,20 @@ def render_readme(data: dict, lang: str = "en") -> str:
     # A static hero inside the first 1500 chars appeared in 32/32 of the
     # fastest-moving repos measured. A composite that states the three findings
     # beats a thumbnail grid: the grid says "here are images", the composite says
-    # "here is what I found". Do not build a GIF — measured lift was zero.
+    # "here is what I found". Do not build a GIF, measured lift was zero.
     if (HERE / "hero.webp").exists():
         L.append('<p align="center">')
-        # Alt text is regenerated with the hero. The first version outlived its
-        # own claims by three batches and described findings this catalog had
-        # already disproved.
+        # Alt text is regenerated with the hero. It has now been wrong twice: the
+        # first version outlived its own claims by three batches, and the second
+        # went on describing a success-over-failure grid for weeks after
+        # build_hero.py stopped drawing one. Read the image before editing this.
         L.append('  <img src="hero.webp" width="912" '
-                 'alt="A six-panel grid, a working case above a failure in each of three columns. '
-                 'Text: a brass nameplate carrying eight specified strings, all correct, above a '
-                 'chalkboard menu whose unspecified rows came back as nonsense words. Hands: a hand '
-                 'raising exactly the three fingers asked for, on a hand with six digits, above '
-                 'clasped hands where interlaced fingers were asked for. Interlocking: a chain with '
-                 'every link through its neighbour, above a rope lying in a figure-eight shape that '
-                 'was never tied.">')
+                 'alt="Twelve Krea 2 Turbo outputs in a four by three grid, under the heading '
+                 '475 tested Krea 2 Turbo prompts: a loft under renovation, a desert dune '
+                 'ridge at first light, a backlit seed head, an aurora over snow, ice '
+                 'diving seen from below, a shelf cloud, a barn owl in flight, a prism '
+                 'spectrum on a wall, an icebreaker bow, a quartz point, cut stems in '
+                 'water, and moss with sporophytes.">')
         L.append("</p>\n")
     else:
         L.append('<p align="center">')
@@ -394,32 +394,15 @@ def render_readme(data: dict, lang: str = "en") -> str:
     if repo_slug:
         raw = f"https://raw.githubusercontent.com/{repo_slug}/main/wildcards/"
         alltxt = HERE / "wildcards/all.txt"
-        zipf = HERE / "wildcards/krea2-wildcards.zip"
         L.append(h2("grab", T["grab_h"]))
-        L.append("If you came here to feed a wildcard node, everything below is optional.\n")
-        L.append("| | |")
-        L.append("|---|---|")
         if alltxt.exists():
-            L.append(f"| **[all.txt]({raw}all.txt)** | all {len(kept)} prompts, one per "
-                     f"line, {round(alltxt.stat().st_size / 1024)} KB. Right click, save. |")
-        if zipf.exists():
-            L.append(f"| **[krea2-wildcards.zip]({raw}krea2-wildcards.zip)** | the same thing "
-                     f"split into one file per category plus the style clauses, "
-                     f"{round(zipf.stat().st_size / 1024)} KB |")
-        L.append(f"| **[styles.txt]({raw}styles.txt)** | just the \"the whole scene drawn "
-                 "as ...\" clauses |")
-        L.append("")
-        L.append("Drop the folder into `ComfyUI/wildcards/` and reference `__all__` or "
-                 "`__photography__` from a dynamic prompt node. No clone, no install, "
-                 "no account.\n")
-        L.append("Two things worth knowing before you run them. **The failures are "
-                 "excluded**, so nothing in these files is a prompt already known to "
-                 "break. And **the seeds are not in here and would not help you anyway**: "
-                 "they were recorded against a hosted endpoint that publishes no sampler "
-                 "or step count, so they do not transfer to your graph. "
-                 "[REPRODUCING.md](REPRODUCING.md) explains exactly why.\n")
-
-
+            L.append(f"**[Download all.txt]({raw}all.txt)** "
+                     f"({round(alltxt.stat().st_size / 1024)} KB): {len(kept)} prompts, "
+                     f"one per line.\n")
+        L.append("Put it in `ComfyUI/wildcards/` and call `__all__` from a dynamic prompt "
+                 "node. No clone, no install, no account.\n")
+        L.append("[Per-category files and a zip](wildcards/) "
+                 "· [Browse them all as pictures](" + site + ")\n")
 
     # The findings are what this catalog has that a bare prompt dump does not,
     # so they stay above everything else. What changed is the form: fifteen full
@@ -514,7 +497,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
         L.append("The five `editing-*` entries were pulled out into "
                  "[**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for "
                  "Claude Code and Codex, and each one was re-run against a source it was *not* "
-                 "derived from. Two held, two came back partial, one failed — and the failures "
+                 "derived from. Two held, two came back partial, one failed. And the failures "
                  "produced a sharper rule than this catalog started with: **geometry is locked, "
                  "material is not.** Relighting wet rice terraces under hard sun keeps every "
                  "contour in position and returns dry stone.\n")
@@ -601,18 +584,18 @@ def cmd_build(langs: list[str]) -> int:
 
     ncat = len({e["category"] for e in kept})
     print(f"\n{len(kept)} entries across {ncat} categories"
-          + (f" ({missing} entries skipped — no image on disk)" if missing else ""))
+          + (f" ({missing} entries skipped, no image on disk)" if missing else ""))
 
     print("\nSet the repo description field to exactly this, and nothing longer:")
     print(f'  "{len(kept)} reproducible {data.get("model","")} prompts across {ncat} categories"')
-    print("\nThe description field — not the README body — is what appears in GitHub search,")
+    print("\nThe description field. Not the README body, is what appears in GitHub search,")
     print("Trending, and every social card. A quantified claim in the first ten words is the")
     print("single highest-leverage asset in this whole play.")
 
     if any(not (HERE / e["image"]).exists() for e in data["entries"]):
         print("\nNote: entries without an image on disk were omitted rather than rendered broken.")
     print("\nBefore you push: host the images IN THIS REPO or on your own R2/S3.")
-    print("External CDN links are the one reliable way this format dies — link rot")
+    print("External CDN links are the one reliable way this format dies, link rot")
     print("turns a 10k-star catalog into a wall of broken images 18 months later.")
 
     # The README the build just wrote is the thing that goes public, so it is
@@ -624,7 +607,7 @@ def cmd_build(langs: list[str]) -> int:
                         # output lands above ours and reads as a different run
     rc = subprocess.call([sys.executable, str(HERE / "verify.py")])
     if rc:
-        print("\nverify.py failed — the README that was just written contradicts the data.",
+        print("\nverify.py failed, the README that was just written contradicts the data.",
               file=sys.stderr)
     return rc
 

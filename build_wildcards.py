@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-build_wildcards.py — emit the catalog as ComfyUI-consumable wildcard files.
+build_wildcards.py, emit the catalog as ComfyUI-consumable wildcard files.
 
 Why this exists: measured, not assumed. Pulling 6,670 r/StableDiffusion posts
 from 2026-05-01 onward, the single highest-scoring post in the subreddit over
@@ -15,7 +15,7 @@ it costs nothing to close.
     python3 build_wildcards.py          # writes wildcards/
 
 Emits one file per category plus all.txt, every line a complete prompt with
-newlines collapsed. Failures are excluded — a wildcard file that randomly
+newlines collapsed. Failures are excluded, a wildcard file that randomly
 serves you a known-broken prompt is worse than no wildcard file.
 """
 
@@ -78,7 +78,7 @@ def main() -> int:
 {total} prompts from [this catalog]({d.get('repo') and 'https://github.com/' + d['repo'] or '..'}),
 one per line, ready for a wildcard or dynamic-prompt node.
 
-- `all.txt` — every prompt, {len(everything)} lines
+- `all.txt`. Every prompt, {len(everything)} lines
 - one file per category ({len(by)} of them), if you want to sample within a style
 
 ## ComfyUI
@@ -102,7 +102,7 @@ a different image. Take the prompts, pick your own seed, and read
 [REPRODUCING.md](../REPRODUCING.md) before you try to match a specific frame.
 
 **The failures.** {len(d.get('failures', {}).get('entries', []))} generations were cut and they are
-deliberately excluded — a wildcard file that occasionally serves a
+deliberately excluded, a wildcard file that occasionally serves a
 known-broken prompt is worse than none. They are still in the repository,
 with the reason each one failed.
 

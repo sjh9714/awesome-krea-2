@@ -1,6 +1,6 @@
 # Contributing
 
-**The short path: [open an issue with the form](https://github.com/sjh9714/awesome-krea-2/issues/new?template=add_entry.yml).**
+**The short path: [open an issue with the form](https://github.com/sjh9714/krea2-wildcards/issues/new?template=add_entry.yml).**
 Paste the prompt, drop the image, name the seed. You do not have to touch a
 file, and a maintainer adds it. Credit stays on the entry with a link to you.
 
@@ -63,7 +63,7 @@ python3 verify.py
 
 ## What CI checks
 
-`verify.py` runs 175 checks that tie the prose to the data: every count quoted in
+`verify.py` runs 184 checks that tie the prose to the data: every count quoted in
 a document against the manifest, every seed present, every category anchored and
 reachable, the download table's file sizes against the files, the vocabulary
 rule, and that the generated files are in sync. It is not a linter. It exists

@@ -1,36 +1,30 @@
-<h1 align="center">awesome-krea-2</h1>
-<p align="center">475 Krea 2 Turbo prompts with the seed that produced each one, plus the 65 generations that failed and why. Every claim here was measured against those images, not quoted from the model card.</p>
+<h1 align="center">krea2-wildcards</h1>
+<p align="center">475 tested Krea 2 Turbo prompts. One file, drop it in ComfyUI.</p>
 
 <p align="center">
-  <img src="hero.webp" width="912" alt="A six-panel grid, a working case above a failure in each of three columns. Text: a brass nameplate carrying eight specified strings, all correct, above a chalkboard menu whose unspecified rows came back as nonsense words. Hands: a hand raising exactly the three fingers asked for, on a hand with six digits, above clasped hands where interlaced fingers were asked for. Interlocking: a chain with every link through its neighbour, above a rope lying in a figure-eight shape that was never tied.">
+  <img src="hero.webp" width="912" alt="Twelve Krea 2 Turbo outputs in a four by three grid, under the heading 475 tested Krea 2 Turbo prompts: a loft under renovation, a desert dune ridge at first light, a backlit seed head, an aurora over snow, ice diving seen from below, a shelf cloud, a barn owl in flight, a prism spectrum on a wall, an icebreaker bow, a quartz point, cut stems in water, and moss with sporophytes.">
 </p>
 
 <p align="center">
-<a href="https://github.com/sjh9714/awesome-krea-2/stargazers"><img src="https://img.shields.io/github/stars/sjh9714/awesome-krea-2?style=flat&color=1f5d4c" alt="stars"></a>
-<a href="https://sjh9714.github.io/awesome-krea-2/"><img src="https://img.shields.io/badge/gallery-browse%20all-1f5d4c" alt="gallery"></a>
+<a href="https://github.com/sjh9714/krea2-wildcards/stargazers"><img src="https://img.shields.io/github/stars/sjh9714/krea2-wildcards?style=flat&color=1f5d4c" alt="stars"></a>
+<a href="https://sjh9714.github.io/krea2-wildcards/"><img src="https://img.shields.io/badge/gallery-browse%20all-1f5d4c" alt="gallery"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>
 </p>
 
-<p align="center"><a href="README_ZH.md">ZH</a> · <a href="README_KO.md">KO</a> · <a href="README_JA.md">JA</a> · <a href="README_ES.md">ES</a> · <a href="README_FR.md">FR</a> · <a href="README_DE.md">DE</a> · <a href="README_PT.md">PT</a> · <a href="https://sjh9714.github.io/awesome-krea-2/"><b>Browse the gallery →</b></a></p>
+<p align="center"><a href="README_ZH.md">ZH</a> · <a href="README_KO.md">KO</a> · <a href="README_JA.md">JA</a> · <a href="README_ES.md">ES</a> · <a href="README_FR.md">FR</a> · <a href="README_DE.md">DE</a> · <a href="README_PT.md">PT</a> · <a href="https://sjh9714.github.io/krea2-wildcards/"><b>Browse the gallery →</b></a></p>
 
 ## 📥 Take the prompts and go
 
-If you came here to feed a wildcard node, everything below is optional.
+**[Download all.txt](https://raw.githubusercontent.com/sjh9714/krea2-wildcards/main/wildcards/all.txt)** (104 KB): 475 prompts, one per line.
 
-| | |
-|---|---|
-| **[all.txt](https://raw.githubusercontent.com/sjh9714/awesome-krea-2/main/wildcards/all.txt)** | all 475 prompts, one per line, 104 KB. Right click, save. |
-| **[krea2-wildcards.zip](https://raw.githubusercontent.com/sjh9714/awesome-krea-2/main/wildcards/krea2-wildcards.zip)** | the same thing split into one file per category plus the style clauses, 96 KB |
-| **[styles.txt](https://raw.githubusercontent.com/sjh9714/awesome-krea-2/main/wildcards/styles.txt)** | just the "the whole scene drawn as ..." clauses |
+Put it in `ComfyUI/wildcards/` and call `__all__` from a dynamic prompt node. No clone, no install, no account.
 
-Drop the folder into `ComfyUI/wildcards/` and reference `__all__` or `__photography__` from a dynamic prompt node. No clone, no install, no account.
-
-Two things worth knowing before you run them. **The failures are excluded**, so nothing in these files is a prompt already known to break. And **the seeds are not in here and would not help you anyway**: they were recorded against a hosted endpoint that publishes no sampler or step count, so they do not transfer to your graph. [REPRODUCING.md](REPRODUCING.md) explains exactly why.
+[Per-category files and a zip](wildcards/) · [Browse them all as pictures](https://sjh9714.github.io/krea2-wildcards/)
 
 ## 🔬 What this model actually does
 
 Fourteen findings, each measured against the images in this repo rather than quoted
-from the model card. Five of them replace earlier findings I had to withdraw — four
+from the model card. Five of them replace earlier findings I had to withdraw. Four
 overturned by experiments built to confirm them, one by a reader who counted fingers I
 had only glanced at.
 
@@ -41,7 +35,7 @@ had only glanced at.
 | **Korean** | Mostly works, and the words that fail repeat the same misspelling at a different seed. | Rerolling the seed is the wrong fix. Change the wording. |
 | **Hands** | **Withdrawn.** I claimed 7 of 8 sound. Two readers counted; three had six or four digits. | The whole category is in the failures now, with seeds. |
 | **Identity** | A face does not survive into a new scene. 0.45 keeps the face and the old composition; 0.72 keeps neither. | There is no working value in between. Train a LoRA. |
-| **Editing** | Medium conversion is reliable at strength 0.50–0.60. Adding or removing objects is not. | Asked to remove steam, the steam came back. |
+| **Editing** | Medium conversion is reliable at strength 0.50, 0.60. Adding or removing objects is not. | Asked to remove steam, the steam came back. |
 | **Counting** | Objects count correctly from 2 to 8. Attributes do not. | "Exactly two flat colours" returned four. |
 | **Lighting** | Name the fixture and the fixture walks into frame. | Say what the light *does*, not what it is. |
 | **Stationery** | Six for six, and not because the strings were short. | The one category that never failed. |
@@ -65,7 +59,7 @@ had only glanced at.
 
 ## 🗂 Categories
 
-All **475** entries are in the repository at [docs/gallery.md](docs/gallery.md), and on the [web gallery](https://sjh9714.github.io/awesome-krea-2/) if you would rather scroll one page. The category links below go straight to the right section.
+All **475** entries are in the repository at [docs/gallery.md](docs/gallery.md), and on the [web gallery](https://sjh9714.github.io/krea2-wildcards/) if you would rather scroll one page. The category links below go straight to the right section.
 
 [photography](docs/gallery-part-1.md#photography) 18 · [typography](docs/gallery-part-1.md#typography) 15 · [product](docs/gallery-part-1.md#product) 18 · [illustration](docs/gallery-part-1.md#illustration) 18 · [reference-sheet](docs/gallery-part-1.md#reference-sheet) 1 · [isometric-3d](docs/gallery-part-1.md#isometric-3d) 10 · [editing](docs/gallery-part-1.md#editing) 5 · [portrait](docs/gallery-part-1.md#portrait) 8 · [infographic](docs/gallery-part-1.md#infographic) 8 · [collectible](docs/gallery-part-1.md#collectible) 5 · [stationery](docs/gallery-part-1.md#stationery) 6 · [food](docs/gallery-part-1.md#food) 9 · [interior](docs/gallery-part-1.md#interior) 10 · [pattern](docs/gallery-part-1.md#pattern) 8 · [brand-mark](docs/gallery-part-1.md#brand-mark) 7 · [miniature](docs/gallery-part-1.md#miniature) 8 · [coloring-page](docs/gallery-part-1.md#coloring-page) 6 · [ui](docs/gallery-part-1.md#ui) 1 · [stringcount](docs/gallery-part-1.md#stringcount) 8 · [animal](docs/gallery-part-1.md#animal) 10 · [landscape](docs/gallery-part-1.md#landscape) 10 · [fashion](docs/gallery-part-1.md#fashion) 7 · [automotive](docs/gallery-part-2.md#automotive) 7 · [exterior](docs/gallery-part-2.md#exterior) 8 · [abstract](docs/gallery-part-2.md#abstract) 7 · [objectcount](docs/gallery-part-2.md#objectcount) 7 · [monogram](docs/gallery-part-2.md#monogram) 2 · [poster](docs/gallery-part-2.md#poster) 9 · [still-life](docs/gallery-part-2.md#still-life) 8 · [macro-nature](docs/gallery-part-2.md#macro-nature) 8 · [street](docs/gallery-part-2.md#street) 8 · [night](docs/gallery-part-2.md#night) 7 · [respecify](docs/gallery-part-2.md#respecify) 2 · [hangul](docs/gallery-part-2.md#hangul) 4 · [sport](docs/gallery-part-2.md#sport) 6 · [scifi](docs/gallery-part-2.md#scifi) 8 · [underwater](docs/gallery-part-2.md#underwater) 8 · [aerial](docs/gallery-part-2.md#aerial) 3 · [period](docs/gallery-part-2.md#period) 8 · [jewellery](docs/gallery-part-2.md#jewellery) 8 · [fantasy](docs/gallery-part-2.md#fantasy) 9 · [comic](docs/gallery-part-2.md#comic) 7 · [childrens-book](docs/gallery-part-2.md#childrens-book) 8 · [technical-drawing](docs/gallery-part-2.md#technical-drawing) 8 · [vehicle](docs/gallery-part-2.md#vehicle) 10 · [weather](docs/gallery-part-2.md#weather) 8 · [glass](docs/gallery-part-2.md#glass) 8 · [material](docs/gallery-part-2.md#material) 5 · [crowd](docs/gallery-part-2.md#crowd) 8 · [weave](docs/gallery-part-2.md#weave) 7 · [tattoo](docs/gallery-part-2.md#tattoo) 7 · [pixel-art](docs/gallery-part-2.md#pixel-art) 7 · [anatomy](docs/gallery-part-3.md#anatomy) 8 · [sculpture](docs/gallery-part-3.md#sculpture) 8 · [plant](docs/gallery-part-3.md#plant) 10 · [tool](docs/gallery-part-3.md#tool) 8 · [knolling](docs/gallery-part-3.md#knolling) 5 · [silhouette](docs/gallery-part-3.md#silhouette) 7 · [mirror](docs/gallery-part-3.md#mirror) 7 · [mineral](docs/gallery-part-3.md#mineral) 8 · [seasonal](docs/gallery-part-3.md#seasonal) 8
 
@@ -81,11 +75,11 @@ A ceramicist in her studio at golden hour, hands wet with slip, throwing a bowl 
 
 The gallery highlights the words that recur across this catalog and travel to other subjects. This one carries `85mm`, `muted`, `palette`, `shallow depth of field`. [What each of them does → VOCABULARY.md](VOCABULARY.md)
 
-[**All 475 in the repo →**](docs/gallery.md) · [**as a web page →**](https://sjh9714.github.io/awesome-krea-2/)
+[**All 475 in the repo →**](docs/gallery.md) · [**as a web page →**](https://sjh9714.github.io/krea2-wildcards/)
 
 ## 🔁 The image-to-image entries, taken further
 
-The five `editing-*` entries were pulled out into [**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for Claude Code and Codex, and each one was re-run against a source it was *not* derived from. Two held, two came back partial, one failed — and the failures produced a sharper rule than this catalog started with: **geometry is locked, material is not.** Relighting wet rice terraces under hard sun keeps every contour in position and returns dry stone.
+The five `editing-*` entries were pulled out into [**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for Claude Code and Codex, and each one was re-run against a source it was *not* derived from. Two held, two came back partial, one failed. And the failures produced a sharper rule than this catalog started with: **geometry is locked, material is not.** Relighting wet rice terraces under hard sun keeps every contour in position and returns dry stone.
 
 That repo also carries the two edits cut from here as refusals: it blocks an object-removal or character-consistency request before it is spent, and shows you the image where it already failed.
 
@@ -119,7 +113,7 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/fail-spines.webp" width="150" alt="Text: twelve independent strings in one frame, all unreadable"> | Twelve readable invented titles | Text: twelve independent strings in one frame, all unreadable <br>`seed: 1095803014` |
 | <img src="images/failures/fail-terminal.webp" width="150" alt="Text: the command line renders, the output beneath it does not"> | $ make install plus three lines of build output | Text: the command line renders, the output beneath it does not <br>`seed: 1530960951` |
 | <img src="images/failures/fail-timeline.webp" width="150" alt="Text: years render, labels do not"> | Eight year+label pairs | Text: years render, labels do not <br>`seed: 797625079` |
-| <img src="images/failures/fantasy-009.webp" width="150" alt="Simile: 'a beetle the size of a pony' returned a pony — the comparison replaced the subject"> | A pony-sized beetle in a harness | Simile: 'a beetle the size of a pony' returned a pony — the comparison replaced the subject <br>`seed: 1007230101` |
+| <img src="images/failures/fantasy-009.webp" width="150" alt="Simile: 'a beetle the size of a pony' returned a pony, the comparison replaced the subject"> | A pony-sized beetle in a harness | Simile: 'a beetle the size of a pony' returned a pony, the comparison replaced the subject <br>`seed: 1007230101` |
 | <img src="images/failures/fashion-007.webp" width="150" alt="Composition: asked for the rail end-on as receding silhouettes, got it side-on with the hangers showing"> | An end-on rail reading as layered silhouettes | Composition: asked for the rail end-on as receding silhouettes, got it side-on with the hangers showing <br>`seed: 1999599151` |
 | <img src="images/failures/food-003.webp" width="150" alt="Mechanism: the espresso renders as an amber disc where the basket should be, and one stream instead of two"> | Two thin streams from a portafilter | Mechanism: the espresso renders as an amber disc where the basket should be, and one stream instead of two <br>`seed: 117001054` |
 | <img src="images/failures/hands-1.webp" width="150" alt="Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight"> | Five digits per hand | Digits unverified: I judged this anatomically sound at 1.5-2x and two readers found errors in three of the eight <br>`seed: 1481878687` |
@@ -148,8 +142,8 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/portrait-008.webp" width="150" alt="Count: 'exactly two flat colours plus white' returned four plus shading"> | Two flat colours, no gradients | Count: 'exactly two flat colours plus white' returned four plus shading <br>`seed: 1251562984` |
 | <img src="images/failures/portrait-010.webp" width="150" alt="Light: two named colours from opposite sides did not cross on the face"> | Magenta from frame left and cyan from frame right meeting across the face | Light: two named colours from opposite sides did not cross on the face <br>`seed: 416503906` |
 | <img src="images/failures/portrait-012.webp" width="150" alt="Equipment: naming the softbox put the softbox in the frame"> | Seamless mid-grey background, light source out of shot | Equipment: naming the softbox put the softbox in the frame <br>`seed: 639894452` |
-| <img src="images/failures/poster-004.webp" width="150" alt="Glyph: the string is right and both R's are drawn mirrored — NOЯTHEЯN LIGHT"> | NORTHERN LIGHT | Glyph: the string is right and both R's are drawn mirrored — NOЯTHEЯN LIGHT <br>`seed: 1064082710` |
-| <img src="images/failures/respecify-map.webp" width="150" alt="Text: specifying the names fixed four of nine; the small rotated labels still fail — MILL LANE became MILLLANYNE, CENTRAL became EECTFRAL"> | Nine legible station names | Text: specifying the names fixed four of nine; the small rotated labels still fail — MILL LANE became MILLLANYNE, CENTRAL became EECTFRAL <br>`seed: 1334788167` |
+| <img src="images/failures/poster-004.webp" width="150" alt="Glyph: the string is right and both R's are drawn mirrored, NOЯTHEЯN LIGHT"> | NORTHERN LIGHT | Glyph: the string is right and both R's are drawn mirrored, NOЯTHEЯN LIGHT <br>`seed: 1064082710` |
+| <img src="images/failures/respecify-map.webp" width="150" alt="Text: specifying the names fixed four of nine; the small rotated labels still fail, MILL LANE became MILLLANYNE, CENTRAL became EECTFRAL"> | Nine legible station names | Text: specifying the names fixed four of nine; the small rotated labels still fail, MILL LANE became MILLLANYNE, CENTRAL became EECTFRAL <br>`seed: 1334788167` |
 | <img src="images/failures/silhouette-004.webp" width="150" alt="Exposure: asked for hands as solid black against the window, returned them backlit and translucent"> | Hands as flat black shapes | Exposure: asked for hands as solid black against the window, returned them backlit and translucent <br>`seed: 1616657488` |
 | <img src="images/failures/sport-003.webp" width="150" alt="Framing: asked for no face in frame, the face is in frame behind the hands"> | Hands on the ropes, no face | Framing: asked for no face in frame, the face is in frame behind the hands <br>`seed: 769044869` |
 | <img src="images/failures/sport-006.webp" width="150" alt="Count inside a noun: a rowing EIGHT came back as a single sculler"> | An eight-person crew | Count inside a noun: a rowing EIGHT came back as a single sculler <br>`seed: 603162714` |
@@ -158,12 +152,12 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/ui-002.webp" width="150" alt="UI: the first section header reads 'Settings'; the next two degrade to 'Sectings'"> | Three section headers and six row labels | UI: the first section header reads 'Settings'; the next two degrade to 'Sectings' <br>`seed: 1537435411` |
 | <img src="images/failures/ui-003.webp" width="150" alt="UI: metric numbers survive, every label around them does not"> | Four labelled metric cards and a five-row table | UI: metric numbers survive, every label around them does not <br>`seed: 401297056` |
 | <img src="images/failures/ui-005.webp" width="150" alt="UI: a code editor renders as convincing syntax-coloured noise with no readable token"> | Syntax-highlighted code | UI: a code editor renders as convincing syntax-coloured noise with no readable token <br>`seed: 1224413193` |
-| <img src="images/failures/ui-006.webp" width="150" alt="UI: the day headers fail and so do the dates — 5, 6, 51, 13 is not a week"> | Seven weekday headers and a sequential date grid | UI: the day headers fail and so do the dates — 5, 6, 51, 13 is not a week <br>`seed: 982476354` |
+| <img src="images/failures/ui-006.webp" width="150" alt="UI: the day headers fail and so do the dates, 5, 6, 51, 13 is not a week"> | Seven weekday headers and a sequential date grid | UI: the day headers fail and so do the dates, 5, 6, 51, 13 is not a week <br>`seed: 982476354` |
 | <img src="images/failures/ui-007.webp" width="150" alt="UI: 'Add to cart' is correct, the product title is not, and the size buttons all read 'Size'"> | A product title, a price, and size options | UI: 'Add to cart' is correct, the product title is not, and the size buttons all read 'Size' <br>`seed: 1056892936` |
 | <img src="images/failures/ui-008.webp" width="150" alt="UI: chat bubbles are structurally perfect and every message is unreadable"> | Readable alternating messages | UI: chat bubbles are structurally perfect and every message is unreadable <br>`seed: 880659524` |
 | <img src="images/failures/ui-009.webp" width="150" alt="UI: the illustration is good, the headline and the button label are not"> | A headline, supporting text and a button label | UI: the illustration is good, the headline and the button label are not <br>`seed: 727964264` |
-| <img src="images/failures/ui-010.webp" width="150" alt="UI: all three columns are literally headed 'Kanban' — the model rendered the word from the prompt"> | Three distinct column names | UI: all three columns are literally headed 'Kanban' — the model rendered the word from the prompt <br>`seed: 1672153217` |
-| <img src="images/failures/weave-4.webp" width="150" alt="Knot: asked for a figure-eight knot, returned a figure-eight shape — two loops with a single crossing, never tied"> | A tied figure-eight knot | Knot: asked for a figure-eight knot, returned a figure-eight shape — two loops with a single crossing, never tied <br>`seed: 518928111` |
+| <img src="images/failures/ui-010.webp" width="150" alt="UI: all three columns are literally headed 'Kanban', the model rendered the word from the prompt"> | Three distinct column names | UI: all three columns are literally headed 'Kanban', the model rendered the word from the prompt <br>`seed: 1672153217` |
+| <img src="images/failures/weave-4.webp" width="150" alt="Knot: asked for a figure-eight knot, returned a figure-eight shape. Two loops with a single crossing, never tied"> | A tied figure-eight knot | Knot: asked for a figure-eight knot, returned a figure-eight shape. Two loops with a single crossing, never tied <br>`seed: 518928111` |
 
 ## 📊 How this compares
 
@@ -180,10 +174,10 @@ Verified on 2026-07-25 by reading each repository's tree, README and data files,
 
 - **Nobody records seeds.** Checked every entry in all five: YouMind's per-entry block carries Author / Source / Published / Languages and nothing else, and its submission form has no seed field either. freestylefly's `cases.json` has thirteen keys, none of them a seed. jamez's `case.yml` and `ATTRIBUTION.yml` schemas have no seed field. This is the only claim here that holds without qualification.
 - **A seed is worth less than it sounds, and the column above does not say so.** `fal-ai/krea-2/turbo` publishes no step count, CFG, sampler or scheduler, so a seed recorded against it reproduces there and not in a local ComfyUI graph. Nobody else records seeds, and this repo does; that is still true and still narrower than it reads. [REPRODUCING.md](REPRODUCING.md) has the exact call and the measured pixel differences.
-- **Nobody publishes what it cost.** jamez does record `creation_tool` (Sora on 97 of 100 cases, GPT-4o on 3) and freestylefly documents its generation path, which is more than the others — but neither states a figure.
+- **Nobody publishes what it cost.** jamez does record `creation_tool` (Sora on 97 of 100 cases, GPT-4o on 3) and freestylefly documents its generation path, which is more than the others. But neither states a figure.
 - **Credit where it is due on reproducibility.** freestylefly commits 549 images and jamez 100, both with relative paths and copy-pasteable prompts. Those two are self-contained and I am not claiming otherwise.
-- **Link rot is not hypothetical.** ZeroLu's 86 images are all external. Requesting them on 2026-07-25 found three already gone — two Twitter CDN links returning 403/404 and one path that no longer exists in the repo. That is why the images here are committed rather than linked.
-- **Scale claims deserve reading twice.** The two YouMind repos advertise 14,916 and 13,663 prompts. Their own FAQ says images live on a CMS, not in git, and their README says GitHub's length limit caps the visible list — 129 and 126 entries respectively, under 1% of the headline number. The rest are on their website.
+- **Link rot is not hypothetical.** ZeroLu's 86 images are all external. Requesting them on 2026-07-25 found three already gone. Two Twitter CDN links returning 403/404 and one path that no longer exists in the repo. That is why the images here are committed rather than linked.
+- **Scale claims deserve reading twice.** The two YouMind repos advertise 14,916 and 13,663 prompts. Their own FAQ says images live on a CMS, not in git, and their README says GitHub's length limit caps the visible list, 129 and 126 entries respectively, under 1% of the headline number. The rest are on their website.
 - jamez-bondos has not been pushed since 2025-05-26.
 
 
@@ -193,7 +187,7 @@ Open a PR adding an entry to `prompts.json` plus your output image. Two rules: t
 
 ## ⚖ License
 
-Prompts are MIT — take them.
+Prompts are MIT, take them.
 
 **The images are AI-generated.** They were produced with Krea 2 Turbo and are presented as model output, not as photographs or human artwork. Under the Krea 2 Community License you own outputs you generate yourself; commercial use is permitted below $1M annual company revenue, and the licence separately requires content filtering, which was left enabled for every image here. One entry was dropped after the safety checker flagged it.
 

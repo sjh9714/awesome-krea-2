@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-build_styles.py — generate styles/README.md and the wildcards files from data.
+build_styles.py, generate styles/README.md and the wildcards files from data.
 
 Rewritten on 2026-08-01, the night the Reddit post went out, because the section
 it generated no longer matched what the post promised. A reader clicking through
@@ -42,7 +42,7 @@ def main() -> int:
         return 1
 
     L = [
-        "# Styles — how to ask this model for one",
+        "# Styles, how to ask this model for one",
         "",
         "[← back to the catalog](../README.md)",
         "",
@@ -61,8 +61,8 @@ def main() -> int:
         f'<img src="{d["hook"]["named_image"]}" width="330" alt="named: a picture book appears on the table">',
         f'<img src="{d["hook"]["rephrased_image"]}" width="330" alt="rephrased: the whole frame converts">',
         "",
-        f"- named — `{d['hook']['named_clause']}`",
-        f"- rephrased — `{d['hook']['rephrased_clause']}`",
+        f"- named, `{d['hook']['named_clause']}`",
+        f"- rephrased, `{d['hook']['rephrased_clause']}`",
         "",
         "## Eight clauses that convert the whole frame",
         "",
@@ -74,7 +74,7 @@ def main() -> int:
     for k in GOODS_ORDER:
         g = d["goods"][k]
         L += [f'<img src="{g["image"]}" width="330" alt="{g["label"]}">', "",
-              f"**{g['label']}** — `{g['clause']}`", ""]
+              f"**{g['label']}**, `{g['clause']}`", ""]
     L += [
         "All eight, one per line, for a ComfyUI wildcard or dynamic-prompt node: "
         "[`wildcards/styles.txt`](../wildcards/styles.txt)",
@@ -93,9 +93,9 @@ def main() -> int:
         f'<img src="{d["never"]["rubberhose"]["image"]}" width="330" alt="a rubber-hose character seated next to her">',
         f'<img src="{d["never"]["doodle"]["image"]}" width="330" alt="a doodled second her beside the photo">',
         "",
-        f"- **rubber hose** — {d['never']['rubberhose']['why']}",
-        f"- **doodle** — {d['never']['doodle']['why']}",
-        f"- **mosaic** — {d['never']['mosaic']['why']}:",
+        f"- **rubber hose**, {d['never']['rubberhose']['why']}",
+        f"- **doodle**, {d['never']['doodle']['why']}",
+        f"- **mosaic**, {d['never']['mosaic']['why']}:",
         "",
     ]
     for img in d["never"]["mosaic"]["images"]:
@@ -104,11 +104,11 @@ def main() -> int:
         "",
         "Caveats: one seed, one subject, so one sample per cell; everything "
         "judged at full size. Correction from the thread: manga and pop art "
-        "only half-convert \u2014 the figure turns, the street stays a photo, and "
+        "only half-convert. The figure turns, the street stays a photo, and "
         "three stronger phrasings at the same seed did not fix it, so it is 6 "
         "of 8.",
         "",
-        "## Appendix — the earlier sweep",
+        "## Appendix, the earlier sweep",
         "",
         "An earlier version of this page varied the style clause over a "
         "different subject (two women in a lantern river). Its data is still "
@@ -116,7 +116,7 @@ def main() -> int:
         f"clauses reproduced, {len(sweep['failed'])} failed on that subject, "
         f"{len(sweep['failed_earlier_subject'])} printing-process styles failed "
         "on a subject before that, and the same refusals reproduced on FLUX.1 "
-        "dev at the same seed — so none of this is one endpoint being odd. "
+        "dev at the same seed. So none of this is one endpoint being odd. "
         "Those older clauses are kept in "
         "[`wildcards/styles-extra.txt`](../wildcards/styles-extra.txt). The "
         "long-descriptor comparison started from "

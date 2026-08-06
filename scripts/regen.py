@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-regen.py — regenerate any catalog entry from its recorded seed.
+regen.py, regenerate any catalog entry from its recorded seed.
 
 The catalog claims every image is reproducible. This turns that from an assertion
 into a command someone can run, which is the version that survives a sceptical
@@ -91,7 +91,7 @@ def main() -> int:
         if e.get("source"):
             src = by_id.get(e["source"])
             if src is None:
-                print(f"SKIP source '{e['source']}' not found — pass --sources")
+                print(f"SKIP source '{e['source']}' not found, pass --sources")
                 failed += 1
                 continue
             sp = root / src["image"]

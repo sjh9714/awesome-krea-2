@@ -1,7 +1,7 @@
 [← the categories](gallery.md)
 ## photography
 
-_Photoreal scenes — lighting, lens behaviour, film stock_
+_Photoreal scenes, lighting, lens behaviour, film stock_
 
 ### 1. Ceramicist at golden hour, 85mm
 
@@ -961,9 +961,9 @@ An anatomical study of a human hand in red chalk on toned paper, in the manner o
 
 _Character reference sheets and turnarounds_
 
-### 1. Reference sheet — establishing
+### 1. Reference sheet, establishing
 
-<img src="../images/reference-sheet-001.webp" width="420" alt="Reference sheet — establishing">
+<img src="../images/reference-sheet-001.webp" width="420" alt="Reference sheet, establishing">
 
 ```text
 Character reference sheet for a woman in her sixties: silver hair cut short, a small crescent scar above the right eyebrow, wire-frame glasses, a heavy navy fisherman's sweater. Three views on one sheet — front, three-quarter, profile — consistent proportions, neutral grey background, even light.
@@ -1009,9 +1009,9 @@ Isometric cutaway of a small server room: two racks with visible cable managemen
 
 <sub>[back to the categories](gallery.md#categories)</sub>
 
-### 3. Game asset — modular tiles
+### 3. Game asset, modular tiles
 
-<img src="../images/isometric-3d-003.webp" width="420" alt="Game asset — modular tiles">
+<img src="../images/isometric-3d-003.webp" width="420" alt="Game asset, modular tiles">
 
 ```text
 A sheet of six modular isometric floor and wall tiles for a game: stone floor, cracked stone floor, wooden floor, plain wall, wall with a doorway, wall with a barred window. Consistent lighting angle and tile dimensions across all six so they tessellate. Flat background, evenly spaced grid.
@@ -1037,9 +1037,9 @@ A low-poly floating island: faceted terrain with visible flat triangles, a singl
 
 <sub>[back to the categories](gallery.md#categories)</sub>
 
-### 5. Exploded isometric — camera
+### 5. Exploded isometric, camera
 
-<img src="../images/isometric-3d-005.webp" width="420" alt="Exploded isometric — camera">
+<img src="../images/isometric-3d-005.webp" width="420" alt="Exploded isometric, camera">
 
 ```text
 An exploded isometric view of a 35mm film camera, components separated vertically along a single axis: body, lens elements, shutter assembly, film back, winding mechanism. Consistent spacing, thin grey guide lines connecting the parts, matte technical rendering.
@@ -1093,9 +1093,9 @@ A low-poly desert canyon section: faceted rock strata in graduated ochre bands, 
 
 <sub>[back to the categories](gallery.md#categories)</sub>
 
-### 9. Exploded isometric — bicycle hub
+### 9. Exploded isometric, bicycle hub
 
-<img src="../images/isometric-3d-009.webp" width="420" alt="Exploded isometric — bicycle hub">
+<img src="../images/isometric-3d-009.webp" width="420" alt="Exploded isometric, bicycle hub">
 
 ```text
 An exploded isometric view of a bicycle rear hub, components separated along the axle: axle, bearings, freehub body, cassette spacer, end caps. Even spacing, thin grey guide lines, matte technical rendering, no text.
@@ -1173,9 +1173,9 @@ Re-render these terraced fields as a gouache painting with visible brush texture
 
 <sub>[back to the categories](gallery.md#categories)</sub>
 
-### 4. Recolour this woodblock wave to a dusk palette — deep violet
+### 4. Recolour this woodblock wave to a dusk palette, deep violet
 
-<img src="../images/editing-005.webp" width="420" alt="Recolour this woodblock wave to a dusk palette — deep violet">
+<img src="../images/editing-005.webp" width="420" alt="Recolour this woodblock wave to a dusk palette, deep violet">
 
 ```text
 Recolour this woodblock wave to a dusk palette — deep violet water, salmon sky, warm cream foam. Keep every keyblock outline and flat colour field boundary exactly where it is.
@@ -1197,7 +1197,7 @@ Recolour this woodblock wave to a dusk palette — deep violet water, salmon sky
 Re-render this exploded camera diagram as a cyanotype blueprint: white line work on Prussian blue, every component in exactly the same position and spacing.
 ```
 
-`seed: 1652457598` · image-to-image from **Exploded isometric — camera** · `strength: 0.6` · `editing-008`
+`seed: 1652457598` · image-to-image from **Exploded isometric, camera** · `strength: 0.6` · `editing-008`
 
 <sub>vocabulary: `cyanotype`, `exploded` · [what each one does](../VOCABULARY.md)</sub>
 
@@ -1205,7 +1205,7 @@ Re-render this exploded camera diagram as a cyanotype blueprint: white line work
 
 ## portrait
 
-_Profile pictures and avatars — the single most requested category in every prompt catalog measured_
+_Profile pictures and avatars, the single most requested category in every prompt catalog measured_
 
 ### 1. Window-light portrait, 85mm
 
@@ -1319,7 +1319,7 @@ A charcoal portrait drawn on mid-grey toned paper, white chalk for the highlight
 
 ## infographic
 
-_Explainer layouts, quote cards, dashboards — text-heavy by design, which is where this model is weakest and most worth documenting_
+_Explainer layouts, quote cards, dashboards: text-heavy by design, which is where this model is weakest and most worth documenting_
 
 ### 1. Quote card with rule lines
 
@@ -1427,7 +1427,7 @@ Three isometric blocks arranged diagonally across the frame representing stages 
 
 ## collectible
 
-_Figurines, pins, keycaps, trading cards — physical-object mockups_
+_Figurines, pins, keycaps, trading cards: physical-object mockups_
 
 ### 1. Vinyl figure in blister pack
 
@@ -1861,7 +1861,7 @@ A loft mid-renovation: plaster dust, a stepladder, plastic sheeting over a windo
 
 ## pattern
 
-_Repeating surface design — textile, wallpaper, wrapping_
+_Repeating surface design, textile, wallpaper, wrapping_
 
 ### 1. Botanical block print repeat
 

@@ -154,7 +154,7 @@ def main() -> int:
         for c, v in cats.items()))
     head += ["", f"[The failures]({'gallery-failures.md' if multi else '#the-failures'})"
                  f" · [Browse the same thing as a web page]"
-                 f"(https://sjh9714.github.io/awesome-krea-2/)", ""]
+                 f"(https://sjh9714.github.io/krea2-wildcards/)", ""]
 
     fail_lines = ["## The failures", "",
                   d.get("failures", {}).get("_what", ""), "",

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-gen_fal.py — batch-generate catalog images through fal.ai's queue API.
+gen_fal.py, batch-generate catalog images through fal.ai's queue API.
 
 Defaults to Krea 2 Turbo, which is the only place the actual open-weights Turbo
 is hosted. Verified 2026-07-25: fal-ai/krea-2/turbo resolves an OpenAPI schema,
 `prompt` is the only required field, and the posted rate is $0.008 per megapixel
-— about $0.0084 per 1024x1024 image, so a 500-image catalog costs roughly $4.
+,  about $0.0084 per 1024x1024 image, so a 500-image catalog costs roughly $4.
 
 Do not substitute Replicate or the Krea API without knowing what you are buying:
 those serve krea-2-**medium-turbo**, a different model, at ~2x the price.
@@ -68,7 +68,7 @@ def key() -> str:
             "FAL_KEY is not set.\n\n"
             "  1. Sign up at https://fal.ai (email + card)\n"
             "  2. Dashboard -> Keys -> create a key\n"
-            "  3. Write it to a .env file — do NOT paste it into a chat:\n\n"
+            "  3. Write it to a .env file, do NOT paste it into a chat:\n\n"
             "       cd ~/orca/projects/np\n"
             "       printf 'FAL_KEY=%s\\n' 'PASTE_KEY_HERE' > .env\n"
             "       chmod 600 .env\n\n"
@@ -81,7 +81,7 @@ def key() -> str:
 
 class FalError(RuntimeError):
     """Carries the response body. urllib's default message is just the status
-    line, which hides the one useful sentence — a 403 here reads "Exhausted
+    line, which hides the one useful sentence: a 403 here reads "Exhausted
     balance", not "forbidden", and without the body that costs a debugging round
     trip."""
 
@@ -132,7 +132,7 @@ def submit(model: str, prompt: str, extra: dict) -> tuple[str, str]:
     """Returns (status_url, response_url) as fal gave them.
 
     Do not rebuild these from the model slug. fal truncates the path in the URLs
-    it hands back — submitting to `fal-ai/krea-2/turbo` yields a status_url under
+    it hands back, submitting to `fal-ai/krea-2/turbo` yields a status_url under
     `fal-ai/krea-2/requests/<id>/status`, dropping the trailing segment. Rebuilding
     with the full slug gets a 405.
     """
@@ -251,7 +251,7 @@ def main() -> int:
         return 0
 
     est = len(todo) * 0.0084
-    print(f"{len(todo)} image(s) via {args.model} — estimated ${est:.2f}\n")
+    print(f"{len(todo)} image(s) via {args.model}, estimated ${est:.2f}\n")
     if args.dry_run:
         for e in todo:
             print(f"  {e['id']}")
@@ -283,7 +283,7 @@ def main() -> int:
                 if not src_path.exists() and args.sources:
                     src_path = src_root / src["image"]
                 if not src_path.exists():
-                    raise RuntimeError(f"source image missing: {src['image']} — generate it first")
+                    raise RuntimeError(f"source image missing: {src['image']}, generate it first")
                 model = args.i2i_model
                 call_extra["image_url"] = data_uri(src_path)
                 call_extra["strength"] = e.get("strength", 0.85)
@@ -294,20 +294,20 @@ def main() -> int:
                 flagged.append(e["id"])
             print(f"ok  seed={info['seed']}  {info['bytes']//1024} KB")
             ok += 1
-        except Exception as exc:  # noqa: BLE001 — one bad prompt must not stop a batch
+        except Exception as exc:  # noqa: BLE001. One bad prompt must not stop a batch
             print(f"FAIL  {type(exc).__name__}: {str(exc)[:110]}")
             failed.append((e["id"], str(exc)[:200]))
 
     # Seeds are what make the catalog reproducible, which is the whole claim.
     mpath.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    print(f"\n{ok} generated, {len(failed)} failed — seeds written back to {mpath.name}")
+    print(f"\n{ok} generated, {len(failed)} failed: seeds written back to {mpath.name}")
     if flagged:
-        print(f"safety checker flagged: {', '.join(flagged)} — drop these, do not ship them")
+        print(f"safety checker flagged: {', '.join(flagged)}: drop these, do not ship them")
     for eid, why in failed:
         print(f"  {eid}: {why}", file=sys.stderr)
 
-    print("\nNow curate. Delete every image you would not put in a portfolio — target\n"
+    print("\nNow curate. Delete every image you would not put in a portfolio, target\n"
           "keeping 50-60%. One bad image discredits the catalog, and curation is the\n"
           "only moat this format has.")
     return 0

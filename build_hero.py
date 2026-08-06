@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-build_hero.py — compose the README hero from real output, with the seeds on it.
+build_hero.py, compose the README hero from real output.
 
 The previous hero was three columns of findings, a working case above a failure
 in each, and it outlived its own claims twice. Version one led with "Text: one
 sign holds, a list collapses", which the stringcount ladder disproved. Version
-two led with hands and with interlocking — and by 2026-07-31 the hands category
+two led with hands and with interlocking. And by 2026-07-31 the hands category
 had been withdrawn entirely and the interlocking rule had been tested in a third
 domain and thrown away. Two of its three columns argued positions this repository
 no longer holds, to a visitor who had never seen the original claim.
@@ -14,7 +14,7 @@ That file's own docstring said to regenerate it whenever a finding changed. It
 was not, twice. So the hero no longer carries findings at all: the README has a
 fourteen-row summary table directly underneath, and FINDINGS.md has the evidence.
 
-What it carries instead is the one thing no comparable catalog ships — the seed
+What it carries instead is the one thing no comparable catalog ships, the seed
 that produced each frame. Checked 2026-07-25 against five competing repos: none
 records a seed, and two serve their images from an external CMS.
 
@@ -35,7 +35,7 @@ from PIL import Image, ImageDraw, ImageFont
 HERE = pathlib.Path(__file__).resolve().parent
 
 # Twelve frames chosen for how they read at 228px, across as many subjects as the
-# grid allows. No text-rendering entries — those belong to the findings, and the
+# grid allows. No text-rendering entries, those belong to the findings, and the
 # summary table owns them now.
 PICKS = [
     "interior-010", "landscape-007", "macro-nature-008", "night-008",
@@ -83,11 +83,14 @@ def main() -> int:
     im = Image.new("RGB", (CELL * COLS, HEAD + CELL * rows), (255, 255, 255))
     d = ImageDraw.Draw(im)
 
-    kept, cut = len(data["entries"]), len(data["failures"]["entries"])
-    d.text((20, 18), f"{kept} Krea 2 Turbo prompts, each with the seed that produced it",
+    # The banner used to lead with the seed and the cut generations. Both are
+    # true and neither is a reason to click: a visitor is deciding whether to
+    # take something, not auditing us. It now says the same thing the README
+    # tagline says, so the picture and the sentence do not disagree.
+    kept = len(data["entries"])
+    d.text((20, 18), f"{kept} tested Krea 2 Turbo prompts",
            fill=(17, 17, 17), font=font(25, bold=True))
-    d.text((20, 51), f"Plus the {cut} generations that were cut, and why each one went. "
-                     f"Every image is committed here, not linked.",
+    d.text((20, 51), "One file. Drop it in ComfyUI/wildcards/ and call __all__.",
            fill=(105, 105, 105), font=font(16))
 
     fseed = font(14, bold=True)
@@ -100,10 +103,8 @@ def main() -> int:
         x, y = (i % COLS) * CELL, HEAD + (i // COLS) * CELL
         im.paste(src.resize((CELL, CELL), Image.LANCZOS), (x, y))
 
-        label = f"seed {entry['params']['seed']}"
-        tw = d.textlength(label, font=fseed)
-        d.rectangle([x, y + CELL - 24, x + tw + 16, y + CELL], fill=(0, 0, 0))
-        d.text((x + 8, y + CELL - 20), label, fill=(255, 255, 255), font=fseed)
+        # No seed label. It is a number the visitor cannot use and did not ask
+        # for, printed over the only thing on this image they can judge.
 
     im.save(args.out, "WEBP", quality=88, method=6)
     out = pathlib.Path(args.out)

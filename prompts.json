@@ -5463,7 +5463,7 @@
         ]
       ]
     },
-    "_summary": "Fourteen findings, each measured against the images in this repo rather than quoted\nfrom the model card. Five of them replace earlier findings I had to withdraw. Four\noverturned by experiments built to confirm them, one by a reader who counted fingers I\nhad only glanced at."
+    "_summary": "{findings} findings, each measured against the images in this repo rather than quoted\nfrom the model card. Five of them replace earlier findings I had to withdraw. Four\noverturned by experiments built to confirm them, one by a reader who counted fingers I\nhad only glanced at."
   },
   "failures": {
     "_what": "Deliberately reproduced failures. Every claim in the README's findings section points at one of these, with the seed that produced it, so the limits are checkable rather than asserted. These are NOT part of the 85-entry catalog.",

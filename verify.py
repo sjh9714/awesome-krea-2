@@ -173,6 +173,16 @@ def main() -> int:
     # in the comparison table below. It now lives in FINDINGS.md behind a summary
     # table. If it creeps back, this fails.
     findings = HERE / "FINDINGS.md"
+    findings_md = findings.read_text(encoding="utf-8") if findings.exists() else ""
+    # "Fourteen findings" sat in the summary while there were 15, for as long as
+    # the negatives finding had existed. counts() substitutes {findings}; a number
+    # spelled as a word walks straight past it and past every count check here.
+    WORDS = r"\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|" \
+            r"thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty)\b"
+    head = findings_md[:400] if findings.exists() else ""
+    spelled = re.findall(WORDS + r"\s+findings", head, re.I)
+    c(not spelled, "the findings intro counts in digits, not words",
+      f"found {spelled}")
     c(findings.exists(), "FINDINGS.md exists", "the long-form evidence has to live somewhere")
     # The catalog heading is localised, so read it out of the generator's own
     # translation table instead of hard-coding one string per language.
@@ -198,34 +208,10 @@ def main() -> int:
           f"move the long form into FINDINGS.md")
         c("FINDINGS.md" in text, f"{name} links to FINDINGS.md")
 
-    # README_ZH and README_KO shipped for a week as a translated intro followed
-    # by the raw English catalog. Every findings section was missing, so anyone
-    # arriving from a Chinese or Korean link found a prompt list and none of the
-    # reasoning that makes it worth reading. The badge row advertises both.
-    # Every translation, not just the two that existed when this was written, and
-    # located the same way as above rather than by a hard-coded heading string.
-    # The literal "## 类别" stopped matching the moment an emoji went in front of
-    # it, and the check reported a missing heading instead of a changed one.
-    for lang in [x for x in _bc0.LANGS if x != "en"]:
-        name = f"README_{lang.upper()}.md"
-        path = HERE / name
-        if not path.exists():
-            c(False, f"{name} exists")
-            continue
-        text = path.read_text(encoding="utf-8")
-        gi = text.find("](docs/gallery")
-        heads = [l for l in text[:gi].splitlines() if l.startswith("## ")] if gi > 0 else []
-        anchor = heads[-1] if heads else None
-        c(anchor is not None, f"{name} has a catalog heading")
-        if anchor:
-            intro = text[:text.index(anchor)]
-            # The English intro runs ~49,000 characters. A translation that has
-            # only the header block is under ~1,500; a condensed findings
-            # section lands around 4,000.
-            c(len(intro) > 2500,
-              f"{name} carries the findings, not just a header",
-              f"only {len(intro):,} characters before {anchor!r}: "
-              f"the findings sections are missing")
+    # Deleted 2026-08-07. This required every translation to carry the findings
+    # between the header and the catalog, which is exactly the shape the README
+    # was rewritten out of. What matters now is that each one reaches the
+    # evidence, and that is checked with the other per-language checks above.
 
     # The comparison table describes this repo to a reader who is deciding
     # between it and a 13,000-star competitor, and it is written by hand. It sat
@@ -239,7 +225,7 @@ def main() -> int:
     cmp_p = HERE / "docs/comparison.md"
     c(cmp_p.exists(), "docs/comparison.md is built")
     cmp_text = cmp_p.read_text(encoding="utf-8") if cmp_p.exists() else ""
-    c("docs/comparison.md" in readme, "README links the comparison")
+    c("docs/comparison.md" in readme or "docs/comparison.md" in findings_md, "README links the comparison")
     row = re.search(r"^\|\s*\*\*this repo\*\*\s*\|(.+)$", cmp_text, re.M)
     if row is None:
         c(False, "comparison table has a 'this repo' row")
@@ -318,8 +304,10 @@ def main() -> int:
                     / (len(both) - len(with_neg)) * 100)
     outright = [r for r in failures if IGN.search(r.get("claim", ""))]
 
-    row = re.search(r"^\|\s*\*\*Negatives\*\*\s*\|(.+)$", readme, re.M)  # both cells
-    c(row is not None, "README has a Negatives row")
+    # The findings table left the README on 2026-08-07; the numbers still
+    # have to be checkable, they are just checked where they now live.
+    row = re.search(r"^\|\s*\*\*Negatives\*\*\s*\|(.+)$", findings_md, re.M)
+    c(row is not None, "FINDINGS.md has a Negatives row")
     if row:
         cell = row.group(1)
         for want, label in ((f"{rate_with:.1f}%", "the with-negative failure rate"),
@@ -393,7 +381,7 @@ def main() -> int:
         c(sd.get("post", "").startswith("https://www.reddit.com/"),
           "the page records which post it mirrors")
         c("README.md" in text or "../README.md" in text, "styles/README.md links back")
-        c("styles/README.md" in readme, "README.md links to the styles page")
+        c("styles/README.md" in readme or "styles/README.md" in findings_md, "README.md links to the styles page")
         c("](wildcards/)" in readme or "wildcards/styles.txt" in readme,
           "README.md reaches the wildcards files")
 
@@ -552,9 +540,9 @@ def main() -> int:
     c(rep.exists(), "REPRODUCING.md exists")
     if rep.exists():
         rtext = rep.read_text(encoding="utf-8")
-        c("REPRODUCING.md" in readme, "README.md links to REPRODUCING.md")
-        c("reproduce" in readme and "local" in readme,
-          "README.md states the seeds do not reproduce locally")
+        c("REPRODUCING.md" in readme or "REPRODUCING.md" in findings_md, "README.md links to REPRODUCING.md")
+        c("reproduce" in rtext and "local" in rtext,
+          "REPRODUCING.md states the seeds do not reproduce locally")
         for term in ("fal-ai/krea-2/turbo", "square_hd", "enable_prompt_expansion",
                      "openapi.json"):
             c(term in rtext, f"REPRODUCING.md names {term}")
@@ -580,13 +568,13 @@ def main() -> int:
     # their largest section on install or configuration. These three guards keep
     # that inversion from coming back, because writing evidence is the easy part.
     rd_bytes = len(readme.encode("utf-8"))
-    c(rd_bytes < 18_000,
-      f"README is {rd_bytes // 1024} KB, under the 18 KB ceiling")
+    c(rd_bytes < 8_000,
+      f"README is {rd_bytes // 1024} KB, under the 8 KB ceiling")
     c("images/failures/" not in readme,
       "the README does not re-inline the failures",
       f"{readme.count('images/failures/')} failure images are back in it")
-    c("docs/gallery-failures.md" in readme, "README links where the failures live")
-    for token in ("ComfyUI/wildcards/", "__all__", "__styles__"):
+    c("docs/gallery-failures.md" in readme or "docs/gallery-failures.md" in findings_md, "README links where the failures live")
+    for token in ("ComfyUI/wildcards/", "__all__"):
         c(token in readme, f"the usage section names {token}")
     # __wildcard__ is not a ComfyUI feature. Someone without the extension gets
     # the literal string "__all__" in their image and no error explaining it, so
@@ -594,12 +582,13 @@ def main() -> int:
     # instructions working and silently not.
     c("comfyui-dynamicprompts" in readme,
       "the usage section names the extension the wildcard syntax needs")
-    c("not built into" in readme or "not a ComfyUI feature" in readme,
-      "the README says the wildcard syntax is not built into ComfyUI")
+    c(any(x in readme for x in ("not built into", "not a ComfyUI feature",
+                                "does not come with")),
+      "the README says the wildcard syntax is not something ComfyUI ships")
     # And the path most readers take has to be first.
-    gal = readme.find("**One prompt.**")
-    wc = readme.find("**All of them, in ComfyUI.**")
-    c(0 < gal < wc, "the usage section leads with the path that needs no install")
+    gal = readme.find("press **copy** under any picture")
+    wc = readme.find("On ComfyUI you can wire it up")
+    c(0 < gal < wc, "the README leads with the path that needs no install")
 
     # The first screen sells what you take away. It used to sell how rigorous we
     # were: a 109-character tagline listing 475 prompts, 65 failures and 61
@@ -692,7 +681,7 @@ def main() -> int:
         c(all(i["name"] in tt for i in items), "TEMPLATES.md is current")
         c(all(f"[{s}]" in i["template"] for i in items for s in i["slots"]),
           "every declared slot appears in its template")
-        c("TEMPLATES.md" in readme, "README.md links TEMPLATES.md")
+        c("TEMPLATES.md" in readme or "TEMPLATES.md" in findings_md, "README.md links TEMPLATES.md")
 
     # Credit is a growth loop and a debt at the same time. The reference catalog
     # in this niche credits every prompt to whoever wrote it and links the post it

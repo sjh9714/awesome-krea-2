@@ -4,8 +4,26 @@ Everything below was measured while building this catalog, not quoted from the m
 
 Five of these findings replace earlier ones. Four were overturned by experiments built to confirm them, the last of those by a prediction written down before the images existed. The fifth was overturned by a reader on Reddit two hours after this was published, who counted fingers I had only glanced at.
 
-Each finding below is measured against images committed to this repo. The
-summary table is in [the README](README.md); this is the evidence.
+Each finding below is measured against images committed to this repo.
+
+|  | Finding | What it costs you if you don't know |
+|---|---|---|
+| **Text** | It renders any string you write out, at any count. It cannot invent one. | Menu rows left to the model came back `CAPEME`, `CABIELO`. Write every string. |
+| **Text** | Small and rotated type is a second, independent limit. | Nine station names written out, four correct. |
+| **Korean** | Mostly works, and the words that fail repeat the same misspelling at a different seed. | Rerolling the seed is the wrong fix. Change the wording. |
+| **Hands** | **Withdrawn.** I claimed 7 of 8 sound. Two readers counted; three had six or four digits. | The whole category is in the failures now, with seeds. |
+| **Identity** | A face does not survive into a new scene. 0.45 keeps the face and the old composition; 0.72 keeps neither. | There is no working value in between. Train a LoRA. |
+| **Editing** | Medium conversion is reliable at strength 0.50, 0.60. Adding or removing objects is not. | Asked to remove steam, the steam came back. |
+| **Counting** | Objects count correctly from 2 to 8. Attributes do not. | "Exactly two flat colours" returned four. |
+| **Lighting** | Name the fixture and the fixture walks into frame. | Say what the light *does*, not what it is. |
+| **Stationery** | Six for six, and not because the strings were short. | The one category that never failed. |
+| **UI** | Layout always right, text only as good as your prompt. | Nine of ten mockups failed on invented labels. |
+| **Letters** | Side by side is fine. Asking two letterforms to share strokes is not. | Interlocked `R`+`W` reads as a `P`. |
+| **Patterns** | `seamless` does not tile. One of eight had a joinable edge. | Wallpaper and textile pipelines will show the seam. |
+| **Aerial** | `straight down` is a request, not an instruction. | Five of eight came back oblique. |
+| **Similes** | A size comparison can replace your subject. | "A beetle the size of a pony" returned a pony. |
+| **Styles** | Name a style and it may draw the style as an *object*. Describe the whole scene as the medium and the frame converts. | Asked for children's-book style, it put a picture book on the table. "The whole scene drawn as ..." fixed it. |
+| **Negatives** | **Measured, and weaker than the folklore.** Half of these prompts contain a "no X" clause; their failure rate is 12.4% against 11.6% for prompts without one. | 3 of 65 failures are a negative being ignored outright. Do not blame a negative before checking the rest of your prompt. |
 
 ### It renders text you write. It cannot invent text.
 

@@ -55,9 +55,8 @@ HERE = Path(__file__).resolve().parent
 # "worthless LLM slop" on the subreddit it launched in. Decorated evidence reads
 # like the thing that accusation was about. Set EMOJI = {} to drop them.
 EMOJI = {
-    "grab": "📥",
-    "usage": "🔧",
-    "findings": "🔬",
+    "copy": "📋",
+    "all": "📥",
     "toc": "🗂",
     "sample": "",
     "i2i": "🔁",
@@ -221,11 +220,10 @@ def render_readme(data: dict, lang: str = "en") -> str:
     T = {
         "en": {
             "gallery_link": "Browse the gallery →",
-            "usage_h": "Using them",
-            "findings_h": "Getting more out of them",
-            "grab_h": "Take the prompts and go",
+            "copy_h": "Copy one",
+            "all_h": "Or take all 475",
             "toc_entries": "prompts, every one with its seed",
-            "tagline": f"{n} tested {model} prompts. One file, drop it in ComfyUI.",
+            "tagline": f"{n} {model} prompts, each with the picture it made. Click to copy.",
             "toc": "Categories",
             "prompt": "Prompt",
             "contrib": "Contributing",
@@ -243,11 +241,10 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "zh": {
             "gallery_link": "浏览画廊 →",
-            "usage_h": "怎么用",
-            "findings_h": "怎么用得更好",
-            "grab_h": "直接把提示词拿走",
+            "copy_h": "复制一条",
+            "all_h": "或者全部拿走",
             "toc_entries": "条提示词，每条都有 seed",
-            "tagline": f"{n} 条经过验证的 {model} 提示词。一个文件，丢进 ComfyUI 就能用。",
+            "tagline": f"{n} 条 {model} 提示词，每条都配着它生成的图。点一下就复制。",
             "toc": "类别",
             "prompt": "提示词",
             "contrib": "参与贡献",
@@ -257,11 +254,10 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "ko": {
             "gallery_link": "갤러리 보기 →",
-            "usage_h": "쓰는 법",
-            "findings_h": "더 잘 쓰는 법",
-            "grab_h": "프롬프트만 가져가기",
+            "copy_h": "하나만 복사",
+            "all_h": "아니면 전부 가져가기",
             "toc_entries": "개 프롬프트, 전부 시드 기록",
-            "tagline": f"검증된 {model} 프롬프트 {n}개. 파일 하나, ComfyUI에 넣으면 끝.",
+            "tagline": f"{model} 프롬프트 {n}개, 각각 그걸로 나온 사진까지. 눌러서 복사.",
             "toc": "카테고리",
             "prompt": "프롬프트",
             "contrib": "기여하기",
@@ -271,11 +267,10 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "ja": {
             "gallery_link": "ギャラリーを見る →",
-            "usage_h": "使い方",
-            "findings_h": "もっとうまく使うには",
-            "grab_h": "プロンプトだけ持っていく",
+            "copy_h": "1 つコピー",
+            "all_h": "まとめて持っていく",
             "toc_entries": "件のプロンプト、すべてシード付き",
-            "tagline": f"検証済みの {model} プロンプト {n} 件。ファイル 1 つ、ComfyUI に入れるだけ。",
+            "tagline": f"{model} プロンプト {n} 件、それぞれ生成された画像つき。押せばコピー。",
             "toc": "カテゴリ",
             "prompt": "プロンプト",
             "contrib": "コントリビュート",
@@ -285,11 +280,10 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "es": {
             "gallery_link": "Ver la galería →",
-            "usage_h": "Cómo usarlos",
-            "findings_h": "Cómo sacarles más",
-            "grab_h": "Llévate los prompts",
+            "copy_h": "Copia uno",
+            "all_h": "O llévatelos todos",
             "toc_entries": "prompts, cada uno con su semilla",
-            "tagline": f"{n} prompts de {model} ya probados. Un archivo, y a ComfyUI.",
+            "tagline": f"{n} prompts de {model}, cada uno con la imagen que produjo. Pulsa y copia.",
             "toc": "Categorías",
             "prompt": "Prompt",
             "contrib": "Contribuir",
@@ -299,11 +293,10 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "fr": {
             "gallery_link": "Voir la galerie →",
-            "usage_h": "Comment les utiliser",
-            "findings_h": "Pour en tirer plus",
-            "grab_h": "Prenez les prompts",
+            "copy_h": "Copier un prompt",
+            "all_h": "Ou prenez les 475",
             "toc_entries": "prompts, chacun avec sa graine",
-            "tagline": f"{n} prompts {model} déjà testés. Un fichier, à déposer dans ComfyUI.",
+            "tagline": f"{n} prompts {model}, chacun avec l'image qu'il a produite. Un clic pour copier.",
             "toc": "Catégories",
             "prompt": "Prompt",
             "contrib": "Contribuer",
@@ -313,11 +306,10 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "de": {
             "gallery_link": "Zur Galerie →",
-            "usage_h": "So benutzt du sie",
-            "findings_h": "Mehr herausholen",
-            "grab_h": "Nimm die Prompts mit",
+            "copy_h": "Einen kopieren",
+            "all_h": "Oder alle mitnehmen",
             "toc_entries": "Prompts, jeder mit seinem Seed",
-            "tagline": f"{n} erprobte {model}-Prompts. Eine Datei, ab in ComfyUI.",
+            "tagline": f"{n} {model}-Prompts, jeder mit dem Bild, das er erzeugt hat. Klicken und kopieren.",
             "toc": "Kategorien",
             "prompt": "Prompt",
             "contrib": "Mitmachen",
@@ -327,11 +319,10 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "pt": {
             "gallery_link": "Ver a galeria →",
-            "usage_h": "Como usar",
-            "findings_h": "Como tirar mais partido",
-            "grab_h": "Leve os prompts",
+            "copy_h": "Copiar um",
+            "all_h": "Ou leve os 475",
             "toc_entries": "prompts, cada um com a sua seed",
-            "tagline": f"{n} prompts do {model} já testados. Um ficheiro, e já está no ComfyUI.",
+            "tagline": f"{n} prompts do {model}, cada um com a imagem que gerou. Clique para copiar.",
             "toc": "Categorias",
             "prompt": "Prompt",
             "contrib": "Contribuir",
@@ -403,93 +394,27 @@ def render_readme(data: dict, lang: str = "en") -> str:
     if repo_slug:
         raw = f"https://raw.githubusercontent.com/{repo_slug}/main/wildcards/"
         alltxt = HERE / "wildcards/all.txt"
-        L.append(h2("grab", T["grab_h"]))
+        # Two things, ordered by how many people can do them. The old version gave
+        # three paths equal weight and spent its longest paragraph on __wildcard__
+        # syntax, dynamic prompt nodes and which extension to install. Most people
+        # who land here are not on ComfyUI and never will be.
+        L.append(h2("copy", T["copy_h"]))
+        L.append(f"Open the [gallery]({site}), press **copy** under any picture, paste "
+                 "it wherever you generate. Nothing to install, no account, and the "
+                 "search box finds the ones you want.\n")
+        L.append(f'<a href="{site}"><b>Open the gallery →</b></a>\n')
+
+        L.append(h2("all", T["all_h"]))
         if alltxt.exists():
             L.append(f"**[Download all.txt]({raw}all.txt)** "
-                     f"({round(alltxt.stat().st_size / 1024)} KB): {len(kept)} prompts, "
-                     f"one per line.\n")
-        L.append("Put it in `ComfyUI/wildcards/` and call `__all__` from a dynamic prompt "
-                 "node. No clone, no install, no account.\n")
-        L.append("[Per-category files and a zip](wildcards/) "
-                 "· [Browse them all as pictures](" + site + ")\n")
-
-    # The section this README never had. ponytail spends 53% of its README on
-    # install, openwiki 38% on configuration; ours spent 406 characters on use
-    # and 19,605 on evidence. A visitor who takes the file still has to be told
-    # what to do with it.
-    if lang == "en":
-        L.append(h2("usage", T["usage_h"]))
-        # Ordered by how many people each path is for. The wildcard route was on
-        # top and it is the smallest group: __wildcard__ is not a ComfyUI feature,
-        # it comes from an extension, and a reader without it gets the literal
-        # string "__all__" in their image with no error to explain why.
-        L.append(f"**One prompt.** Open the [gallery]({site}), find a picture you like, "
-                 "press **copy** under it. That is the whole thing, and the search box "
-                 "at the top narrows 475 prompts down to the ones you want.\n")
-        L.append("**All of them, in ComfyUI.** Copy [wildcards/](wildcards/) into "
-                 f"`ComfyUI/wildcards/`, or take the [zip]({raw}krea2-wildcards.zip). "
-                 "You also need a dynamic prompt node, which is **not built into "
-                 "ComfyUI**: install "
-                 "[adieyal/comfyui-dynamicprompts](https://github.com/adieyal/comfyui-dynamicprompts) "
-                 "or an equivalent first, or the lines below arrive in your image as "
-                 "literal text. Then:\n")
-        L.append("```text\n"
-                 "__all__            any of the 475\n"
-                 "__photography__    one category, 61 of them, named after the folder\n"
-                 "__styles__         the 8 clauses that restyle the whole frame\n"
-                 "```")
-        L.append("\nCall two in one prompt if your node allows it. Put the style first: "
-                 "leading with the medium is what converts the frame instead of pasting "
-                 "the style into a photograph, which is the one ordering result this "
-                 "catalog measured.\n")
-        L.append("```text\n__styles__ __portrait__\n```")
-        L.append("\n<sub>Measured on one written subject, not on arbitrary pairs. "
-                 "[The eleven clauses and what they did](styles/README.md)</sub>\n")
-        L.append("\n**Anywhere else.** krea.ai, fal, Replicate, another UI: the files are "
-                 f"one prompt per line, so open [all.txt]({raw}all.txt) and take a line. "
-                 "Nothing here needs an install.\n")
-        L.append("The seeds are not in these files and would not help you anyway: they "
-                 "were recorded against a hosted endpoint that publishes no sampler or "
-                 "step count. [REPRODUCING.md](REPRODUCING.md) explains why.\n")
-
-    # The findings are what this catalog has that a bare prompt dump does not,
-    # so they stay above everything else. What changed is the form: fifteen full
-    # findings inline is 46 KB of prose in front of the catalog, and GitHub
-    # lazy-loads a README that long, which is why deep anchors into it drifted.
-    # The table is the whole argument; the evidence lives in FINDINGS.md.
-    f = data.get("findings")
-    if f:
-        L.append(h2("findings", T["findings_h"]))
-        if f.get("_summary"):
-            L.append(f"{counts(data, f['_summary'])}\n")
-        tbl = f.get("table")
-        if tbl:
-            L.append("| " + " | ".join(tbl["cols"]) + " |")
-            L.append("|---" * len(tbl["cols"]) + "|")
-            for r in tbl["rows"]:
-                L.append("| " + " | ".join(r) + " |")
-            L.append("")
-        L.append("**[Read the evidence for each one → FINDINGS.md](FINDINGS.md)** "
-                 "Every claim with its images, seeds, the experiments that overturned "
-                 "the earlier version, and the one rule this catalog built, tested and "
-                 "had to throw away.\n")
-        L.append("**[Fill-in-the-blank recipes → TEMPLATES.md](TEMPLATES.md)** "
-                 "Six shapes rather than 475 finished sentences, each naming the "
-                 "result in this repo that measured it. There are six and not four "
-                 "hundred on purpose.\n")
-        L.append("**[The words that carry the technique → VOCABULARY.md](VOCABULARY.md)** "
-                 "The 62 terms that recur across these prompts and travel between "
-                 "subjects, what each one does, and the seven that a finding here "
-                 "measured *not* doing what they say.\n")
-        L.append("**[Settings, and what the seeds are worth to you → REPRODUCING.md]"
-                 "(REPRODUCING.md)** The exact call behind all 475 images, and the limit "
-                 "on it: `fal-ai/krea-2/turbo` exposes no step count, no CFG, no sampler "
-                 "and no scheduler, so **these seeds reproduce on that endpoint and not "
-                 "in your local graph.** The prompts transfer; the seeds do not.\n")
-        L.append("**[How to ask this model for a style → styles/](styles/README.md)** "
-                 "The eight \"whole scene drawn as ...\" clauses from the Reddit post, the "
-                 "picture-book trap, the three styles that never converted, and an earlier "
-                 "sweep with a FLUX.1 dev cross-check.\n")
+                     f"({round(alltxt.stat().st_size / 1024)} KB), one prompt per line. "
+                     "Paste any of them into anything.\n")
+        L.append("On ComfyUI you can wire it up instead: put "
+                 "[wildcards/](wildcards/) in `ComfyUI/wildcards/` and write `__all__` "
+                 "in a prompt. That needs a dynamic prompts node, which ComfyUI does not "
+                 "come with, so install "
+                 "[comfyui-dynamicprompts](https://github.com/adieyal/comfyui-dynamicprompts) "
+                 "first or the underscores end up in your picture.\n")
 
     # The catalog used to be printed here in full: 475 entries, 195 KB of README.
     # GitHub lazy-loads a file that size, so every image above a deep anchor
@@ -543,14 +468,17 @@ def render_readme(data: dict, lang: str = "en") -> str:
     # comparable repos carry no failures section and seven of seven carry no
     # comparison; the failures were also a verbatim duplicate of two other files
     # in this repo. It is moved, not deleted, and linked from one line.
-    if lang == "en":
+    if True:            # every language gets the way back to the evidence
         nfail = len((data.get("failures") or {}).get("entries", []))
-        L.append("<sub>Every claim on this page was measured against the images in this "
-                 f"repo. [The {nfail} generations that were cut](docs/gallery-failures.md) "
-                 "· [how it was run and what the seeds are worth](REPRODUCING.md) "
-                 "· [how this compares to other catalogs](docs/comparison.md) "
-                 "· [the five edits, taken further](https://github.com/sjh9714/same-frame)"
-                 "</sub>\n")
+        # One line at the bottom for the reader who wants to check us. This was a
+        # 4,064-character findings table under a friendlier heading, and it opened
+        # by listing which of my own findings I had withdrawn.
+        L.append(f"<sub>What this model does and does not do, the {nfail} generations "
+                 "that were cut, how it was run and what the seeds are worth: "
+                 "**[FINDINGS.md](FINDINGS.md)** · [REPRODUCING.md](REPRODUCING.md) "
+                 "· [VOCABULARY.md](VOCABULARY.md) · [TEMPLATES.md](TEMPLATES.md) "
+                 "· [styles/](styles/README.md) · [comparison](docs/comparison.md) "
+                 "· [the cut generations](docs/gallery-failures.md)</sub>\n")
 
     L.append("\n" + h2("contrib", T["contrib"]) + f"\n{T['contrib_body']}\n")
     L.append(h2("license", T["license"]) + f"\n{T['license_body']}\n")
@@ -568,8 +496,16 @@ def render_findings(data: dict) -> str:
     L = ["# What this model actually does", ""]
     if f.get("_intro"):
         L += [counts(data, f["_intro"]), ""]
-    L += ["Each finding below is measured against images committed to this repo. The",
-          "summary table is in [the README](README.md); this is the evidence.", ""]
+    L += ["Each finding below is measured against images committed to this repo.", ""]
+    tbl = f.get("table")
+    if tbl:
+        # The summary table used to render only into the README, so moving the
+        # section out of the README would have dropped it entirely.
+        L += ["| " + " | ".join(tbl["cols"]) + " |",
+              "|---" * len(tbl["cols"]) + "|"]
+        for r in tbl["rows"]:
+            L.append("| " + " | ".join(r) + " |")
+        L.append("")
     for item in f["items"]:
         L += [f"### {item['title']}", "", counts(data, item["body"]), ""]
     L += ["## Reproducing any of it", "",

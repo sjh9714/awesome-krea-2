@@ -56,6 +56,7 @@ HERE = Path(__file__).resolve().parent
 # like the thing that accusation was about. Set EMOJI = {} to drop them.
 EMOJI = {
     "grab": "📥",
+    "usage": "🔧",
     "findings": "🔬",
     "toc": "🗂",
     "sample": "",
@@ -220,7 +221,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
     T = {
         "en": {
             "gallery_link": "Browse the gallery →",
-            "findings_h": "What this model actually does",
+            "usage_h": "Using them",
+            "findings_h": "Getting more out of them",
             "grab_h": "Take the prompts and go",
             "toc_entries": "prompts, every one with its seed",
             "tagline": f"{n} tested {model} prompts. One file, drop it in ComfyUI.",
@@ -241,7 +243,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "zh": {
             "gallery_link": "浏览画廊 →",
-            "findings_h": "这个模型实际能做什么",
+            "usage_h": "怎么用",
+            "findings_h": "怎么用得更好",
             "grab_h": "直接把提示词拿走",
             "toc_entries": "条提示词，每条都有 seed",
             "tagline": f"{n} 条经过验证的 {model} 提示词。一个文件，丢进 ComfyUI 就能用。",
@@ -254,7 +257,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "ko": {
             "gallery_link": "갤러리 보기 →",
-            "findings_h": "이 모델이 실제로 하는 것",
+            "usage_h": "쓰는 법",
+            "findings_h": "더 잘 쓰는 법",
             "grab_h": "프롬프트만 가져가기",
             "toc_entries": "개 프롬프트, 전부 시드 기록",
             "tagline": f"검증된 {model} 프롬프트 {n}개. 파일 하나, ComfyUI에 넣으면 끝.",
@@ -267,7 +271,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "ja": {
             "gallery_link": "ギャラリーを見る →",
-            "findings_h": "このモデルが実際にできること",
+            "usage_h": "使い方",
+            "findings_h": "もっとうまく使うには",
             "grab_h": "プロンプトだけ持っていく",
             "toc_entries": "件のプロンプト、すべてシード付き",
             "tagline": f"検証済みの {model} プロンプト {n} 件。ファイル 1 つ、ComfyUI に入れるだけ。",
@@ -280,7 +285,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "es": {
             "gallery_link": "Ver la galería →",
-            "findings_h": "Lo que este modelo hace de verdad",
+            "usage_h": "Cómo usarlos",
+            "findings_h": "Cómo sacarles más",
             "grab_h": "Llévate los prompts",
             "toc_entries": "prompts, cada uno con su semilla",
             "tagline": f"{n} prompts de {model} ya probados. Un archivo, y a ComfyUI.",
@@ -293,7 +299,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "fr": {
             "gallery_link": "Voir la galerie →",
-            "findings_h": "Ce que ce modèle fait vraiment",
+            "usage_h": "Comment les utiliser",
+            "findings_h": "Pour en tirer plus",
             "grab_h": "Prenez les prompts",
             "toc_entries": "prompts, chacun avec sa graine",
             "tagline": f"{n} prompts {model} déjà testés. Un fichier, à déposer dans ComfyUI.",
@@ -306,7 +313,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "de": {
             "gallery_link": "Zur Galerie →",
-            "findings_h": "Was dieses Modell wirklich tut",
+            "usage_h": "So benutzt du sie",
+            "findings_h": "Mehr herausholen",
             "grab_h": "Nimm die Prompts mit",
             "toc_entries": "Prompts, jeder mit seinem Seed",
             "tagline": f"{n} erprobte {model}-Prompts. Eine Datei, ab in ComfyUI.",
@@ -319,7 +327,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "pt": {
             "gallery_link": "Ver a galeria →",
-            "findings_h": "O que este modelo realmente faz",
+            "usage_h": "Como usar",
+            "findings_h": "Como tirar mais partido",
             "grab_h": "Leve os prompts",
             "toc_entries": "prompts, cada um com a sua seed",
             "tagline": f"{n} prompts do {model} já testados. Um ficheiro, e já está no ComfyUI.",
@@ -403,6 +412,38 @@ def render_readme(data: dict, lang: str = "en") -> str:
                  "node. No clone, no install, no account.\n")
         L.append("[Per-category files and a zip](wildcards/) "
                  "· [Browse them all as pictures](" + site + ")\n")
+
+    # The section this README never had. ponytail spends 53% of its README on
+    # install, openwiki 38% on configuration; ours spent 406 characters on use
+    # and 19,605 on evidence. A visitor who takes the file still has to be told
+    # what to do with it.
+    if lang == "en":
+        L.append(h2("usage", "Using them"))
+        L.append("Copy [wildcards/](wildcards/) into `ComfyUI/wildcards/`, or grab the "
+                 f"[zip]({raw}krea2-wildcards.zip) and unpack it there. Then put one of "
+                 "these in a dynamic prompt node:\n")
+        L.append("```text\n"
+                 "__all__            any of the 475\n"
+                 "__photography__    one category, 61 of them, named after the folder\n"
+                 "__styles__         the 8 clauses that restyle the whole frame\n"
+                 "```")
+        # The style-first ordering is measured, 11 of 11 clauses converting the
+        # whole frame, but only against one written subject. Saying it works with
+        # any wildcard the reader draws would be a claim nobody here has tested.
+        L.append("\nCall two in one prompt if your node allows it. Put the style first: "
+                 "leading with the medium is what converts the frame instead of pasting "
+                 "the style into a photograph, which is the one ordering result this "
+                 "catalog measured.\n")
+        L.append("```text\n__styles__ __portrait__\n```")
+        L.append("\n<sub>Measured on one written subject, not on arbitrary pairs. "
+                 "[The eleven clauses and what they did](styles/README.md)</sub>\n")
+        L.append("\n**No dynamic prompt node?** The files are one prompt per line. Open "
+                 f"[all.txt]({raw}all.txt), take a line, paste it. That is the whole "
+                 "format.\n")
+        L.append("The seeds are not in these files and would not help you anyway: they "
+                 "were recorded against a hosted endpoint that publishes no sampler or "
+                 "step count. [REPRODUCING.md](REPRODUCING.md) explains why.\n")
+
 
     # The findings are what this catalog has that a bare prompt dump does not,
     # so they stay above everything else. What changed is the form: fifteen full
@@ -489,58 +530,20 @@ def render_readme(data: dict, lang: str = "en") -> str:
         L.append(f"[**All {len(kept)} in the repo →**](docs/gallery.md)"
                  f" · [**as a web page →**]({site})\n")
 
+    # Everything that used to sit here was evidence: the image-to-image follow-up,
+    # the reproduction numbers, 65 failures and a comparison table. All of it is
+    # true and none of it is why anyone opened this page. Fifteen of fifteen
+    # comparable repos carry no failures section and seven of seven carry no
+    # comparison; the failures were also a verbatim duplicate of two other files
+    # in this repo. It is moved, not deleted, and linked from one line.
     if lang == "en":
-        # The five editing-* entries turned out to generalise unevenly once they
-        # were run against sources they were not derived from, which is a result
-        # that belongs next to them rather than only in the other repo.
-        L.append(h2("i2i", "The image-to-image entries, taken further"))
-        L.append("The five `editing-*` entries were pulled out into "
-                 "[**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for "
-                 "Claude Code and Codex, and each one was re-run against a source it was *not* "
-                 "derived from. Two held, two came back partial, one failed. And the failures "
-                 "produced a sharper rule than this catalog started with: **geometry is locked, "
-                 "material is not.** Relighting wet rice terraces under hard sun keeps every "
-                 "contour in position and returns dry stone.\n")
-        L.append("That repo also carries the two edits cut from here as refusals: it blocks an "
-                 "object-removal or character-consistency request before it is spent, and shows "
-                 "you the image where it already failed.\n")
-
-        L.append(h2("check", "Check any of this yourself"))
-        L.append("`python3 scripts/regen.py --id typography-012` re-runs any entry from "
-                 "its recorded seed. Two text-to-image entries came back at a mean "
-                 "per-pixel difference of 1.3 and 1.5 out of 255, which is WebP "
-                 "re-encoding loss, and the endpoint is deterministic at identical "
-                 "inputs. The five `editing-*` entries are the exception and the number "
-                 "is much larger. [REPRODUCING.md](REPRODUCING.md) has the exact call, "
-                 "the numbers, and why none of this transfers to a local graph.\n")
-
-        fails = data.get("failures")
-        if fails:
-            L.append(h2("failures", "The failures, kept as evidence"))
-            L.append(f"{fails.get('_what','')}\n")
-            L.append("| | What was asked for | What came back |")
-            L.append("|---|---|---|")
-            for f in fails.get("entries", []):
-                if not (HERE / f["image"]).exists():
-                    continue
-                seed = (f.get("params") or {}).get("seed")
-                L.append(f'| <img src="{f["image"]}" width="150" alt="{f["claim"]}"> '
-                         f'| {f.get("expected","")} | {f["claim"]}'
-                         + (f' <br>`seed: {seed}`' if seed else "") + " |")
-            L.append("")
-
-    cmp = data.get("comparison")
-    if cmp and lang == "en":
-        L.append(h2("compare", "How this compares"))
-        L.append(f"{cmp['_intro']}\n")
-        L.append("| | " + " | ".join(cmp["cols"]) + " |")
-        L.append("|---" * (len(cmp["cols"]) + 1) + "|")
-        for r in cmp["rows"]:
-            L.append("| " + " | ".join(r) + " |")
-        L.append("")
-        for n in cmp.get("_notes", []):
-            L.append(f"- {n}")
-        L.append("")
+        nfail = len((data.get("failures") or {}).get("entries", []))
+        L.append("<sub>Every claim on this page was measured against the images in this "
+                 f"repo. [The {nfail} generations that were cut](docs/gallery-failures.md) "
+                 "· [how it was run and what the seeds are worth](REPRODUCING.md) "
+                 "· [how this compares to other catalogs](docs/comparison.md) "
+                 "· [the five edits, taken further](https://github.com/sjh9714/same-frame)"
+                 "</sub>\n")
 
     L.append("\n" + h2("contrib", T["contrib"]) + f"\n{T['contrib_body']}\n")
     L.append(h2("license", T["license"]) + f"\n{T['license_body']}\n")
@@ -569,6 +572,27 @@ def render_findings(data: dict) -> str:
     return "\n".join(L)
 
 
+def render_comparison(data: dict) -> str:
+    """docs/comparison.md from the manifest.
+
+    This used to be 3,245 characters in the README. Seven of the seven reference
+    repositories checked on 2026-08-06 carry no comparison section at all, and a
+    table scoring us on the columns we happen to win is an argument with the
+    other catalogs rather than an answer to the visitor. It is still true, so it
+    is still here, one link away."""
+    cmp = data["comparison"]
+    L = ["# How this compares", "", cmp["_intro"], "",
+         "| | " + " | ".join(cmp["cols"]) + " |",
+         "|---" * (len(cmp["cols"]) + 1) + "|"]
+    for r in cmp["rows"]:
+        L.append("| " + " | ".join(r) + " |")
+    L.append("")
+    for n in cmp.get("_notes", []):
+        L.append(f"- {n}")
+    L += ["", "Back to [the catalog](../README.md).", ""]
+    return "\n".join(L)
+
+
 def cmd_build(langs: list[str]) -> int:
     data = load()
     kept = [e for e in data["entries"] if (HERE / e["image"]).exists()]
@@ -581,6 +605,9 @@ def cmd_build(langs: list[str]) -> int:
 
     (HERE / "FINDINGS.md").write_text(render_findings(data), encoding="utf-8")
     print("wrote FINDINGS.md")
+    (HERE / "docs").mkdir(exist_ok=True)
+    (HERE / "docs/comparison.md").write_text(render_comparison(data), encoding="utf-8")
+    print("wrote docs/comparison.md")
 
     ncat = len({e["category"] for e in kept})
     print(f"\n{len(kept)} entries across {ncat} categories"

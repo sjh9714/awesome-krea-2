@@ -43,7 +43,7 @@ on anything that did not come from this repo's own runs, and `verify.py`
 enforces that.
 
 **Do not edit the generated files.** `README.md`, `README_ZH.md`, `README_KO.md`,
-`FINDINGS.md`, `VOCABULARY.md`, `TEMPLATES.md`, `docs/gallery*.md`, `wildcards/` and `index.html`
+`FINDINGS.md`, `VOCABULARY.md`, `TEMPLATES.md`, `docs/gallery*.md`, `docs/comparison.md`, `wildcards/` and `index.html`
 are all built from `prompts.json` and `vocabulary.json`. A workflow rebuilds them
 when the manifest changes, and CI fails a pull request whose generated files do
 not match its data.
@@ -63,7 +63,7 @@ python3 verify.py
 
 ## What CI checks
 
-`verify.py` runs 184 checks that tie the prose to the data: every count quoted in
+`verify.py` runs 192 checks that tie the prose to the data: every count quoted in
 a document against the manifest, every seed present, every category anchored and
 reachable, the download table's file sizes against the files, the vocabulary
 rule, and that the generated files are in sync. It is not a linter. It exists

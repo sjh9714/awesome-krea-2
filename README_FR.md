@@ -21,7 +21,7 @@ Put it in `ComfyUI/wildcards/` and call `__all__` from a dynamic prompt node. No
 
 [Per-category files and a zip](wildcards/) · [Browse them all as pictures](https://sjh9714.github.io/krea2-wildcards/)
 
-## 🔬 Ce que ce modèle fait vraiment
+## 🔬 Pour en tirer plus
 
 Fourteen findings, each measured against the images in this repo rather than quoted
 from the model card. Five of them replace earlier findings I had to withdraw. Four

@@ -233,7 +233,14 @@ def main() -> int:
     # batch, for five batches, understating the catalog roughly five-fold in the
     # one place built to argue it is worth using. Nothing above catches that,
     # because every other check reads the generated prose.
-    row = re.search(r"^\|\s*\*\*this repo\*\*\s*\|(.+)$", readme, re.M)
+    # Moved out of the README on 2026-08-06: seven of seven reference repos carry
+    # no comparison section, and a table scoring us on columns we chose is an
+    # argument with other catalogs rather than an answer to the visitor.
+    cmp_p = HERE / "docs/comparison.md"
+    c(cmp_p.exists(), "docs/comparison.md is built")
+    cmp_text = cmp_p.read_text(encoding="utf-8") if cmp_p.exists() else ""
+    c("docs/comparison.md" in readme, "README links the comparison")
+    row = re.search(r"^\|\s*\*\*this repo\*\*\s*\|(.+)$", cmp_text, re.M)
     if row is None:
         c(False, "comparison table has a 'this repo' row")
     else:
@@ -257,7 +264,7 @@ def main() -> int:
             if expect not in got:
                 bad.append(f"{col}: expected {expect}, cell reads {cells[i]!r}"
                            if i < len(cells) else f"{col}: cell missing")
-        c(not bad, "comparison table row matches the manifest, cell by cell",
+        c(not bad, "docs/comparison.md matches the manifest, cell by cell",
           "; ".join(bad))
         spend = d.get("spend")
         c(spend is None or f"{spend}" in cells[-1],
@@ -529,6 +536,22 @@ def main() -> int:
           f"all {len(edits)} editing entries carry source and strength")
         c(all("seed" in e.get("params", {}) for e in d["entries"]),
           "every entry carries a seed")
+
+    # The README carried 19,605 characters of failure table, 56% of the file and a
+    # verbatim duplicate of docs/gallery-failures.md and index.html, while the
+    # section on how to use the thing was 406 characters. Fifteen of fifteen
+    # comparable repos have no failures section; the three biggest winners spend
+    # their largest section on install or configuration. These three guards keep
+    # that inversion from coming back, because writing evidence is the easy part.
+    rd_bytes = len(readme.encode("utf-8"))
+    c(rd_bytes < 18_000,
+      f"README is {rd_bytes // 1024} KB, under the 18 KB ceiling")
+    c("images/failures/" not in readme,
+      "the README does not re-inline the failures",
+      f"{readme.count('images/failures/')} failure images are back in it")
+    c("docs/gallery-failures.md" in readme, "README links where the failures live")
+    for token in ("ComfyUI/wildcards/", "__all__", "__styles__"):
+        c(token in readme, f"the usage section names {token}")
 
     # The first screen sells what you take away. It used to sell how rigorous we
     # were: a 109-character tagline listing 475 prompts, 65 failures and 61

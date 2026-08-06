@@ -74,7 +74,9 @@ def main() -> int:
     c(not orphans, f"no orphan images among {len(on_disk)} on disk", f"{orphans[:5]}")
 
     print("\ndocuments")
-    docs = ["README.md", "README_ZH.md", "README_KO.md", "index.html"]
+    import build_catalog as _bc0
+    docs = [("README.md" if x == "en" else f"README_{x.upper()}.md")
+            for x in _bc0.LANGS] + ["index.html"]
     for name in docs:
         p = HERE / name
         if not p.exists():
@@ -120,7 +122,14 @@ def main() -> int:
     # All three language switchers shipped that way and nobody could reach the
     # translations at all — which made the work of putting findings into them
     # pointless. Nothing else here would have caught it; it only shows on render.
-    for name in ("README.md", "README_ZH.md", "README_KO.md"):
+    # Derived from the generator rather than listed here, so adding a language
+    # cannot quietly ship a README nobody checks. Five did exactly that once.
+    import build_catalog as _bc
+    names = {x: ("README.md" if x == "en" else f"README_{x.upper()}.md")
+             for x in _bc.LANGS}
+    c(all((HERE / f).exists() for f in names.values()),
+      f"all {len(names)} language READMEs are built")
+    for lang, name in names.items():
         path = HERE / name
         if not path.exists():
             continue
@@ -128,12 +137,12 @@ def main() -> int:
         raw = re.findall(r'<(p|div|h\d)[^>]*>[^<]*\[[^\]]+\]\([^)]+\)', text)
         c(not raw, f"{name}: no Markdown links inside HTML blocks",
           f"{len(raw)} would render as literal brackets, e.g. {raw[:1]}")
-        # And the switcher has to actually point at the other two.
-        others = {"README.md": ("README_ZH.md", "README_KO.md"),
-                  "README_ZH.md": ("README.md", "README_KO.md"),
-                  "README_KO.md": ("README.md", "README_ZH.md")}[name]
-        for target in others:
-            c(f'href="{target}"' in text, f"{name} links to {target}")
+        missing = [o for l2, o in names.items()
+                   if l2 != lang and f'href="{o}"' not in text]
+        c(not missing, f"{name} links to every other translation"
+                       + (f", missing {missing}" if missing else ""))
+        c("hero.webp" in text, f"{name} carries the hero")
+        c("docs/gallery" in text, f"{name} points into the repo gallery")
 
     # The hero has gone stale twice by carrying findings that later moved: it led
     # with "one sign holds, a list collapses" after the stringcount ladder
@@ -165,14 +174,22 @@ def main() -> int:
     # table. If it creeps back, this fails.
     findings = HERE / "FINDINGS.md"
     c(findings.exists(), "FINDINGS.md exists", "the long-form evidence has to live somewhere")
-    for name, anchor in (("README.md", "## Categories"),
-                         ("README_ZH.md", "## 类别"),
-                         ("README_KO.md", "## 카테고리")):
+    # The catalog heading is localised, so read it out of the generator's own
+    # translation table instead of hard-coding one string per language.
+    for lang in _bc0.LANGS:
+        name = "README.md" if lang == "en" else f"README_{lang.upper()}.md"
         path = HERE / name
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8")
-        if anchor not in text or "hero.webp" not in text:
+        # The catalog heading is localised and now carries an emoji, so find it
+        # by position: the last "## " before the first link into the gallery.
+        # Matching on the heading text needed one hard-coded string per language
+        # and broke the moment the headings changed.
+        gi = text.find("](docs/gallery")
+        heads = [l for l in text[:gi].splitlines() if l.startswith("## ")] if gi > 0 else []
+        anchor = heads[-1] if heads else None
+        if anchor is None or "hero.webp" not in text:
             c(False, f"{name} has a hero image and a catalog heading")
             continue
         gap = text.index(anchor) - text.index("</p>", text.index("hero.webp"))
@@ -185,13 +202,20 @@ def main() -> int:
     # by the raw English catalog — every findings section was missing, so anyone
     # arriving from a Chinese or Korean link found a prompt list and none of the
     # reasoning that makes it worth reading. The badge row advertises both.
-    for name in ("README_ZH.md", "README_KO.md"):
+    # Every translation, not just the two that existed when this was written, and
+    # located the same way as above rather than by a hard-coded heading string.
+    # The literal "## 类别" stopped matching the moment an emoji went in front of
+    # it, and the check reported a missing heading instead of a changed one.
+    for lang in [x for x in _bc0.LANGS if x != "en"]:
+        name = f"README_{lang.upper()}.md"
         path = HERE / name
         if not path.exists():
             c(False, f"{name} exists")
             continue
         text = path.read_text(encoding="utf-8")
-        anchor = next((a for a in ("## 类别", "## 카테고리") if a in text), None)
+        gi = text.find("](docs/gallery")
+        heads = [l for l in text[:gi].splitlines() if l.startswith("## ")] if gi > 0 else []
+        anchor = heads[-1] if heads else None
         c(anchor is not None, f"{name} has a catalog heading")
         if anchor:
             intro = text[:text.index(anchor)]
@@ -365,6 +389,42 @@ def main() -> int:
         c("styles/README.md" in readme, "README.md links to the styles page")
         c("wildcards/styles.txt" in readme, "README.md links to the wildcards file")
 
+    # The catalog has to be readable without leaving GitHub. All five prompt
+    # catalogs above 8,000 stars in this niche keep their prompts in the repo;
+    # this one briefly did not, and a visitor who never clicked through to Pages
+    # saw exactly one sample entry.
+    gmap_p = HERE / "docs/gallery-map.json"
+    c(gmap_p.exists(), "docs/gallery-map.json is built")
+    if gmap_p.exists():
+        gmap = json.loads(gmap_p.read_text(encoding="utf-8"))
+        d = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))
+        cats = {e["category"] for e in d["entries"]
+                if (HERE / e["image"]).exists()}
+        c(cats == set(gmap["where"]),
+          f"the gallery covers all {len(cats)} categories")
+        dead = []
+        for cat, fname in gmap["where"].items():
+            f = HERE / "docs" / fname
+            if not f.exists() or f"## {cat}" not in f.read_text(encoding="utf-8"):
+                dead.append(cat)
+        c(not dead, "every category link lands on its section"
+                    + (f", but {dead} do not" if dead else ""))
+        c("docs/gallery.md" in readme, "README.md points into the repo gallery")
+        for cat in list(gmap["where"])[:5]:
+            c(f"docs/{gmap['where'][cat]}#{cat}" in readme,
+              f"README.md links {cat} to the file it is actually in")
+        # Entries are printed once each; a duplicated or dropped category during
+        # the split would be invisible without counting.
+        shown = sum(f.read_text(encoding="utf-8").count("```text")
+                    for f in (HERE / "docs").glob("gallery*.md"))
+        c(shown == len(d["entries"]),
+          f"the gallery prints every entry exactly once ({shown} of {len(d['entries'])})")
+        back = sum(f.read_text(encoding="utf-8").count("](gallery.md#categories)")
+                   for f in (HERE / "docs").glob("gallery-part-*.md"))
+        if gmap["multi"]:
+            c(back == len(d["entries"]),
+              f"every entry links back to the index ({back})")
+
     # The vocabulary is the one place in this repo that points at specific words and
     # says they matter. That is exactly the kind of claim this catalog has had to
     # retract before, so the rule behind it (3+ entries, 2+ categories) is enforced
@@ -462,6 +522,84 @@ def main() -> int:
           f"all {len(edits)} editing entries carry source and strength")
         c(all("seed" in e.get("params", {}) for e in d["entries"]),
           "every entry carries a seed")
+
+    # Templates are the one place this repo hands out a shape instead of a
+    # measurement, so each one has to keep naming the measurement it came from.
+    tpl_p = HERE / "TEMPLATES.md"
+    c(tpl_p.exists(), "TEMPLATES.md is built")
+    if tpl_p.exists():
+        import build_templates as bt
+        dd = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))
+        vv = json.loads((HERE / "vocabulary.json").read_text(encoding="utf-8"))
+        items = dd["templates"]["items"]
+        unresolved = [i["name"] for i in items
+                      if not bt.resolve(i["evidence"], dd, vv)[0]]
+        c(not unresolved, f"all {len(items)} templates cite evidence that exists"
+                          + (f", but {unresolved} do not" if unresolved else ""))
+        tt = tpl_p.read_text(encoding="utf-8")
+        c(all(i["name"] in tt for i in items), "TEMPLATES.md is current")
+        c(all(f"[{s}]" in i["template"] for i in items for s in i["slots"]),
+          "every declared slot appears in its template")
+        c("TEMPLATES.md" in readme, "README.md links TEMPLATES.md")
+
+    # Credit is a growth loop and a debt at the same time. The reference catalog
+    # in this niche credits every prompt to whoever wrote it and links the post it
+    # came from, and those people carry it further. The debt is that a half-filled
+    # credit is worse than none: a name with no link is unverifiable, and an entry
+    # borrowed from someone with no licence is a problem rather than a credit.
+    d = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))
+    att = d.get("attribution")
+    c(bool(att), "prompts.json declares how attribution works")
+    if att:
+        c(bool(att.get("owner") and att.get("owner_link")),
+          "the default author is named and linked")
+        bad = []
+        for e in d["entries"] + d.get("failures", {}).get("entries", []):
+            who = e.get("prompt_author")
+            if who and not e.get("prompt_author_link"):
+                bad.append(f"{e['id']} names an author with no link")
+            if who and not e.get("license"):
+                bad.append(f"{e['id']} is someone else's with no licence")
+            if e.get("source_links") and not who:
+                bad.append(f"{e['id']} links a source but credits nobody")
+            for u in e.get("source_links", []):
+                if not str(u).startswith("http"):
+                    bad.append(f"{e['id']} has a source_link that is not a URL")
+        c(not bad, "every credited entry is completely credited"
+                   + (f": {bad[:4]}" if bad else ""))
+        credited = [e for e in d["entries"] if e.get("prompt_author")]
+        c(True, f"{len(credited)} of {len(d['entries'])} entries carry their own "
+                f"attribution; the rest are the owner's own runs")
+        c("prompt_author" in (HERE / "build_gallery.py").read_text(encoding="utf-8")
+          and "prompt_author" in (HERE / "build_pages.py").read_text(encoding="utf-8"),
+          "both renderers print attribution when it is there")
+
+    # Contribution is a machine or it does not happen. The reference case in this
+    # niche has 1,807 forks and no push in fourteen months because an issue form,
+    # a validating workflow and a regenerating workflow do the work. Ours only
+    # holds if the three files are actually there.
+    gh = HERE / ".github"
+    c((gh / "ISSUE_TEMPLATE/add_entry.yml").exists(),
+      "there is an issue form for adding an entry")
+    c((gh / "workflows/verify.yml").exists(), "CI runs verify.py")
+    c((gh / "workflows/rebuild.yml").exists(),
+      "a workflow regenerates the documents when the manifest changes")
+    contrib = HERE / "CONTRIBUTING.md"
+    if contrib.exists():
+        ct = contrib.read_text(encoding="utf-8")
+        c("template=add_entry.yml" in ct, "CONTRIBUTING.md leads with the issue form")
+        c("prompt_author" in ct, "CONTRIBUTING.md documents the attribution fields")
+        for b in ("build_gallery.py", "build_vocabulary.py"):
+            c(b in ct, f"CONTRIBUTING.md lists {b} in the build order")
+
+    # The number of checks is quoted in CONTRIBUTING.md, so it is a claim like any
+    # other in this repo and it drifts the moment a check is added.
+    if contrib.exists():
+        total = c.passed + len(c.failures) + 1
+        claimed = re.search(r"runs (\d+) checks", contrib.read_text(encoding="utf-8"))
+        c(bool(claimed) and int(claimed.group(1)) == total,
+          f"CONTRIBUTING.md says {claimed.group(1) if claimed else '?'} checks "
+          f"and there are {total}")
 
     print()
     if c.failures:

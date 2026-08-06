@@ -1,0 +1,135 @@
+name: "Add a prompt to the catalog"
+description: "Send a Krea 2 prompt and the image it produced. You do not need to touch any files."
+title: "[entry] "
+labels: ["new entry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You do not need to open a pull request or edit JSON. Fill this in and a
+        maintainer will add it.
+
+        Two rules, and they are the whole quality bar:
+
+        1. **The prompt has to reproduce.** Paste it verbatim, run it, get
+           something recognisably like the image. If it worked once with a seed
+           you no longer have, it does not belong here.
+        2. **The image has to be raw model output.** No upscaling, no
+           retouching, no cherry-picked crop. This catalog is a record of what
+           the model does.
+
+        If your generation *failed* in an interesting way, that is also welcome.
+        Say so in the notes; the failures in this repo are kept on purpose.
+
+  - type: input
+    id: prompt
+    attributes:
+      label: The prompt
+      description: "Exactly as you ran it. Do not clean it up."
+      placeholder: "A ceramicist in her studio at golden hour, hands wet with slip ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: image
+    attributes:
+      label: The image
+      description: "Drag and drop the file here. Raw output, under about 2 MB."
+    validations:
+      required: true
+
+  - type: input
+    id: seed
+    attributes:
+      label: Seed
+      description: >
+        The seed the image was generated at. If you were on ComfyUI or another
+        local graph, put the seed anyway and tell us in the notes; seeds do not
+        transfer between a hosted endpoint and a local one, and we record which
+        is which. See REPRODUCING.md.
+    validations:
+      required: true
+
+  - type: input
+    id: how
+    attributes:
+      label: Where you ran it
+      description: "fal, Replicate, ComfyUI, something else. Include steps, CFG and sampler if your setup exposes them."
+      placeholder: "fal-ai/krea-2/turbo, square_hd"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: "Closest fit. If nothing fits, pick 'something else' and say what in the notes."
+      options:
+        - photography
+        - illustration
+        - typography
+        - product
+        - portrait
+        - landscape
+        - interior
+        - still-life
+        - pattern
+        - poster
+        - something else
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: A short title
+      placeholder: "Rain-soaked crosswalk, neon reflections"
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: Who wrote the prompt
+      description: >
+        Your handle, or someone else's if you found it. Credit goes on the entry
+        and stays there.
+      placeholder: "@yourname"
+    validations:
+      required: true
+
+  - type: input
+    id: author_link
+    attributes:
+      label: Their profile
+      placeholder: "https://github.com/yourname"
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Where it was first posted, if anywhere
+      description: "A link to the original post, so credit points somewhere real. Leave blank if this is the first time it has been published."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: license
+    attributes:
+      label: Licence for the image
+      description: "Prompts in this repo are MIT. Pick what your image is under."
+      options:
+        - CC-BY-4.0
+        - CC0-1.0
+        - MIT
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: "Anything a reader needs. What broke, what you had to reword, which part of the prompt is doing the work."
+    validations:
+      required: false

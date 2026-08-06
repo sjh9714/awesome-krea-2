@@ -45,6 +45,36 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 
+# Every catalog above 8,000 stars in this niche ships translations; the
+# largest ships twelve. The body evidence stays in English, so these are
+# the navigation and the framing, not the findings.
+# Every catalog above 8,000 stars in this niche puts an emoji on its headings.
+# Restrained on purpose: one per top-level section in the README and nowhere
+# else. The evidence documents stay plain, because this repo's whole claim is
+# that it measures things the emoji-heavy catalogs do not, and it was called
+# "worthless LLM slop" on the subreddit it launched in. Decorated evidence reads
+# like the thing that accusation was about. Set EMOJI = {} to drop them.
+EMOJI = {
+    "grab": "📥",
+    "findings": "🔬",
+    "toc": "🗂",
+    "sample": "",
+    "i2i": "🔁",
+    "check": "✅",
+    "failures": "❌",
+    "compare": "📊",
+    "contrib": "🤝",
+    "license": "⚖",
+}
+
+
+def h2(key: str, text: str) -> str:
+    e = EMOJI.get(key)
+    return f"## {e} {text}\n" if e else f"## {text}\n"
+
+
+LANGS = ["en", "zh", "ko", "ja", "es", "fr", "de", "pt"]
+
 from build_vocabulary import load as _load_vocab, mark, term_pattern
 VOCAB_MD = term_pattern([x["t"] for x in _load_vocab()[0]["terms"]])
 MANIFEST = HERE / "prompts.json"
@@ -235,6 +265,71 @@ def render_readme(data: dict, lang: str = "en") -> str:
             "license": "라이선스",
             "license_body": "프롬프트는 MIT입니다. 생성된 이미지는 모델 제공자의 약관을 따릅니다 — 상업적 사용 전 확인하세요.",
         },
+        "ja": {
+            "gallery_link": "ギャラリーを見る →",
+            "findings_h": "このモデルが実際にできること",
+            "grab_h": "プロンプトだけ持っていく",
+            "toc_entries": "件のプロンプト、すべてシード付き",
+            "tagline": f"{model} のプロンプト {n} 件、それぞれを生成したシード付き。さらに失敗した生成 {nfail} 件とその理由。ここに書かれている結論はすべてこれらの画像で実測したものであり、モデルカードからの引用ではありません。",
+            "toc": "カテゴリ",
+            "prompt": "プロンプト",
+            "contrib": "コントリビュート",
+            "contrib_body": "`prompts.json` にエントリを追加し、出力画像を添えて PR を送ってください。ルールは 2 つ、プロンプトは再現可能であること、画像は未編集の出力であることです。",
+            "license": "ライセンス",
+            "license_body": "プロンプトは MIT です。生成画像はモデル提供者の規約に従います。商用利用の前に確認してください。",
+        },
+        "es": {
+            "gallery_link": "Ver la galería →",
+            "findings_h": "Lo que este modelo hace de verdad",
+            "grab_h": "Llévate los prompts",
+            "toc_entries": "prompts, cada uno con su semilla",
+            "tagline": f"{n} prompts de {model}, cada uno con la semilla que lo produjo, más las {nfail} generaciones que fallaron y por qué. Todo lo que se afirma aquí se midió contra esas imágenes, no se copió de la ficha del modelo.",
+            "toc": "Categorías",
+            "prompt": "Prompt",
+            "contrib": "Contribuir",
+            "contrib_body": "Añade una entrada a `prompts.json` con tu imagen de salida y abre un PR. Dos reglas: el prompt tiene que reproducirse y la imagen tiene que ser la salida sin editar.",
+            "license": "Licencia",
+            "license_body": "Los prompts son MIT. Las imágenes generadas se rigen por los términos del proveedor del modelo; compruébalos antes de un uso comercial.",
+        },
+        "fr": {
+            "gallery_link": "Voir la galerie →",
+            "findings_h": "Ce que ce modèle fait vraiment",
+            "grab_h": "Prenez les prompts",
+            "toc_entries": "prompts, chacun avec sa graine",
+            "tagline": f"{n} prompts {model}, chacun avec la graine qui l'a produit, plus les {nfail} générations qui ont échoué et pourquoi. Tout ce qui est affirmé ici a été mesuré sur ces images, pas recopié de la fiche du modèle.",
+            "toc": "Catégories",
+            "prompt": "Prompt",
+            "contrib": "Contribuer",
+            "contrib_body": "Ajoutez une entrée à `prompts.json` avec votre image de sortie et ouvrez une PR. Deux règles : le prompt doit être reproductible et l'image doit être la sortie non retouchée.",
+            "license": "Licence",
+            "license_body": "Les prompts sont sous MIT. Les images générées relèvent des conditions du fournisseur du modèle ; vérifiez-les avant tout usage commercial.",
+        },
+        "de": {
+            "gallery_link": "Zur Galerie →",
+            "findings_h": "Was dieses Modell wirklich tut",
+            "grab_h": "Nimm die Prompts mit",
+            "toc_entries": "Prompts, jeder mit seinem Seed",
+            "tagline": f"{n} {model}-Prompts, jeder mit dem Seed, der ihn erzeugt hat, dazu die {nfail} fehlgeschlagenen Generierungen und warum. Alles hier wurde an diesen Bildern gemessen, nicht aus der Modellkarte zitiert.",
+            "toc": "Kategorien",
+            "prompt": "Prompt",
+            "contrib": "Mitmachen",
+            "contrib_body": "Füge einen Eintrag in `prompts.json` hinzu, leg dein Ausgabebild dazu und öffne einen PR. Zwei Regeln: Der Prompt muss reproduzierbar sein, und das Bild muss die unbearbeitete Ausgabe sein.",
+            "license": "Lizenz",
+            "license_body": "Die Prompts stehen unter MIT. Für die erzeugten Bilder gelten die Bedingungen des Modellanbieters; prüfe sie vor kommerzieller Nutzung.",
+        },
+        "pt": {
+            "gallery_link": "Ver a galeria →",
+            "findings_h": "O que este modelo realmente faz",
+            "grab_h": "Leve os prompts",
+            "toc_entries": "prompts, cada um com a sua seed",
+            "tagline": f"{n} prompts do {model}, cada um com a seed que o produziu, mais as {nfail} gerações que falharam e porquê. Tudo o que se afirma aqui foi medido nessas imagens, não copiado do model card.",
+            "toc": "Categorias",
+            "prompt": "Prompt",
+            "contrib": "Contribuir",
+            "contrib_body": "Adicione uma entrada em `prompts.json` com a sua imagem de saída e abra um PR. Duas regras: o prompt tem de reproduzir e a imagem tem de ser a saída sem edição.",
+            "license": "Licença",
+            "license_body": "Os prompts são MIT. As imagens geradas seguem os termos do fornecedor do modelo; confirme antes de uso comercial.",
+        },
     }[lang]
 
     L: list[str] = []
@@ -282,7 +377,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
     L.append('<a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>')
     L.append("</p>\n")
 
-    others = [x for x in ["en", "zh", "ko"] if x != lang]
+    others = [x for x in LANGS if x != lang]
     links = " · ".join(
         f'<a href="README.md">{x.upper()}</a>' if x == "en"
         else f'<a href="README_{x.upper()}.md">{x.upper()}</a>'
@@ -300,7 +395,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
         raw = f"https://raw.githubusercontent.com/{repo_slug}/main/wildcards/"
         alltxt = HERE / "wildcards/all.txt"
         zipf = HERE / "wildcards/krea2-wildcards.zip"
-        L.append(f"## {T['grab_h']}\n")
+        L.append(h2("grab", T["grab_h"]))
         L.append("If you came here to feed a wildcard node, everything below is optional.\n")
         L.append("| | |")
         L.append("|---|---|")
@@ -333,7 +428,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
     # The table is the whole argument; the evidence lives in FINDINGS.md.
     f = data.get("findings")
     if f:
-        L.append(f"## {T['findings_h']}\n")
+        L.append(h2("findings", T["findings_h"]))
         if f.get("_summary"):
             L.append(f"{counts(data, f['_summary'])}\n")
         tbl = f.get("table")
@@ -347,6 +442,10 @@ def render_readme(data: dict, lang: str = "en") -> str:
                  "Every claim with its images, seeds, the experiments that overturned "
                  "the earlier version, and the one rule this catalog built, tested and "
                  "had to throw away.\n")
+        L.append("**[Fill-in-the-blank recipes → TEMPLATES.md](TEMPLATES.md)** "
+                 "Six shapes rather than 475 finished sentences, each naming the "
+                 "result in this repo that measured it. There are six and not four "
+                 "hundred on purpose.\n")
         L.append("**[The words that carry the technique → VOCABULARY.md](VOCABULARY.md)** "
                  "The 62 terms that recur across these prompts and travel between "
                  "subjects, what each one does, and the seven that a finding here "
@@ -369,15 +468,20 @@ def render_readme(data: dict, lang: str = "en") -> str:
     by_cat: dict[str, int] = {}
     for e in kept:
         by_cat[e["category"]] = by_cat.get(e["category"], 0) + 1
-    L.append(f"## {T['toc']}\n")
+    L.append(h2("toc", T["toc"]))
+    # Every catalog above 8,000 stars in this niche keeps its prompts inside the
+    # repository. Pages is the nicer surface but it is the second one: a visitor
+    # who does not click through has to be able to read prompts here.
+    gmap = json.loads((HERE / "docs/gallery-map.json").read_text(encoding="utf-8"))
+    where = gmap["where"]
     if lang == "en":
-        L.append(f"All **{len(kept)}** entries live in the "
-                 f"[gallery]({site}), one page, every prompt with its seed and its "
-                 f"image. The category links go straight to the right section.\n")
+        L.append(f"All **{len(kept)}** entries are in the repository at "
+                 f"[docs/gallery.md](docs/gallery.md), and on the "
+                 f"[web gallery]({site}) if you would rather scroll one page. "
+                 f"The category links below go straight to the right section.\n")
     L.append(" · ".join(
-        f"[{c}]({site}#{c.lower().replace(' ', '-')}) {n}" if site
-        else f"[{c}](#{c.lower().replace(' ', '-')}) {n}"
-        for c, n in by_cat.items()) + "\n")
+        f"[{c}](docs/{where[c]}#{c.lower().replace(' ', '-')}) {n}"
+        for c, n in by_cat.items() if c in where) + "\n")
 
     if lang == "en" and kept:
         sample = next((e for e in kept if e["id"] == "photography-001"), kept[0])
@@ -399,13 +503,14 @@ def render_readme(data: dict, lang: str = "en") -> str:
                      "travel to other subjects. This one carries "
                      + ", ".join(f"`{m}`" for m in found)
                      + f". [What each of them does → VOCABULARY.md](VOCABULARY.md)\n")
-        L.append(f"[**Browse all {len(kept)} →**]({site})\n")
+        L.append(f"[**All {len(kept)} in the repo →**](docs/gallery.md)"
+                 f" · [**as a web page →**]({site})\n")
 
     if lang == "en":
         # The five editing-* entries turned out to generalise unevenly once they
         # were run against sources they were not derived from, which is a result
         # that belongs next to them rather than only in the other repo.
-        L.append("## The image-to-image entries, taken further\n")
+        L.append(h2("i2i", "The image-to-image entries, taken further"))
         L.append("The five `editing-*` entries were pulled out into "
                  "[**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for "
                  "Claude Code and Codex, and each one was re-run against a source it was *not* "
@@ -417,7 +522,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
                  "object-removal or character-consistency request before it is spent, and shows "
                  "you the image where it already failed.\n")
 
-        L.append("## Check any of this yourself\n")
+        L.append(h2("check", "Check any of this yourself"))
         L.append("`python3 scripts/regen.py --id typography-012` re-runs any entry from "
                  "its recorded seed. Two text-to-image entries came back at a mean "
                  "per-pixel difference of 1.3 and 1.5 out of 255, which is WebP "
@@ -428,7 +533,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
 
         fails = data.get("failures")
         if fails:
-            L.append("## The failures, kept as evidence\n")
+            L.append(h2("failures", "The failures, kept as evidence"))
             L.append(f"{fails.get('_what','')}\n")
             L.append("| | What was asked for | What came back |")
             L.append("|---|---|---|")
@@ -443,7 +548,7 @@ def render_readme(data: dict, lang: str = "en") -> str:
 
     cmp = data.get("comparison")
     if cmp and lang == "en":
-        L.append("## How this compares\n")
+        L.append(h2("compare", "How this compares"))
         L.append(f"{cmp['_intro']}\n")
         L.append("| | " + " | ".join(cmp["cols"]) + " |")
         L.append("|---" * (len(cmp["cols"]) + 1) + "|")
@@ -454,8 +559,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
             L.append(f"- {n}")
         L.append("")
 
-    L.append(f"\n## {T['contrib']}\n\n{T['contrib_body']}\n")
-    L.append(f"## {T['license']}\n\n{T['license_body']}\n")
+    L.append("\n" + h2("contrib", T["contrib"]) + f"\n{T['contrib_body']}\n")
+    L.append(h2("license", T["license"]) + f"\n{T['license_body']}\n")
     return "\n".join(L)
 
 

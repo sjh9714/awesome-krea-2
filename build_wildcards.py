@@ -113,11 +113,17 @@ Regenerate with `python3 build_wildcards.py`.
     # had was a plain text file, and a commenter still had to mirror it to
     # pastebin because the original was two clicks away. A repository folder is
     # further away than that, so ship the folder as one file as well.
+    # Fixed timestamps, or the archive has different bytes on every build and the
+    # CI check that generated files already match the manifest can never pass.
+    # 1980-01-01 is the earliest a zip entry can carry.
     zpath = out / ZIP_NAME
+    stamp = (1980, 1, 1, 0, 0, 0)
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
-        for f in sorted(out.glob("*.txt")):
-            z.write(f, f.name)
-        z.write(out / "README.md", "README.md")
+        for f in sorted(out.glob("*.txt")) + [out / "README.md"]:
+            info = zipfile.ZipInfo(f.name, date_time=stamp)
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o644 << 16
+            z.writestr(info, f.read_bytes())
 
     print(f"wrote {out}/ - {len(by)} category files + all.txt ({total} prompts)")
     print(f"wrote {zpath.relative_to(HERE)}  {zpath.stat().st_size // 1024} KB")

@@ -1,0 +1,38 @@
+# The catalog's claims are checked by verify.py, not by review. Every check ties
+# the prose to the manifest: counts, seeds, anchors, the
+# vocabulary rule, the sizes quoted in the download table. A contribution that
+# breaks any of them should fail here rather than in someone's reading of it.
+name: verify
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Rebuild everything from the manifest
+        run: |
+          python3 build_styles.py
+          python3 build_wildcards.py
+          python3 build_vocabulary.py
+          python3 build_gallery.py
+          python3 build_templates.py
+          python3 build_catalog.py --build --lang zh --lang ko
+          python3 build_pages.py
+      - name: The generated files must already match the manifest
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::A generated file is out of date. Run the builders and commit the result."
+            git diff --stat
+            exit 1
+          fi
+      - run: python3 verify.py

@@ -89,6 +89,22 @@ def md_lite(s: str) -> str:
     return "".join(f"<p>{p.strip()}</p>" for p in out.split("\n\n") if p.strip())
 
 
+def credit(e: dict) -> str:
+    """Attribution, rendered only when an entry did not come from this repo's own
+    runs. Whoever wrote a prompt keeps their name on it and a link off it."""
+    who = e.get("prompt_author")
+    if not who:
+        return ""
+    link = e.get("prompt_author_link")
+    s = (f' · prompt by <a href="{html.escape(link)}">{html.escape(who)}</a>'
+         if link else f" · prompt by {html.escape(who)}")
+    for u in e.get("source_links", []):
+        s += f' · <a href="{html.escape(u)}">source</a>'
+    if e.get("license"):
+        s += f' · {html.escape(e["license"])}'
+    return s
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -166,7 +182,7 @@ def main() -> int:
             L.append(f'<figure><img loading=lazy src="{up}{html.escape(e["image"])}" alt="{html.escape(e["title"])}">'
                      f'<figcaption><div class=t>{html.escape(e["title"])}</div>'
                      f'<pre>{mark(e["prompt"], VOCAB)}</pre>'
-                     f'<div class=seed>seed {seed}{extra}</div></figcaption></figure>')
+                     f'<div class=seed>seed {seed}{extra}{credit(e)}</div></figcaption></figure>')
         L.append("</div>")
 
     fails = [x for x in (d.get("failures") or {}).get("entries", []) if (root / x["image"]).exists()]

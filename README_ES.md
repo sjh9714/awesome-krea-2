@@ -1,5 +1,5 @@
 <h1 align="center">awesome-krea-2</h1>
-<p align="center">475 条 Krea 2 Turbo 提示词，每条都附带产出它的 seed，外加 65 次失败的生成及其原因。这里的每条结论都是在这些图上实测出来的，不是抄模型卡。</p>
+<p align="center">475 prompts de Krea 2 Turbo, cada uno con la semilla que lo produjo, más las 65 generaciones que fallaron y por qué. Todo lo que se afirma aquí se midió contra esas imágenes, no se copió de la ficha del modelo.</p>
 
 <p align="center">
   <img src="hero.webp" width="912" alt="A six-panel grid, a working case above a failure in each of three columns. Text: a brass nameplate carrying eight specified strings, all correct, above a chalkboard menu whose unspecified rows came back as nonsense words. Hands: a hand raising exactly the three fingers asked for, on a hand with six digits, above clasped hands where interlaced fingers were asked for. Interlocking: a chain with every link through its neighbour, above a rope lying in a figure-eight shape that was never tied.">
@@ -11,9 +11,9 @@
 <a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>
 </p>
 
-<p align="center"><a href="README.md">EN</a> · <a href="README_KO.md">KO</a> · <a href="README_JA.md">JA</a> · <a href="README_ES.md">ES</a> · <a href="README_FR.md">FR</a> · <a href="README_DE.md">DE</a> · <a href="README_PT.md">PT</a> · <a href="https://sjh9714.github.io/awesome-krea-2/"><b>浏览画廊 →</b></a></p>
+<p align="center"><a href="README.md">EN</a> · <a href="README_ZH.md">ZH</a> · <a href="README_KO.md">KO</a> · <a href="README_JA.md">JA</a> · <a href="README_FR.md">FR</a> · <a href="README_DE.md">DE</a> · <a href="README_PT.md">PT</a> · <a href="https://sjh9714.github.io/awesome-krea-2/"><b>Ver la galería →</b></a></p>
 
-## 📥 直接把提示词拿走
+## 📥 Llévate los prompts
 
 If you came here to feed a wildcard node, everything below is optional.
 
@@ -27,7 +27,7 @@ Drop the folder into `ComfyUI/wildcards/` and reference `__all__` or `__photogra
 
 Two things worth knowing before you run them. **The failures are excluded**, so nothing in these files is a prompt already known to break. And **the seeds are not in here and would not help you anyway**: they were recorded against a hosted endpoint that publishes no sampler or step count, so they do not transfer to your graph. [REPRODUCING.md](REPRODUCING.md) explains exactly why.
 
-## 🔬 这个模型实际能做什么
+## 🔬 Lo que este modelo hace de verdad
 
 Fourteen findings, each measured against the images in this repo rather than quoted
 from the model card. Five of them replace earlier findings I had to withdraw — four
@@ -63,15 +63,15 @@ had only glanced at.
 
 **[How to ask this model for a style → styles/](styles/README.md)** The eight "whole scene drawn as ..." clauses from the Reddit post, the picture-book trap, the three styles that never converted, and an earlier sweep with a FLUX.1 dev cross-check.
 
-## 🗂 类别
+## 🗂 Categorías
 
 [photography](docs/gallery-part-1.md#photography) 18 · [typography](docs/gallery-part-1.md#typography) 15 · [product](docs/gallery-part-1.md#product) 18 · [illustration](docs/gallery-part-1.md#illustration) 18 · [reference-sheet](docs/gallery-part-1.md#reference-sheet) 1 · [isometric-3d](docs/gallery-part-1.md#isometric-3d) 10 · [editing](docs/gallery-part-1.md#editing) 5 · [portrait](docs/gallery-part-1.md#portrait) 8 · [infographic](docs/gallery-part-1.md#infographic) 8 · [collectible](docs/gallery-part-1.md#collectible) 5 · [stationery](docs/gallery-part-1.md#stationery) 6 · [food](docs/gallery-part-1.md#food) 9 · [interior](docs/gallery-part-1.md#interior) 10 · [pattern](docs/gallery-part-1.md#pattern) 8 · [brand-mark](docs/gallery-part-1.md#brand-mark) 7 · [miniature](docs/gallery-part-1.md#miniature) 8 · [coloring-page](docs/gallery-part-1.md#coloring-page) 6 · [ui](docs/gallery-part-1.md#ui) 1 · [stringcount](docs/gallery-part-1.md#stringcount) 8 · [animal](docs/gallery-part-1.md#animal) 10 · [landscape](docs/gallery-part-1.md#landscape) 10 · [fashion](docs/gallery-part-1.md#fashion) 7 · [automotive](docs/gallery-part-2.md#automotive) 7 · [exterior](docs/gallery-part-2.md#exterior) 8 · [abstract](docs/gallery-part-2.md#abstract) 7 · [objectcount](docs/gallery-part-2.md#objectcount) 7 · [monogram](docs/gallery-part-2.md#monogram) 2 · [poster](docs/gallery-part-2.md#poster) 9 · [still-life](docs/gallery-part-2.md#still-life) 8 · [macro-nature](docs/gallery-part-2.md#macro-nature) 8 · [street](docs/gallery-part-2.md#street) 8 · [night](docs/gallery-part-2.md#night) 7 · [respecify](docs/gallery-part-2.md#respecify) 2 · [hangul](docs/gallery-part-2.md#hangul) 4 · [sport](docs/gallery-part-2.md#sport) 6 · [scifi](docs/gallery-part-2.md#scifi) 8 · [underwater](docs/gallery-part-2.md#underwater) 8 · [aerial](docs/gallery-part-2.md#aerial) 3 · [period](docs/gallery-part-2.md#period) 8 · [jewellery](docs/gallery-part-2.md#jewellery) 8 · [fantasy](docs/gallery-part-2.md#fantasy) 9 · [comic](docs/gallery-part-2.md#comic) 7 · [childrens-book](docs/gallery-part-2.md#childrens-book) 8 · [technical-drawing](docs/gallery-part-2.md#technical-drawing) 8 · [vehicle](docs/gallery-part-2.md#vehicle) 10 · [weather](docs/gallery-part-2.md#weather) 8 · [glass](docs/gallery-part-2.md#glass) 8 · [material](docs/gallery-part-2.md#material) 5 · [crowd](docs/gallery-part-2.md#crowd) 8 · [weave](docs/gallery-part-2.md#weave) 7 · [tattoo](docs/gallery-part-2.md#tattoo) 7 · [pixel-art](docs/gallery-part-2.md#pixel-art) 7 · [anatomy](docs/gallery-part-3.md#anatomy) 8 · [sculpture](docs/gallery-part-3.md#sculpture) 8 · [plant](docs/gallery-part-3.md#plant) 10 · [tool](docs/gallery-part-3.md#tool) 8 · [knolling](docs/gallery-part-3.md#knolling) 5 · [silhouette](docs/gallery-part-3.md#silhouette) 7 · [mirror](docs/gallery-part-3.md#mirror) 7 · [mineral](docs/gallery-part-3.md#mineral) 8 · [seasonal](docs/gallery-part-3.md#seasonal) 8
 
 
-## 🤝 参与贡献
+## 🤝 Contribuir
 
-提交 PR，在 `prompts.json` 中添加条目并附上你的输出图片。两条规则：提示词必须可复现，图片必须是未经编辑的原始输出。
+Añade una entrada a `prompts.json` con tu imagen de salida y abre un PR. Dos reglas: el prompt tiene que reproducirse y la imagen tiene que ser la salida sin editar.
 
-## ⚖ 许可
+## ⚖ Licencia
 
-提示词采用 MIT 许可。生成的图片受模型提供方条款约束，商用前请自行确认。
+Los prompts son MIT. Las imágenes generadas se rigen por los términos del proveedor del modelo; compruébalos antes de un uso comercial.

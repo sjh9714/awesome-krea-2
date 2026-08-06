@@ -11,9 +11,9 @@
 <a href="LICENSE"><img src="https://img.shields.io/badge/prompts-MIT-1f5d4c" alt="license"></a>
 </p>
 
-<p align="center"><a href="README_ZH.md">ZH</a> · <a href="README_KO.md">KO</a> · <a href="https://sjh9714.github.io/awesome-krea-2/"><b>Browse the gallery →</b></a></p>
+<p align="center"><a href="README_ZH.md">ZH</a> · <a href="README_KO.md">KO</a> · <a href="README_JA.md">JA</a> · <a href="README_ES.md">ES</a> · <a href="README_FR.md">FR</a> · <a href="README_DE.md">DE</a> · <a href="README_PT.md">PT</a> · <a href="https://sjh9714.github.io/awesome-krea-2/"><b>Browse the gallery →</b></a></p>
 
-## Take the prompts and go
+## 📥 Take the prompts and go
 
 If you came here to feed a wildcard node, everything below is optional.
 
@@ -27,7 +27,7 @@ Drop the folder into `ComfyUI/wildcards/` and reference `__all__` or `__photogra
 
 Two things worth knowing before you run them. **The failures are excluded**, so nothing in these files is a prompt already known to break. And **the seeds are not in here and would not help you anyway**: they were recorded against a hosted endpoint that publishes no sampler or step count, so they do not transfer to your graph. [REPRODUCING.md](REPRODUCING.md) explains exactly why.
 
-## What this model actually does
+## 🔬 What this model actually does
 
 Fourteen findings, each measured against the images in this repo rather than quoted
 from the model card. Five of them replace earlier findings I had to withdraw — four
@@ -55,17 +55,19 @@ had only glanced at.
 
 **[Read the evidence for each one → FINDINGS.md](FINDINGS.md)** Every claim with its images, seeds, the experiments that overturned the earlier version, and the one rule this catalog built, tested and had to throw away.
 
+**[Fill-in-the-blank recipes → TEMPLATES.md](TEMPLATES.md)** Six shapes rather than 475 finished sentences, each naming the result in this repo that measured it. There are six and not four hundred on purpose.
+
 **[The words that carry the technique → VOCABULARY.md](VOCABULARY.md)** The 62 terms that recur across these prompts and travel between subjects, what each one does, and the seven that a finding here measured *not* doing what they say.
 
 **[Settings, and what the seeds are worth to you → REPRODUCING.md](REPRODUCING.md)** The exact call behind all 475 images, and the limit on it: `fal-ai/krea-2/turbo` exposes no step count, no CFG, no sampler and no scheduler, so **these seeds reproduce on that endpoint and not in your local graph.** The prompts transfer; the seeds do not.
 
 **[How to ask this model for a style → styles/](styles/README.md)** The eight "whole scene drawn as ..." clauses from the Reddit post, the picture-book trap, the three styles that never converted, and an earlier sweep with a FLUX.1 dev cross-check.
 
-## Categories
+## 🗂 Categories
 
-All **475** entries live in the [gallery](https://sjh9714.github.io/awesome-krea-2/), one page, every prompt with its seed and its image. The category links go straight to the right section.
+All **475** entries are in the repository at [docs/gallery.md](docs/gallery.md), and on the [web gallery](https://sjh9714.github.io/awesome-krea-2/) if you would rather scroll one page. The category links below go straight to the right section.
 
-[photography](https://sjh9714.github.io/awesome-krea-2/#photography) 18 · [typography](https://sjh9714.github.io/awesome-krea-2/#typography) 15 · [product](https://sjh9714.github.io/awesome-krea-2/#product) 18 · [illustration](https://sjh9714.github.io/awesome-krea-2/#illustration) 18 · [reference-sheet](https://sjh9714.github.io/awesome-krea-2/#reference-sheet) 1 · [isometric-3d](https://sjh9714.github.io/awesome-krea-2/#isometric-3d) 10 · [editing](https://sjh9714.github.io/awesome-krea-2/#editing) 5 · [portrait](https://sjh9714.github.io/awesome-krea-2/#portrait) 8 · [infographic](https://sjh9714.github.io/awesome-krea-2/#infographic) 8 · [collectible](https://sjh9714.github.io/awesome-krea-2/#collectible) 5 · [stationery](https://sjh9714.github.io/awesome-krea-2/#stationery) 6 · [food](https://sjh9714.github.io/awesome-krea-2/#food) 9 · [interior](https://sjh9714.github.io/awesome-krea-2/#interior) 10 · [pattern](https://sjh9714.github.io/awesome-krea-2/#pattern) 8 · [brand-mark](https://sjh9714.github.io/awesome-krea-2/#brand-mark) 7 · [miniature](https://sjh9714.github.io/awesome-krea-2/#miniature) 8 · [coloring-page](https://sjh9714.github.io/awesome-krea-2/#coloring-page) 6 · [ui](https://sjh9714.github.io/awesome-krea-2/#ui) 1 · [stringcount](https://sjh9714.github.io/awesome-krea-2/#stringcount) 8 · [animal](https://sjh9714.github.io/awesome-krea-2/#animal) 10 · [landscape](https://sjh9714.github.io/awesome-krea-2/#landscape) 10 · [fashion](https://sjh9714.github.io/awesome-krea-2/#fashion) 7 · [automotive](https://sjh9714.github.io/awesome-krea-2/#automotive) 7 · [exterior](https://sjh9714.github.io/awesome-krea-2/#exterior) 8 · [abstract](https://sjh9714.github.io/awesome-krea-2/#abstract) 7 · [objectcount](https://sjh9714.github.io/awesome-krea-2/#objectcount) 7 · [monogram](https://sjh9714.github.io/awesome-krea-2/#monogram) 2 · [poster](https://sjh9714.github.io/awesome-krea-2/#poster) 9 · [still-life](https://sjh9714.github.io/awesome-krea-2/#still-life) 8 · [macro-nature](https://sjh9714.github.io/awesome-krea-2/#macro-nature) 8 · [street](https://sjh9714.github.io/awesome-krea-2/#street) 8 · [night](https://sjh9714.github.io/awesome-krea-2/#night) 7 · [respecify](https://sjh9714.github.io/awesome-krea-2/#respecify) 2 · [hangul](https://sjh9714.github.io/awesome-krea-2/#hangul) 4 · [sport](https://sjh9714.github.io/awesome-krea-2/#sport) 6 · [scifi](https://sjh9714.github.io/awesome-krea-2/#scifi) 8 · [underwater](https://sjh9714.github.io/awesome-krea-2/#underwater) 8 · [aerial](https://sjh9714.github.io/awesome-krea-2/#aerial) 3 · [period](https://sjh9714.github.io/awesome-krea-2/#period) 8 · [jewellery](https://sjh9714.github.io/awesome-krea-2/#jewellery) 8 · [fantasy](https://sjh9714.github.io/awesome-krea-2/#fantasy) 9 · [comic](https://sjh9714.github.io/awesome-krea-2/#comic) 7 · [childrens-book](https://sjh9714.github.io/awesome-krea-2/#childrens-book) 8 · [technical-drawing](https://sjh9714.github.io/awesome-krea-2/#technical-drawing) 8 · [vehicle](https://sjh9714.github.io/awesome-krea-2/#vehicle) 10 · [weather](https://sjh9714.github.io/awesome-krea-2/#weather) 8 · [glass](https://sjh9714.github.io/awesome-krea-2/#glass) 8 · [material](https://sjh9714.github.io/awesome-krea-2/#material) 5 · [crowd](https://sjh9714.github.io/awesome-krea-2/#crowd) 8 · [weave](https://sjh9714.github.io/awesome-krea-2/#weave) 7 · [tattoo](https://sjh9714.github.io/awesome-krea-2/#tattoo) 7 · [pixel-art](https://sjh9714.github.io/awesome-krea-2/#pixel-art) 7 · [anatomy](https://sjh9714.github.io/awesome-krea-2/#anatomy) 8 · [sculpture](https://sjh9714.github.io/awesome-krea-2/#sculpture) 8 · [plant](https://sjh9714.github.io/awesome-krea-2/#plant) 10 · [tool](https://sjh9714.github.io/awesome-krea-2/#tool) 8 · [knolling](https://sjh9714.github.io/awesome-krea-2/#knolling) 5 · [silhouette](https://sjh9714.github.io/awesome-krea-2/#silhouette) 7 · [mirror](https://sjh9714.github.io/awesome-krea-2/#mirror) 7 · [mineral](https://sjh9714.github.io/awesome-krea-2/#mineral) 8 · [seasonal](https://sjh9714.github.io/awesome-krea-2/#seasonal) 8
+[photography](docs/gallery-part-1.md#photography) 18 · [typography](docs/gallery-part-1.md#typography) 15 · [product](docs/gallery-part-1.md#product) 18 · [illustration](docs/gallery-part-1.md#illustration) 18 · [reference-sheet](docs/gallery-part-1.md#reference-sheet) 1 · [isometric-3d](docs/gallery-part-1.md#isometric-3d) 10 · [editing](docs/gallery-part-1.md#editing) 5 · [portrait](docs/gallery-part-1.md#portrait) 8 · [infographic](docs/gallery-part-1.md#infographic) 8 · [collectible](docs/gallery-part-1.md#collectible) 5 · [stationery](docs/gallery-part-1.md#stationery) 6 · [food](docs/gallery-part-1.md#food) 9 · [interior](docs/gallery-part-1.md#interior) 10 · [pattern](docs/gallery-part-1.md#pattern) 8 · [brand-mark](docs/gallery-part-1.md#brand-mark) 7 · [miniature](docs/gallery-part-1.md#miniature) 8 · [coloring-page](docs/gallery-part-1.md#coloring-page) 6 · [ui](docs/gallery-part-1.md#ui) 1 · [stringcount](docs/gallery-part-1.md#stringcount) 8 · [animal](docs/gallery-part-1.md#animal) 10 · [landscape](docs/gallery-part-1.md#landscape) 10 · [fashion](docs/gallery-part-1.md#fashion) 7 · [automotive](docs/gallery-part-2.md#automotive) 7 · [exterior](docs/gallery-part-2.md#exterior) 8 · [abstract](docs/gallery-part-2.md#abstract) 7 · [objectcount](docs/gallery-part-2.md#objectcount) 7 · [monogram](docs/gallery-part-2.md#monogram) 2 · [poster](docs/gallery-part-2.md#poster) 9 · [still-life](docs/gallery-part-2.md#still-life) 8 · [macro-nature](docs/gallery-part-2.md#macro-nature) 8 · [street](docs/gallery-part-2.md#street) 8 · [night](docs/gallery-part-2.md#night) 7 · [respecify](docs/gallery-part-2.md#respecify) 2 · [hangul](docs/gallery-part-2.md#hangul) 4 · [sport](docs/gallery-part-2.md#sport) 6 · [scifi](docs/gallery-part-2.md#scifi) 8 · [underwater](docs/gallery-part-2.md#underwater) 8 · [aerial](docs/gallery-part-2.md#aerial) 3 · [period](docs/gallery-part-2.md#period) 8 · [jewellery](docs/gallery-part-2.md#jewellery) 8 · [fantasy](docs/gallery-part-2.md#fantasy) 9 · [comic](docs/gallery-part-2.md#comic) 7 · [childrens-book](docs/gallery-part-2.md#childrens-book) 8 · [technical-drawing](docs/gallery-part-2.md#technical-drawing) 8 · [vehicle](docs/gallery-part-2.md#vehicle) 10 · [weather](docs/gallery-part-2.md#weather) 8 · [glass](docs/gallery-part-2.md#glass) 8 · [material](docs/gallery-part-2.md#material) 5 · [crowd](docs/gallery-part-2.md#crowd) 8 · [weave](docs/gallery-part-2.md#weave) 7 · [tattoo](docs/gallery-part-2.md#tattoo) 7 · [pixel-art](docs/gallery-part-2.md#pixel-art) 7 · [anatomy](docs/gallery-part-3.md#anatomy) 8 · [sculpture](docs/gallery-part-3.md#sculpture) 8 · [plant](docs/gallery-part-3.md#plant) 10 · [tool](docs/gallery-part-3.md#tool) 8 · [knolling](docs/gallery-part-3.md#knolling) 5 · [silhouette](docs/gallery-part-3.md#silhouette) 7 · [mirror](docs/gallery-part-3.md#mirror) 7 · [mineral](docs/gallery-part-3.md#mineral) 8 · [seasonal](docs/gallery-part-3.md#seasonal) 8
 
 ### What one entry looks like
 
@@ -79,19 +81,19 @@ A ceramicist in her studio at golden hour, hands wet with slip, throwing a bowl 
 
 The gallery highlights the words that recur across this catalog and travel to other subjects. This one carries `85mm`, `muted`, `palette`, `shallow depth of field`. [What each of them does → VOCABULARY.md](VOCABULARY.md)
 
-[**Browse all 475 →**](https://sjh9714.github.io/awesome-krea-2/)
+[**All 475 in the repo →**](docs/gallery.md) · [**as a web page →**](https://sjh9714.github.io/awesome-krea-2/)
 
-## The image-to-image entries, taken further
+## 🔁 The image-to-image entries, taken further
 
 The five `editing-*` entries were pulled out into [**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for Claude Code and Codex, and each one was re-run against a source it was *not* derived from. Two held, two came back partial, one failed — and the failures produced a sharper rule than this catalog started with: **geometry is locked, material is not.** Relighting wet rice terraces under hard sun keeps every contour in position and returns dry stone.
 
 That repo also carries the two edits cut from here as refusals: it blocks an object-removal or character-consistency request before it is spent, and shows you the image where it already failed.
 
-## Check any of this yourself
+## ✅ Check any of this yourself
 
 `python3 scripts/regen.py --id typography-012` re-runs any entry from its recorded seed. Two text-to-image entries came back at a mean per-pixel difference of 1.3 and 1.5 out of 255, which is WebP re-encoding loss, and the endpoint is deterministic at identical inputs. The five `editing-*` entries are the exception and the number is much larger. [REPRODUCING.md](REPRODUCING.md) has the exact call, the numbers, and why none of this transfers to a local graph.
 
-## The failures, kept as evidence
+## ❌ The failures, kept as evidence
 
 Deliberately reproduced failures. Every claim in the README's findings section points at one of these, with the seed that produced it, so the limits are checkable rather than asserted. These are NOT part of the 85-entry catalog.
 
@@ -163,7 +165,7 @@ Deliberately reproduced failures. Every claim in the README's findings section p
 | <img src="images/failures/ui-010.webp" width="150" alt="UI: all three columns are literally headed 'Kanban' — the model rendered the word from the prompt"> | Three distinct column names | UI: all three columns are literally headed 'Kanban' — the model rendered the word from the prompt <br>`seed: 1672153217` |
 | <img src="images/failures/weave-4.webp" width="150" alt="Knot: asked for a figure-eight knot, returned a figure-eight shape — two loops with a single crossing, never tied"> | A tied figure-eight knot | Knot: asked for a figure-eight knot, returned a figure-eight shape — two loops with a single crossing, never tied <br>`seed: 518928111` |
 
-## How this compares
+## 📊 How this compares
 
 Verified on 2026-07-25 by reading each repository's tree, README and data files, and by requesting the image URLs. These are good catalogs and two of them do the in-repo thing better than I expected, so the table gives them credit for it. The two columns where nothing exists yet are the reason this repo bothered.
 
@@ -185,11 +187,11 @@ Verified on 2026-07-25 by reading each repository's tree, README and data files,
 - jamez-bondos has not been pushed since 2025-05-26.
 
 
-## Contributing
+## 🤝 Contributing
 
 Open a PR adding an entry to `prompts.json` plus your output image. Two rules: the prompt must reproduce, and the image must be the unedited output.
 
-## License
+## ⚖ License
 
 Prompts are MIT — take them.
 

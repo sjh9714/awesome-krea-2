@@ -1,0 +1,55 @@
+# Every document in this repo is generated from prompts.json. Adding an entry
+# should mean editing the manifest and nothing else; this puts the README,
+# FINDINGS, VOCABULARY, the gallery, the wildcards and the Pages build back in
+# sync on its own, then refuses to commit if verify.py does not pass.
+name: rebuild
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "prompts.json"
+      - "vocabulary.json"
+      - "styles/data.json"
+      - "images/**"
+      - "build_*.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - run: |
+          python3 build_styles.py
+          python3 build_wildcards.py
+          python3 build_vocabulary.py
+          python3 build_gallery.py
+          python3 build_templates.py
+          python3 build_catalog.py --build --lang zh --lang ko
+          python3 build_pages.py
+      - name: Nothing ships that does not verify
+        run: python3 verify.py
+      - name: Commit the regenerated files
+        run: |
+          if git diff --quiet; then
+            echo "already in sync"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Rebuild the generated files from the manifest"
+          git push

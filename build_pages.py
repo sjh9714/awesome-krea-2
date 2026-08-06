@@ -77,6 +77,14 @@ pre{margin:0;background:transparent;color:var(--mut);font:11.5px/1.5 ui-monospac
 @media(prefers-color-scheme:dark){.fail .t{color:#e0776c}}
 a{color:var(--acc)}
 footer{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:.9rem;max-width:74ch}
+.find{margin:0 0 14px}
+#q{width:100%;max-width:34rem;padding:9px 12px;font:inherit;border:1px solid var(--line);border-radius:7px;background:transparent;color:inherit}
+#qn{margin-left:10px;color:var(--mut);font-size:.9rem}
+.cp{margin:8px 0 0;padding:4px 10px;font:inherit;font-size:.82rem;cursor:pointer;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--mut)}
+.cp:hover{color:inherit;border-color:var(--acc)}
+.cp.done{color:var(--acc);border-color:var(--acc)}
+h2 .cp{margin:0 0 0 10px;font-size:.72rem;font-weight:400}
+.nojs .cp{display:none}
 """
 
 
@@ -148,13 +156,6 @@ def main() -> int:
              f' · <a href="https://github.com/{html.escape(repo)}">github.com/{html.escape(repo)}</a></p>')
     L.append("</header>")
 
-    f = d.get("findings")
-    if f:
-        L.append("<h2>What this model actually does</h2>")
-        L.append(f'<p class=cat-desc>{html.escape(counts(d, f.get("_intro","")))}</p>')
-        for it in f.get("items", []):
-            L.append(f'<div class=finding><h3>{html.escape(it["title"])}</h3>{md_lite(it["body"])}</div>')
-
     by = {}
     for e in kept:
         by.setdefault(e["category"], []).append(e)
@@ -162,15 +163,24 @@ def main() -> int:
     # a 475-image page is to scroll it, and a link to one category cannot be
     # given to anyone. A reader who arrives from a comment asking about portrait
     # work should land on portrait work.
+    # The page is 540 images. Scrolling it to find "night" is not a search, and
+    # the category list only helps if you already know which category it is in.
+    L.append('<div class=find><input id=q type=search placeholder="Search 475 prompts, '
+             'try night, macro, letterpress" aria-label="Search the prompts">'
+             '<span id=qn></span></div>')
     L.append('<nav class=toc><b>Jump to</b> ')
     L.append(" · ".join(
         f'<a href="#{html.escape(c)}">{html.escape(c)}</a> <span class=n>{len(v)}</span>'
         for c, v in by.items()))
-    L.append(' · <a href="#failures">the failures</a></nav>')
+    L.append(' · <a href="#failures">the failures</a>'
+             ' · <a href="#findings">what this model does</a></nav>')
 
     for cat, items in by.items():
         L.append(f'<h2 id="{html.escape(cat)}">{html.escape(cat)}'
                  f'<span class=n>{len(items)}</span>'
+                 f'<button class="cp all" data-cat="{html.escape(cat, quote=True)}" '
+                 f'aria-label="Copy all {len(items)} prompts in {html.escape(cat, quote=True)}">'
+                 f'copy all {len(items)}</button>'
                  f'<a class=top href="#top" title="back to the category list">top</a></h2>')
         desc = (d.get("categories") or {}).get(cat)
         if desc:
@@ -179,9 +189,15 @@ def main() -> int:
         for e in items:
             seed = (e.get("params") or {}).get("seed")
             extra = f' · from <code>{html.escape(e["source"])}</code> at strength {e.get("strength")}' if e.get("source") else ""
+            # data-p carries the prompt as it was run. The <pre> shows the same
+            # string with <mark> around the vocabulary terms; if the button ever
+            # copied the rendered version the reader would paste markup.
             L.append(f'<figure><img loading=lazy src="{up}{html.escape(e["image"])}" alt="{html.escape(e["title"])}">'
                      f'<figcaption><div class=t>{html.escape(e["title"])}</div>'
                      f'<pre>{mark(e["prompt"], VOCAB)}</pre>'
+                     f'<button class=cp data-p="{html.escape(e["prompt"], quote=True)}" '
+                     f'aria-label="Copy the prompt for {html.escape(e["title"], quote=True)}">'
+                     f'copy</button>'
                      f'<div class=seed>seed {seed}{extra}{credit(e)}</div></figcaption></figure>')
         L.append("</div>")
 
@@ -196,8 +212,24 @@ def main() -> int:
             L.append(f'<figure class=fail><img loading=lazy src="{up}{html.escape(x["image"])}" alt="{html.escape(x["claim"])}">'
                      f'<figcaption><div class=t>{html.escape(x["claim"])}</div>'
                      f'<pre>asked for: {html.escape(x.get("expected",""))}\n\n{mark(x["prompt"], VOCAB)}</pre>'
+                     f'<button class=cp data-p="{html.escape(x["prompt"], quote=True)}" '
+                     f'aria-label="Copy the prompt for {html.escape(x["claim"], quote=True)}">'
+                     f'copy</button>'
                      f'<div class=seed>seed {seed}</div></figcaption></figure>')
         L.append("</div>")
+
+    # The findings used to sit between the header and the first image: fifteen of
+    # them, 9,758 pixels, eleven and a half screens. Someone who came to the
+    # gallery to look at pictures and take a prompt had to scroll all of it
+    # first, and the search box was underneath it too. Same mistake the README
+    # had, on the page the README now sends people to. It goes after the images.
+    f = d.get("findings")
+    if f:
+        L.append('<h2 id="findings">What this model actually does'
+                 '<a class=top href="#top">top</a></h2>')
+        L.append(f'<p class=cat-desc>{html.escape(counts(d, f.get("_intro","")))}</p>')
+        for it in f.get("items", []):
+            L.append(f'<div class=finding><h3>{html.escape(it["title"])}</h3>{md_lite(it["body"])}</div>')
 
     # The reproducibility sentence has to be exact, because the whole claim here
     # is that you can check it yourself. Measured 2026-07-25: the endpoint is
@@ -217,6 +249,93 @@ def main() -> int:
              'text-to-image entry exactly. The five image-to-image entries are re-runnable from '
              'the WebP source in this repo rather than the original PNG, so they reproduce the '
              'edit, composition, palette, medium. But not the exact pixels.</footer>')
+    # No framework, no CDN, no build step. The page has to keep working as a
+    # plain file, so this is one inline script and it degrades by hiding itself:
+    # a copy button that does nothing when the clipboard API is unavailable is
+    # worse than no copy button.
+    L.append("<script>")
+    L.append("""
+document.documentElement.classList.remove('nojs');
+// Two ways to copy. navigator.clipboard is the right one and needs both a
+// secure context and user activation; execCommand is deprecated but works on
+// plain http, in older browsers, and anywhere the async path is refused. The
+// button is only hidden when neither exists, because a button that silently
+// does nothing is worse than no button.
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:0;left:-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  var ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+  document.body.removeChild(ta);
+  return ok;
+}
+function flash(b) {
+  var was = b.textContent;
+  b.textContent = 'copied';
+  b.classList.add('done');
+  setTimeout(function () { b.textContent = was; b.classList.remove('done'); }, 1200);
+}
+if (!navigator.clipboard && !document.queryCommandSupported) {
+  document.documentElement.classList.add('nojs');
+} else {
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('.cp');
+    if (!b) return;
+    var text;
+    if (b.dataset.cat) {
+      var grid = b.closest('h2').nextElementSibling;
+      while (grid && !grid.classList.contains('grid')) grid = grid.nextElementSibling;
+      text = Array.prototype.map.call(grid.querySelectorAll('.cp[data-p]'),
+        function (x) { return x.dataset.p; }).join('\\n');
+    } else {
+      text = b.dataset.p;
+    }
+    var done = false;
+    if (navigator.clipboard && window.isSecureContext) {
+      // Resolve the label optimistically only if the write actually lands, but
+      // do not leave the reader staring at a dead button if it hangs: the
+      // async path stays pending forever in an unfocused document.
+      var settled = false;
+      navigator.clipboard.writeText(text).then(
+        function () { settled = true; flash(b); },
+        function () { if (!settled && fallbackCopy(text)) { settled = true; flash(b); } });
+      setTimeout(function () {
+        if (!settled && fallbackCopy(text)) { settled = true; flash(b); }
+      }, 400);
+      done = true;
+    }
+    if (!done && fallbackCopy(text)) flash(b);
+  });
+}
+var q = document.getElementById('q'), qn = document.getElementById('qn');
+if (q) {
+  var figs = Array.prototype.map.call(document.querySelectorAll('figure'), function (f) {
+    return { el: f, hay: f.textContent.toLowerCase() };
+  });
+  q.addEventListener('input', function () {
+    var s = q.value.trim().toLowerCase(), shown = 0;
+    figs.forEach(function (f) {
+      var hit = !s || f.hay.indexOf(s) !== -1;
+      f.el.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    });
+    document.querySelectorAll('.grid').forEach(function (g) {
+      var any = Array.prototype.some.call(g.querySelectorAll('figure'),
+        function (f) { return f.style.display !== 'none'; });
+      g.style.display = any ? '' : 'none';
+      var h = g.previousElementSibling;
+      while (h && h.tagName !== 'H2') h = h.previousElementSibling;
+      if (h) h.style.display = any ? '' : 'none';
+    });
+    qn.textContent = s ? shown + ' of ' + figs.length : '';
+  });
+}
+""")
+    L.append("</script>")
     L.append("</div></body></html>")
 
     out.write_text("\n".join(L), encoding="utf-8")

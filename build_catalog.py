@@ -418,18 +418,26 @@ def render_readme(data: dict, lang: str = "en") -> str:
     # and 19,605 on evidence. A visitor who takes the file still has to be told
     # what to do with it.
     if lang == "en":
-        L.append(h2("usage", "Using them"))
-        L.append("Copy [wildcards/](wildcards/) into `ComfyUI/wildcards/`, or grab the "
-                 f"[zip]({raw}krea2-wildcards.zip) and unpack it there. Then put one of "
-                 "these in a dynamic prompt node:\n")
+        L.append(h2("usage", T["usage_h"]))
+        # Ordered by how many people each path is for. The wildcard route was on
+        # top and it is the smallest group: __wildcard__ is not a ComfyUI feature,
+        # it comes from an extension, and a reader without it gets the literal
+        # string "__all__" in their image with no error to explain why.
+        L.append(f"**One prompt.** Open the [gallery]({site}), find a picture you like, "
+                 "press **copy** under it. That is the whole thing, and the search box "
+                 "at the top narrows 475 prompts down to the ones you want.\n")
+        L.append("**All of them, in ComfyUI.** Copy [wildcards/](wildcards/) into "
+                 f"`ComfyUI/wildcards/`, or take the [zip]({raw}krea2-wildcards.zip). "
+                 "You also need a dynamic prompt node, which is **not built into "
+                 "ComfyUI**: install "
+                 "[adieyal/comfyui-dynamicprompts](https://github.com/adieyal/comfyui-dynamicprompts) "
+                 "or an equivalent first, or the lines below arrive in your image as "
+                 "literal text. Then:\n")
         L.append("```text\n"
                  "__all__            any of the 475\n"
                  "__photography__    one category, 61 of them, named after the folder\n"
                  "__styles__         the 8 clauses that restyle the whole frame\n"
                  "```")
-        # The style-first ordering is measured, 11 of 11 clauses converting the
-        # whole frame, but only against one written subject. Saying it works with
-        # any wildcard the reader draws would be a claim nobody here has tested.
         L.append("\nCall two in one prompt if your node allows it. Put the style first: "
                  "leading with the medium is what converts the frame instead of pasting "
                  "the style into a photograph, which is the one ordering result this "
@@ -437,13 +445,12 @@ def render_readme(data: dict, lang: str = "en") -> str:
         L.append("```text\n__styles__ __portrait__\n```")
         L.append("\n<sub>Measured on one written subject, not on arbitrary pairs. "
                  "[The eleven clauses and what they did](styles/README.md)</sub>\n")
-        L.append("\n**No dynamic prompt node?** The files are one prompt per line. Open "
-                 f"[all.txt]({raw}all.txt), take a line, paste it. That is the whole "
-                 "format.\n")
+        L.append("\n**Anywhere else.** krea.ai, fal, Replicate, another UI: the files are "
+                 f"one prompt per line, so open [all.txt]({raw}all.txt) and take a line. "
+                 "Nothing here needs an install.\n")
         L.append("The seeds are not in these files and would not help you anyway: they "
                  "were recorded against a hosted endpoint that publishes no sampler or "
                  "step count. [REPRODUCING.md](REPRODUCING.md) explains why.\n")
-
 
     # The findings are what this catalog has that a bare prompt dump does not,
     # so they stay above everything else. What changed is the form: fifteen full

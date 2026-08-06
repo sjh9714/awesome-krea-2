@@ -23,7 +23,9 @@ Put it in `ComfyUI/wildcards/` and call `__all__` from a dynamic prompt node. No
 
 ## 🔧 Using them
 
-Copy [wildcards/](wildcards/) into `ComfyUI/wildcards/`, or grab the [zip](https://raw.githubusercontent.com/sjh9714/krea2-wildcards/main/wildcards/krea2-wildcards.zip) and unpack it there. Then put one of these in a dynamic prompt node:
+**One prompt.** Open the [gallery](https://sjh9714.github.io/krea2-wildcards/), find a picture you like, press **copy** under it. That is the whole thing, and the search box at the top narrows 475 prompts down to the ones you want.
+
+**All of them, in ComfyUI.** Copy [wildcards/](wildcards/) into `ComfyUI/wildcards/`, or take the [zip](https://raw.githubusercontent.com/sjh9714/krea2-wildcards/main/wildcards/krea2-wildcards.zip). You also need a dynamic prompt node, which is **not built into ComfyUI**: install [adieyal/comfyui-dynamicprompts](https://github.com/adieyal/comfyui-dynamicprompts) or an equivalent first, or the lines below arrive in your image as literal text. Then:
 
 ```text
 __all__            any of the 475
@@ -40,7 +42,7 @@ __styles__ __portrait__
 <sub>Measured on one written subject, not on arbitrary pairs. [The eleven clauses and what they did](styles/README.md)</sub>
 
 
-**No dynamic prompt node?** The files are one prompt per line. Open [all.txt](https://raw.githubusercontent.com/sjh9714/krea2-wildcards/main/wildcards/all.txt), take a line, paste it. That is the whole format.
+**Anywhere else.** krea.ai, fal, Replicate, another UI: the files are one prompt per line, so open [all.txt](https://raw.githubusercontent.com/sjh9714/krea2-wildcards/main/wildcards/all.txt) and take a line. Nothing here needs an install.
 
 The seeds are not in these files and would not help you anyway: they were recorded against a hosted endpoint that publishes no sampler or step count. [REPRODUCING.md](REPRODUCING.md) explains why.
 

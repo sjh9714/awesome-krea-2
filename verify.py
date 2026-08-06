@@ -433,6 +433,42 @@ def main() -> int:
             c(back == len(d["entries"]),
               f"every entry links back to the index ({back})")
 
+    # The gallery is now the path the README sends most readers down, so the copy
+    # button is load-bearing. Three things can quietly break it: a button without
+    # a prompt, a prompt that arrives with <mark> markup in it because someone
+    # copied the rendered version, and an icon button with no accessible name.
+    idx = HERE / "index.html"
+    if idx.exists():
+        html_t = idx.read_text(encoding="utf-8")
+        dd3 = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))
+        shown = sum(1 for e in dd3["entries"] + dd3.get("failures", {}).get("entries", [])
+                    if (HERE / e["image"]).exists())
+        btns = len(re.findall(r'<button class=cp data-p=', html_t))
+        c(btns == shown, f"every one of the {shown} gallery entries has a copy button"
+                         + (f", found {btns}" if btns != shown else ""))
+        cats = len({e["category"] for e in dd3["entries"]
+                    if (HERE / e["image"]).exists()})
+        alls = len(re.findall(r'class="cp all" data-cat=', html_t))
+        c(alls == cats, f"every one of the {cats} categories has a copy-all button"
+                        + (f", found {alls}" if alls != cats else ""))
+        # Look for the tag, not the word: "felt-tip marker", "brand-mark" and
+        # "landmark" are all real prompt text and the first version of this check
+        # flagged 32 of them.
+        dirty = [m for m in re.findall(r'data-p="([^"]*)"', html_t)
+                 if "&lt;mark&gt;" in m or "<mark>" in m or "&lt;/mark" in m]
+        c(not dirty, "no copy button carries display markup into the clipboard",
+          f"{len(dirty)} do")
+        noname = len(re.findall(r'<button class=cp(?![^>]*aria-label)', html_t))
+        c(not noname, "every copy button has an accessible name",
+          f"{noname} have none")
+        c('id=q' in html_t and 'aria-label="Search the prompts"' in html_t,
+          "the gallery has a labelled search box")
+        # The findings prose sat between the header and the first image: 9,758
+        # pixels, eleven and a half screens, on the page the README points at.
+        first_fig = html_t.find("<figure")
+        c(0 < first_fig < 20_000,
+          f"the first image is {first_fig:,} characters in, not behind the findings")
+
     # The vocabulary is the one place in this repo that points at specific words and
     # says they matter. That is exactly the kind of claim this catalog has had to
     # retract before, so the rule behind it (3+ entries, 2+ categories) is enforced
@@ -552,6 +588,18 @@ def main() -> int:
     c("docs/gallery-failures.md" in readme, "README links where the failures live")
     for token in ("ComfyUI/wildcards/", "__all__", "__styles__"):
         c(token in readme, f"the usage section names {token}")
+    # __wildcard__ is not a ComfyUI feature. Someone without the extension gets
+    # the literal string "__all__" in their image and no error explaining it, so
+    # naming the extension is not politeness, it is the difference between the
+    # instructions working and silently not.
+    c("comfyui-dynamicprompts" in readme,
+      "the usage section names the extension the wildcard syntax needs")
+    c("not built into" in readme or "not a ComfyUI feature" in readme,
+      "the README says the wildcard syntax is not built into ComfyUI")
+    # And the path most readers take has to be first.
+    gal = readme.find("**One prompt.**")
+    wc = readme.find("**All of them, in ComfyUI.**")
+    c(0 < gal < wc, "the usage section leads with the path that needs no install")
 
     # The first screen sells what you take away. It used to sell how rigorous we
     # were: a 109-character tagline listing 475 prompts, 65 failures and 61
@@ -607,7 +655,12 @@ def main() -> int:
         p2 = HERE / name
         if not p2.exists():
             continue
-        found = sum(p2.read_text(encoding="utf-8").count(x) for x in DASH)
+        body = p2.read_text(encoding="utf-8")
+        # The gallery now carries every prompt twice: once rendered inside <pre>
+        # with the vocabulary marked, once verbatim in the copy button's data-p.
+        # Counting both doubled the total and failed a guard that was right.
+        body_nodup = re.sub(r'data-p="[^"]*"', "", body)
+        found = sum(body_nodup.count(x) for x in DASH)
         if name == "index.html":
             c(found == in_prompts,
               f"index.html's {found} dashes are all inside prompt text "

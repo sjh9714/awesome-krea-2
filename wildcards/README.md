@@ -19,10 +19,12 @@ __typography__
 
 ## What is not in here
 
-**The seeds.** A wildcard file is one prompt per line and has nowhere to put
-them, so a prompt pulled from here will not reproduce the image in the
-catalog. If you want the exact image, take the prompt *and* the seed from
-`prompts.json` or from the gallery.
+**The seeds, and you probably do not want them anyway.** A wildcard file is one
+prompt per line and has nowhere to put a seed. More to the point, the seeds in
+this catalog were recorded against fal's hosted `krea-2/turbo`, which publishes
+no step count, CFG, sampler or scheduler. In your own graph the same seed gives
+a different image. Take the prompts, pick your own seed, and read
+[REPRODUCING.md](../REPRODUCING.md) before you try to match a specific frame.
 
 **The failures.** 65 generations were cut and they are
 deliberately excluded — a wildcard file that occasionally serves a

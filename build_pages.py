@@ -20,6 +20,8 @@ from __future__ import annotations
 
 import argparse
 import html
+
+from build_vocabulary import load as load_vocab, mark, term_pattern
 import json
 from pathlib import Path
 
@@ -29,6 +31,9 @@ from pathlib import Path
 from build_catalog import counts
 
 HERE = Path(__file__).resolve().parent
+
+_V, _D = load_vocab()
+VOCAB = term_pattern([x["t"] for x in _V["terms"]])
 
 CSS = """
 :root{--bg:#faf9f7;--fg:#17191a;--mut:#6a6f70;--line:#e0dedb;--acc:#1f5d4c;--card:#fff}
@@ -57,6 +62,8 @@ h2 .n{font:12px ui-monospace,monospace;color:var(--mut);margin-left:8px}
 figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
 figure img{width:100%;display:block;aspect-ratio:1;object-fit:cover;background:var(--line)}
 figcaption{padding:12px 14px}
+mark{background:#e8f0ec;color:inherit;padding:0 1px;border-radius:2px}
+@media(prefers-color-scheme:dark){mark{background:#24413a}}
 .t{font-weight:640;font-size:.93rem;margin-bottom:7px}
 pre{margin:0;background:transparent;color:var(--mut);font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;max-height:8.4em;overflow:auto}
 .seed{margin-top:8px;font:11px ui-monospace,monospace;color:var(--mut)}
@@ -158,7 +165,7 @@ def main() -> int:
             extra = f' · from <code>{html.escape(e["source"])}</code> at strength {e.get("strength")}' if e.get("source") else ""
             L.append(f'<figure><img loading=lazy src="{up}{html.escape(e["image"])}" alt="{html.escape(e["title"])}">'
                      f'<figcaption><div class=t>{html.escape(e["title"])}</div>'
-                     f'<pre>{html.escape(e["prompt"])}</pre>'
+                     f'<pre>{mark(e["prompt"], VOCAB)}</pre>'
                      f'<div class=seed>seed {seed}{extra}</div></figcaption></figure>')
         L.append("</div>")
 
@@ -172,7 +179,7 @@ def main() -> int:
             seed = (x.get("params") or {}).get("seed")
             L.append(f'<figure class=fail><img loading=lazy src="{up}{html.escape(x["image"])}" alt="{html.escape(x["claim"])}">'
                      f'<figcaption><div class=t>{html.escape(x["claim"])}</div>'
-                     f'<pre>asked for: {html.escape(x.get("expected",""))}\n\n{html.escape(x["prompt"])}</pre>'
+                     f'<pre>asked for: {html.escape(x.get("expected",""))}\n\n{mark(x["prompt"], VOCAB)}</pre>'
                      f'<div class=seed>seed {seed}</div></figcaption></figure>')
         L.append("</div>")
 

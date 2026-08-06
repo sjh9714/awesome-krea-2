@@ -1,0 +1,331 @@
+{
+  "_intro": "The words in these prompts that carry the technique rather than the subject. A prompt in this catalog is mostly a description of a thing; these are the parts you can lift out and paste into a prompt about something else. Nothing here is a claim that a term caused a particular image. It is a claim that the term recurs across this catalog and travels between subjects, which is a weaker and checkable thing. Some carry a warning instead of a recommendation, because a finding in this repo measured them not doing what they say.",
+  "_rule": "A term is in this file only if it appears in at least 3 entries across at least 2 categories. Below that it is subject vocabulary, not transferable vocabulary. build_vocabulary.py enforces the rule and refuses to build if a term stops meeting it.",
+  "groups": {
+    "lens": "what the glass is doing",
+    "framing": "where the camera is and how the frame is cut",
+    "light": "what the light does, and where it comes from",
+    "surface": "how the material reads up close",
+    "process": "the physical medium being imitated",
+    "colour": "how the palette is constrained"
+  },
+  "terms": [
+    {
+      "t": "macro",
+      "g": "lens",
+      "n": "Pulls in to subject-fills-frame distance. The most reliable single word in this catalog for changing scale."
+    },
+    {
+      "t": "24mm",
+      "g": "lens",
+      "n": "Wide. Expect converging verticals and a stretched foreground."
+    },
+    {
+      "t": "35mm",
+      "g": "lens",
+      "n": "Reportage width. Keeps the surroundings in the story."
+    },
+    {
+      "t": "50mm",
+      "g": "lens",
+      "n": "Roughly what the eye does. The neutral choice."
+    },
+    {
+      "t": "85mm",
+      "g": "lens",
+      "n": "Compresses and separates. Portrait glass."
+    },
+    {
+      "t": "shallow depth of field",
+      "g": "lens",
+      "n": "Background goes soft. Reads as photography, so it fights any drawn or painted style you ask for at the same time.",
+      "finding": "It changes medium willingly and scene content reluctantly"
+    },
+    {
+      "t": "shallow focus",
+      "g": "lens",
+      "n": "Same idea, phrased as a result rather than a setting."
+    },
+    {
+      "t": "long lens",
+      "g": "lens",
+      "n": "Flattens distance and stacks the background against the subject."
+    },
+    {
+      "t": "long exposure",
+      "g": "lens",
+      "n": "Moving things smear, still things stay sharp. Water and cloud respond most."
+    },
+    {
+      "t": "overhead",
+      "g": "framing",
+      "n": "Camera above the subject looking down, not necessarily square to it."
+    },
+    {
+      "t": "straight down",
+      "g": "framing",
+      "n": "Asks for a true plan view. Five of eight came back oblique anyway. Say it and check it.",
+      "finding": "\"Straight down\" is a request, not an instruction"
+    },
+    {
+      "t": "top-down",
+      "g": "framing",
+      "n": "The other phrasing of the same request, with the same failure rate."
+    },
+    {
+      "t": "flat lay",
+      "g": "framing",
+      "n": "Objects arranged on a plane, seen from above. More reliable than asking for the angle directly."
+    },
+    {
+      "t": "low angle",
+      "g": "framing",
+      "n": "Camera below eye level. Makes the subject loom."
+    },
+    {
+      "t": "three-quarter",
+      "g": "framing",
+      "n": "Turned partly away. The default product and portrait angle."
+    },
+    {
+      "t": "close-up",
+      "g": "framing",
+      "n": "Tight on the subject without the optical character of macro."
+    },
+    {
+      "t": "symmetrical",
+      "g": "framing",
+      "n": "Mirrors the composition about a centre line. Holds well."
+    },
+    {
+      "t": "centred",
+      "g": "framing",
+      "n": "Subject on the axis. Useful when a layout keeps drifting."
+    },
+    {
+      "t": "isometric",
+      "g": "framing",
+      "n": "Parallel projection, no vanishing point. Reliable enough to be its own category here."
+    },
+    {
+      "t": "exploded",
+      "g": "framing",
+      "n": "Parts separated along their assembly axes."
+    },
+    {
+      "t": "cutaway",
+      "g": "framing",
+      "n": "Section removed to show the inside."
+    },
+    {
+      "t": "raking light",
+      "g": "light",
+      "n": "Light skimming across a surface at a shallow angle. The single best phrase in this catalog for making texture visible."
+    },
+    {
+      "t": "overcast light",
+      "g": "light",
+      "n": "Soft, sourceless, no hard shadow. Names what the light does rather than what makes it."
+    },
+    {
+      "t": "soft even light",
+      "g": "light",
+      "n": "Flat and shadowless. What you want when the subject is the thing, not the mood."
+    },
+    {
+      "t": "even light",
+      "g": "light",
+      "n": "The shorter form."
+    },
+    {
+      "t": "flat light",
+      "g": "light",
+      "n": "Frontal, minimal modelling."
+    },
+    {
+      "t": "hard light",
+      "g": "light",
+      "n": "Sharp-edged shadows, small source."
+    },
+    {
+      "t": "side light",
+      "g": "light",
+      "n": "From one side. Modelling and shadow across the form."
+    },
+    {
+      "t": "directional light",
+      "g": "light",
+      "n": "Says there is an axis without naming a fixture."
+    },
+    {
+      "t": "backlit",
+      "g": "light",
+      "n": "Source behind the subject. Edges glow, front goes dark."
+    },
+    {
+      "t": "warm light",
+      "g": "light",
+      "n": "Colour temperature as an instruction. Note that a colour word in a black-and-white prompt will fight it."
+    },
+    {
+      "t": "warm side",
+      "g": "light",
+      "n": "Direction and temperature together."
+    },
+    {
+      "t": "window light",
+      "g": "light",
+      "n": "Names a fixture, and this model may put the window in the frame. Describe what the light does instead if you do not want it visible.",
+      "finding": "Name a light and you get the light. Name the softbox and you get the softbox."
+    },
+    {
+      "t": "fluorescent",
+      "g": "light",
+      "n": "Same caution: the tubes tend to appear.",
+      "finding": "Name a light and you get the light. Name the softbox and you get the softbox."
+    },
+    {
+      "t": "tungsten",
+      "g": "light",
+      "n": "Same caution, plus a strong warm cast."
+    },
+    {
+      "t": "single light",
+      "g": "light",
+      "n": "One source. Constrains the shadow story."
+    },
+    {
+      "t": "light source",
+      "g": "light",
+      "n": "Used to place the origin explicitly."
+    },
+    {
+      "t": "long shadow",
+      "g": "light",
+      "n": "Implies a low source without naming one."
+    },
+    {
+      "t": "soft shadow",
+      "g": "light",
+      "n": "Large source, diffuse edge."
+    },
+    {
+      "t": "silhouette",
+      "g": "light",
+      "n": "Subject dark against a bright field. Removes surface detail on purpose."
+    },
+    {
+      "t": "matte",
+      "g": "surface",
+      "n": "No specular highlight."
+    },
+    {
+      "t": "polished",
+      "g": "surface",
+      "n": "Specular, reflective. Brings the surroundings into the surface."
+    },
+    {
+      "t": "grain",
+      "g": "surface",
+      "n": "Film grain, wood grain or screenprint grain depending on the noun it sits next to. All three work."
+    },
+    {
+      "t": "weathered",
+      "g": "surface",
+      "n": "Exposure damage, fading, oxidisation."
+    },
+    {
+      "t": "worn",
+      "g": "surface",
+      "n": "Use damage: rubbed edges, thinned paint, softened corners."
+    },
+    {
+      "t": "patina",
+      "g": "surface",
+      "n": "Aged metal specifically."
+    },
+    {
+      "t": "frosted",
+      "g": "surface",
+      "n": "Diffusing, translucent rather than transparent."
+    },
+    {
+      "t": "seamless",
+      "g": "surface",
+      "n": "Asks for a tiling pattern and does not deliver one. One of eight had a joinable edge. Do not build a textile pipeline on this word.",
+      "finding": "\"Seamless\" produces a pattern that does not tile"
+    },
+    {
+      "t": "letterpress",
+      "g": "process",
+      "n": "Impression into the paper, ink sitting in the debossed area."
+    },
+    {
+      "t": "engraved",
+      "g": "process",
+      "n": "Cut line, most reliable on metal and stone."
+    },
+    {
+      "t": "cyanotype",
+      "g": "process",
+      "n": "Prussian blue, white line work."
+    },
+    {
+      "t": "gouache",
+      "g": "process",
+      "n": "Opaque water paint, visible brush loading."
+    },
+    {
+      "t": "watercolour",
+      "g": "process",
+      "n": "Transparent washes, paper showing through."
+    },
+    {
+      "t": "risograph",
+      "g": "process",
+      "n": "Spot colour, misregistration, visible screen."
+    },
+    {
+      "t": "muted",
+      "g": "colour",
+      "n": "Pulls saturation down across the frame."
+    },
+    {
+      "t": "muted palette",
+      "g": "colour",
+      "n": "The same, stated as a constraint on the whole palette."
+    },
+    {
+      "t": "limited palette",
+      "g": "colour",
+      "n": "Restricts the number of hues. Name the hues and it holds; ask for a count and it does not.",
+      "finding": "It counts objects. It does not count attributes."
+    },
+    {
+      "t": "palette",
+      "g": "colour",
+      "n": "The general handle. Almost always worth naming explicitly."
+    },
+    {
+      "t": "desaturated",
+      "g": "colour",
+      "n": "Stronger than muted."
+    },
+    {
+      "t": "monochrome",
+      "g": "colour",
+      "n": "One hue. Prefer this to \"no colour\", which is a negative and reads as the thing you did not want.",
+      "finding": "A negative clause costs you almost nothing, and I said the opposite"
+    },
+    {
+      "t": "high contrast",
+      "g": "colour",
+      "n": "Widens the tonal range, crushes the middle."
+    },
+    {
+      "t": "warm grey",
+      "g": "colour",
+      "n": "A named neutral. Neutrals drift unless you say which way."
+    }
+  ]
+}

@@ -365,6 +365,104 @@ def main() -> int:
         c("styles/README.md" in readme, "README.md links to the styles page")
         c("wildcards/styles.txt" in readme, "README.md links to the wildcards file")
 
+    # The vocabulary is the one place in this repo that points at specific words and
+    # says they matter. That is exactly the kind of claim this catalog has had to
+    # retract before, so the rule behind it (3+ entries, 2+ categories) is enforced
+    # here as well as in the builder, and every warning has to still name a real
+    # finding. If a term drifts below the rule the index quietly becomes an opinion.
+    voc = HERE / "vocabulary.json"
+    c(voc.exists(), "vocabulary.json exists")
+    if voc.exists():
+        import build_vocabulary as bv
+        v, dd = bv.load()
+        by = bv.usage(v, dd)
+        thin = [t for t, r in by.items()
+                if len(r["entries"]) < bv.MIN_ENTRIES
+                or len(r["categories"]) < bv.MIN_CATEGORIES]
+        c(not thin, f"all {len(by)} vocabulary terms meet the 3-entry 2-category rule"
+                    + (f", but {thin} do not" if thin else ""))
+        titles = {f["title"] for f in dd["findings"]["items"]}
+        bad = [t for t, r in by.items() if r.get("finding") and r["finding"] not in titles]
+        c(not bad, "every vocabulary warning names a finding that exists"
+                   + (f", but {bad} do not" if bad else ""))
+        vm = HERE / "VOCABULARY.md"
+        c(vm.exists(), "VOCABULARY.md is built")
+        if vm.exists():
+            vtext = vm.read_text(encoding="utf-8")
+            c(f"{len(by)} terms." in vtext,
+              f"VOCABULARY.md is current at {len(by)} terms")
+            warned = [t for t, r in by.items() if r.get("finding")]
+            c(f"Read these {len(warned)} before you use them" in vtext,
+              f"VOCABULARY.md counts its {len(warned)} warnings correctly")
+            # Assert the disclaimer is present rather than that the word "caused"
+            # is absent; the disclaimer itself contains it, and the first version
+            # of this check failed on the sentence it was written to protect.
+            c("Nothing here is a claim that a term caused a particular image" in vtext,
+              "VOCABULARY.md still disclaims the causal reading")
+            c("at least 3 entries across at least 2 categories" in vtext,
+              "VOCABULARY.md states the rule its terms had to meet")
+        idx = HERE / "index.html"
+        if idx.exists():
+            n = idx.read_text(encoding="utf-8").count("<mark>")
+            c(n > 300, f"the gallery marks the vocabulary ({n} marks)")
+
+    # The download block is the first thing a reader from that subreddit sees, and
+    # the format it advertises is the one that outscored everything else there. A
+    # dead link or a wrong file size in it costs more than a wrong sentence lower
+    # down, so the sizes are checked against the files rather than trusted.
+    RAW = "https://raw.githubusercontent.com/sjh9714/awesome-krea-2/main/wildcards/"
+    zip_path = HERE / "wildcards/krea2-wildcards.zip"
+    c(zip_path.exists(), "wildcards/krea2-wildcards.zip is built")
+    for f in ("all.txt", "krea2-wildcards.zip", "styles.txt"):
+        c(RAW + f in readme, f"README.md links the raw {f}")
+        c((HERE / "wildcards" / f).exists(), f"wildcards/{f} exists to be linked")
+    for f, claimed in re.findall(
+            r"\[([a-z0-9._-]+)\]\(" + re.escape(RAW) + r"[a-z0-9._-]+\)[^|]*\|[^|]*?(\d+) KB",
+            readme):
+        actual = round((HERE / "wildcards" / f).stat().st_size / 1024)
+        c(abs(actual - int(claimed)) <= 2,
+          f"README.md says {f} is {claimed} KB and it is {actual} KB")
+    if zip_path.exists():
+        import zipfile as _z
+        names = set(_z.ZipFile(zip_path).namelist())
+        c("all.txt" in names and "styles.txt" in names,
+          f"the zip carries all.txt and styles.txt ({len(names)} files)")
+        # build_wildcards.py used to unlink every *.txt in the folder, which
+        # deleted build_styles.py's output whenever it ran second.
+        c((HERE / "wildcards/styles.txt").exists()
+          and (HERE / "wildcards/styles-extra.txt").exists(),
+          "build_wildcards.py left the styles files alone")
+
+    # REPRODUCING.md exists because the headline claim ("every entry carries its
+    # seed") reads as a promise of reproducibility that the hosted endpoint cannot
+    # keep. The endpoint publishes no step count, CFG, sampler or scheduler, so the
+    # seed is good on fal and worthless in a local graph. If that caveat ever falls
+    # out of the README, the repo goes back to overselling the one column it wins.
+    rep = HERE / "REPRODUCING.md"
+    c(rep.exists(), "REPRODUCING.md exists")
+    if rep.exists():
+        rtext = rep.read_text(encoding="utf-8")
+        c("REPRODUCING.md" in readme, "README.md links to REPRODUCING.md")
+        c("reproduce" in readme and "local" in readme,
+          "README.md states the seeds do not reproduce locally")
+        for term in ("fal-ai/krea-2/turbo", "square_hd", "enable_prompt_expansion",
+                     "openapi.json"):
+            c(term in rtext, f"REPRODUCING.md names {term}")
+        for absent in ("guidance scale", "sampler", "scheduler"):
+            c(absent in rtext,
+              f"REPRODUCING.md says the endpoint has no {absent}")
+        # The payload documented there has to be the payload the generator sends.
+        gen = (HERE / "scripts/gen_fal.py").read_text(encoding="utf-8")
+        c('"image_size": args.image_size, "enable_safety_checker": True' in gen
+          or "'image_size': args.image_size" in gen,
+          "gen_fal.py still sends the payload REPRODUCING.md documents")
+        d = json.loads((HERE / "prompts.json").read_text(encoding="utf-8"))
+        edits = [e for e in d["entries"] if e["category"] == "editing"]
+        c(all("strength" in e and "source" in e for e in edits),
+          f"all {len(edits)} editing entries carry source and strength")
+        c(all("seed" in e.get("params", {}) for e in d["entries"]),
+          "every entry carries a seed")
+
     print()
     if c.failures:
         print(f"{len(c.failures)} failed, {c.passed} passed")

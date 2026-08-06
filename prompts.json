@@ -5368,8 +5368,102 @@
       {
         "title": "A rule this catalog built, tested and had to throw away",
         "body": "Two findings above once shared an explanation: letters asked to interlock failed, fingers asked to interlace failed, so the model must be unable to render forms that **pass through each other**. Two domains agreeing is persuasive, and it was wrong.\n\nBatch eight tested it in a third domain — rope and chain — with the per-entry prediction written down **before the images were generated**. Four entries were predicted to fail. All four succeeded: `weave-5` two interlocked chain links, `weave-6` a whole chain with every link through its neighbours, `weave-7` a willow basket wall with the weavers passing correctly in front of and behind each stake, and `weave-8` a Celtic knotwork panel interlacing continuously without a break. Chain and basketry interpenetrate far more than fingers do.\n\nThe rule is dead. What it leaves behind is an observation, and it is only that: in every failure across all these batches, **what came back was the more common neighbour of what was asked for**. Interlaced fingers returned a clasp. An interlocked `KJ` returned a generic monogram. A figure-eight *knot* (`weave-4`) returned a figure-eight *shape*. A beetle the size of a pony returned a pony. Chains and baskets are among the most photographed objects there are, and they came out right.\n\nThat reading is not promoted to a finding here. Promoting a two-domain coincidence is precisely the mistake that just cost this catalog a rule, and the replacement being a better story is not a reason to trust it. It needs its own experiment with its own prediction written first.\n\nThe prediction and the result are in the toolkit repo at `playbooks/weave-prediction.md`, timestamped by the commits either side of the generation run."
+      },
+      {
+        "title": "A negative clause costs you almost nothing, and I said the opposite",
+        "body": "**This one was added because I asserted it in public before I had counted it.** A reader on r/StableDiffusion pointed out that a prompt of mine said `no colour anywhere`, and that a model does not read negative language in a positive prompt as one instruction. I replied that this repo already documented that behaviour. It did not. I had seen negatives in a lot of the failures and filled in the rest.\n\nSo I counted, and the folklore is weaker than either of us assumed.\n\n| | prompts | failure rate |\n|---|---|---|\n| with a `no X` clause | 290 | **12.4%** |\n| without one | 250 | **11.6%** |\n\nOdds ratio **1.08**. The reason 38 of the 65 failures contain a negative is that **290 of the 540 prompts contain a negative**. The denominator was doing the work and I had only looked at the numerator.\n\nWhat survives is narrower and worth knowing: **3 of the 65 failures are a negative being ignored outright** (`fashion-007`, `mirror-004`, `sport-003`). Three. Do not reach for the negative as the explanation before you have checked the rest of the prompt.\n\nNone of this makes a negative the best phrasing. `monochrome` still beats `no colour`, because the antonym states what you want and the negative states what you do not. It just is not the failure cause it gets blamed for.\n\nReproduce the three numbers with `python3 scripts/measure_negatives.py`; the script re-reads the manifest, so if the catalog grows and the numbers drift, it says so."
       }
-    ]
+    ],
+    "table": {
+      "cols": [
+        "",
+        "Finding",
+        "What it costs you if you don't know"
+      ],
+      "rows": [
+        [
+          "**Text**",
+          "It renders any string you write out, at any count. It cannot invent one.",
+          "Menu rows left to the model came back `CAPEME`, `CABIELO`. Write every string."
+        ],
+        [
+          "**Text**",
+          "Small and rotated type is a second, independent limit.",
+          "Nine station names written out, four correct."
+        ],
+        [
+          "**Korean**",
+          "Mostly works, and the words that fail repeat the same misspelling at a different seed.",
+          "Rerolling the seed is the wrong fix. Change the wording."
+        ],
+        [
+          "**Hands**",
+          "**Withdrawn.** I claimed 7 of 8 sound. Two readers counted; three had six or four digits.",
+          "The whole category is in the failures now, with seeds."
+        ],
+        [
+          "**Identity**",
+          "A face does not survive into a new scene. 0.45 keeps the face and the old composition; 0.72 keeps neither.",
+          "There is no working value in between. Train a LoRA."
+        ],
+        [
+          "**Editing**",
+          "Medium conversion is reliable at strength 0.50–0.60. Adding or removing objects is not.",
+          "Asked to remove steam, the steam came back."
+        ],
+        [
+          "**Counting**",
+          "Objects count correctly from 2 to 8. Attributes do not.",
+          "\"Exactly two flat colours\" returned four."
+        ],
+        [
+          "**Lighting**",
+          "Name the fixture and the fixture walks into frame.",
+          "Say what the light *does*, not what it is."
+        ],
+        [
+          "**Stationery**",
+          "Six for six, and not because the strings were short.",
+          "The one category that never failed."
+        ],
+        [
+          "**UI**",
+          "Layout always right, text only as good as your prompt.",
+          "Nine of ten mockups failed on invented labels."
+        ],
+        [
+          "**Letters**",
+          "Side by side is fine. Asking two letterforms to share strokes is not.",
+          "Interlocked `R`+`W` reads as a `P`."
+        ],
+        [
+          "**Patterns**",
+          "`seamless` does not tile. One of eight had a joinable edge.",
+          "Wallpaper and textile pipelines will show the seam."
+        ],
+        [
+          "**Aerial**",
+          "`straight down` is a request, not an instruction.",
+          "Five of eight came back oblique."
+        ],
+        [
+          "**Similes**",
+          "A size comparison can replace your subject.",
+          "\"A beetle the size of a pony\" returned a pony."
+        ],
+        [
+          "**Styles**",
+          "Name a style and it may draw the style as an *object*. Describe the whole scene as the medium and the frame converts.",
+          "Asked for children's-book style, it put a picture book on the table. \"The whole scene drawn as ...\" fixed it."
+        ],
+        [
+          "**Negatives**",
+          "**Measured, and weaker than the folklore.** Half of these prompts contain a \"no X\" clause; their failure rate is 12.4% against 11.6% for prompts without one.",
+          "3 of 65 failures are a negative being ignored outright. Do not blame a negative before checking the rest of your prompt."
+        ]
+      ]
+    },
+    "_summary": "Fourteen findings, each measured against the images in this repo rather than quoted\nfrom the model card. Five of them replace earlier findings I had to withdraw — four\noverturned by experiments built to confirm them, one by a reader who counted fingers I\nhad only glanced at."
   },
   "failures": {
     "_what": "Deliberately reproduced failures. Every claim in the README's findings section points at one of these, with the seed that produced it, so the limits are checkable rather than asserted. These are NOT part of the 85-entry catalog.",
@@ -6110,11 +6204,11 @@
     "rows": [
       [
         "**this repo**",
-        "85",
-        "✅ 93",
-        "✅ **all 85**",
-        "✅ **8, with seeds**",
-        "✅ **$1.26 / 150 gens**"
+        "475",
+        "✅ 540",
+        "✅ **all 475**",
+        "✅ **65, with seeds**",
+        "✅ **$4.54 / 561 gens**"
       ],
       [
         "[YouMind/awesome-nano-banana-pro-prompts](https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts) · 12,956★",
@@ -6159,6 +6253,7 @@
     ],
     "_notes": [
       "**Nobody records seeds.** Checked every entry in all five: YouMind's per-entry block carries Author / Source / Published / Languages and nothing else, and its submission form has no seed field either. freestylefly's `cases.json` has thirteen keys, none of them a seed. jamez's `case.yml` and `ATTRIBUTION.yml` schemas have no seed field. This is the only claim here that holds without qualification.",
+      "**A seed is worth less than it sounds, and the column above does not say so.** `fal-ai/krea-2/turbo` publishes no step count, CFG, sampler or scheduler, so a seed recorded against it reproduces there and not in a local ComfyUI graph. Nobody else records seeds, and this repo does; that is still true and still narrower than it reads. [REPRODUCING.md](REPRODUCING.md) has the exact call and the measured pixel differences.",
       "**Nobody publishes what it cost.** jamez does record `creation_tool` (Sora on 97 of 100 cases, GPT-4o on 3) and freestylefly documents its generation path, which is more than the others — but neither states a figure.",
       "**Credit where it is due on reproducibility.** freestylefly commits 549 images and jamez 100, both with relative paths and copy-pasteable prompts. Those two are self-contained and I am not claiming otherwise.",
       "**Link rot is not hypothetical.** ZeroLu's 86 images are all external. Requesting them on 2026-07-25 found three already gone — two Twitter CDN links returning 403/404 and one path that no longer exists in the repo. That is why the images here are committed rather than linked.",

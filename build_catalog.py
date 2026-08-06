@@ -44,6 +44,9 @@ from collections import OrderedDict
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+
+from build_vocabulary import load as _load_vocab, mark, term_pattern
+VOCAB_MD = term_pattern([x["t"] for x in _load_vocab()[0]["terms"]])
 MANIFEST = HERE / "prompts.json"
 IMAGES = HERE / "images"
 
@@ -167,7 +170,8 @@ def counts(data: dict, s: str) -> str:
     stray brace in prose cannot raise."""
     for token, value in (("{generations}", data.get("generations", 0)),
                          ("{kept}", len(data.get("entries", []))),
-                         ("{failures}", len(data.get("failures", {}).get("entries", [])))):
+                         ("{failures}", len(data.get("failures", {}).get("entries", []))),
+                         ("{findings}", len(data.get("findings", {}).get("items", [])))):
         s = s.replace(token, f"{value:,}" if value >= 10000 else str(value))
     return s
 
@@ -186,6 +190,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
     T = {
         "en": {
             "gallery_link": "Browse the gallery →",
+            "findings_h": "What this model actually does",
+            "grab_h": "Take the prompts and go",
             "toc_entries": "prompts, every one with its seed",
             "tagline": f"{n} {model} prompts with the seed that produced each one, plus the {nfail} generations that failed and why. Every claim here was measured against those images, not quoted from the model card.",
             "toc": "Categories",
@@ -205,6 +211,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "zh": {
             "gallery_link": "浏览画廊 →",
+            "findings_h": "这个模型实际能做什么",
+            "grab_h": "直接把提示词拿走",
             "toc_entries": "条提示词，每条都有 seed",
             "tagline": f"{n} 条 {model} 提示词，每条都附带产出它的 seed，外加 {nfail} 次失败的生成及其原因。这里的每条结论都是在这些图上实测出来的，不是抄模型卡。",
             "toc": "类别",
@@ -216,6 +224,8 @@ def render_readme(data: dict, lang: str = "en") -> str:
         },
         "ko": {
             "gallery_link": "갤러리 보기 →",
+            "findings_h": "이 모델이 실제로 하는 것",
+            "grab_h": "프롬프트만 가져가기",
             "toc_entries": "개 프롬프트, 전부 시드 기록",
             "tagline": f"{model} 프롬프트 {n}개, 각각을 만든 시드까지. 그리고 실패한 생성 {nfail}개와 그 이유. 여기 있는 결론은 전부 이 이미지들로 직접 측정한 것이고, 모델 카드에서 옮겨온 것이 아닙니다.",
             "toc": "카테고리",
@@ -274,43 +284,127 @@ def render_readme(data: dict, lang: str = "en") -> str:
 
     others = [x for x in ["en", "zh", "ko"] if x != lang]
     links = " · ".join(
-        f"[{x.upper()}](README.md)" if x == "en" else f"[{x.upper()}](README_{x.upper()}.md)"
+        f'<a href="README.md">{x.upper()}</a>' if x == "en"
+        else f'<a href="README_{x.upper()}.md">{x.upper()}</a>'
         for x in others
     )
-    nav = links + (f" · [**{T['gallery_link']}**]({site})" if site else "")
+    nav = links + (f' · <a href="{site}"><b>{T["gallery_link"]}</b></a>' if site else "")
     if nav:
         L.append(f"<p align=\"center\">{nav}</p>\n")
 
+    # The single highest-scoring Krea 2 post in this subreddit is a wildcards txt
+    # at 2,242 points, and a commenter still had to mirror it to pastebin because
+    # the original was two clicks away. This repo already had the same artefact,
+    # sixty-three files deep in a subfolder. Distance was the whole problem.
+    if repo_slug:
+        raw = f"https://raw.githubusercontent.com/{repo_slug}/main/wildcards/"
+        alltxt = HERE / "wildcards/all.txt"
+        zipf = HERE / "wildcards/krea2-wildcards.zip"
+        L.append(f"## {T['grab_h']}\n")
+        L.append("If you came here to feed a wildcard node, everything below is optional.\n")
+        L.append("| | |")
+        L.append("|---|---|")
+        if alltxt.exists():
+            L.append(f"| **[all.txt]({raw}all.txt)** | all {len(kept)} prompts, one per "
+                     f"line, {round(alltxt.stat().st_size / 1024)} KB. Right click, save. |")
+        if zipf.exists():
+            L.append(f"| **[krea2-wildcards.zip]({raw}krea2-wildcards.zip)** | the same thing "
+                     f"split into one file per category plus the style clauses, "
+                     f"{round(zipf.stat().st_size / 1024)} KB |")
+        L.append(f"| **[styles.txt]({raw}styles.txt)** | just the \"the whole scene drawn "
+                 "as ...\" clauses |")
+        L.append("")
+        L.append("Drop the folder into `ComfyUI/wildcards/` and reference `__all__` or "
+                 "`__photography__` from a dynamic prompt node. No clone, no install, "
+                 "no account.\n")
+        L.append("Two things worth knowing before you run them. **The failures are "
+                 "excluded**, so nothing in these files is a prompt already known to "
+                 "break. And **the seeds are not in here and would not help you anyway**: "
+                 "they were recorded against a hosted endpoint that publishes no sampler "
+                 "or step count, so they do not transfer to your graph. "
+                 "[REPRODUCING.md](REPRODUCING.md) explains exactly why.\n")
 
 
-    # The findings are what this catalog has that a bare prompt dump does not.
-    # They go above the index because they are the reason to read the rest.
+
+    # The findings are what this catalog has that a bare prompt dump does not,
+    # so they stay above everything else. What changed is the form: fifteen full
+    # findings inline is 46 KB of prose in front of the catalog, and GitHub
+    # lazy-loads a README that long, which is why deep anchors into it drifted.
+    # The table is the whole argument; the evidence lives in FINDINGS.md.
     f = data.get("findings")
-    if f and lang == "en":
-        L.append("## What this model actually does\n")
-        if f.get("_intro"):
-            L.append(f"{counts(data, f['_intro'])}\n")
-        for item in f.get("items", []):
-            L.append(f"### {item['title']}\n")
-            L.append(f"{item['body']}\n")
+    if f:
+        L.append(f"## {T['findings_h']}\n")
+        if f.get("_summary"):
+            L.append(f"{counts(data, f['_summary'])}\n")
+        tbl = f.get("table")
+        if tbl:
+            L.append("| " + " | ".join(tbl["cols"]) + " |")
+            L.append("|---" * len(tbl["cols"]) + "|")
+            for r in tbl["rows"]:
+                L.append("| " + " | ".join(r) + " |")
+            L.append("")
+        L.append("**[Read the evidence for each one → FINDINGS.md](FINDINGS.md)** "
+                 "Every claim with its images, seeds, the experiments that overturned "
+                 "the earlier version, and the one rule this catalog built, tested and "
+                 "had to throw away.\n")
+        L.append("**[The words that carry the technique → VOCABULARY.md](VOCABULARY.md)** "
+                 "The 62 terms that recur across these prompts and travel between "
+                 "subjects, what each one does, and the seven that a finding here "
+                 "measured *not* doing what they say.\n")
+        L.append("**[Settings, and what the seeds are worth to you → REPRODUCING.md]"
+                 "(REPRODUCING.md)** The exact call behind all 475 images, and the limit "
+                 "on it: `fal-ai/krea-2/turbo` exposes no step count, no CFG, no sampler "
+                 "and no scheduler, so **these seeds reproduce on that endpoint and not "
+                 "in your local graph.** The prompts transfer; the seeds do not.\n")
+        L.append("**[How to ask this model for a style → styles/](styles/README.md)** "
+                 "The eight \"whole scene drawn as ...\" clauses from the Reddit post, the "
+                 "picture-book trap, the three styles that never converted, and an earlier "
+                 "sweep with a FLUX.1 dev cross-check.\n")
+
+    # The catalog used to be printed here in full: 475 entries, 195 KB of README.
+    # GitHub lazy-loads a file that size, so every image above a deep anchor
+    # resolved late and the anchor landed in the wrong place. The gallery renders
+    # the same 475 entries and 65 failures in one page that does not do that, so
+    # the index points there and the README keeps one entry to show the shape.
+    by_cat: dict[str, int] = {}
+    for e in kept:
+        by_cat[e["category"]] = by_cat.get(e["category"], 0) + 1
+    L.append(f"## {T['toc']}\n")
+    if lang == "en":
+        L.append(f"All **{len(kept)}** entries live in the "
+                 f"[gallery]({site}), one page, every prompt with its seed and its "
+                 f"image. The category links go straight to the right section.\n")
+    L.append(" · ".join(
+        f"[{c}]({site}#{c.lower().replace(' ', '-')}) {n}" if site
+        else f"[{c}](#{c.lower().replace(' ', '-')}) {n}"
+        for c, n in by_cat.items()) + "\n")
+
+    if lang == "en" and kept:
+        sample = next((e for e in kept if e["id"] == "photography-001"), kept[0])
+        L.append("### What one entry looks like\n")
+        L.append(f'<img src="{sample["image"]}" width="420" alt="{sample["title"]}">\n')
+        L.append("```text")
+        L.append(sample["prompt"].strip())
+        L.append("```")
+        if sample.get("params"):
+            L.append("")
+            L.append(" · ".join(f"`{k}: {v}`" for k, v in sample["params"].items()))
+        L.append("")
+        # Printing the marked prompt here repeated the whole thing twice on the
+        # screen. The useful part was never the repetition, it was which terms
+        # were in it, so name those and link what each one does.
+        found = sorted(set(m.lower() for m in VOCAB_MD.findall(sample["prompt"])))
+        if found:
+            L.append("The gallery highlights the words that recur across this catalog and "
+                     "travel to other subjects. This one carries "
+                     + ", ".join(f"`{m}`" for m in found)
+                     + f". [What each of them does → VOCABULARY.md](VOCABULARY.md)\n")
+        L.append(f"[**Browse all {len(kept)} →**]({site})\n")
 
     if lang == "en":
         # The five editing-* entries turned out to generalise unevenly once they
         # were run against sources they were not derived from, which is a result
         # that belongs next to them rather than only in the other repo.
-        # Measured on 6,670 r/StableDiffusion posts since 2026-05-01: the
-        # highest-scoring post in that subreddit over the window is a Krea 2
-        # styles *wildcards txt* at 1,717 points. A resource that drops into a
-        # workflow beats one you have to browse. Same content, different
-        # packaging, so it belongs above the fold rather than in a subfolder.
-        L.append("## Drop-in wildcards\n")
-        L.append("Every prompt here is also available one-per-line for a ComfyUI wildcard or "
-                 "dynamic-prompt node — [`wildcards/`](wildcards/), with `all.txt` plus one file "
-                 "per category. The seeds cannot travel in that format, so a prompt pulled from "
-                 "there will not reproduce the image in this catalog; take the seed from "
-                 "`prompts.json` if you want the exact frame. The cut generations are excluded "
-                 "from the wildcards on purpose.\n")
-
         L.append("## The image-to-image entries, taken further\n")
         L.append("The five `editing-*` entries were pulled out into "
                  "[**same-frame**](https://github.com/sjh9714/same-frame), an agent skill for "
@@ -324,29 +418,13 @@ def render_readme(data: dict, lang: str = "en") -> str:
                  "you the image where it already failed.\n")
 
         L.append("## Check any of this yourself\n")
-        L.append("Every entry carries the seed that produced it, so no claim here has to be "
-                 "taken on trust:\n")
-        L.append("```bash\npython3 scripts/regen.py --id typography-012\n```")
-        L.append("\nRegenerating two text-to-image entries and comparing against the files in "
-                 "this repo gave a mean per-pixel difference of 1.3 and 1.5 out of 255, which is "
-                 "WebP re-encoding loss. The seed reproduces the generation; the repo stores the "
-                 "re-encode.\n")
-        # Measured after publication and corrected here rather than left to be
-        # discovered: the endpoint is deterministic (a repeat run with identical
-        # seed, strength, prompt and input bytes differed on 0 of 1,048,576
-        # pixels), so the only thing that moves an image-to-image re-run is the
-        # input. The sources in this repo are the WebP re-encodes, not the PNGs
-        # the edits were actually made from, and that is worth an order of
-        # magnitude: 17.0/255 against 1.3/255.
-        L.append("The five `editing-*` entries are the exception, and the number is much larger. "
-                 "The endpoint itself is deterministic — a repeat run at identical seed, strength, "
-                 "prompt and input bytes came back pixel-identical, 0 of 1,048,576 pixels "
-                 "different. But an image-to-image re-run from a clone is fed the WebP in this "
-                 "repo, not the original PNG the edit was made from, and that input difference "
-                 "compounds: regenerating `editing-003` this way gives a mean per-pixel difference "
-                 "of **17.0 out of 255**. The composition, palette and medium come back; the "
-                 "brush-level texture does not. Read those five as reproducible edits, not as "
-                 "reproducible pixels.\n")
+        L.append("`python3 scripts/regen.py --id typography-012` re-runs any entry from "
+                 "its recorded seed. Two text-to-image entries came back at a mean "
+                 "per-pixel difference of 1.3 and 1.5 out of 255, which is WebP "
+                 "re-encoding loss, and the endpoint is deterministic at identical "
+                 "inputs. The five `editing-*` entries are the exception and the number "
+                 "is much larger. [REPRODUCING.md](REPRODUCING.md) has the exact call, "
+                 "the numbers, and why none of this transfers to a local graph.\n")
 
         fails = data.get("failures")
         if fails:
@@ -376,52 +454,30 @@ def render_readme(data: dict, lang: str = "en") -> str:
             L.append(f"- {n}")
         L.append("")
 
-    # The category index lives directly under the title now, not here. Both of
-    # the highest-star catalogs in this niche put it in the first screen, and a
-    # second copy after the findings was just a duplicate heading.
-    # The index sits here, after the findings, not above them. A wall of 62
-    # category links is the least interesting thing in this repository and it
-    # was the second thing a visitor saw.
-    by_cat: dict[str, int] = {}
-    for e in kept:
-        by_cat[e["category"]] = by_cat.get(e["category"], 0) + 1
-    L.append(f"## {T['toc']}\n")
-    L.append(f"**{len(kept)} {T['toc_entries']}** · " + " · ".join(
-        f"[{c}](#{c.lower().replace(' ', '-')}) {n}" for c, n in by_cat.items()) + "\n")
-
-    for c, items in cats.items():
-        items = [e for e in items if (HERE / e["image"]).exists()]
-        if not items:
-            continue
-        L.append(f"\n## {c}\n")
-        desc = (data.get("categories") or {}).get(c)
-        if desc:
-            L.append(f"_{desc}_\n")
-        for e in items:
-            L.append(f"### {e['title']}\n")
-            L.append(f'<img src="{e["image"]}" width="420" alt="{e["title"]}">\n')
-            L.append(f"**{T['prompt']}**\n")
-            L.append("```text")
-            L.append(e["prompt"].strip())
-            L.append("```")
-            if e.get("source"):
-                src = next((x for x in entries if x["id"] == e["source"]), None)
-                L.append("")
-                if src:
-                    L.append(f"_Image-to-image from **{src['title']}** "
-                             f"([`{e['source']}`](#{gh_anchor(src['title'])})) in this repo · "
-                             f"`strength: {e.get('strength')}`_")
-                else:
-                    L.append(f"_Image-to-image from `{e['source']}` · `strength: {e.get('strength')}`_")
-            if e.get("params"):
-                L.append("")
-                L.append(" · ".join(f"`{k}: {v}`" for k, v in e["params"].items()))
-            if e.get("notes"):
-                L.append(f"\n> {e['notes']}")
-            L.append("")
-
     L.append(f"\n## {T['contrib']}\n\n{T['contrib_body']}\n")
     L.append(f"## {T['license']}\n\n{T['license_body']}\n")
+    return "\n".join(L)
+
+
+def render_findings(data: dict) -> str:
+    """FINDINGS.md from the manifest.
+
+    This file used to be maintained by hand next to a prompts.json that holds the
+    same findings, and they drifted: the negatives result was measured, written
+    into the README table and into scripts/measure_negatives.py, and never reached
+    the document the README tells you to read. Generating it removes the gap."""
+    f = data["findings"]
+    L = ["# What this model actually does", ""]
+    if f.get("_intro"):
+        L += [counts(data, f["_intro"]), ""]
+    L += ["Each finding below is measured against images committed to this repo. The",
+          "summary table is in [the README](README.md); this is the evidence.", ""]
+    for item in f["items"]:
+        L += [f"### {item['title']}", "", counts(data, item["body"]), ""]
+    L += ["## Reproducing any of it", "",
+          "See [REPRODUCING.md](REPRODUCING.md) for the exact call, the measured "
+          "per-pixel differences, and the reason these seeds do not transfer to a "
+          "local graph.", ""]
     return "\n".join(L)
 
 
@@ -434,6 +490,9 @@ def cmd_build(langs: list[str]) -> int:
         name = "README.md" if lang == "en" else f"README_{lang.upper()}.md"
         (HERE / name).write_text(render_readme(data, lang), encoding="utf-8")
         print(f"wrote {name}")
+
+    (HERE / "FINDINGS.md").write_text(render_findings(data), encoding="utf-8")
+    print("wrote FINDINGS.md")
 
     ncat = len({e["category"] for e in kept})
     print(f"\n{len(kept)} entries across {ncat} categories"

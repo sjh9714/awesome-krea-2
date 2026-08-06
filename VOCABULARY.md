@@ -1,0 +1,192 @@
+# The vocabulary
+
+The words in these prompts that carry the technique rather than the subject. A prompt in this catalog is mostly a description of a thing; these are the parts you can lift out and paste into a prompt about something else. Nothing here is a claim that a term caused a particular image. It is a claim that the term recurs across this catalog and travels between subjects, which is a weaker and checkable thing. Some carry a warning instead of a recommendation, because a finding in this repo measured them not doing what they say.
+
+*A term is in this file only if it appears in at least 3 entries across at least 2 categories. Below that it is subject vocabulary, not transferable vocabulary. build_vocabulary.py enforces the rule and refuses to build if a term stops meeting it.*
+
+62 terms. 353 of 475 prompts carry at least one of them.
+
+## Read these 7 before you use them
+
+A finding in this repo measured each of these not doing what it says.
+
+| term | what actually happened | evidence |
+|---|---|---|
+| `shallow depth of field` | Background goes soft. Reads as photography, so it fights any drawn or painted style you ask for at the same time. | [It changes medium willingly and scene content reluctantly](FINDINGS.md) |
+| `straight down` | Asks for a true plan view. Five of eight came back oblique anyway. Say it and check it. | ["Straight down" is a request, not an instruction](FINDINGS.md) |
+| `window light` | Names a fixture, and this model may put the window in the frame. Describe what the light does instead if you do not want it visible. | [Name a light and you get the light. Name the softbox and you get the softbox.](FINDINGS.md) |
+| `fluorescent` | Same caution: the tubes tend to appear. | [Name a light and you get the light. Name the softbox and you get the softbox.](FINDINGS.md) |
+| `seamless` | Asks for a tiling pattern and does not deliver one. One of eight had a joinable edge. Do not build a textile pipeline on this word. | ["Seamless" produces a pattern that does not tile](FINDINGS.md) |
+| `limited palette` | Restricts the number of hues. Name the hues and it holds; ask for a count and it does not. | [It counts objects. It does not count attributes.](FINDINGS.md) |
+| `monochrome` | One hue. Prefer this to "no colour", which is a negative and reads as the thing you did not want. | [A negative clause costs you almost nothing, and I said the opposite](FINDINGS.md) |
+
+## lens
+
+*what the glass is doing*
+
+| term | entries | what it does |
+|---|---|---|
+| `macro` | **50** in 20 categories | Pulls in to subject-fills-frame distance. The most reliable single word in this catalog for changing scale. |
+| `shallow focus` | **18** in 14 categories | Same idea, phrased as a result rather than a setting. |
+| `long exposure` | **15** in 10 categories | Moving things smear, still things stay sharp. Water and cloud respond most. |
+| `35mm` | **13** in 10 categories | Reportage width. Keeps the surroundings in the story. |
+| `shallow depth of field` ⚠️ | **13** in 11 categories | Background goes soft. Reads as photography, so it fights any drawn or painted style you ask for at the same time. |
+| `long lens` | **7** in 7 categories | Flattens distance and stacks the background against the subject. |
+| `50mm` | **6** in 6 categories | Roughly what the eye does. The neutral choice. |
+| `85mm` | **4** in 4 categories | Compresses and separates. Portrait glass. |
+| `24mm` | **3** in 2 categories | Wide. Expect converging verticals and a stretched foreground. |
+
+## framing
+
+*where the camera is and how the frame is cut*
+
+| term | entries | what it does |
+|---|---|---|
+| `overhead` | **26** in 17 categories | Camera above the subject looking down, not necessarily square to it. |
+| `straight down` ⚠️ | **17** in 10 categories | Asks for a true plan view. Five of eight came back oblique anyway. Say it and check it. |
+| `three-quarter` | **13** in 12 categories | Turned partly away. The default product and portrait angle. |
+| `isometric` | **12** in 3 categories | Parallel projection, no vanishing point. Reliable enough to be its own category here. |
+| `symmetrical` | **10** in 8 categories | Mirrors the composition about a centre line. Holds well. |
+| `low angle` | **5** in 5 categories | Camera below eye level. Makes the subject loom. |
+| `centred` | **5** in 4 categories | Subject on the axis. Useful when a layout keeps drifting. |
+| `exploded` | **5** in 4 categories | Parts separated along their assembly axes. |
+| `cutaway` | **5** in 4 categories | Section removed to show the inside. |
+| `top-down` | **4** in 3 categories | The other phrasing of the same request, with the same failure rate. |
+| `flat lay` | **3** in 2 categories | Objects arranged on a plane, seen from above. More reliable than asking for the angle directly. |
+| `close-up` | **3** in 3 categories | Tight on the subject without the optical character of macro. |
+
+## light
+
+*what the light does, and where it comes from*
+
+| term | entries | what it does |
+|---|---|---|
+| `raking light` | **27** in 14 categories | Light skimming across a surface at a shallow angle. The single best phrase in this catalog for making texture visible. |
+| `overcast light` | **26** in 20 categories | Soft, sourceless, no hard shadow. Names what the light does rather than what makes it. |
+| `backlit` | **22** in 13 categories | Source behind the subject. Edges glow, front goes dark. |
+| `soft even light` | **18** in 7 categories | Flat and shadowless. What you want when the subject is the thing, not the mood. |
+| `hard light` | **13** in 9 categories | Sharp-edged shadows, small source. |
+| `silhouette` | **12** in 9 categories | Subject dark against a bright field. Removes surface detail on purpose. |
+| `side light` | **7** in 6 categories | From one side. Modelling and shadow across the form. |
+| `warm light` | **7** in 7 categories | Colour temperature as an instruction. Note that a colour word in a black-and-white prompt will fight it. |
+| `window light` ⚠️ | **7** in 7 categories | Names a fixture, and this model may put the window in the frame. Describe what the light does instead if you do not want it visible. |
+| `fluorescent` ⚠️ | **7** in 7 categories | Same caution: the tubes tend to appear. |
+| `even light` | **6** in 5 categories | The shorter form. |
+| `flat light` | **6** in 6 categories | Frontal, minimal modelling. |
+| `directional light` | **6** in 5 categories | Says there is an axis without naming a fixture. |
+| `light source` | **6** in 4 categories | Used to place the origin explicitly. |
+| `long shadow` | **5** in 5 categories | Implies a low source without naming one. |
+| `warm side` | **3** in 3 categories | Direction and temperature together. |
+| `tungsten` | **3** in 2 categories | Same caution, plus a strong warm cast. |
+| `single light` | **3** in 3 categories | One source. Constrains the shadow story. |
+| `soft shadow` | **3** in 2 categories | Large source, diffuse edge. |
+
+## surface
+
+*how the material reads up close*
+
+| term | entries | what it does |
+|---|---|---|
+| `grain` | **19** in 13 categories | Film grain, wood grain or screenprint grain depending on the noun it sits next to. All three work. |
+| `weathered` | **13** in 10 categories | Exposure damage, fading, oxidisation. |
+| `polished` | **12** in 10 categories | Specular, reflective. Brings the surroundings into the surface. |
+| `matte` | **10** in 6 categories | No specular highlight. |
+| `worn` | **9** in 7 categories | Use damage: rubbed edges, thinned paint, softened corners. |
+| `seamless` ⚠️ | **8** in 4 categories | Asks for a tiling pattern and does not deliver one. One of eight had a joinable edge. Do not build a textile pipeline on this word. |
+| `patina` | **6** in 6 categories | Aged metal specifically. |
+| `frosted` | **5** in 5 categories | Diffusing, translucent rather than transparent. |
+
+## process
+
+*the physical medium being imitated*
+
+| term | entries | what it does |
+|---|---|---|
+| `engraved` | **15** in 7 categories | Cut line, most reliable on metal and stone. |
+| `letterpress` | **5** in 3 categories | Impression into the paper, ink sitting in the debossed area. |
+| `watercolour` | **4** in 4 categories | Transparent washes, paper showing through. |
+| `cyanotype` | **3** in 3 categories | Prussian blue, white line work. |
+| `gouache` | **3** in 3 categories | Opaque water paint, visible brush loading. |
+| `risograph` | **3** in 3 categories | Spot colour, misregistration, visible screen. |
+
+## colour
+
+*how the palette is constrained*
+
+| term | entries | what it does |
+|---|---|---|
+| `muted` | **18** in 17 categories | Pulls saturation down across the frame. |
+| `palette` | **12** in 9 categories | The general handle. Almost always worth naming explicitly. |
+| `limited palette` ⚠️ | **8** in 4 categories | Restricts the number of hues. Name the hues and it holds; ask for a count and it does not. |
+| `high contrast` | **8** in 8 categories | Widens the tonal range, crushes the middle. |
+| `muted palette` | **5** in 5 categories | The same, stated as a constraint on the whole palette. |
+| `monochrome` ⚠️ | **5** in 5 categories | One hue. Prefer this to "no colour", which is a negative and reads as the thing you did not want. |
+| `desaturated` | **4** in 4 categories | Stronger than muted. |
+| `warm grey` | **4** in 4 categories | A named neutral. Neutrals drift unless you say which way. |
+
+## Where each term is used
+
+Entry ids, so you can pull the prompt and the image for any of them.
+
+- **`macro`** (50): `abstract-002`, `abstract-003`, `automotive-008`, `brand-mark-003`, `brand-mark-005`, `collectible-002`, `collectible-007`, `fashion-002`, `fashion-006`, `food-006`, `glass-002`, `glass-004`, `jewellery-001`, `jewellery-002`, `jewellery-004`, `jewellery-006`, `jewellery-007`, `jewellery-008`, `macro-nature-001`, `macro-nature-002`, `macro-nature-003`, `macro-nature-004`, `macro-nature-005`, `mineral-001`, `mineral-002`, `mineral-004`, `mineral-005`, `mineral-006`, `mineral-007`, `miniature-004`, `miniature-008`, `monogram-002`, `photography-005`, `photography-015`, `photography-017`, `product-001`, `product-006`, `product-012`, `product-015`, `product-018`, `seasonal-008`, `stationery-005`, `tattoo-005`, `tool-004`, `tool-007`, `tool-008`, `typography-008`, `typography-013`, `typography-015`, `underwater-004`
+- **`24mm`** (3): `interior-001`, `photography-003`, `photography-013`
+- **`35mm`** (13): `automotive-007`, `exterior-003`, `food-007`, `interior-005`, `isometric-3d-005`, `landscape-010`, `photography-002`, `photography-007`, `photography-014`, `portrait-004`, `portrait-009`, `still-life-004`, `street-001`
+- **`50mm`** (6): `animal-003`, `exterior-005`, `photography-004`, `portrait-005`, `product-011`, `street-005`
+- **`85mm`** (4): `landscape-003`, `photography-001`, `portrait-001`, `product-013`
+- **`shallow depth of field`** (13): `animal-001`, `collectible-002`, `collectible-005`, `fashion-002`, `food-006`, `jewellery-001`, `macro-nature-002`, `miniature-002`, `photography-001`, `portrait-001`, `stationery-002`, `typography-015`, `typography-022`
+- **`shallow focus`** (18): `automotive-008`, `fantasy-007`, `fashion-005`, `food-010`, `glass-002`, `jewellery-003`, `jewellery-007`, `macro-nature-005`, `macro-nature-007`, `miniature-007`, `photography-017`, `plant-004`, `sculpture-002`, `tool-007`, `tool-008`, `typography-016`, `weather-002`, `weather-005`
+- **`long lens`** (7): `crowd-001`, `fantasy-007`, `night-005`, `seasonal-007`, `street-008`, `vehicle-002`, `weather-003`
+- **`long exposure`** (15): `automotive-005`, `exterior-006`, `interior-003`, `interior-009`, `landscape-004`, `night-001`, `night-003`, `night-004`, `night-006`, `period-005`, `period-008`, `photography-006`, `scifi-005`, `vehicle-004`, `weather-008`
+- **`overhead`** (26): `automotive-001`, `fashion-001`, `food-002`, `food-010`, `interior-007`, `interior-009`, `isometric-3d-002`, `jewellery-004`, `mirror-007`, `photography-003`, `photography-009`, `photography-014`, `plant-007`, `portrait-009`, `product-007`, `product-010`, `product-013`, `scifi-005`, `sport-001`, `stationery-003`, `stationery-004`, `stationery-006`, `still-life-002`, `still-life-008`, `street-007`, `vehicle-009`
+- **`straight down`** (17): `abstract-005`, `aerial-002`, `aerial-004`, `aerial-006`, `anatomy-008`, `food-004`, `knolling-003`, `knolling-005`, `knolling-006`, `knolling-007`, `knolling-008`, `mineral-008`, `pattern-004`, `plant-010`, `seasonal-002`, `seasonal-008`, `still-life-008`
+- **`top-down`** (4): `fashion-006`, `food-010`, `product-003`, `product-016`
+- **`flat lay`** (3): `product-003`, `product-010`, `stationery-003`
+- **`low angle`** (5): `automotive-003`, `macro-nature-003`, `miniature-007`, `mirror-007`, `photography-002`
+- **`three-quarter`** (13): `anatomy-006`, `automotive-001`, `brand-mark-006`, `collectible-006`, `isometric-3d-004`, `isometric-3d-008`, `landscape-008`, `miniature-003`, `portrait-007`, `poster-008`, `product-017`, `reference-sheet-001`, `scifi-002`
+- **`close-up`** (3): `animal-007`, `fashion-004`, `typography-020`
+- **`symmetrical`** (10): `coloring-page-003`, `exterior-004`, `food-008`, `interior-002`, `interior-006`, `interior-008`, `photography-003`, `silhouette-001`, `still-life-003`, `street-006`
+- **`centred`** (5): `brand-mark-001`, `infographic-006`, `poster-003`, `poster-005`, `ui-004`
+- **`isometric`** (12): `infographic-010`, `isometric-3d-001`, `isometric-3d-002`, `isometric-3d-003`, `isometric-3d-004`, `isometric-3d-005`, `isometric-3d-006`, `isometric-3d-007`, `isometric-3d-008`, `isometric-3d-009`, `isometric-3d-010`, `pixel-art-003`
+- **`exploded`** (5): `editing-008`, `isometric-3d-005`, `isometric-3d-009`, `product-005`, `technical-drawing-002`
+- **`cutaway`** (5): `illustration-005`, `infographic-003`, `isometric-3d-002`, `isometric-3d-006`, `technical-drawing-005`
+- **`raking light`** (27): `abstract-003`, `brand-mark-003`, `collectible-002`, `fashion-002`, `material-001`, `material-008`, `mineral-005`, `mineral-008`, `monogram-002`, `monogram-003`, `poster-007`, `product-011`, `sculpture-001`, `sculpture-004`, `stringcount-1`, `stringcount-2`, `stringcount-3`, `stringcount-4`, `stringcount-5`, `stringcount-6`, `stringcount-7`, `stringcount-8`, `tattoo-004`, `tool-007`, `typography-008`, `typography-015`, `typography-018`
+- **`overcast light`** (26): `aerial-002`, `animal-004`, `automotive-007`, `crowd-008`, `fantasy-005`, `fashion-005`, `food-007`, `hangul-001`, `hangul-002`, `knolling-006`, `landscape-004`, `landscape-006`, `macro-nature-006`, `plant-008`, `plant-010`, `portrait-004`, `sculpture-002`, `sculpture-005`, `seasonal-006`, `sport-005`, `still-life-006`, `tool-005`, `typography-012`, `typography-023`, `vehicle-003`, `vehicle-006`
+- **`soft even light`** (18): `abstract-006`, `fashion-001`, `knolling-008`, `objectcount-2`, `objectcount-3`, `objectcount-4`, `objectcount-5`, `objectcount-6`, `objectcount-7`, `objectcount-8`, `product-017`, `tool-006`, `weave-1`, `weave-2`, `weave-3`, `weave-5`, `weave-6`, `weave-7`
+- **`even light`** (6): `anatomy-008`, `material-002`, `material-006`, `mineral-003`, `product-008`, `reference-sheet-001`
+- **`flat light`** (6): `aerial-004`, `landscape-010`, `seasonal-008`, `sport-002`, `stationery-006`, `weather-002`
+- **`hard light`** (13): `automotive-008`, `fashion-003`, `food-005`, `food-009`, `glass-001`, `glass-005`, `jewellery-005`, `mineral-002`, `mineral-006`, `portrait-002`, `product-016`, `still-life-004`, `still-life-007`
+- **`side light`** (7): `animal-007`, `fashion-004`, `fashion-008`, `food-001`, `landscape-007`, `plant-001`, `typography-011`
+- **`directional light`** (6): `jewellery-006`, `miniature-003`, `miniature-005`, `still-life-005`, `tattoo-006`, `tool-004`
+- **`backlit`** (22): `abstract-001`, `abstract-002`, `abstract-007`, `animal-002`, `collectible-007`, `glass-002`, `glass-004`, `jewellery-004`, `macro-nature-002`, `macro-nature-007`, `macro-nature-008`, `material-005`, `mineral-004`, `mineral-007`, `photography-015`, `plant-006`, `plant-009`, `portrait-003`, `product-009`, `product-014`, `still-life-003`, `still-life-006`
+- **`warm light`** (7): `miniature-004`, `mirror-003`, `portrait-007`, `poster-008`, `street-008`, `tool-002`, `weather-004`
+- **`warm side`** (3): `sculpture-007`, `stationery-002`, `tool-001`
+- **`window light`** (7): `collectible-005`, `interior-003`, `photography-004`, `plant-003`, `portrait-005`, `product-002`, `tattoo-002`
+- **`fluorescent`** (7): `editing-002`, `hangul-004`, `illustration-006`, `night-003`, `photography-003`, `poster-006`, `typography-003`
+- **`tungsten`** (3): `photography-010`, `photography-014`, `portrait-005`
+- **`single light`** (3): `infographic-010`, `mineral-001`, `stationery-005`
+- **`light source`** (6): `automotive-005`, `editing-002`, `night-004`, `night-007`, `photography-007`, `photography-010`
+- **`long shadow`** (5): `editing-001`, `photography-009`, `scifi-004`, `sport-007`, `still-life-004`
+- **`soft shadow`** (3): `infographic-002`, `infographic-010`, `still-life-008`
+- **`silhouette`** (12): `animal-010`, `childrens-book-008`, `exterior-006`, `illustration-012`, `illustration-014`, `night-001`, `pattern-008`, `silhouette-003`, `silhouette-005`, `silhouette-007`, `still-life-006`, `street-008`
+- **`matte`** (10): `brand-mark-006`, `collectible-001`, `isometric-3d-005`, `isometric-3d-007`, `isometric-3d-009`, `mineral-008`, `product-002`, `product-011`, `still-life-005`, `still-life-007`
+- **`polished`** (12): `collectible-002`, `interior-004`, `interior-009`, `jewellery-001`, `mineral-003`, `mirror-007`, `monogram-002`, `pattern-004`, `photography-003`, `product-001`, `product-006`, `tool-001`
+- **`grain`** (19): `brand-mark-003`, `childrens-book-008`, `comic-008`, `illustration-001`, `illustration-004`, `illustration-006`, `illustration-011`, `material-001`, `mirror-007`, `pattern-006`, `period-007`, `period-008`, `photography-004`, `portrait-005`, `portrait-009`, `product-006`, `product-015`, `sculpture-007`, `tool-001`
+- **`weathered`** (13): `brand-mark-005`, `exterior-004`, `fantasy-005`, `hangul-001`, `hangul-002`, `knolling-006`, `material-002`, `poster-007`, `sculpture-002`, `street-004`, `typography-011`, `typography-017`, `typography-023`
+- **`worn`** (9): `brand-mark-007`, `fantasy-008`, `fashion-005`, `interior-001`, `product-013`, `scifi-001`, `tool-002`, `tool-005`, `tool-006`
+- **`patina`** (6): `automotive-004`, `brand-mark-005`, `material-006`, `sculpture-002`, `still-life-002`, `typography-022`
+- **`frosted`** (5): `animal-001`, `brand-mark-008`, `glass-003`, `illustration-010`, `product-004`
+- **`seamless`** (8): `brand-mark-006`, `pattern-001`, `pattern-002`, `pattern-005`, `pattern-007`, `pattern-008`, `portrait-002`, `product-005`
+- **`letterpress`** (5): `isometric-3d-007`, `stationery-001`, `stationery-005`, `typography-008`, `typography-018`
+- **`engraved`** (15): `anatomy-001`, `brand-mark-005`, `monogram-002`, `poster-009`, `stringcount-1`, `stringcount-2`, `stringcount-3`, `stringcount-4`, `stringcount-5`, `stringcount-6`, `stringcount-7`, `stringcount-8`, `technical-drawing-004`, `typography-019`, `typography-022`
+- **`cyanotype`** (3): `editing-008`, `illustration-012`, `pattern-008`
+- **`gouache`** (3): `childrens-book-001`, `editing-003`, `illustration-002`
+- **`watercolour`** (4): `anatomy-003`, `childrens-book-004`, `comic-007`, `illustration-005`
+- **`risograph`** (3): `comic-008`, `illustration-006`, `poster-006`
+- **`muted`** (18): `animal-009`, `childrens-book-004`, `exterior-005`, `fantasy-001`, `illustration-009`, `illustration-015`, `interior-008`, `jewellery-003`, `miniature-003`, `mirror-001`, `period-008`, `photography-001`, `portrait-007`, `poster-002`, `product-017`, `still-life-006`, `tattoo-007`, `vehicle-002`
+- **`muted palette`** (5): `abstract-006`, `comic-007`, `fantasy-002`, `pixel-art-003`, `stationery-003`
+- **`limited palette`** (8): `childrens-book-002`, `illustration-001`, `isometric-3d-004`, `pixel-art-001`, `pixel-art-004`, `pixel-art-005`, `pixel-art-007`, `pixel-art-008`
+- **`palette`** (12): `editing-005`, `illustration-007`, `infographic-010`, `interior-008`, `photography-001`, `photography-003`, `photography-006`, `photography-013`, `portrait-007`, `seasonal-004`, `still-life-008`, `weather-003`
+- **`desaturated`** (4): `exterior-002`, `food-007`, `period-006`, `photography-003`
+- **`monochrome`** (5): `animal-009`, `exterior-005`, `photography-011`, `scifi-002`, `still-life-006`
+- **`high contrast`** (8): `fashion-006`, `jewellery-005`, `landscape-001`, `period-007`, `photography-002`, `plant-005`, `street-004`, `underwater-004`
+- **`warm grey`** (4): `portrait-001`, `poster-003`, `product-010`, `seasonal-004`

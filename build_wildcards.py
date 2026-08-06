@@ -24,10 +24,12 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import zipfile
 from collections import OrderedDict
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+ZIP_NAME = "krea2-wildcards.zip"
 
 
 def one_line(s: str) -> str:
@@ -47,12 +49,19 @@ def main() -> int:
     d = json.loads((HERE / args.manifest).read_text(encoding="utf-8"))
     out = HERE / args.out
     out.mkdir(parents=True, exist_ok=True)
-    for f in out.glob("*.txt"):
-        f.unlink()
-
     by: OrderedDict[str, list[str]] = OrderedDict()
     for e in d["entries"]:
         by.setdefault(e["category"], []).append(one_line(e["prompt"]))
+
+    # Delete only what this script owns. `styles.txt` and `styles-extra.txt` are
+    # written by build_styles.py and live in the same folder; a blanket
+    # `glob("*.txt")` unlink silently destroyed them, and the repo only stayed
+    # correct as long as the two builds ran in the right order.
+    owned = {f"{c}.txt" for c in by} | {"all.txt"}
+    for f in out.glob("*.txt"):
+        if f.name in owned:
+            f.unlink()
+    (out / ZIP_NAME).unlink(missing_ok=True)
 
     total = 0
     for cat, prompts in by.items():
@@ -85,10 +94,12 @@ __typography__
 
 ## What is not in here
 
-**The seeds.** A wildcard file is one prompt per line and has nowhere to put
-them, so a prompt pulled from here will not reproduce the image in the
-catalog. If you want the exact image, take the prompt *and* the seed from
-`prompts.json` or from the gallery.
+**The seeds, and you probably do not want them anyway.** A wildcard file is one
+prompt per line and has nowhere to put a seed. More to the point, the seeds in
+this catalog were recorded against fal's hosted `krea-2/turbo`, which publishes
+no step count, CFG, sampler or scheduler. In your own graph the same seed gives
+a different image. Take the prompts, pick your own seed, and read
+[REPRODUCING.md](../REPRODUCING.md) before you try to match a specific frame.
 
 **The failures.** {len(d.get('failures', {}).get('entries', []))} generations were cut and they are
 deliberately excluded — a wildcard file that occasionally serves a
@@ -98,7 +109,18 @@ with the reason each one failed.
 Regenerate with `python3 build_wildcards.py`.
 """, encoding="utf-8")
 
-    print(f"wrote {out}/ — {len(by)} category files + all.txt ({total} prompts)")
+    # One click, not sixty-three. The highest-scoring post this format has ever
+    # had was a plain text file, and a commenter still had to mirror it to
+    # pastebin because the original was two clicks away. A repository folder is
+    # further away than that, so ship the folder as one file as well.
+    zpath = out / ZIP_NAME
+    with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in sorted(out.glob("*.txt")):
+            z.write(f, f.name)
+        z.write(out / "README.md", "README.md")
+
+    print(f"wrote {out}/ - {len(by)} category files + all.txt ({total} prompts)")
+    print(f"wrote {zpath.relative_to(HERE)}  {zpath.stat().st_size // 1024} KB")
     longest = max(everything, key=len)
     print(f"longest line: {len(longest)} chars")
     assert not any("\n" in p for p in everything), "a prompt still contains a newline"
